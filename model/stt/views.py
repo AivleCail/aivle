@@ -15,7 +15,7 @@ def result(request):
         result = openai.Audio.transcribe("whisper-1", file)
         return JsonResponse({
             "result": result["text"]
-        })
+        }, safe=False, json_dumps_params={'ensure_ascii': False}) # 한글 인코딩 깨짐 문제
     else: 
         return JsonResponse({
             "result": "업로드 실패"
