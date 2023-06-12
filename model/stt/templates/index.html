@@ -1,0 +1,8 @@
+<form action="result" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <fieldset>
+        <legend><h1>파일 업로드</h1></legend>
+        <input name="file" type="file">
+    </fieldset>
+    <div><input type="submit" value="파일 전송"></div>
+</form>
