@@ -2,4 +2,4 @@
 npm install
 
 2.서버 실행
-npm run dev
+npm start
