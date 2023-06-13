@@ -41,7 +41,6 @@ public class TokenProvider {
         this.key = Keys.hmacShaKeyFor(keyBytes);
     }
 
-
     // 토큰 생성
     public TokenDto generateTokenDto(Authentication authentication) {
 
