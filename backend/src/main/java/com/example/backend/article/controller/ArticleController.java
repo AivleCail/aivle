@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 public class ArticleController {
     private final ArticleService articleService;
 
-
+    //ㅇ
     @GetMapping("/page")
     public ResponseEntity<Page<ArticlePageResponseDto>> pageArticle(@RequestParam(name = "page") int page) {
         return ResponseEntity.ok(articleService.pageArticle(page));
