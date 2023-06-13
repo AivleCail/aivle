@@ -1,5 +1,5 @@
 import React from "react";
-import "./style.css";
+import "./login.css";
 
 export const Login = () => {
   return (
@@ -9,24 +9,18 @@ export const Login = () => {
           <div className="overlap-group">
             <div className="group">
               <div className="div-wrapper">
-                <div className="text-wrapper">사원번호 입력</div>
+                <input type = "text" className = "text-input" placeholder=  "이메일 입력" />
               </div>
             </div>
             <div className="overlap-group-wrapper">
               <div className="div">
-                <div className="text-wrapper-2">비밀번호 입력</div>
+                <input type = "password" className = "text-input" placeholder=  " 비밀번호 입력" />
               </div>
             </div>
             <div className="group-2">
-              <div
-                className="overlap-2"
-                style={{
-                  backgroundImage: "url(/img/rectangle-5.png)",
-                }}
-              >
-                <div className="text-wrapper-3">로그인</div>
-                <div className="text-wrapper-4">로그인</div>
-              </div>
+              <button className="login-button">
+                로그인
+              </button>
             </div>
             <img className="icon-user" alt="Icon user" src="/img/2815428-1.png" />
             <img className="element" alt="Element" src="/img/2592537-1.png" />
