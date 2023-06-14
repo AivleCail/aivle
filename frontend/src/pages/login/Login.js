@@ -1,5 +1,5 @@
-import "./LoginSignup.css"
-
+import "./Login.css"
+import {Link} from "react-router-dom"
 
 function Login() {
   return (
@@ -26,8 +26,7 @@ function Login() {
           <img className="element" alt="Element" src={process.env.PUBLIC_URL + "/login_pw.png"} />
           <img className="img" alt="Element" src={process.env.PUBLIC_URL + "login_background.png"} />
         </div>
-        <div className="text-wrapper-5">비밀번호 찾기</div>
-        <div className="text-wrapper-6">회원가입</div>
+        <div className="text-wrapper-6"><Link to={"/signup"}>회원가입</Link></div>
         <img className="element-2" alt="Element"  src={process.env.PUBLIC_URL + "/login_logo.png"} />
       </div>
     </div>
