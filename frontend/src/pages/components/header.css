@@ -1,6 +1,6 @@
 .Header {
 	position: absolute;
-	width: 1202px;
+	width: 1320px;
 	height: 84px;
 	left: 222px;
 	top: 0px;
@@ -10,12 +10,12 @@
 		position: absolute;
 		width: 260px;
 		height: 20px;
-		left: 157px;
+		left: 90px;
 		top: 32px;
 		font-family: 'NanumGothic';
 		font-style: normal;
 		font-weight: 900;
-		font-size: 21px;
+		font-size: 17px;
 		line-height: 20px;
 		text-align: center;
 		color: #000000;
@@ -24,21 +24,21 @@
 		position: absolute;
 		width: 72px;
 		height: 18px;
-		left: 1093px;
+		left: 1200px;
 		top: 33px;
 		font-family: 'NanumGothic';
 		font-style: normal;
 		font-weight: 900;
-		font-size: 18px;
+		font-size: 17px;
 		line-height: 18px;
 		text-align: center;
 		color: #000000;
 	}
 	.header-img {
 		position: absolute;
-		width: 78px;
-		height: 40px;
-		left: 65px;
-		top: 22px;
+		width: 97px;
+		height: 77px;
+		left: 25px;
+		top: 4px;
 	}
 }
