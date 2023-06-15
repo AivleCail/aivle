@@ -1,13 +1,29 @@
 import React, { useState } from 'react';
 import './Signup.css';
 import axios from 'axios';
+import {useNavigate} from "react-router-dom"
 
 const Signup = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
 
+  
   const handleSignup = () => {
+    if (password !== confirmPassword) {
+      // 비밀번호가 일치하지 않을 경우 처리
+      alert('비밀번호가 일치하지 않습니다.');
+      return;
+    }
+
+    if (!validateEmail(email)) {
+      // 이메일 유효성 검사
+      alert('유효한 이메일을 입력해주세요.');
+      return;
+    }
+
     axios
       .post('http://localhost:8080/auth/signup', {
         name: name,
@@ -19,11 +35,16 @@ const Signup = () => {
         console.log('Well done!');
         console.log('User profile', response.data.user);
         console.log('User token', response.data.jwt);
+        navigate('/');
       })
       .catch((error) => {
         // Handle error.
-        console.log('An error occurred:', error.response);
+        alert('이메일이 중복되었습니다.', error.response);
       });
+  };
+  const validateEmail = (email) => {
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return emailRegex.test(email);
   };
 
   return (
@@ -56,7 +77,12 @@ const Signup = () => {
             <div className="text-3">비밀번호 확인</div>
             <div className="overlap-group-wrapper-2">
               <div className="div">
-                <input type="password" className="text-input" />
+              <input 
+              type="password"
+              className="text-input"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+          />
               </div>
             </div>
             <div className="text-4">이름</div>
@@ -71,9 +97,9 @@ const Signup = () => {
               </div>
             </div>
             <div className="group-2">
-              <button className="signup-button" onClick={handleSignup}>
-                다음
-              </button>
+            <button className="signup-button" onClick={handleSignup}>
+              다 음
+            </button>
             </div>
             <img
               className="img"
