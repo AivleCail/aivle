@@ -1,6 +1,8 @@
 package com.example.backend.voc.controller;
 
+import com.example.backend.article.dto.ArticleResponseDto;
 import com.example.backend.voc.dto.VocPageResponseDto;
+import com.example.backend.voc.dto.VocResponseDto;
 import com.example.backend.voc.service.VocService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -21,6 +23,11 @@ public class VocController {
     public ResponseEntity<Page<VocPageResponseDto>> pageVoc(@RequestParam(name = "page") int page,
                                                             @RequestParam(name = "managerId") Long managerId) {
         return ResponseEntity.ok(vocService.pageVoc(page, managerId));
+    }
+
+    @GetMapping("/one")
+    public ResponseEntity<VocResponseDto> getOneVoc(@RequestParam(name = "id") Long id) {
+        return ResponseEntity.ok(vocService.oneVoc(id));
     }
 
 
