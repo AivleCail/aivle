@@ -27,7 +27,10 @@ function Login() {
           <img className="img" alt="Element" src={process.env.PUBLIC_URL + "login_background.png"} />
         </div>
         <div className="text-wrapper-6"><Link to={"/signup"}>회원가입</Link></div>
-        <img className="element-2" alt="Element"  src={process.env.PUBLIC_URL + "/login_logo.png"} />
+        <Link to='/'>
+          <img className="element-2" alt="Element"  src={process.env.PUBLIC_URL + "/login_logo.png"} />
+        </Link>
+    
       </div>
     </div>
   </div>
