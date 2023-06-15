@@ -7,6 +7,8 @@ const Intro = () => {
       <div className="intro-container">
         <Header />
         <Sidebar />
+        <div className="background">
+        </div>
       </div>
     );
   };

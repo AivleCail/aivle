@@ -1,6 +1,6 @@
 .Header {
 	position: absolute;
-	width: 1320px;
+	width: 1310px;
 	height: 84px;
 	left: 222px;
 	top: 0px;
@@ -34,11 +34,21 @@
 		text-align: center;
 		color: #000000;
 	}
+
+	.header-logout a {
+		text-decoration: none; 
+		color: #000000; 
+	  }
+	
+	.header-logout a:hover {
+		color:#F1B7B7;
+	}
+
 	.header-img {
 		position: absolute;
 		width: 97px;
-		height: 77px;
+		height: 80px;
 		left: 25px;
-		top: 4px;
+		top: 2px;
 	}
 }

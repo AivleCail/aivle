@@ -226,6 +226,7 @@
     top: 100px;
     width: 270px;
   }
+  
   }
   
   @media (min-width : 1600px) {
@@ -236,8 +237,6 @@
       justify-content: center;
       width: 90%;
     }
-    
-    
     
     .login .overlap-wrapper {
       background-color: #ffffff;
@@ -457,4 +456,3 @@
       width: 270px;
     }
     }
-  

@@ -1,0 +1,52 @@
+.worker-container .background {
+    position: absolute;
+    width: 1307px;
+    height: 635px;
+    left: 225px;
+    top: 85px;
+    background: #F8F8F8;
+    border: 1px solid #DDDDDD;
+    .container {
+        position: absolute;
+        width: 1190px;
+        height: 580px;
+        left: 58px;
+        top: 39px;
+        background: #FFFFFF;
+        border: 1px solid #DDDDDD;
+        border-radius: 15px;
+
+        .text-1 {
+            position: absolute;
+            width: 159px;
+            height: 30px;
+            left: 30px;
+            top: 25px;
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 25px;
+            line-height: 30px;
+            text-align: center;
+            color: #000000;
+        }
+        
+        .text-2 {
+            position: absolute;
+            width: 295px;
+            height: 18px;
+            left: 30px;
+            top: 70px;
+
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 15px;
+            line-height: 18px;
+            text-align: center;
+
+            color: #000000;
+
+        }
+    }
+}
