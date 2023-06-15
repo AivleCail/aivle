@@ -1,19 +1,19 @@
 import Header from "../components/header";
 import Sidebar from "../components/sidebar";
-import "./voc.css"
+import "./notice.css"
 
-const VOC = () => {
+const Notice = () => {
     return (
-      <div className="voc-container">
+      <div className="notice-container">
         <Header />
         <Sidebar />
-
+        
         <div className="background">
           <div className="container">
-            <span className="text-1">VOC 내역</span>
-            <span className="text-2">고객들의 장애 조치 여부를 확인합니다.</span>
+            <span className="text-1">공지사항</span>
+            <span className="text-2">공지사항을 빠르고 정확하게 안내해드립니다.</span>
             
-            <div className="board">
+            <div className="notice">
               
             </div>
           </div>
@@ -23,4 +23,4 @@ const VOC = () => {
   };
   
 
-export default VOC;
+export default Notice;
