@@ -39,19 +39,32 @@ def result(request):
         new_sequences = tokenizer.texts_to_sequences([new_token])
         new_pad = pad_sequences(new_sequences, maxlen = max_len)
         score = float(model.predict(new_pad))
+        
+        keyword = "추가사항"
+        res=result['text']
+        index = res.find(keyword)
 
+        if index != -1:
+            #cut_sentence = res[index + len(keyword):].strip()
+            #before_sentence = res[:index].strip()
+            after_sentence = res[index:].replace(keyword,"").strip()
+        else:
+            #cut_sentence = ""
+            before_sentence = res.strip()
+            after_sentence = ""
+            
         if score > 0.5:
             return JsonResponse({
                 "voc_status": "O",
-                "text": result['text'],
+                "추가사항": after_sentence
             }, safe=False, json_dumps_params={'ensure_ascii': False}) # 한글 인코딩 깨짐 문제
         else :
             return JsonResponse({
-                "voc_status": "X",
-                "text": result['text'],
+                "voc_status": "O",
+                "추가사항": after_sentence
             }, safe=False, json_dumps_params={'ensure_ascii': False}) # 한글 인코딩 깨짐 문제
+        
     else: 
         return JsonResponse({
             "result": "업로드 실패"
         })
-    
