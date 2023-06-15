@@ -1,4 +1,4 @@
-.worker-container .background {
+.notice-container .background {
     position: absolute;
     width: 1307px;
     height: 635px;
@@ -18,7 +18,7 @@
 
         .text-1 {
             position: absolute;
-            width: 159px;
+            width: 100px;
             height: 30px;
             left: 30px;
             top: 25px;
@@ -33,7 +33,7 @@
         
         .text-2 {
             position: absolute;
-            width: 295px;
+            width: 305px;
             height: 18px;
             left: 30px;
             top: 70px;

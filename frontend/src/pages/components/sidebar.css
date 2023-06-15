@@ -1,10 +1,153 @@
 .Sidebar {
 	position: absolute;
 	width: 224px;
-	height: 1000px;
+	height: 720px;
 	left: 0px;
 	top: 0px;
 	background: #FFFFFF;
 	border: 1px solid #DDDDDD;
 }
 
+.Sidebar-container-1 {
+    position: absolute;
+    width: 223px;
+    height: 84px;
+    left: 0px;
+    top: -1px;
+    background: #FFFFFF;
+    border: 1px solid #DDDDDD;
+}
+
+.back-img {
+	position: absolute;
+	left: 35px;
+	top: 30px;
+}
+
+.home-img {
+	position: absolute;
+	width: 24.5px;
+	height: 24.53px;
+}
+
+.task-img {
+	position: absolute;
+	left: 35px;
+	top: 213px;
+}
+
+.notice-img {
+	position: absolute;
+
+}
+
+.text-1 {
+	position: absolute;
+	width: 21px;
+	height: 22px;
+	left: 47px;
+	top: 2px;
+	font-family: 'NanumGothic';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 23px;
+	line-height: 22px;
+	color: #000000;
+}
+
+.text-2 {
+	position: absolute;
+	width: 51px;
+	height: 25px;
+	left: 82px;
+	top: 211px;
+	font-family: 'NanumGothic';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 26px;
+	line-height: 25px;
+	color: #000000;
+}
+
+.text-3 {
+	position: absolute;
+	width: 90px;
+	height: 20px;
+	left: 86px;
+	top: 267px;
+	font-size: 20px;
+	font-weight: 400;
+	font-style: normal;
+	font-family: 'NanumGothic';
+}
+
+.text-3 {
+	color: #000000; 
+}
+  
+.text-3:hover {
+	color: #F1B7B7;
+}
+
+.text-4 {
+	position: absolute;
+	width: 100px;
+	height: 20px;
+	left: 82px;
+	top: 310px;
+	font-family: 'NanumGothic';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 20px;
+}
+
+.text-4 {
+	color: #000000; 
+}
+  
+.text-4:hover {
+	color: #F1B7B7;
+}
+
+.text-5 {
+	position: absolute;
+	font-family: 'NanumGothic';
+	width: 100px;
+	height: 25px;
+	left: 47px;
+	top: 1px;
+	font-size:24px;
+	font-weight: 500;
+	color: #000000; 
+}
+
+.Sidebar-home {
+	position: absolute;
+	width: 94px;
+	height: 39px;
+	left: 35px;
+	top: 119px;
+}
+
+.Sidebar-home:hover .text-1 {
+	color: #F1B7B7;
+}
+
+.Sidebar-task {
+	position: absolute;
+	width: 155px;
+	height: 43px;
+	left: 35px;
+	top: 394px;
+}
+
+.Sidebar-task:hover .text-5 {
+	color: #F1B7B7;
+}
+
+.Sidebar a.active .text-1,
+.Sidebar a.active .text-5,
+.Sidebar a.active .text-3,
+.Sidebar a.active .text-4 {
+    color: #F1B7B7;
+}
