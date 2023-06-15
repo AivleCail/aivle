@@ -4,6 +4,7 @@ import com.example.backend.config.SecurityUtil;
 import com.example.backend.manager.entity.Manager;
 import com.example.backend.manager.repository.ManagerRespository;
 import com.example.backend.voc.dto.VocPageResponseDto;
+import com.example.backend.voc.dto.VocResponseDto;
 import com.example.backend.voc.entity.Voc;
 import com.example.backend.voc.repository.VocRepository;
 import lombok.RequiredArgsConstructor;
@@ -33,6 +34,11 @@ public class VocService {
 
     public Page<VocPageResponseDto> pageVoc(int pageNum, Long managerId) {
         return vocRepository.searchAll(PageRequest.of(pageNum-1,20),managerId);
+    }
+
+    public VocResponseDto oneVoc(Long id) {
+        Voc voc = vocRepository.findById(id).orElseThrow(() -> new RuntimeException("해당 voc가 없습니다."));
+        return VocResponseDto.of(voc);
     }
 
     public Manager isManagerCurrent() {
