@@ -1,4 +1,6 @@
 spring:
+  profiles:
+    include: API-KEY
 
   datasource:
     url: jdbc:mysql://localhost:3306/cail?characterEncoding=UTF-8&serverTimezone=UTC
@@ -20,9 +22,3 @@ logging:
 
 jwt:
   secret: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-
-naver-cloud-sms:
-  accessKey:
-  secretKey:
-  serviceId:
-  senderPhone:
