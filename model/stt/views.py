@@ -65,7 +65,7 @@ def result(request):
         })
     
 def rest_api(data):
-    url = 'http://localhost:8080/model_result'
+    url = 'http://localhost:8080/voc/result'
     headers = {'Content-Type': 'application/json'}
     
     requests.post(url, json=data, headers=headers)
