@@ -25,7 +25,7 @@ const Login = () => {
       .then((response) => {
         const accessToken = response.data.accessToken;
         console.log('Access token:', accessToken);
-        localStorage.setItem('accessToken', accessToken); // Store the access token in local storage
+        localStorage.setItem('accessToken', accessToken);
         navigate('/intro');
       })
       .catch((error) => {
@@ -33,6 +33,12 @@ const Login = () => {
         console.error('Login error:', error);
         alert('이메일 또는 비밀번호가 일치하지 않습니다.');
       });
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem('accessToken');
+    alert('로그아웃 되었습니다.');
+    navigate('/');
   };
 
   return (
@@ -93,6 +99,9 @@ const Login = () => {
               src={process.env.PUBLIC_URL + '/login_logo.png'}
             />
           </Link>
+          <button className="logout-button" onClick={handleLogout}>
+            로그아웃
+          </button>
         </div>
       </div>
     </div>
