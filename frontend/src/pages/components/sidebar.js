@@ -16,7 +16,7 @@ const Sidebar = () => {
                     </div>
                 </Link>
 
-                <div className="Sidebar-Notice">
+                <div className="Sidebar-task">
                     <img className="task-img" alt="Element"  src={process.env.PUBLIC_URL + "task.png"} />
                     <div className="text-2">Task</div>
                     <Link to="/voc" className={location.pathname === "/voc" ? "active" : ""}>

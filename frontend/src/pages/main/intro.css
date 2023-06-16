@@ -1,3 +1,49 @@
-.intro-container {
-    background-color: gray;
+.intro-container .background {
+  position: absolute;
+  width: 1307px;
+  height: 665px;
+  left: 225px;
+  top: 85px;
+  background: #F8F8F8;
+  border: 1px solid #DDDDDD;
+
+  .container-1 {
+    position: absolute;
+    width: 600px;
+    height: 285px;
+    left: 40px;
+    top: 30px;
+    background: #FFFFFF;
+    border-radius: 15px;
   }
+
+  .container-2 {
+    position: absolute;
+    width: 600px;
+    height: 285px;
+    left: 665px;
+    top: 30px;
+    background: #FFFFFF;
+    border-radius: 15px;
+  }
+
+  .container-3 {
+    position: absolute;
+    width: 600px;
+    height: 285px;
+    left: 40px;
+    top: 347px;
+    background: #FFFFFF;
+    border-radius: 15px;
+  }
+
+  .container-4 {
+    position: absolute;
+    width: 600px;
+    height: 285px;
+    left: 665px;
+    top: 347px;
+    background: #FFFFFF;
+    border-radius: 15px;
+  }
+}

@@ -1,0 +1,6 @@
+<form action="result" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+        <h1>파일 업로드</h1>
+        <input name="file" type="file" />
+    <div><input type="submit" value="전송하기"></div>
+</form>
