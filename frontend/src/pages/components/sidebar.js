@@ -27,7 +27,7 @@ const Sidebar = () => {
                     </Link>
                 </div>
 
-                <Link to="/notice" className={location.pathname === "/notice" ? "active" : ""}>
+                <Link to="/article" className={location.pathname === "/article" ? "active" : ""}>
                     <div className="Sidebar-task">
                         <img className="notice-img" alt="Element"  src={process.env.PUBLIC_URL + "notice.png"} />
                         <div className="text-5">공지사항</div>
