@@ -6,32 +6,7 @@ import './intro.css';
 
 const Intro = () => {
   const navigate = useNavigate();
-    return (
-      <div className="intro-container">
-        <Header />
-        <Sidebar />
-        <div className="background">
-          <div className="container-1">
-
-          </div>
-
-          <div className="container-2">
-
-          </div>
-
-          <div className="container-3">
-
-          </div>
-
-          <div className="container-4">
-            
-          </div>
-        </div>
-      </div>
-    );
-  };
   
-
   useEffect(() => {
     const accessToken = localStorage.getItem('accessToken');
     if (!accessToken) {
@@ -44,7 +19,23 @@ const Intro = () => {
     <div className="intro-container">
       <Header />
       <Sidebar />
-      <div className="background"></div>
+      <div className="background">
+        <div className="container-1">
+
+        </div>
+
+        <div className="container-2">
+
+        </div>
+
+        <div className="container-3">
+
+        </div>
+
+        <div className="container-4">
+          
+        </div>
+      </div>
     </div>
   );
 };
