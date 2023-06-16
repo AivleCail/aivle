@@ -14,13 +14,11 @@ const Signup = () => {
   
   const handleSignup = () => {
     if (password !== confirmPassword) {
-      // 비밀번호가 일치하지 않을 경우 처리
       alert('비밀번호가 일치하지 않습니다.');
       return;
     }
 
     if (!validateEmail(email)) {
-      // 이메일 유효성 검사
       alert('유효한 이메일을 입력해주세요.');
       return;
     }
@@ -32,14 +30,12 @@ const Signup = () => {
         password: password,
       }, { withCredentials: true })
       .then((response) => {
-        // Handle success.
         console.log('Well done!');
         console.log('User profile', response.data.user);
         console.log('User token', response.data.jwt);
         navigate('/');
       })
       .catch((error) => {
-        // Handle error.
         alert('이메일이 중복되었습니다.', error.response);
       });
   };

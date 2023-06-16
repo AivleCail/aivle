@@ -1,4 +1,4 @@
-.notice-container .background {
+.article-container .background {
     position: absolute;
     width: 1307px;
     height: 665px;
@@ -16,7 +16,7 @@
         border: 1px solid #DDDDDD;
         border-radius: 15px;
 
-        .notice-text-1 {
+        .article-text-1 {
             position: absolute;
             width: 100px;
             height: 30px;
@@ -31,7 +31,7 @@
             color: #000000;
         }
         
-        .notice-text-2 {
+        .article-text-2 {
             position: absolute;
             width: 305px;
             height: 18px;
@@ -49,7 +49,7 @@
 
         }
 
-        .notice {
+        .article {
             position: relative; 
             margin-top: 130px;
         }

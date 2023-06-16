@@ -9,7 +9,6 @@ const Login = () => {
   const [password, setPassword] = useState('');
 
   useEffect(() => {
-    // Check if the user is already authenticated
     const accessToken = localStorage.getItem('accessToken');
     if (accessToken) {
       navigate('/intro');
@@ -29,7 +28,6 @@ const Login = () => {
         navigate('/intro');
       })
       .catch((error) => {
-        // Handle error.
         console.error('Login error:', error);
         alert('이메일 또는 비밀번호가 일치하지 않습니다.');
       });
