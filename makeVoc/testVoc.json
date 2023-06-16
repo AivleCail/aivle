@@ -2,177 +2,193 @@
  {
   "voc_id": 1,
   "date": "2023-06-14 09:59:05",
-  "name": "김정*",
+  "customer_name": "김정*",
   "customer_address": "강원도 강릉시 입암동 **********",
   "customer_phone": "010-67**-*860",
   "type": "TV",
   "status": "해제",
-  "status_detail": "[고객요청사항]수신불\/조치전자연회복\n[회선\/단말특이사항]\n[진단결과]\n[기타\/추가연락처]",
-  "manager_id": 2
+  "opinion": "[고객요청사항]수신불\/조치전자연회복\n[회선\/단말특이사항]\n[진단결과]\n[기타\/추가연락처]",
+  "manager_id": 2,
+  "status_detail": "temp"
  },
  {
   "voc_id": 2,
   "date": "2023-06-14 07:44:19",
-  "name": "이기*",
+  "customer_name": "이기*",
   "customer_address": "강원도 강릉시 입암동 **********",
   "customer_phone": "010-40**-*802",
   "type": "인터넷",
   "status": "발생",
-  "status_detail": "[고객요청사항]장비장애\/오전수리예정안내 ‘NMS 현장수배요청’\n[회선\/단말특이사항]\n[진단결과]\n[기타\/추가연락처]",
-  "manager_id": 3
+  "opinion": "[고객요청사항]장비장애\/오전수리예정안내 ‘NMS 현장수배요청’\n[회선\/단말특이사항]\n[진단결과]\n[기타\/추가연락처]",
+  "manager_id": 3,
+  "status_detail": "temp"
  },
  {
   "voc_id": 3,
   "date": "2023-06-14 10:38:04",
-  "name": "최영*",
+  "customer_name": "최영*",
   "customer_address": "강원도 강릉시 송정동 ******",
   "customer_phone": "010-24**-*105",
   "type": "TV",
   "status": "해제",
-  "status_detail": "#공감\n[고객요청사항] 리모컨 작동불\/택배 비용 안내 드림\/sMS로 통합리모컨 설정및 페어링 방법 안내 드림",
-  "manager_id": 4
+  "opinion": "#공감\n[고객요청사항] 리모컨 작동불\/택배 비용 안내 드림\/sMS로 통합리모컨 설정및 페어링 방법 안내 드림",
+  "manager_id": 4,
+  "status_detail": "temp"
  },
  {
   "voc_id": 4,
   "date": "2023-06-14 07:54:53",
-  "name": "박미*",
+  "customer_name": "박미*",
   "customer_address": "강원도 강릉시 입암동 **********",
   "customer_phone": "010-77**-*277",
   "type": "TV",
   "status": "발생",
-  "status_detail": "[연락불필요]장애안내",
-  "manager_id": 5
+  "opinion": "[연락불필요]장애안내",
+  "manager_id": 5,
+  "status_detail": "temp"
  },
  {
   "voc_id": 5,
   "date": "2023-06-14 07:36:53",
-  "name": "최금*",
+  "customer_name": "최금*",
   "customer_address": "강원도 강릉시 입암동 **********",
   "customer_phone": "010-55**-*554",
   "type": "TV",
   "status": "발생",
-  "status_detail": "[고객요청사항] tv수신불,공사안내",
-  "manager_id": 1
+  "opinion": "[고객요청사항] tv수신불,공사안내",
+  "manager_id": 1,
+  "status_detail": "temp"
  },
  {
   "voc_id": 6,
   "date": "2023-06-14 08:03:14",
-  "name": "정정*",
+  "customer_name": "정정*",
   "customer_address": "강원도 강릉시 입암동 **********",
   "customer_phone": "010-27**-*034",
   "type": "TV",
   "status": "해제",
-  "status_detail": "[고객요청사항] tv안나옴\/장애안내\/미수배상태로 수배요청안되 장애접수함\n[회선\/단말특이사항]\n[진단결과]\n[기타\/추가연락처]",
-  "manager_id": 2
+  "opinion": "[고객요청사항] tv안나옴\/장애안내\/미수배상태로 수배요청안되 장애접수함\n[회선\/단말특이사항]\n[진단결과]\n[기타\/추가연락처]",
+  "manager_id": 2,
+  "status_detail": "temp"
  },
  {
   "voc_id": 7,
   "date": "2023-06-14 09:06:28",
-  "name": "이재*",
+  "customer_name": "이재*",
   "customer_address": "강원도 강릉시 입암동 **********",
   "customer_phone": "010-52**-*488",
   "type": "TV",
   "status": "해제",
-  "status_detail": "[멀] 코로나이상무 \/ 연후방 \/ 빠른방문요청 \/ 티수신불 \/ 관리자 번호 이런거 뜸 \n[고객요청사항]\n[회선\/단말특이사항]\n[진단결과]\n[기타\/추가연락처]",
-  "manager_id": 3
+  "opinion": "[멀] 코로나이상무 \/ 연후방 \/ 빠른방문요청 \/ 티수신불 \/ 관리자 번호 이런거 뜸 \n[고객요청사항]\n[회선\/단말특이사항]\n[진단결과]\n[기타\/추가연락처]",
+  "manager_id": 3,
+  "status_detail": "temp"
  },
  {
   "voc_id": 8,
   "date": "2023-06-14 07:50:55",
-  "name": "이성*",
+  "customer_name": "이성*",
   "customer_address": "강원도 강릉시 입암동 **********",
   "customer_phone": "010-87**-*235",
   "type": "인터넷",
   "status": "발생",
-  "status_detail": "[고객요청사항]장애안내\/연락불필요\n[회선\/단말특이사항]\n[진단결과]\n[기타\/추가연락처]",
-  "manager_id": 4
+  "opinion": "[고객요청사항]장애안내\/연락불필요\n[회선\/단말특이사항]\n[진단결과]\n[기타\/추가연락처]",
+  "manager_id": 4,
+  "status_detail": "temp"
  },
  {
   "voc_id": 9,
   "date": "2023-06-14 11:13:00",
-  "name": "서진*",
+  "customer_name": "서진*",
   "customer_address": "강원도 강릉시 포남동 **********",
   "customer_phone": "010-94**-*031",
   "type": "TV",
   "status": "발생",
-  "status_detail": "[고객요청사항]ots위성안테나가 위태롭게 베란다에 달려있어서 위험하여 재연결요청하심\/이전설치는as기사분이못해드림안내\/별도신청가능안내\/연락후방문\n[회선\/단말특이사항]\n[진단결과]\n[기타\/추가연락처]",
-  "manager_id": 5
+  "opinion": "[고객요청사항]ots위성안테나가 위태롭게 베란다에 달려있어서 위험하여 재연결요청하심\/이전설치는as기사분이못해드림안내\/별도신청가능안내\/연락후방문\n[회선\/단말특이사항]\n[진단결과]\n[기타\/추가연락처]",
+  "manager_id": 5,
+  "status_detail": "temp"
  },
  {
   "voc_id": 10,
   "date": "2023-06-14 09:34:25",
-  "name": "곽용*",
+  "customer_name": "곽용*",
   "customer_address": "강원도 강릉시 입암동 **********",
   "customer_phone": "010-63**-*318",
   "type": "TV",
   "status": "해제",
-  "status_detail": "수신불\/장애안내함\/#공감",
-  "manager_id": 1
+  "opinion": "수신불\/장애안내함\/#공감",
+  "manager_id": 1,
+  "status_detail": "temp"
  },
  {
   "voc_id": 11,
   "date": "2023-06-14 09:02:04",
-  "name": "김옥*",
+  "customer_name": "김옥*",
   "customer_address": "강원도 강릉시 입암동 **********",
   "customer_phone": "010-74**-*315",
   "type": "TV",
   "status": "발생",
-  "status_detail": "[고객요청사항]tv시청불. 인터넷~\/리셋\n[회선\/단말특이사항]\n[진단결과]확인불\n[기타\/추가연락처]",
-  "manager_id": 2
+  "opinion": "[고객요청사항]tv시청불. 인터넷~\/리셋\n[회선\/단말특이사항]\n[진단결과]확인불\n[기타\/추가연락처]",
+  "manager_id": 2,
+  "status_detail": "temp"
  },
  {
   "voc_id": 12,
   "date": "2023-06-14 08:26:26",
-  "name": "고기*",
+  "customer_name": "고기*",
   "customer_address": "강원도 강릉시 입암동 **********",
   "customer_phone": "010-56**-*788",
   "type": "TV",
   "status": "발생",
-  "status_detail": "* 빠른 방문 요청 *\n[고객요청사항] TV 네트워크 오류 되며 수신되지 않는다함. \n[회선\/단말특이사항]\n[진단결과] \n[기타\/추가연락처]인)010-5698-7788",
-  "manager_id": 3
+  "opinion": "* 빠른 방문 요청 *\n[고객요청사항] TV 네트워크 오류 되며 수신되지 않는다함. \n[회선\/단말특이사항]\n[진단결과] \n[기타\/추가연락처]인)010-5698-7788",
+  "manager_id": 3,
+  "status_detail": "temp"
  },
  {
   "voc_id": 13,
   "date": "2023-06-14 08:13:16",
-  "name": "김창*",
+  "customer_name": "김창*",
   "customer_address": "강원도 강릉시 입암동 **********",
   "customer_phone": "010-99**-*111",
   "type": "인터넷",
   "status": "해제",
-  "status_detail": "[고객요청사항]접속불\/티비수신불\/모뎀,공유기 전원불 안들어온다고 하심 \n[회선\/단말특이사항]\n[진단결과]신호 비정상 \n[기타\/추가연락처]",
-  "manager_id": 4
+  "opinion": "[고객요청사항]접속불\/티비수신불\/모뎀,공유기 전원불 안들어온다고 하심 \n[회선\/단말특이사항]\n[진단결과]신호 비정상 \n[기타\/추가연락처]",
+  "manager_id": 4,
+  "status_detail": "temp"
  },
  {
   "voc_id": 14,
   "date": "2023-06-14 09:42:43",
-  "name": "오흥*",
+  "customer_name": "오흥*",
   "customer_address": "강원도 강릉시 입암동 *****",
   "customer_phone": "010-53**-*252",
   "type": "TV",
   "status": "해제",
-  "status_detail": "[고객요청사항] 수신불\/리셋후정상\n[회선\/단말특이사항]\n[진단결과]\n[기타\/추가연락처]",
-  "manager_id": 5
+  "opinion": "[고객요청사항] 수신불\/리셋후정상\n[회선\/단말특이사항]\n[진단결과]\n[기타\/추가연락처]",
+  "manager_id": 5,
+  "status_detail": "temp"
  },
  {
   "voc_id": 15,
   "date": "2023-06-14 09:44:41",
-  "name": "최호*",
+  "customer_name": "최호*",
   "customer_address": "강원도 강릉시 포남동 **********",
   "customer_phone": "010-54**-*288",
   "type": "TV",
   "status": "발생",
-  "status_detail": "#공감\n★사업장, 취소건발생시 선방문요청★\n[고객요청사항]음성이상\/\/셋탑교체필요\n[회선\/단말특이사항]\n[진단결과]정상\n[기타\/추가연락처]",
-  "manager_id": 1
+  "opinion": "#공감\n★사업장, 취소건발생시 선방문요청★\n[고객요청사항]음성이상\/\/셋탑교체필요\n[회선\/단말특이사항]\n[진단결과]정상\n[기타\/추가연락처]",
+  "manager_id": 1,
+  "status_detail": "temp"
  },
  {
   "voc_id": 16,
   "date": "2023-06-14 10:09:56",
-  "name": "KT강원본*",
+  "customer_name": "KT강원본*",
   "customer_address": "강원도 강릉시 입암동 **********",
   "customer_phone": "010-96**-*868",
   "type": "인터넷",
   "status": "해제",
-  "status_detail": "[상품명]\n[신고자\/연락처]동사무소 033-660-3951\n[문의(고장)내용]회선다운\/목동운용센타 070-4229-8059 대신신고주심\n[답변(진단)내용]망구성도 확인시 ont cable down상태\n[기타]",
-  "manager_id": 2
+  "opinion": "[상품명]\n[신고자\/연락처]동사무소 033-660-3951\n[문의(고장)내용]회선다운\/목동운용센타 070-4229-8059 대신신고주심\n[답변(진단)내용]망구성도 확인시 ont cable down상태\n[기타]",
+  "manager_id": 2,
+  "status_detail": "temp"
  }
 ]
