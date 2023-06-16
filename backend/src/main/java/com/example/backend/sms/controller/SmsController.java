@@ -5,6 +5,7 @@ import com.example.backend.sms.dto.SmsResponseDto;
 import com.example.backend.sms.service.SmsService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,12 +24,12 @@ public class SmsController {
     private final SmsService smsService;
 
     @PostMapping("/sms/send")
-    public SmsResponseDto sendSms(@RequestBody List<SmsMessageDto> messageDtoList) throws UnsupportedEncodingException, URISyntaxException, NoSuchAlgorithmException, InvalidKeyException, JsonProcessingException {
+    public ResponseEntity<List<SmsResponseDto>> sendSms(@RequestBody List<SmsMessageDto> messageDtoList) throws UnsupportedEncodingException, URISyntaxException, NoSuchAlgorithmException, InvalidKeyException, JsonProcessingException {
         List<SmsResponseDto> responseDtoList = new ArrayList<>();
         for (SmsMessageDto messageDto : messageDtoList) {
             SmsResponseDto responseDto = smsService.sendSms(messageDto);
             responseDtoList.add(responseDto);
         }
-        return (SmsResponseDto) responseDtoList;
+        return ResponseEntity.ok(responseDtoList);
     }
 }
