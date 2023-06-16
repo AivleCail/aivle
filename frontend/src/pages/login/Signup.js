@@ -8,6 +8,7 @@ const Signup = () => {
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
+  const [Role, setRole] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
   
@@ -96,6 +97,19 @@ const Signup = () => {
                 />
               </div>
             </div>
+
+            <div className="text-5">이름</div>
+            <div className="overlap-group-wrapper-3">
+              <div className="div-1">
+                <input
+                  type="text"
+                />
+              </div>
+            </div>
+            
+            
+            
+            
             <div className="group-2">
             <button className="signup-button" onClick={handleSignup}>
               다 음
@@ -107,10 +121,12 @@ const Signup = () => {
               src={process.env.PUBLIC_URL + 'login_background.png'}
             />
           </div>
+          
           <div className="signup_title">회원가입</div>
         </div>
       </div>
     </div>
+
   );
 };
 
