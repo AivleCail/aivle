@@ -1,15 +1,13 @@
 package com.example.backend.sms.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
+@Setter
 @Builder
 public class SmsMessageDto {
     private String to;
-    //String content;
+    private String content;
 }
