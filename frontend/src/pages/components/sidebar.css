@@ -38,7 +38,8 @@
 
 .notice-img {
 	position: absolute;
-
+	left :35px;
+	top  : 410px;
 }
 
 .text-1 {
@@ -60,7 +61,7 @@
 	width: 51px;
 	height: 25px;
 	left: 82px;
-	top: 231px;
+	top: 230px;
 	font-family: 'NanumGothic';
 	font-style: normal;
 	font-weight: 500;
@@ -73,7 +74,7 @@
 	position: absolute;
 	width: 90px;
 	height: 20px;
-	left: 86px;
+	left: 90px;
 	top: 287px;
 	font-size: 20px;
 	font-weight: 400;
@@ -93,7 +94,7 @@
 	position: absolute;
 	width: 100px;
 	height: 20px;
-	left: 82px;
+	left: 90px;
 	top: 330px;
 	font-family: 'NanumGothic';
 	font-style: normal;
@@ -114,8 +115,8 @@
 	font-family: 'NanumGothic';
 	width: 100px;
 	height: 25px;
-	left: 47px;
-	top: 1px;
+	left: 86px;
+	top: 410px;
 	font-size:24px;
 	font-weight: 500;
 	color: #000000; 
