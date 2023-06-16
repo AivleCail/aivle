@@ -36,10 +36,18 @@ public class Voc {
     private String status;
 
     @Column
+    private String opinion;
+    @Column
     private String statusDetail;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "manager_id")
     private Manager manager;
 
+    public static Voc updateStatus (Voc voc, String voc_status, String voc_status_detail) {
+        voc.status = voc_status;
+        voc.statusDetail = voc_status_detail;
+
+        return voc;
+    }
 
 }
