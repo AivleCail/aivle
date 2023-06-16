@@ -51,13 +51,14 @@ public class VocService {
     @Transactional
     public VocResponseDto updateVocResult(Long id, String status, String statusDetail) {
         Voc voc = vocRepository.findById(id).orElseThrow(() -> new RuntimeException(("voc가 없습니다.")));
-        if (status == "O") {
-            status = "해제";
+        String a="test";
+        if (status.equals("O")) {
+            a = "해제";
         }
-        else {
-            status = "발생";
+        else if(status.equals("X")) {
+            a = "발생";
         }
-        return VocResponseDto.of(vocRepository.save(Voc.updateStatus(voc, status, statusDetail)));
+        return VocResponseDto.of(vocRepository.save(Voc.updateStatus(voc, a, statusDetail)));
     }
 
 }
