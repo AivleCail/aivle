@@ -20,7 +20,7 @@ def index(request):
 
 def result(request):
     if request.method == "POST" and request.FILES.get("file"):
-        voc_id = request.POST.get("voc_id")
+        voc_id = int(request.POST.get("voc_id"))
         file = request.FILES["file"]
         result = openai.Audio.transcribe("whisper-1", file)
 
