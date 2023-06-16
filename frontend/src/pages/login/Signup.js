@@ -84,6 +84,9 @@ const Signup = () => {
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
           />
+
+
+      
               </div>
             </div>
             <div className="signup-text-4">이름</div>
@@ -98,14 +101,6 @@ const Signup = () => {
               </div>
             </div>
 
-            <div className="text-5">이름</div>
-            <div className="overlap-group-wrapper-3">
-              <div className="div-1">
-                <input
-                  type="text"
-                />
-              </div>
-            </div>
             
             
             
