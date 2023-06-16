@@ -128,7 +128,7 @@
     font-size: 40px;
     font-weight: 800;
 }
-.signup .text-1 {
+.signup .signup-text-1 {
     font-family: "Segoe UI-Semibold", Helvetica;
     left: 815px;
     position: absolute;
@@ -136,7 +136,7 @@
     font-size: 22px;
     font-weight: 600;
 }
-.signup .text-2 {
+.signup .signup-text-2 {
     font-family: "Segoe UI-Semibold", Helvetica;
     left: 815px;
     position: absolute;
@@ -144,7 +144,7 @@
     font-size: 22px;
     font-weight: 600;
 }
-.signup .text-3 {
+.signup .signup-text-3 {
     font-family: "Segoe UI-Semibold", Helvetica;
     left: 815px;
     position: absolute;
@@ -152,19 +152,11 @@
     font-size: 22px;
     font-weight: 600;
 }
-.signup .text-4 {
+.signup .signup-text-4 {
     font-family: "Segoe UI-Semibold", Helvetica;
     left: 815px;
     position: absolute;
     top: 520px;
-    font-size: 22px;
-    font-weight: 600;
-}
-.signup .text-5 {
-    font-family: "Segoe UI-Semibold", Helvetica;
-    left: 1087px;
-    position: absolute;
-    top: 580px;
     font-size: 22px;
     font-weight: 600;
 }

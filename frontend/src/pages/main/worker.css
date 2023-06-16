@@ -1,26 +1,26 @@
 .worker-container .background {
     position: absolute;
     width: 1307px;
-    height: 635px;
+    height: 665px;
     left: 225px;
     top: 85px;
     background: #F8F8F8;
     border: 1px solid #DDDDDD;
     .container {
         position: absolute;
-        width: 1190px;
-        height: 580px;
-        left: 58px;
-        top: 39px;
+        width: 1230px;
+        height: 600px;
+        left: 39px;
+        top: 30px;
         background: #FFFFFF;
         border: 1px solid #DDDDDD;
         border-radius: 15px;
 
-        .text-1 {
+        .worker-text-1 {
             position: absolute;
             width: 159px;
             height: 30px;
-            left: 30px;
+            left: 28px;
             top: 25px;
             font-family: 'Inter';
             font-style: normal;
@@ -31,7 +31,7 @@
             color: #000000;
         }
         
-        .text-2 {
+        .worker-text-2 {
             position: absolute;
             width: 295px;
             height: 18px;
@@ -48,5 +48,10 @@
             color: #000000;
 
         }
+
+        .worker {
+            position: relative; 
+            margin-top: 130px; 
+        } 
     }
 }
