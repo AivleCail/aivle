@@ -1,22 +1,22 @@
 .notice-container .background {
     position: absolute;
     width: 1307px;
-    height: 635px;
+    height: 665px;
     left: 225px;
     top: 85px;
     background: #F8F8F8;
     border: 1px solid #DDDDDD;
     .container {
         position: absolute;
-        width: 1190px;
-        height: 580px;
-        left: 58px;
-        top: 39px;
+        width: 1230px;
+        height: 600px;
+        left: 39px;
+        top: 30px;
         background: #FFFFFF;
         border: 1px solid #DDDDDD;
         border-radius: 15px;
 
-        .text-1 {
+        .notice-text-1 {
             position: absolute;
             width: 100px;
             height: 30px;
@@ -31,7 +31,7 @@
             color: #000000;
         }
         
-        .text-2 {
+        .notice-text-2 {
             position: absolute;
             width: 305px;
             height: 18px;
@@ -47,6 +47,11 @@
 
             color: #000000;
 
+        }
+
+        .notice {
+            position: relative; 
+            margin-top: 130px;
         }
     }
 }
