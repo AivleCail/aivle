@@ -84,6 +84,9 @@ public class SmsService {
         headers.set("x-ncp-iam-access-key", accessKey);
         headers.set("x-ncp-apigw-signature-v2", getSignature(time)); // signature 서명
 
+        String cur = messageDto.getContent();
+        messageDto.setContent("[CaiL] 아래 링크에 id를 입력하세요. ID: " + cur + "\nURL: http://www.naver.com");
+
         List<SmsMessageDto> messages = new ArrayList<>();
         messages.add(messageDto);
 
@@ -92,7 +95,7 @@ public class SmsService {
                 .contentType("COMM")
                 .countryCode("82")
                 .from(phone)
-                .content("[KT AIVLE] 오늘 수업 없습니다. 참고하세요. 라고할뻔~ 주소 : https://www.naver.com/")
+                .content("sms")
                 .messages(messages)
                 .build();
 
