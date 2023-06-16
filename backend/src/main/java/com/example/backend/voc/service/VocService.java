@@ -5,6 +5,7 @@ import com.example.backend.manager.entity.Manager;
 import com.example.backend.manager.repository.ManagerRespository;
 import com.example.backend.voc.dto.VocPageResponseDto;
 import com.example.backend.voc.dto.VocResponseDto;
+import com.example.backend.voc.dto.VocResultRequestDto;
 import com.example.backend.voc.entity.Voc;
 import com.example.backend.voc.repository.VocRepository;
 import lombok.RequiredArgsConstructor;
@@ -14,6 +15,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -44,6 +46,18 @@ public class VocService {
     public Manager isManagerCurrent() {
         return managerRespository.findById(SecurityUtil.getCurrentManagerId())
                 .orElseThrow(() -> new RuntimeException("로그인 유저 정보가 없습니다"));
+    }
+
+    @Transactional
+    public VocResponseDto updateVocResult(Long id, String status, String statusDetail) {
+        Voc voc = vocRepository.findById(id).orElseThrow(() -> new RuntimeException(("voc가 없습니다.")));
+        if (status == "O") {
+            status = "해제";
+        }
+        else {
+            status = "발생";
+        }
+        return VocResponseDto.of(vocRepository.save(Voc.updateStatus(voc, status, statusDetail)));
     }
 
 }
