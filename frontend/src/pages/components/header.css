@@ -20,9 +20,9 @@
 		text-align: center;
 		color: #000000;
 	}
-	.header-logout {
+	.logout-button{
 		position: absolute;
-		width: 72px;
+		width: 100px;
 		height: 18px;
 		left: 1200px;
 		top: 33px;
@@ -33,16 +33,18 @@
 		line-height: 18px;
 		text-align: center;
 		color: #000000;
+		background-color: white;
+		border-color: transparent;
 	}
 
-	.header-logout a {
+	.logout-button{
 		text-decoration: none; 
 		color: #000000; 
 	  }
 	
-	.header-logout a:hover {
+	.logout-button:hover {
 		color:#F1B7B7;
-	}
+	} 
 
 	.header-img {
 		position: absolute;
