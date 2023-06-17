@@ -72,6 +72,17 @@ def ex_result(request):
             "result": "업로드 실패"
         })
     
+def api(request):
+    if request.method == 'POST':
+        request.POST.get('file')
+    
+        response_data = {
+            'message': '요청이 성공적으로 처리되었습니다.',
+        }
+        return JsonResponse(response_data)
+    
+    return JsonResponse({'message': '잘못된 요청입니다.'}, status=400)
+    
 # def rest_api(data):
 #     url = 'http://localhost:8080/external/result'
 #     headers = {'Content-Type': 'application/json'}
