@@ -62,3 +62,19 @@
         } 
     }
 }
+
+.refresh-button {
+    border: none;
+    position: absolute;
+    background-color: transparent;
+    padding : -10px;
+    cursor: pointer;
+  }
+  
+  .refresh-button .voc-img {
+    width: 20px;
+    height: 20px;
+  }
+
+  
+  
