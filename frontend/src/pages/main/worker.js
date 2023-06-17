@@ -4,6 +4,7 @@ import "./worker.css"
 import CommonTable from '../components/table/CommonTable';
 import CommonTableColumn from '../components/table/CommonTableColumn';
 import CommonTableRow from '../components/table/CommonTableRow';
+import Paging from './page/paging';
 
 
 const Worker = () => {
@@ -92,6 +93,8 @@ const Worker = () => {
                 </CommonTableRow>
               </CommonTable>
             </div>
+
+            <Paging />
           </div>
         </div>
       </div>
