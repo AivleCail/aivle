@@ -1,105 +1,76 @@
-import Header from "../components/header";
-import Sidebar from "../components/sidebar";
-import "./worker.css"
+import React, { useState, useEffect } from 'react';
+import Header from '../components/header';
+import Sidebar from '../components/sidebar';
+import './worker.css';
 import CommonTable from '../components/table/CommonTable';
 import CommonTableColumn from '../components/table/CommonTableColumn';
 import CommonTableRow from '../components/table/CommonTableRow';
 import Paging from './page/paging';
-
+import axios from 'axios';
 
 const Worker = () => {
-    return (
-      <div className="worker-container">
-        <Header />
-        <Sidebar />
-        <div className="background">
-          <div className="container">
-            <span className="worker-text-1">사외공사 관리</span>
-            <span className="worker-text-2">협력체의 장애 신고 접수내용을 확인합니다.</span>
-            
-            <div className="worker">
-              <CommonTable headersName={['번호', '업체명', '공사주소', '공사시작시간', '접수 일시', 'ID', '완료여부']}>
-                <CommonTableRow>
-                  <CommonTableColumn>8</CommonTableColumn>
-                  <CommonTableColumn>A업체</CommonTableColumn>
-                  <CommonTableColumn>부산광역시 동구 초량중로 29</CommonTableColumn>
-                  <CommonTableColumn>2023-06-16 16:35</CommonTableColumn>
-                  <CommonTableColumn>2023-06-16 10:35</CommonTableColumn>
-                  <CommonTableColumn>aivle123</CommonTableColumn>
-                  <CommonTableColumn>X</CommonTableColumn>
-                </CommonTableRow>
-                <CommonTableRow>
-                  <CommonTableColumn>7</CommonTableColumn>
-                  <CommonTableColumn>B업체</CommonTableColumn>
-                  <CommonTableColumn>부산광역시 중구 충장대로5번길 72</CommonTableColumn>
-                  <CommonTableColumn>2023-06-16 16:35</CommonTableColumn>
-                  <CommonTableColumn>2023-06-16 10:35</CommonTableColumn>
-                  <CommonTableColumn>aivle123</CommonTableColumn>
-                  <CommonTableColumn>X</CommonTableColumn>
-                </CommonTableRow>
-                <CommonTableRow>
-                  <CommonTableColumn>6</CommonTableColumn>
-                  <CommonTableColumn>C업체</CommonTableColumn>
-                  <CommonTableColumn>부산광역시 진구 중앙대로 682-1 3, 4층</CommonTableColumn>
-                  <CommonTableColumn>2023-06-16 16:35</CommonTableColumn>
-                  <CommonTableColumn>2023-06-16 10:35</CommonTableColumn>
-                  <CommonTableColumn>aivle695</CommonTableColumn>
-                  <CommonTableColumn>X</CommonTableColumn>
-                </CommonTableRow>
-                <CommonTableRow>
-                  <CommonTableColumn>5</CommonTableColumn>
-                  <CommonTableColumn>A업체</CommonTableColumn>
-                  <CommonTableColumn>부산광역시 금정구 중앙대로 1841번길 24</CommonTableColumn>
-                  <CommonTableColumn>2023-06-16 16:35</CommonTableColumn>
-                  <CommonTableColumn>2023-06-16 10:35</CommonTableColumn>
-                  <CommonTableColumn>aivle695</CommonTableColumn>
-                  <CommonTableColumn>X</CommonTableColumn>
-                </CommonTableRow>
-                <CommonTableRow>
-                  <CommonTableColumn>4</CommonTableColumn>
-                  <CommonTableColumn></CommonTableColumn>
-                  <CommonTableColumn></CommonTableColumn>
-                  <CommonTableColumn></CommonTableColumn>
-                  <CommonTableColumn></CommonTableColumn>
-                  <CommonTableColumn></CommonTableColumn>
-                  <CommonTableColumn></CommonTableColumn>
-                </CommonTableRow>
-                <CommonTableRow>
-                  <CommonTableColumn>3</CommonTableColumn>
-                  <CommonTableColumn></CommonTableColumn>
-                  <CommonTableColumn></CommonTableColumn>
-                  <CommonTableColumn></CommonTableColumn>
-                  <CommonTableColumn></CommonTableColumn>
-                  <CommonTableColumn></CommonTableColumn>
-                  <CommonTableColumn></CommonTableColumn>
-                </CommonTableRow>
-                <CommonTableRow>
-                  <CommonTableColumn>2</CommonTableColumn>
-                  <CommonTableColumn></CommonTableColumn>
-                  <CommonTableColumn></CommonTableColumn>
-                  <CommonTableColumn></CommonTableColumn>
-                  <CommonTableColumn></CommonTableColumn>
-                  <CommonTableColumn></CommonTableColumn>
-                  <CommonTableColumn></CommonTableColumn>
-                </CommonTableRow>
-                <CommonTableRow>
-                  <CommonTableColumn>1</CommonTableColumn>
-                  <CommonTableColumn></CommonTableColumn>
-                  <CommonTableColumn></CommonTableColumn>
-                  <CommonTableColumn></CommonTableColumn>
-                  <CommonTableColumn></CommonTableColumn>
-                  <CommonTableColumn></CommonTableColumn>
-                  <CommonTableColumn></CommonTableColumn>
-                </CommonTableRow>
-              </CommonTable>
-            </div>
+  const [workerList, setWorkerList] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [workerPerPage] = useState(8);
 
-            <Paging />
+  useEffect(() => {
+    fetchWorkerList();
+  }, []);
+
+  const fetchWorkerList = async () => {
+    try {
+      const accessToken = localStorage.getItem('accessToken');
+      const workerListData = await axios.get('http://localhost:8080/external/one?id=${id}', {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      });
+      setWorkerList(workerListData);
+    } catch (error) {
+      console.error('Error fetching worker list:', error);
+    }
+  };
+
+  const indexOfLastWorker = currentPage * workerPerPage;
+  const indexOfFirstWorker = indexOfLastWorker - workerPerPage;
+  const currentWorkerList = workerList.slice(indexOfFirstWorker, indexOfLastWorker);
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+  return (
+    <div className="worker-container">
+      <Header />
+      <Sidebar />
+      <div className="background">
+        <div className="container">
+          <span className="worker-text-1">사외공사 관리</span>
+          <span className="worker-text-2">협력체의 장애 신고 접수내용을 확인합니다.</span>
+
+          <div className="worker">
+            <CommonTable headersName={['번호', '업체명', '접수 내용', '공사 주소', '공사예정일', '완료여부']}>
+              {currentWorkerList.map((worker) => (
+                <CommonTableRow key={worker.workerId}>
+                  <CommonTableColumn>{worker.workerId}</CommonTableColumn>
+                  <CommonTableColumn>{worker.companyName}</CommonTableColumn>
+                  <CommonTableColumn>{worker.receiptContent}</CommonTableColumn>
+                  <CommonTableColumn>{worker.externalAddress}</CommonTableColumn>
+                  <CommonTableColumn>{worker.externalStartdate}</CommonTableColumn>
+                  <CommonTableColumn>{worker.externalStatus}</CommonTableColumn>
+                </CommonTableRow>
+              ))}
+            </CommonTable>
           </div>
+
+          <Paging
+            articlesPerPage={workerPerPage}
+            totalArticles={workerList.length}
+            paginate={paginate}
+            currentPage={currentPage}
+          />
         </div>
       </div>
-    );
-  };
-  
+    </div>
+  );
+};
 
 export default Worker;
