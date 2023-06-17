@@ -7,6 +7,9 @@ const Login = () => {
     const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [emailError, setEmailError] = useState('');
+    const [passwordError, setPasswordError] = useState('');
+
 
     useEffect(() => {
         const accessToken = localStorage.getItem('accessToken');
@@ -16,6 +19,20 @@ const Login = () => {
     }, []);
 
     const handleLogin = () => {
+        if (email.trim() === '') {
+            alert('이메일을 입력해주세요.');
+            return;
+        }
+    
+        if (password.trim() === '') {
+            alert('비밀번호를 입력해주세요.');
+            return;
+        }
+    
+        // Clear error messages if fields are not empty
+        setEmailError('');
+        setPasswordError('');
+    
         axios
         .post('http://localhost:8080/auth/login', {
             email: email,
@@ -33,12 +50,6 @@ const Login = () => {
         });
     };
 
-    const handleLogout = () => {
-        localStorage.removeItem('accessToken');
-        alert('로그아웃 되었습니다.');
-        navigate('/');
-    };
-
     const [activeIndex, setActiveIndex]=useState(0);
 
     const tabClickHandler=(index)=>{
@@ -54,24 +65,26 @@ const Login = () => {
                 <div>
                     <div className="group">
                         <div className="div-wrapper">
-                            <input
-                                type="text"
-                                className="text-input"
-                                placeholder="이메일 입력"
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                            />
+                        <input
+    type="text"
+    className="text-input"
+    placeholder="이메일 입력"
+    value={email}
+    onChange={(e) => setEmail(e.target.value)}
+/>
+{emailError && <p className="error-message">{emailError}</p>}
                         </div>
                     </div>
                     <div className="overlap-group-wrapper">
                         <div className="div">
-                            <input
-                                type="password"
-                                className="text-input"
-                                placeholder="비밀번호 입력"
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                            />
+                        <input
+    type="password"
+    className="text-input"
+    placeholder="비밀번호 입력"
+    value={password}
+    onChange={(e) => setPassword(e.target.value)}
+/>
+{passwordError && <p className="error-message">{passwordError}</p>}
                         </div>
                     </div>
                     <img
@@ -170,7 +183,7 @@ const Login = () => {
                     로그인
                 </button>
             </div>
-          <div className='introcomment'>고객 및 사외공사 신고 자동 대응 및 관리 서비스</div>
+          <div className='introcomment'>고객 및 사외공사 신고 자동 대응 관리 서비스</div>
 
         </div>
     );
