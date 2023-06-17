@@ -4,6 +4,7 @@ import "./voc.css"
 import CommonTable from '../components/table/CommonTable';
 import CommonTableColumn from '../components/table/CommonTableColumn';
 import CommonTableRow from '../components/table/CommonTableRow';
+import Paging from './page/paging';
 
 const VOC = () => {
     return (
@@ -101,6 +102,9 @@ const VOC = () => {
                 </CommonTableRow>
               </CommonTable>
             </div>
+
+            <Paging />
+
           </div>
         </div>
       </div>
