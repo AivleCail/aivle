@@ -63,7 +63,7 @@
     height: 50px;
     left: 815px;
     position: absolute;
-    top: 342px;
+    top: 380px;
     width: 496px;
   }
   
@@ -72,10 +72,10 @@
     border-radius: 35px;
     height: 50px;
     position: relative;
-    width: 494px;
+    width: 463px;
     font-family: "Segoe UI-Regular", Helvetica;
     font-size: 17px;
-    padding: 0 40px;
+    padding: 0 50px;
   }
   
   .login .div-wrapper input::placeholder,
@@ -105,7 +105,7 @@
     height: 50px;
     left: 813px;
     position: absolute;
-    top: 443px;
+    top: 470px;
     width: 496px;
   }
   
@@ -131,9 +131,9 @@
   
   .login .group-2 {
     height: 60px;
-    left: 813px;
+    left: 830px;
     position: absolute;
-    top: 569px;
+    top: 578px;
     width: 498px;
   }
   
@@ -169,7 +169,7 @@
     left: 825px;
     object-fit: cover;
     position: absolute;
-    top: 353px;
+    top: 392px;
     width: 26px;
   }
   
@@ -178,7 +178,7 @@
     left: 826px;
     object-fit: cover;
     position: absolute;
-    top: 458px;
+    top: 488px;
     width: 25px;
   }
   
@@ -209,25 +209,78 @@
     font-family: "Segoe UI-Semibold", Helvetica;
     font-size: 15px;
     font-weight: 400;
-    left: 1032px;
+    left: 1049px;
     letter-spacing: 0;
     line-height: normal;
     position: absolute;
     text-decoration: underline;
-    top: 625px;
+    top: 642px;
     width: 180px;
   }
   
   .login .element-2 {
     height: 80px;
-    left: 930px;
+    left: 950px;
     object-fit: cover;
     position: absolute;
     top: 100px;
     width: 270px;
   }
-  
+
+  .login .introcomment {
+    width: 500px;
+    left: 877px;
+    top: 210px;
+    position: absolute;
+    font-size: 20px;
+    font-weight: 550;
+    font-family: "Segoe UI-Semibold", Helvetica;
   }
+
+  }
+
+  .login .tabs ul {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0;
+    /* 위치를 픽셀 단위로 변경 */
+    position: absolute;
+    top: 270px; /* 원하는 위치의 픽셀 값으로 변경 */
+    left: 810px; /* 원하는 위치의 픽셀 값으로 변경 */
+  }
+  
+  
+  .login .tabs ul li {
+    list-style-type: none;
+    cursor: pointer;
+    padding: 10px 80px;
+    font-size: 20px; 
+  }
+  
+  .login .tabs ul li.is-active {
+    background-color: transparent; 
+    font-weight: bold;
+    position: relative; 
+  }
+
+  .login .tabs ul li.is-active::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 80%; /* 가운데 정렬 */
+    height: 3px;
+    background-color: rgb(237, 28, 36);
+    transition: width 0.3s ease-in-out; /* 애니메이션 효과 추가 */
+  }
+  
+  .login .tabs ul li.is-active:hover::after {
+    width: 100%; /* 활성화된 탭에 마우스를 올렸을 때 넓이 증가 */
+  }
+
+
   
   @media (min-width : 1600px) {
     .login {
@@ -237,6 +290,8 @@
       justify-content: center;
       width: 90%;
     }
+    
+    
     
     .login .overlap-wrapper {
       background-color: #ffffff;
@@ -292,7 +347,7 @@
       height: 50px;
       left: 815px;
       position: absolute;
-      top: 342px;
+      top: 380px;
       width: 496px;
     }
     
@@ -301,10 +356,10 @@
       border-radius: 35px;
       height: 50px;
       position: relative;
-      width: 494px;
+      width: 463px;
       font-family: "Segoe UI-Regular", Helvetica;
       font-size: 17px;
-      padding: 0 40px;
+      padding: 0 50px;
     }
     
     .login .div-wrapper input::placeholder,
@@ -334,7 +389,7 @@
       height: 50px;
       left: 813px;
       position: absolute;
-      top: 443px;
+      top: 470px;
       width: 496px;
     }
     
@@ -360,9 +415,9 @@
     
     .login .group-2 {
       height: 60px;
-      left: 813px;
+      left: 830px;
       position: absolute;
-      top: 569px;
+      top: 578px;
       width: 498px;
     }
     
@@ -398,7 +453,7 @@
       left: 825px;
       object-fit: cover;
       position: absolute;
-      top: 353px;
+      top: 392px;
       width: 26px;
     }
     
@@ -407,7 +462,7 @@
       left: 826px;
       object-fit: cover;
       position: absolute;
-      top: 458px;
+      top: 488px;
       width: 25px;
     }
     
@@ -438,21 +493,31 @@
       font-family: "Segoe UI-Semibold", Helvetica;
       font-size: 15px;
       font-weight: 400;
-      left: 1032px;
+      left: 1049px;
       letter-spacing: 0;
       line-height: normal;
       position: absolute;
       text-decoration: underline;
-      top: 625px;
+      top: 642px;
       width: 180px;
     }
     
     .login .element-2 {
       height: 80px;
-      left: 930px;
+      left: 950px;
       object-fit: cover;
       position: absolute;
       top: 100px;
       width: 270px;
     }
+  
+    .login .introcomment {
+      width: 500px;
+      left: 877px;
+      top: 210px;
+      position: absolute;
+      font-size: 20px;
+      font-weight: 550;
+      font-family: "Segoe UI-Semibold", Helvetica;
     }
+  }
