@@ -31,7 +31,7 @@ const VOC = () => {
               Authorization: `Bearer ${accessToken}`,
             },
           });
-          vocListData.unshift(response.data); // Add response.data to the beginning of the array
+          vocListData.unshift(response.data);
           id++;
         } catch (error) {
           vocExists = false;
