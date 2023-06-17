@@ -5,6 +5,8 @@ from mysettings import OPENAI_API_KEY
 import requests
 from datetime import datetime
 import time
+import re
+import datetime
 
 openai.api_key = OPENAI_API_KEY
 
@@ -25,34 +27,40 @@ def ex_result(request):
         for keyword in keywords:
             index = res.find(keyword, start_index)
             if index != -1:
-                sentence = res[start_index:index].strip()
+                sentence = res[start_index:index].strip().replace(",","")
                 sentences.append(sentence)
                 start_index = index + len(keyword)
     
-        last_sentence = res[start_index:].strip()
+        last_sentence = res[start_index:].strip().replace(" ","").replace(",","")
         sentences.append(last_sentence)
         
-        # datetime_string=sentence[4]
-        # datetime_format = "%Y년 %m월 %d일"
+        string=sentences[4]
+        print(string)
+        search_value = "오전"
 
-        # datetime_result = datetime.strptime(datetime_string, datetime_format)
-        # date_string = sentence[4]
-        # date_format = "%Y년 %m월 %d일 %H시"
-
-        # date_obj = datetime.strptime(date_string, date_format)
-        
-        # try:
-        #     date_obj = datetime.strptime(date_string, date_format)
-        #     print("파싱된 날짜 및 시간:", date_obj)
-        # except ValueError:
-        #     print("입력된 날짜 형식이 올바르지 않습니다.")
-
+        if search_value in string:
+            numbers = re.sub(r'[^0-9]', '', string)
+            date_str = str(numbers)
+            if len(date_str)==8 or len(date_str)==9:
+                date = datetime.datetime.strptime(date_str, "%Y%m%d%H")
+                formatted_date = date.strftime("%Y-%m-%d %H:%M")
+            else:
+                date = datetime.datetime.strptime(date_str, "%Y%m%d%H%M")
+                formatted_date = date.strftime("%Y-%m-%d %H:%M")
+            
+        else:    
+            numbers = re.sub(r'[^0-9]', '', string)
+            date_str = str(numbers)
+            date = datetime.datetime.strptime(date_str, "%Y%m%d%H%M")
+            hours_to_add=12
+            afternoon_time=date+datetime.timedelta(hours=hours_to_add)
+            formatted_date = afternoon_time.strftime("%Y-%m-%d %H:%M")
 
         data = {
             "company_name": sentences[1],
             "receipt_content": sentences[2],
             "external_address": sentences[3],
-            "external_startdate": sentences[4]
+            "external_startdate": formatted_date
         }
         
         # rest_api(data)
