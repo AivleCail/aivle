@@ -11,12 +11,13 @@ const ExternalList = () => {
             <span className='title-text'>oo님의 공사 신고 접수 내역</span>
         </div>
         <hr />
-        <Link to={"/externalreceipt"}><button>공사 신고 접수</button></Link>
+        <Link to={"/externalreceipt"}><button className='receipt-button'>공사 신고 접수</button></Link>
         <hr />
         <div className='list-content'>
             <div className='sub-title'>
                 <span className='sub-title'>접수 목록</span>
             </div>
+            <hr />
             <ListContainer numbers={numbers} />
         </div>
     </div>
