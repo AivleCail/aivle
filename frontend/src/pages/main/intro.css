@@ -15,7 +15,7 @@
     top: 30px;
     background: #FFFFFF;
     border-radius: 15px;
-  }
+  } 
 
   .container-2 {
     position: absolute;
@@ -25,6 +25,17 @@
     top: 30px;
     background: #FFFFFF;
     border-radius: 15px;
+
+    .board-2 {
+      position: relative; 
+      margin-top: 90px; 
+    }
+
+    .board-text-2 {
+      font-size: 18px;
+      text-align: center;
+      margin-top: 25px; 
+    }
   }
 
   .container-3 {
@@ -35,6 +46,17 @@
     top: 347px;
     background: #FFFFFF;
     border-radius: 15px;
+    
+    .board-3 {
+      position: relative; 
+      margin-top: 90px; 
+    }
+
+    .board-text-3 {
+      font-size: 18px;
+      text-align: center;
+      margin-top: 25px; 
+    }
   }
 
   .container-4 {
@@ -45,5 +67,16 @@
     top: 347px;
     background: #FFFFFF;
     border-radius: 15px;
+
+    .board-4 {
+      position: relative; 
+      margin-top: 90px; 
+    }
+
+    .board-text-4 {
+      font-size: 18px;
+      text-align: center;
+      margin-top: 25px; 
+    }
   }
 }
