@@ -1,0 +1,32 @@
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+  }
+  
+  .pagination li {
+    display: inline-block;
+    margin: 0 0px;
+    padding: 3px 8px;
+    background-color: #fff;
+    border: 1px solid #E9E9E9;
+    cursor: pointer;
+    font-size: 12px;
+    font-family:'Inter';
+  }
+  
+  .pagination li.active {
+    background-color: #000000;
+    color: #ffffff;
+  }
+  
+  
+  .pagination li.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  .pagination li:hover:not(.active) {
+    background-color: #d8d8d8;
+  }
+
