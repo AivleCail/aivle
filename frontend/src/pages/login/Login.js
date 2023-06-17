@@ -74,11 +74,6 @@ const Login = () => {
                             />
                         </div>
                     </div>
-                    <div className="group-2">
-                      <button className="login-button" onClick={handleLogin}>
-                          로그인
-                          </button>
-                    </div>
                     <img
                         className="icon-user"
                         alt="Element"
@@ -125,11 +120,6 @@ const Login = () => {
                             />
                         </div>
                     </div>
-                    <div className="group-2">
-                      <button className="login-button" onClick={handleLogin}>
-                          로그인
-                        </button>
-                    </div>
                     <img
                         className="icon-user"
                         alt="Element"
@@ -175,6 +165,11 @@ const Login = () => {
               src={process.env.PUBLIC_URL + '/login_logo.png'}
             />
           </Link>
+            <div className="group-2">
+                <button className="login-button" onClick={handleLogin}>
+                    로그인
+                </button>
+            </div>
           <div className='introcomment'>고객 및 사외공사 신고 자동 대응 및 관리 서비스</div>
 
         </div>
