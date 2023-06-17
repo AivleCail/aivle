@@ -1,28 +1,47 @@
 .common-table {
-    width: 95%;
-    margin: 0 auto;
-    text-align: center;
-    border-spacing: 0;
-    
-  }
-  
-  .common-table-header-column {
-    border-top: 2.5px solid #000000;
-    border-bottom: 1px solid #cccccc;
-    font-size: 16px;
-    padding: 15px 5px;
-    font-weight: bold;
-  }
-  
-  .common-table-column {
-    border-bottom: 1px solid #cccccc;
-  }
+  width: 95%;
+  margin: 0 auto;
+  text-align: center;
+  border-spacing: 0;
+  table-layout: fixed;
+}
 
-  .common-table-row:hover {
-    background-color: #eceaea;
-    cursor: pointer;
-  }
-  
-  .common-table-column {
-    padding: 10px 5px;
-  }
+.common-table-header-column {
+  position: sticky;
+  top: 0;
+  background-color: #FFFFFF;
+  border-top: 2.5px solid #000000;
+  border-bottom: 1px solid #CCCCCC;
+  font-size: 16px;
+  padding: 15px 5px;
+  font-weight: bold;
+  z-index: 1;
+}
+
+.common-table-column {
+  border-bottom: 1px solid #CCCCCC;
+  padding: 10px 5px;
+}
+
+.common-table-row:hover {
+  background-color: #ECEAEA;
+  cursor: pointer;
+}
+
+.fixed-column {
+  position: sticky;
+  left: 0;
+  z-index: 2;
+  background-color: #FFFFFF;
+}
+
+.fixed-column .common-table-header-column,
+.fixed-column .common-table-column {
+  position: relative;
+  white-space: nowrap;
+}
+
+.fixed-column .common-table-header-column:first-child,
+.fixed-column .common-table-column:first-child {
+  border-left: 1px solid #CCCCCC;
+}
