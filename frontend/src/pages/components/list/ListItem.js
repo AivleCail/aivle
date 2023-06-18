@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
+import { ChevronDownIcon, ChevronUpIcon } from '../icons/Icons';
+import ListBody from './ListBody';
 import './List.css';
 
 const ListItem = ({ handleComplete, completed, index }) => {
   const [isExpanded, setIsExpanded] = useState(false);
+  const [isToggled, setIsToggled] = useState(false);
 
   const handleClick = () => {
     setIsExpanded((prevState) => !prevState);
+    setIsToggled(!isToggled);
   };
 
   const handleButtonClick = (event) => {
@@ -18,17 +22,14 @@ const ListItem = ({ handleComplete, completed, index }) => {
       <div className='li-content'>
         <div className='li-top'>
           <span>한국가스공사</span>
-          <button onClick={handleButtonClick} disabled={completed} className='external_status'>
-            {completed ? '공사 완료' : '공사중'}
-          </button>
+          <div className='li-buttons'>
+            <button onClick={handleButtonClick} disabled={completed} className='external_status'>
+              {completed ? '공사 완료' : '공사중'}
+            </button>
+            {isToggled ? <ChevronUpIcon /> : <ChevronDownIcon />}
+          </div>
         </div>
-        <div className='li-body'>
-          <span>부산광역시 강서구 명지동 명지오션시티11로 22</span>
-        </div>
-        <div className='li-bottom'>
-          <span>공사 시작 시간: 2023.06.15 13:00</span>
-          <span>공사 종료 시간: 2023.06.15 18:00</span>
-        </div>
+        {isExpanded ? null : <ListBody />}
       </div>
     </li>
   );
