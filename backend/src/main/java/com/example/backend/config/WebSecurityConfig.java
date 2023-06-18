@@ -74,6 +74,8 @@ public class WebSecurityConfig {
                 .and()
                 .authorizeRequests()
                 .requestMatchers("/auth/**").permitAll()
+                .requestMatchers("/worker/**").hasRole("USER")
+                .requestMatchers("/external/**","/voc/**").hasRole("ADMIN")
                 .anyRequest().authenticated()
 
                 .and()
