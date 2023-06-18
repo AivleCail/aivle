@@ -24,3 +24,59 @@ hr {
     background-color: #000000;
     color: #ffffff;
 }
+
+.inform-content {
+    padding: 0 1rem;
+}
+
+.inform-content-item {
+    display: flex;
+    justify-content: center;
+    justify-content: space-around;
+    margin: 1rem;
+}
+
+.cail-inform-img {
+    width: 70px;
+    height: 70px;
+    align-self: flex-end;
+}
+
+.speech-bubble {
+    padding: 1rem;
+    background-color: #D9D9D9;
+    border-radius: 10px;
+    width: 300px;
+}
+
+.form-content {
+    padding: 0 1rem;
+}
+
+.upload-start {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 1rem;
+}
+
+.audio-buttons {
+    font-size: 1rem;
+    width: 150px;
+    height: 40px;
+    background: #D9D9D9;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.audio-buttons:hover {
+    background: #999;
+    color: white;
+}
+
+
+form input,
+form .audio-buttons {
+  align-self: flex-start;
+}

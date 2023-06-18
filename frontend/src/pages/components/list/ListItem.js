@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { ChevronDownIcon, ChevronUpIcon } from '../icons/Icons';
-import ListBody from './ListBody';
+import FoldedListBody from './FoldedListBody';
+import UnfoldedListBody from './UnfoldedListBody';
+
 import './List.css';
 
 const ListItem = ({ handleComplete, completed, index }) => {
@@ -23,13 +25,17 @@ const ListItem = ({ handleComplete, completed, index }) => {
         <div className='li-top'>
           <span>한국가스공사</span>
           <div className='li-buttons'>
-            <button onClick={handleButtonClick} disabled={completed} className='external_status'>
+            <button
+              onClick={handleButtonClick}
+              disabled={completed}
+              className={`external_status ${completed ? 'external-completed' : ''}`}
+            >
               {completed ? '공사 완료' : '공사중'}
             </button>
             {isToggled ? <ChevronUpIcon /> : <ChevronDownIcon />}
           </div>
         </div>
-        {isExpanded ? null : <ListBody />}
+        {isExpanded ? <UnfoldedListBody /> : <FoldedListBody />}
       </div>
     </li>
   );

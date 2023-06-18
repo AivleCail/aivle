@@ -1,11 +1,11 @@
 import React from 'react';
 
-const ListBody = () => {
+const FoldedListBody = () => {
 
     return (
         <div className='li-body'>
             <div className='li-body-address'>
-                <span>부산광역시 강서구 명지동 명지오션시티11로 22</span>
+                <p>부산광역시 강서구 명지동 명지오션시티11로 22</p>
             </div>
             <div className='li-body-date'>
                 <span>공사 시작 시간: 2023.06.15 13:00</span>
@@ -15,4 +15,4 @@ const ListBody = () => {
     )
 }
 
-export default ListBody;
+export default FoldedListBody;
