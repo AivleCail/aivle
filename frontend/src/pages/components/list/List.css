@@ -21,15 +21,20 @@
     height: 200px;
 }
 
-.li-content {
-    text-align: left;
-}
-
 .li-top {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
+
+.li-content {
+    text-align: left;
+}
+
+.li-buttons {
+    display: flex;
+}
+
 
 .external_status {
     width: 70px;
