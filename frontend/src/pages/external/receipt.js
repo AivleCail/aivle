@@ -16,27 +16,22 @@ const handleSubmit = async (event) => {
     event.preventDefault();
 
     if (selectedFile) {
-        const reader = new FileReader();
-        reader.onload = async () => {
-            const base64Data = reader.result.split(',')[1];
-            const externalData = {
-            file: base64Data,
-            };
-            axios.post("http://localhost:8000/external/api", externalData, {
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                withCredentials: true,  
-            })
-            .then((response) => {
-                console.log(response.data);
-            })
-            .catch((error) => {
-                console.error("Error:", error);
-            });
-        };
-        reader.readAsDataURL(selectedFile);
-        }
+        const formData = new FormData();
+        formData.append('file', selectedFile);
+            
+        axios.post("http://localhost:8000/external/api", formData, {
+            headers: {
+                "Content-Type": "multipart/form-data",
+            },
+            withCredentials: true,  
+        })
+        .then((response) => {
+            console.log(response.data);
+        })
+        .catch((error) => {
+            console.error("Error:", error);
+        });
+    };
     };
 
 
@@ -75,7 +70,7 @@ const handleSubmit = async (event) => {
             <div className='form-content'>
                 <form onSubmit={handleSubmit}>
                     <div className='upload-start'>
-                        <input type='file' name='file' accept='.mp3' onChange={handleFileChange}/>
+                        <input type='file' name='file' accept='.mp3, .m4a' onChange={handleFileChange}/>
                         <button type='button' onClick={playAudio} className='audio-buttons'>재생</button>
                     </div>
                     <div>

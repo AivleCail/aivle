@@ -1,25 +1,20 @@
-from django.shortcuts import render
 from django.http import JsonResponse
 import openai
 from mysettings import OPENAI_API_KEY
 import requests
 from datetime import datetime
-import time
 import re
 import datetime
 
 openai.api_key = OPENAI_API_KEY
 
 # Create your views here.
-def ex_index(request):
-    return render(request, 'inde.html')
-
-def ex_result(request):
+def api(request):
     if request.method == "POST" and request.FILES.get("file"):
         file = request.FILES["file"]
         result = openai.Audio.transcribe("whisper-1", file)
         
-        keywords = ["회사이름","공사내용","공사주소","공사날짜","회사 이름","공사 내용","공사 주소","공사 날짜"]  # Example list of keywords
+        keywords = ["회사이름","공사내용","공사주소","공사날짜","회사 이름","공사 내용","공사 주소","공사 날짜"]
         res = result["text"]
         sentences = []
         start_index = 0
@@ -35,7 +30,6 @@ def ex_result(request):
         sentences.append(last_sentence)
         
         string=sentences[4]
-        print(string)
         search_value = "오전"
 
         if search_value in string:
@@ -57,41 +51,31 @@ def ex_result(request):
             formatted_date = afternoon_time.strftime("%Y-%m-%d %H:%M")
 
         data = {
-            "company_name": sentences[1],
-            "receipt_content": sentences[2],
-            "external_address": sentences[3],
-            "external_startdate": formatted_date
+            "companyName": sentences[1],
+            "receiptContent": sentences[2],
+            "externalAddress": sentences[3],
+            "externalStartdate": formatted_date
         }
         
-        # rest_api(data)
+        rest_api(data)
         
-        return JsonResponse(data, safe=False, json_dumps_params={'ensure_ascii': False})
-    
-    else: 
-        return JsonResponse({
-            "result": "업로드 실패"
-        })
-    
-def api(request):
-    if request.method == 'POST':
-        request.POST.get('file')
-    
         response_data = {
             'message': '요청이 성공적으로 처리되었습니다.',
         }
         return JsonResponse(response_data)
+        # return JsonResponse(data, safe=False, json_dumps_params={'ensure_ascii': False})
     
     return JsonResponse({'message': '잘못된 요청입니다.'}, status=400)
     
-# def rest_api(data):
-#     url = 'http://localhost:8080/external/result'
-#     headers = {'Content-Type': 'application/json'}
+def rest_api(data):
+    url = 'http://localhost:8080/worker/result'
+    headers = {'Content-Type': 'application/json'}
     
-#     requests.post(url, json=data, headers=headers)
+    requests.post(url, json=data, headers=headers)
     
-#     # if response.status_code == 200:
-#     #     print('데이터 전송 성공')
-#     # else:
-#     #     print('데이터 전송 실패')
+    # if response.status_code == 200:
+    #     print('데이터 전송 성공')
+    # else:
+    #     print('데이터 전송 실패')
 
-#     return None
+    # return None
