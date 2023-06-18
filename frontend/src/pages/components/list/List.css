@@ -18,7 +18,8 @@
 }
 
 .li.expanded {
-    height: 200px;
+    height: auto;
+    background-color: #F5F5F5;
 }
 
 .li-top {
@@ -45,4 +46,17 @@
     border: none;
     transition: background-color 0.2s;
     cursor: pointer;
+    margin-right: 0.3rem;
+}
+
+.external-completed {
+    background: white;
+    color: rgba(8, 99, 252, 0.5);
+    border: 0.8px solid rgba(8, 99, 252, 0.5);
+}
+
+.external-scheduled {
+    background: white;
+    color: rgba(252, 8, 8, 0.5);;
+    border: 0.8px solid rgba(252, 8, 8, 0.5);;
 }
