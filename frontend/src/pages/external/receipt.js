@@ -22,12 +22,12 @@ const handleSubmit = async (event) => {
             const externalData = {
             file: base64Data,
             };
-
-        axios.post("http://localhost:8000/external/api", externalData, {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        })
+            axios.post("http://localhost:8000/external/api", externalData, {
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                withCredentials: true,  
+            })
             .then((response) => {
                 console.log(response.data);
             })
