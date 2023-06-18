@@ -17,6 +17,7 @@ public class ManagerRequestDto {
     private String email;
     private String password;
     private String name;
+    private String auth;
 
     public Manager toManager(PasswordEncoder passwordEncoder) {
         return Manager.builder()
@@ -24,6 +25,7 @@ public class ManagerRequestDto {
                 .password(passwordEncoder.encode(password))
                 .name(name)
                 .authority(Authority.ROLE_USER)
+                .auth(auth)
                 .build();
     }
 

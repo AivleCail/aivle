@@ -26,7 +26,7 @@ public class CustomManagerDetailsService implements UserDetailsService {
     }
 
     private UserDetails createUserDetails(Manager manager) {
-        GrantedAuthority grantedAuthority = new SimpleGrantedAuthority(manager.getAuthority().toString());
+        GrantedAuthority grantedAuthority = new SimpleGrantedAuthority(manager.getAuth().toString());
 
         return new User(
                 String.valueOf(manager.getId()),
