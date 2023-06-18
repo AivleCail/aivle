@@ -21,25 +21,7 @@ public class ExternalController {
     }
 
 
-    //  공사 시작 정보 받음
-    @PostMapping("/")
-    public ResponseEntity<ExternalResponseDto> createExternal(@RequestBody CreateExternalRequestDto request) {
-        return ResponseEntity.ok(externalService.postExternal(request.getCompanyName(), request.getReceiptContent(),request.getExternalAddress(),request.getExternalStartdate()));
 
-    }
-
-    //  공사 종료 정보
-    @PostMapping("/result")
-    public ResponseEntity<ExternalResponseDto> ChangeExternal(@RequestBody ChangeExternalRequestDto request) {
-        return ResponseEntity.ok(externalService.changeExternal(request.getId(),request.getExternalEnddate()));
-    }
-
-
-    // 공사 정보 하나 보는거
-    @GetMapping("/one")
-    public ResponseEntity<ExternalResponseDto> getOneExternal(@RequestParam(name = "id") Long id) {
-        return ResponseEntity.ok(externalService.oneExternal(id));
-    }
 
 
 }

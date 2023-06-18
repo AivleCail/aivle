@@ -3,6 +3,10 @@ package com.example.backend.external.entity;
 import com.example.backend.manager.entity.Manager;
 import jakarta.persistence.*;
 import lombok.Getter;
+import org.hibernate.annotations.CreationTimestamp;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 @Entity
 @Getter
@@ -23,12 +27,15 @@ public class External {
     @Column(nullable = false, columnDefinition = "TEXT")
     private String externalAddress;
 
+    @CreationTimestamp
+    @Column
+    private LocalDateTime receiptDate;
 
     @Column(nullable = false, columnDefinition = "TEXT")
     private String externalStartdate;
 
 
-    @Column(columnDefinition = "TEXT")
+    @Column
     private String externalEnddate;
 
     @Column
@@ -47,15 +54,23 @@ public class External {
         external.externalAddress = externalAddress;
         external.externalStartdate = externalStartdate;
         external.manager = manager;
-        external.externalStatus = "x";
+        external.externalEnddate = "null";  // 문자컬럼인데 만약에
+        external.externalStatus = "공사 예정";      // external.externalStatus = "공사 예정";
+
 
         return external;
     }
+    public static External startchangeExternal (External external) {
 
-
-    public static External changeExternal (External external,String externalEnddate) {
-        external.externalEnddate = externalEnddate;
-        external.externalStatus = "o";
+        external.externalStatus = "공사 중";
+        return external;
+    }
+    public static External endchangeExternal (External external) {
+        LocalDateTime a = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        String aString = a.format(formatter);
+        external.externalEnddate = aString;
+        external.externalStatus = "공사 종료";
 
         return external;
     }

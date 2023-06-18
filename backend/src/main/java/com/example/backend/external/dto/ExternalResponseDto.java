@@ -6,6 +6,8 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.time.format.DateTimeFormatter;
+
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
@@ -19,6 +21,7 @@ public class ExternalResponseDto {
     private String externalStartdate;
     private String externalEnddate;
     private String externalStatus;
+    private String receiptDate;
     private boolean isWritten;
 
     public static ExternalResponseDto of(External external, boolean bool) {
@@ -30,6 +33,7 @@ public class ExternalResponseDto {
                 .externalStartdate(external.getExternalStartdate())
                 .externalEnddate(external.getExternalEnddate())
                 .externalStatus(external.getExternalStatus())
+                .receiptDate(external.getReceiptDate().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")))
                 .isWritten(bool)
                 .build();
     }
