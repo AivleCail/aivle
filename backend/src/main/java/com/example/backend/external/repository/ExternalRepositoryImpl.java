@@ -30,7 +30,7 @@ public class ExternalRepositoryImpl implements ExternalRepositoryCustom{
 
         List<External> contents = queryFactory
                 .selectFrom(external)
-                .where(external.manager.id.eq(specificMemberId))
+//                .where(external.manager.id.eq(specificMemberId))
                 .orderBy(external.id.desc())
                 .offset(pageable.getOffset())
                 .limit(pageable.getPageSize())
@@ -43,7 +43,7 @@ public class ExternalRepositoryImpl implements ExternalRepositoryCustom{
 
         int totalSize = queryFactory
                 .selectFrom(external)
-                .where(external.manager.id.eq(specificMemberId))
+//                .where(external.manager.id.eq(specificMemberId))
                 .fetch()
                 .size();
 
