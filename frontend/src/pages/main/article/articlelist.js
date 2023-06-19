@@ -79,7 +79,7 @@ const ArticleList = () => {
                       <CommonTableColumn>{article.articleTitle}</CommonTableColumn>
                       <CommonTableColumn>{article.managerName}</CommonTableColumn>
                       <CommonTableColumn>{article.createdAt}</CommonTableColumn>
-                      <CommonTableColumn></CommonTableColumn>
+                      <CommonTableColumn>{article.count}</CommonTableColumn>
                     </CommonTableRow>
                   ))}
                 </CommonTable>
