@@ -128,6 +128,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # CORS & CSRF 공격 보안 설정
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',
+    'http://localhost:8080',
 ]
 
 CORS_ALLOW_CREDENTIALS = True

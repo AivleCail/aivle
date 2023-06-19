@@ -27,6 +27,7 @@ const ExternalReceipt = () => {
     if (confirmResult) {
       const formData = new FormData();
       formData.append('file', selectedFile);
+      formData.append('token',localStorage.getItem('accessToken'));
 
       axios.post("http://localhost:8000/stt/external_api", formData, {
         headers: {

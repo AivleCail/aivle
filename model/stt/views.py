@@ -18,6 +18,7 @@ def voc_api(request):
     if request.method == "POST" and request.FILES.get("file"):
         voc_id = int(request.POST.get("voc_id"))
         file = request.FILES["file"]
+        # token = request.POST.get("token")
         result = openai.Audio.transcribe("whisper-1", file)
 
         stopwords = ['의','가','이','은','들','는','좀','잘','걍','과','도','를','으로','자','에','와','한','하다','하','게','되','어서','때문','니까','어야','랑','야']
@@ -50,7 +51,6 @@ def voc_api(request):
             "voc_status": "O" if score > 0.5 else "X",
             "voc_status_detail": after_sentence
         }
-        
         voc_to_spring(data)
         
         return JsonResponse(data, safe=False, json_dumps_params={'ensure_ascii': False})
@@ -64,8 +64,8 @@ def voc_api(request):
 def external_api(request):
     if request.method == "POST" and request.FILES.get("file"):
         file = request.FILES["file"]
+        token = request.POST.get("token")
         result = openai.Audio.transcribe("whisper-1", file)
-        
         keywords = ["회사이름","공사내용","공사주소","공사날짜","회사 이름","공사 내용","공사 주소","공사 날짜"]
         res = result["text"]
         sentences = []
@@ -108,9 +108,7 @@ def external_api(request):
             "externalAddress": sentences[3],
             "externalStartdate": formatted_date
         }
-        
-        external_to_spring(data)
-        
+        external_to_spring(data,token)
         return JsonResponse(data, safe=False, json_dumps_params={'ensure_ascii': False})
     
     else: 
@@ -120,21 +118,22 @@ def external_api(request):
 
     
 def voc_to_spring(data):
-    url = 'http://localhost:8080/voc/result'
+    url = 'http://localhost:8080/vocResult'
     headers = {'Content-Type': 'application/json'}
     
-    requests.post(url, json=data, headers=headers)
+    response = requests.post(url, json=data, headers=headers)
     
-    # if response.status_code == 200:
-    #     print('데이터 전송 성공')
-    # else:
-    #     print('데이터 전송 실패')
+    if response.status_code == 401:
+        print('데이터 전송 성공')
+    else:
+        print('데이터 전송 실패')
 
     return None
 
-def external_to_spring(data):
+def external_to_spring(data,token):
     url = 'http://localhost:8080/worker/result'
-    headers = {'Content-Type': 'application/json'}
+    headers = {'Content-Type': 'application/json',
+               'Authorization': 'Bearer ' + token}
     
     requests.post(url, json=data, headers=headers)
     

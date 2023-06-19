@@ -28,10 +28,10 @@ public class VocController {
         return ResponseEntity.ok(vocService.oneVoc(id));
     }
 
-    @PostMapping("/result")
-    public ResponseEntity<VocResponseDto> updataVocStatus(@RequestBody VocResultRequestDto requestDto) {
-        return ResponseEntity.ok(vocService.updateVocResult(requestDto.getVoc_id(), requestDto.getVoc_status(), requestDto.getVoc_status_detail()));
-    }
+//    @PostMapping("/result")
+//    public ResponseEntity<VocResponseDto> updataVocStatus(@RequestBody VocResultRequestDto requestDto) {
+//        return ResponseEntity.ok(vocService.updateVocResult(requestDto.getVoc_id(), requestDto.getVoc_status(), requestDto.getVoc_status_detail()));
+//    }
 
 
 }
