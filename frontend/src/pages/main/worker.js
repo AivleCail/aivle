@@ -49,18 +49,14 @@ const Worker = () => {
           <span className="worker-text-2">협력체의 장애 신고 접수내용을 확인합니다.</span>
 
           <div className="worker">
-            <CommonTable
-              headersName={['번호', '업체명', '공사 주소', '공사시작시간', '접수시간','ID', '완료여부']}
-              columnWidths={['5%', '10%', '20%', '12%', '12%', '10%', '5%']}
-            >
+            <CommonTable headersName={['번호', '업체명', '접수 내용', '공사 주소', '공사예정일', '완료여부']}>
               {currentWorkerList.map((worker) => (
                 <CommonTableRow key={worker.externalId}>
                   <CommonTableColumn>{worker.externalId}</CommonTableColumn>
-                  <CommonTableColumn className="left-align">{worker.companyName}</CommonTableColumn>
-                  <CommonTableColumn className="left-align">{worker.externalAddress}</CommonTableColumn>
+                  <CommonTableColumn>{worker.companyName}</CommonTableColumn>
+                  <CommonTableColumn>{worker.receiptContent}</CommonTableColumn>
+                  <CommonTableColumn>{worker.externalAddress}</CommonTableColumn>
                   <CommonTableColumn>{worker.externalStartdate}</CommonTableColumn>
-                  <CommonTableColumn>{worker.receiptDate}</CommonTableColumn>
-                  <CommonTableColumn className="left-align">{worker.managerId}</CommonTableColumn>
                   <CommonTableColumn>{worker.externalStatus}</CommonTableColumn>
                 </CommonTableRow>
               ))}
