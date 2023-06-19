@@ -3,20 +3,20 @@ import { useNavigate } from 'react-router-dom';
 import Header from '../components/header';
 import Sidebar from '../components/sidebar';
 import './intro.css';
-import CommonTable from '../components/table/CommonTable';
-import CommonTableColumn from '../components/table/CommonTableColumn';
-import CommonTableRow from '../components/table/CommonTableRow';
+import IntroTable from '../components/table/introtable/introtable';
+import IntroTableColumn from '../components/table/introtable/introtablecolumn';
+import IntroTableRow from '../components/table/introtable/introtablerow';
 
 const Intro = () => {
   const navigate = useNavigate();
   
-  // useEffect(() => {
-  //   const accessToken = localStorage.getItem('accessToken');
-  //   if (!accessToken) {
-  //     alert('로그인 후 이용가능합니다.');
-  //     navigate('/');
-  //   }
-  // }, [navigate]);
+  useEffect(() => {
+    const accessToken = localStorage.getItem('accessToken');
+    if (!accessToken) {
+      alert('로그인 후 이용가능합니다.');
+      navigate('/');
+    }
+  }, [navigate]);
 
   return (
     <div className="intro-container">
@@ -30,92 +30,95 @@ const Intro = () => {
         <div className="container-2">
           <span className='board-text-2'>공지사항</span>
           <div className="board-2">
-            <CommonTable headersName={['제목', '글쓴이', '작성일']}>
-              <CommonTableRow>
-                <CommonTableColumn>이거 왜 안될까요...?</CommonTableColumn>
-                <CommonTableColumn>KT관리자</CommonTableColumn>
-                <CommonTableColumn>2023.06.18</CommonTableColumn>
-              </CommonTableRow>
-              <CommonTableRow>
-                <CommonTableColumn>잠이 와요...</CommonTableColumn>
-                <CommonTableColumn>KT관리자</CommonTableColumn>
-                <CommonTableColumn>2023.06.18</CommonTableColumn>
-              </CommonTableRow>
-              <CommonTableRow>
-                <CommonTableColumn>여긴 뭐 쓰지</CommonTableColumn>
-                <CommonTableColumn>KT관리자</CommonTableColumn>
-                <CommonTableColumn>2023.06.18</CommonTableColumn>
-              </CommonTableRow>
-              <CommonTableRow className='last-row'>
-                <CommonTableColumn>안녕안녕~~</CommonTableColumn>
-                <CommonTableColumn>KT관리자</CommonTableColumn>
-                <CommonTableColumn>2023.06.18</CommonTableColumn>
-              </CommonTableRow>
-            </CommonTable>
+            <IntroTable headersName={['제목', '글쓴이', '작성일']}
+            columnWidths={['60%','20%','20%']}>
+              <IntroTableRow>
+                <IntroTableColumn className="left-align">이거 왜 안될까요...?</IntroTableColumn>
+                <IntroTableColumn>KT관리자</IntroTableColumn>
+                <IntroTableColumn>2023.06.18</IntroTableColumn>
+              </IntroTableRow>
+              <IntroTableRow>
+                <IntroTableColumn className="left-align">잠이 와요...</IntroTableColumn>
+                <IntroTableColumn>KT관리자</IntroTableColumn>
+                <IntroTableColumn>2023.06.18</IntroTableColumn>
+              </IntroTableRow>
+              <IntroTableRow>
+                <IntroTableColumn className="left-align">여긴 뭐 쓰지</IntroTableColumn>
+                <IntroTableColumn>KT관리자</IntroTableColumn>
+                <IntroTableColumn>2023.06.18</IntroTableColumn>
+              </IntroTableRow>
+              <IntroTableRow>
+                <IntroTableColumn className="left-align">안녕안녕~~</IntroTableColumn>
+                <IntroTableColumn>KT관리자</IntroTableColumn>
+                <IntroTableColumn>2023.06.18</IntroTableColumn>
+              </IntroTableRow>
+            </IntroTable>
           </div>          
         </div>
 
         <div className="container-3">
           <span className='board-text-3'>오늘의 VOC</span>
           <div className="board-3">
-            <CommonTable headersName={['고객명', '지역', '장애유형', '조치여부']}>
-              <CommonTableRow>
-                <CommonTableColumn>김OO</CommonTableColumn>
-                <CommonTableColumn>남구</CommonTableColumn>
-                <CommonTableColumn>인터넷 고장</CommonTableColumn>
-                <CommonTableColumn className='status'>O</CommonTableColumn>
-              </CommonTableRow>
-              <CommonTableRow>
-                <CommonTableColumn>박OO</CommonTableColumn>
-                <CommonTableColumn>해운대구</CommonTableColumn>
-                <CommonTableColumn>인터넷 고장</CommonTableColumn>
-                <CommonTableColumn className='status'>X</CommonTableColumn>
-              </CommonTableRow>
-              <CommonTableRow>
-                <CommonTableColumn>이OO</CommonTableColumn>
-                <CommonTableColumn>금정구</CommonTableColumn>
-                <CommonTableColumn>인터넷 고장</CommonTableColumn>
-                <CommonTableColumn className='status'>X</CommonTableColumn>
-              </CommonTableRow>
-              <CommonTableRow className='last-row'>
-                <CommonTableColumn>최OO</CommonTableColumn>
-                <CommonTableColumn>사하구</CommonTableColumn>
-                <CommonTableColumn>인터넷 고장</CommonTableColumn>
-                <CommonTableColumn className='status'>X</CommonTableColumn>
-              </CommonTableRow>
-            </CommonTable>
+            <IntroTable headersName={['고객명', '지역', '장애유형', '조치여부']}
+            columnWidths={['10%','','23%','12%']}>
+              <IntroTableRow>
+                <IntroTableColumn>김OO</IntroTableColumn>
+                <IntroTableColumn>남구 OO동</IntroTableColumn>
+                <IntroTableColumn>인터넷</IntroTableColumn>
+                <IntroTableColumn className='status'>O</IntroTableColumn>
+              </IntroTableRow>
+              <IntroTableRow>
+                <IntroTableColumn>박OO</IntroTableColumn>
+                <IntroTableColumn>해운대구 OO동</IntroTableColumn>
+                <IntroTableColumn>인터넷</IntroTableColumn>
+                <IntroTableColumn className='status'>X</IntroTableColumn>
+              </IntroTableRow>
+              <IntroTableRow>
+                <IntroTableColumn>이OO</IntroTableColumn>
+                <IntroTableColumn>금정구 OO동</IntroTableColumn>
+                <IntroTableColumn>인터넷</IntroTableColumn>
+                <IntroTableColumn className='status'>X</IntroTableColumn>
+              </IntroTableRow>
+              <IntroTableRow className='last-row'>
+                <IntroTableColumn>최OO</IntroTableColumn>
+                <IntroTableColumn>사하구 OO동</IntroTableColumn>
+                <IntroTableColumn>인터넷</IntroTableColumn>
+                <IntroTableColumn className='status'>X</IntroTableColumn>
+              </IntroTableRow>
+            </IntroTable>
           </div>
         </div>
 
         <div className="container-4">
-          <span className='board-text-4'>금일 공사 형황</span>
+          <span className='board-text-4'>금일 공사 현황</span>
           <div className="board-4">
-            <CommonTable headersName={['업체명', '접수 내용', '공사일시', '완료여부']}>
-              <CommonTableRow>
-                <CommonTableColumn>A업체</CommonTableColumn>
-                <CommonTableColumn>OOOO</CommonTableColumn>
-                <CommonTableColumn>2023.06.18 02:12</CommonTableColumn>
-                <CommonTableColumn className='status'>O</CommonTableColumn>
-              </CommonTableRow>
-              <CommonTableRow>
-                <CommonTableColumn>B업체</CommonTableColumn>
-                <CommonTableColumn>OOOO</CommonTableColumn>
-                <CommonTableColumn>2023.06.18 02:12</CommonTableColumn>
-                <CommonTableColumn className='status'>X</CommonTableColumn>
-              </CommonTableRow>
-              <CommonTableRow>
-                <CommonTableColumn>C업체</CommonTableColumn>
-                <CommonTableColumn>OOOO</CommonTableColumn>
-                <CommonTableColumn>2023.06.18 02:15</CommonTableColumn>
-                <CommonTableColumn className='status'>X</CommonTableColumn>
-              </CommonTableRow>
-              <CommonTableRow className='last-row'>
-                <CommonTableColumn>E업체</CommonTableColumn>
-                <CommonTableColumn>OOOO</CommonTableColumn>
-                <CommonTableColumn>2023.06.18 02:15</CommonTableColumn>
-                <CommonTableColumn className='status'>O</CommonTableColumn>
-              </CommonTableRow>
-            </CommonTable>
+            <IntroTable headersName={['업체명', '접수 내용', '공사일시', '완료여부']}
+            columnWidths={['20%','','21%','12%']}>
+              <IntroTableRow>
+                <IntroTableColumn>A업체</IntroTableColumn>
+                <IntroTableColumn>OOOO</IntroTableColumn>
+                <IntroTableColumn>2023.06.18 02:12</IntroTableColumn>
+                <IntroTableColumn className='status'>O</IntroTableColumn>
+              </IntroTableRow>
+              <IntroTableRow>
+                <IntroTableColumn>B업체</IntroTableColumn>
+                <IntroTableColumn>OOOO</IntroTableColumn>
+                <IntroTableColumn>2023.06.18 02:12</IntroTableColumn>
+                <IntroTableColumn className='status'>X</IntroTableColumn>
+              </IntroTableRow>
+              <IntroTableRow>
+                <IntroTableColumn>C업체</IntroTableColumn>
+                <IntroTableColumn>OOOO</IntroTableColumn>
+                <IntroTableColumn>2023.06.18 02:15</IntroTableColumn>
+                <IntroTableColumn className='status'>X</IntroTableColumn>
+              </IntroTableRow>
+              <IntroTableRow className='last-row'>
+                <IntroTableColumn>E업체</IntroTableColumn>
+                <IntroTableColumn>OOOO</IntroTableColumn>
+                <IntroTableColumn>2023.06.18 02:15</IntroTableColumn>
+                <IntroTableColumn className='status'>O</IntroTableColumn>
+              </IntroTableRow>
+            </IntroTable>
           </div>
         </div>
 
