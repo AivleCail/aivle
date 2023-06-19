@@ -44,7 +44,7 @@ const VOC = () => {
     }
   };
 
- 
+
   const indexOfLastVoc = currentPage * vocPerPage;
   const indexOfFirstVoc = indexOfLastVoc - vocPerPage;
   const currentVocList = vocList.slice(indexOfFirstVoc, indexOfLastVoc);
@@ -52,7 +52,7 @@ const VOC = () => {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   const handleRefresh = () => {
-    fetchVocList(); 
+    fetchVocList();
   };
 
   const [checkItems, setCheckItems] = useState([]);
@@ -66,15 +66,13 @@ const VOC = () => {
   };
 
   const handleAllCheck = (checked) => {
-    if(checked) {
-      const idArray = [];
-      VOC.forEach((el) => idArray.push(el.id));
+    if (checked) {
+      const idArray = vocList.map((voc) => voc.vocId);
       setCheckItems(idArray);
-    }
-    else {
+    } else {
       setCheckItems([]);
     }
-  }
+  };
 
   return (
     <div className="voc-container">
@@ -91,35 +89,32 @@ const VOC = () => {
           </button>
 
           <div className="board">
-            <CommonTable headersName={[
-              <tr>
-                <th className='checkhead'>
-                  <div className="checkbox-container">
-                    <input 
-                      type='checkbox' 
-                      name='select-all'
-                      onChange={(e) => handleAllCheck(e.target.checked)}
-                      checked={checkItems.length === VOC.length ? true : false} 
-                    />
-                  </div>
-                </th>
-              </tr>
-              ,'번호', '고객명', '지역', '전화번호', '장애유형', '접수 일시', '조치여부']}>
+            <CommonTable
+              headersName={[
+                <input
+                  type='checkbox'
+                  name='select-all'
+                  onChange={(e) => handleAllCheck(e.target.checked)}
+                  checked={checkItems.length === vocList.length && vocList.length > 0}
+                />
+                , '번호', '고객명', '지역', '전화번호', '장애유형', '접수 일시', '조치여부']}
+              columnWidths={['3%', '5%', '8%', '20%', '15%', '10%', '15%', '5%']} // 컬럼 너비 설정
+            >
               {currentVocList.map((voc) => (
                 <CommonTableRow key={voc.vocId}>
-                  <CommonTableColumn>
+                  <CommonTableColumn> {/* 텍스트 위치 조정 */}
                     <div className="checkbox-container">
-                      <input 
-                        type='checkbox' 
+                      <input
+                        type='checkbox'
                         name={`select-${voc.vocId}`}
                         onChange={(e) => handleSingleCheck(e.target.checked, voc.vocId)}
-                        checked={checkItems.includes(voc.vocId) ? true : false} 
+                        checked={checkItems.includes(voc.vocId) ? true : false}
                       />
                     </div>
                   </CommonTableColumn>
                   <CommonTableColumn>{voc.vocId}</CommonTableColumn>
                   <CommonTableColumn>{voc.customerName}</CommonTableColumn>
-                  <CommonTableColumn>{voc.customerAddress}</CommonTableColumn>
+                  <CommonTableColumn className="left-align">{voc.customerAddress}</CommonTableColumn>
                   <CommonTableColumn>{voc.customerPhone}</CommonTableColumn>
                   <CommonTableColumn>{voc.type}</CommonTableColumn>
                   <CommonTableColumn>{voc.receptionDate}</CommonTableColumn>
@@ -129,14 +124,12 @@ const VOC = () => {
             </CommonTable>
           </div>
 
-
-
           <Paging
             articlesPerPage={vocPerPage}
             totalArticles={vocList.length}
             paginate={paginate}
           />
-          
+
         </div>
       </div>
     </div>
