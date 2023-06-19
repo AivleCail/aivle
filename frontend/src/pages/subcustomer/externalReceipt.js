@@ -8,6 +8,7 @@ import FormContent from '../components/receipt/FormContent';
 
 const ExternalReceipt = () => {
   const [selectedFile, setSelectedFile] = useState(null);
+  const vocIdForm = false;
 
   const handleFileChange = (event) => {
     setSelectedFile(event.target.files[0]);
@@ -27,7 +28,7 @@ const ExternalReceipt = () => {
       const formData = new FormData();
       formData.append('file', selectedFile);
 
-      axios.post("http://localhost:8000/external/api", formData, {
+      axios.post("http://localhost:8000/stt/external_api", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
@@ -65,6 +66,7 @@ const ExternalReceipt = () => {
       />
       <hr />
       <FormContent
+        vocIdForm={vocIdForm}
         selectedFile={selectedFile}
         handleFileChange={handleFileChange}
         handleSubmit={handleSubmit}

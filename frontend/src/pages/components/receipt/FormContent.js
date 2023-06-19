@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 
-const FormContent = ({ selectedFile, handleFileChange, handleSubmit }) => {
+const FormContent = ({ vocIdForm, selectedFile, handleFileChange, handleSubmit, vocId, setVocId }) => {
   const audioRef = useRef(null);
 
   const handlePlayAudio = () => {
@@ -10,9 +10,14 @@ const FormContent = ({ selectedFile, handleFileChange, handleSubmit }) => {
     }
   };
 
+  const handleVocIdChange = (event) => {
+    setVocId(event.target.value);
+  };
+
   return (
     <div className='form-content'>
       <form onSubmit={handleSubmit}>
+        { vocIdForm ? <div className='vocId-input'><label htmlFor='voc_id'>VoC Number를 입력해주세요: </label><input type='number' name='voc_id' value={vocId} onChange={handleVocIdChange}></input></div> : null}
         <div className='upload-start'>
           <input type='file' name='file' accept='.mp3, .m4a' onChange={handleFileChange} />
           <div className='audio-start'>

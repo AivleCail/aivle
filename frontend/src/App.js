@@ -7,14 +7,10 @@ import VOC from './pages/main/voc';
 import Worker from './pages/main/worker'
 import Article from './pages/main/article/articlelist'
 import CreateArticle from './pages/main/article/createarticle'
-import ExternalList from './pages/external/list'
-import ExternalReceipt from './pages/external/externalReceipt'
-import VocReceipt from './pages/external/vocReceipt'
+import ExternalList from './pages/subcustomer/list'
+import ExternalReceipt from './pages/subcustomer/externalReceipt'
+import VocReceipt from './pages/subcustomer/vocReceipt'
 import './App.css'
-/* import Intro from './pages/main/intro';
-import VOC from './pages/main/voc';
-import Notice from './pages/main/notice';*/
-
 
 function App() {
   return (
