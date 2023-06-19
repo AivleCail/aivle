@@ -7,11 +7,14 @@ import CommonTable from '../../components/table/CommonTable';
 import CommonTableColumn from '../../components/table/CommonTableColumn';
 import CommonTableRow from '../../components/table/CommonTableRow';
 import Paging from '../page/paging';
+import ArticleDetailModal from './articledetail';
 
 const ArticleList = () => {
   const [articles, setArticles] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [articlesPerPage] = useState(8);
+  const [isOpenModal, setIsOpenModal] = useState(false);
+  const [selectedArticle, setSelectedArticle] = useState(null);
 
   useEffect(() => {
     fetchArticles();
@@ -52,6 +55,28 @@ const ArticleList = () => {
     }
   };
 
+  // Modal Open
+  const openModal = async (article) => {
+    try {
+      const accessToken = localStorage.getItem('accessToken');
+      const response = await axios.get(`http://localhost:8080/article/one?id=${article.articleId}`, {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      });
+      const detailedArticle = response.data;
+      setSelectedArticle(detailedArticle);
+      setIsOpenModal(true);
+    } catch (error) {
+      console.error('Error fetching article details:', error);
+    }
+  };
+  // Model Close
+  const closeModal = () => {
+    setSelectedArticle(null);
+    setIsOpenModal(false);
+  };
+
   // Pagination
   const indexOfLastArticle = currentPage * articlesPerPage;
   const indexOfFirstArticle = indexOfLastArticle - articlesPerPage;
@@ -70,22 +95,17 @@ const ArticleList = () => {
           <span className="article-text-2">공지사항을 빠르고 정확하게 안내해드립니다.</span>
 
           <div className="article">
-            <div className="article-table-container">
-              <div className="article-table-scroll">
-                <CommonTable headersName={['번호', '제목', '글쓴이', '작성일시', '조회수']}
-                columnWidths={['4%','', '15%', '20%', '8%']}>
-                  {currentArticles.map((article) => (
-                    <CommonTableRow key={article.articleId}>
-                      <CommonTableColumn className="left-align">{article.articleId}</CommonTableColumn>
-                      <CommonTableColumn>{article.articleTitle}</CommonTableColumn>
-                      <CommonTableColumn>{article.managerName}</CommonTableColumn>
-                      <CommonTableColumn>{article.createdAt}</CommonTableColumn>
-                      <CommonTableColumn>{article.count}</CommonTableColumn>
-                    </CommonTableRow>
-                  ))}
-                </CommonTable>
-              </div>
-            </div>
+            <CommonTable headersName={['번호', '제목', '글쓴이', '작성일시', '조회']}>
+              {currentArticles.map((article) => (
+                <CommonTableRow key={article.articleId}>
+                  <CommonTableColumn>{article.articleId}</CommonTableColumn>
+                  <CommonTableColumn>{article.articleTitle}</CommonTableColumn>
+                  <CommonTableColumn>{article.managerName}</CommonTableColumn>
+                  <CommonTableColumn>{article.createdAt}</CommonTableColumn>
+                  <CommonTableColumn></CommonTableColumn>
+                </CommonTableRow>
+              ))}
+            </CommonTable>
           </div>
           <Paging
             articlesPerPage={articlesPerPage}
