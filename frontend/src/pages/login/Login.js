@@ -50,11 +50,12 @@ useEffect(() => {
       });
     const accessToken = response.data.accessToken;
     console.log('Access token:', accessToken);
+    localStorage.setItem('accessToken', accessToken);
     if (role === 'ROLE_USER') {
-        navigate('/myexternal'); 
+        navigate('/myexternal');
       } else {
-        navigate('/intro'); 
-      }
+        navigate('/intro');
+      } 
     })
   .catch((error) => {
     console.error('Login error:', error);
