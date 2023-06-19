@@ -23,8 +23,15 @@ public class ArticleService {
     private final ArticleRepository articleRepository;
     private final ManagerRespository managerRespository;
 
+    @Transactional
     public ArticleResponseDto oneArticle(Long id) {
         Article article = articleRepository.findById(id).orElseThrow(() -> new RuntimeException("글이 없습니다."));
+
+        // 조회수 증가 로직
+        int cnt = article.getCount();
+        article.setCount(cnt + 1);
+        articleRepository.save(article);
+
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (authentication == null || authentication.getPrincipal() == "anonymousUser") {
             return ArticleResponseDto.of(article, false);

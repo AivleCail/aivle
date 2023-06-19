@@ -3,6 +3,8 @@ package com.example.backend.article.entity;
 import com.example.backend.manager.entity.Manager;
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.Setter;
+import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -12,6 +14,7 @@ import java.util.List;
 
 @Entity
 @Getter
+@Setter
 public class Article {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,6 +29,10 @@ public class Article {
 
     @Column(name = "article_category")
     private String category;
+
+    @Column(name = "count")
+    @ColumnDefault("0")
+    private int count;
 
     @CreationTimestamp
     @Column
