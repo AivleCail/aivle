@@ -20,7 +20,11 @@ public class ExternalController {
         return ResponseEntity.ok(externalService.pageExternal(page));
     }
 
-
+    // 매니저가 공사 정보 하나 보는거
+    @GetMapping("/one")
+    public ResponseEntity<ExternalResponseDto> getOneExternal(@RequestParam(name = "id") Long id) {
+        return ResponseEntity.ok(externalService.oneExternal(id));
+    }
 
 
 
