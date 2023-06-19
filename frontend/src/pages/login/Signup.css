@@ -12,7 +12,7 @@
     width: 1420px;
 }
 .signup-button {
-    margin-top: -30px;
+    margin-top: -20px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -23,7 +23,7 @@
     border-radius: 5px;
     border: none;
     cursor: pointer;
-    width: 575px;
+    width: 565px;
     height: 65px;
     left: 805px;
     top: 732px;
@@ -46,14 +46,14 @@
     height: 800px;
     left: 0;
     position: absolute;
-    top: 0;
+    top: 0px;
     width: 1311px;
 }
 .signup .overlap-group-wrapper-1 {
-    height: 50px;
+    height: 45px;
     left: 813px;
     position: absolute;
-    top: 320px;
+    top: 340px;
 }
 .signup .overlap-group-wrapper-2 {
     height: 50px;
@@ -64,12 +64,6 @@
 .signup .overlap-group-wrapper-3 {
     height: 50px;
     left: 813px;
-    position: absolute;
-    top: 580px;
-}
-.signup .overlap-group-wrapper-4 {
-    height: 50px;
-    left: 1125px;
     position: absolute;
     top: 580px;
 }
@@ -88,30 +82,33 @@
     width: 498px;
 }
 .signup .div-wrapper input, .signup .div input {
-    margin-top: -30px;
+    top : -0px;
     border-radius: 0px;
-    height: 50px;
+    height: 45px;
     position: relative;
-    width: 494px;
+    width: 520px;
     font-family: "Segoe UI-Regular", Helvetica;
     font-size: 17px;
-    padding: 0 40px;
+    padding: 0 20px;
     border: 2px solid #B7B7B7;
 }
 .signup .div-wrapper input::placeholder, .signup .div input::placeholder {
     color: #9b9b9b;
 }
 .signup .div-1 input {
-    margin-top: -30px;
     border-radius: 0px;
-    height: 50px;
+    height: 45px;
     position: relative;
-    width: 494px;
+    width: 520px;
     font-family: "Segoe UI-Regular", Helvetica;
     font-size: 17px;
-    padding: 0 40px;
+    padding: 0 20px;
     border: 2px solid #B7B7B7;
+    top : -20px;
 }
+
+
+  
 .signup .img {
     height: 800px;
     left: 0;
@@ -128,35 +125,90 @@
     font-size: 40px;
     font-weight: 800;
 }
-.signup .signup-text-1 {
+.signup .signup-text-0 {
     font-family: "Segoe UI-Semibold", Helvetica;
     left: 815px;
     position: absolute;
     top: 130px;
-    font-size: 22px;
+    font-size: 20px;
+    font-weight: 600;
+}
+.signup .signup-text-1 {
+    font-family: "Segoe UI-Semibold", Helvetica;
+    left: 815px;
+    position: absolute;
+    top: 230px;
+    font-size: 20px;
     font-weight: 600;
 }
 .signup .signup-text-2 {
     font-family: "Segoe UI-Semibold", Helvetica;
     left: 815px;
     position: absolute;
-    top: 260px;
-    font-size: 22px;
+    top: 340px;
+    font-size: 20px;
     font-weight: 600;
 }
 .signup .signup-text-3 {
     font-family: "Segoe UI-Semibold", Helvetica;
     left: 815px;
     position: absolute;
-    top: 390px;
-    font-size: 22px;
+    top: 450px;
+    font-size: 20px;
     font-weight: 600;
 }
 .signup .signup-text-4 {
     font-family: "Segoe UI-Semibold", Helvetica;
     left: 815px;
     position: absolute;
-    top: 520px;
-    font-size: 22px;
+    top: 560px;
+    font-size: 20px;
     font-weight: 600;
 }
+
+
+.signup-user-type {
+    position: relative;
+    top: 150px;
+    left: 815px;
+  }
+  
+  .user-type-button {
+    background-color: #ccc;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    width : 280px;
+    height : 50px;
+  }
+  
+  .selected {
+    background-color: #333;
+  }
+
+  
+.signup .div-wrapper input,
+.signup .div input,
+.signup .div-1 input {
+
+  margin-top: 40px;
+}
+
+.input-wrapper {
+    position: relative;
+  }
+  
+  .input-wrapper .text-input {
+    top : 80px;
+    border-radius: 0px;
+    height: 45px;
+    position: relative;
+    width: 520px;
+    font-family: "Segoe UI-Regular", Helvetica;
+    font-size: 17px;
+    padding: 0 20px;
+    border: 2px solid #B7B7B7;
+  }
+  
+  
