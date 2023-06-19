@@ -55,6 +55,27 @@ const VOC = () => {
     fetchVocList(); 
   };
 
+  const [checkItems, setCheckItems] = useState([]);
+
+  const handleSingleCheck = (checked, id) => {
+    if (checked) {
+      setCheckItems(prev => [...prev, id]);
+    } else {
+      setCheckItems(checkItems.filter((el) => el !== id));
+    }
+  };
+
+  const handleAllCheck = (checked) => {
+    if(checked) {
+      const idArray = [];
+      VOC.forEach((el) => idArray.push(el.id));
+      setCheckItems(idArray);
+    }
+    else {
+      setCheckItems([]);
+    }
+  }
+
   return (
     <div className="voc-container">
       <Header />
@@ -64,14 +85,38 @@ const VOC = () => {
         <div className="container">
           <span className="voc-text-1">VOC 내역</span>
           <span className="voc-text-2">고객들의 장애 조치 여부를 확인합니다.</span>
+          <button className="send-button">발송</button>
           <button className="refresh-button" onClick={handleRefresh}>
             <img className="voc-img" alt="Element" src={process.env.PUBLIC_URL + "/refresh-arrow.png"} />
           </button>
 
           <div className="board">
-            <CommonTable headersName={['번호', '고객명', '지역', '전화번호', '장애유형', '접수 일시', '조치여부']}>
+            <CommonTable headersName={[
+              <tr>
+                <th className='checkhead'>
+                  <div className="checkbox-container">
+                    <input 
+                      type='checkbox' 
+                      name='select-all'
+                      onChange={(e) => handleAllCheck(e.target.checked)}
+                      checked={checkItems.length === VOC.length ? true : false} 
+                    />
+                  </div>
+                </th>
+              </tr>
+              ,'번호', '고객명', '지역', '전화번호', '장애유형', '접수 일시', '조치여부']}>
               {currentVocList.map((voc) => (
                 <CommonTableRow key={voc.vocId}>
+                  <CommonTableColumn>
+                    <div className="checkbox-container">
+                      <input 
+                        type='checkbox' 
+                        name={`select-${voc.vocId}`}
+                        onChange={(e) => handleSingleCheck(e.target.checked, voc.vocId)}
+                        checked={checkItems.includes(voc.vocId) ? true : false} 
+                      />
+                    </div>
+                  </CommonTableColumn>
                   <CommonTableColumn>{voc.vocId}</CommonTableColumn>
                   <CommonTableColumn>{voc.customerName}</CommonTableColumn>
                   <CommonTableColumn>{voc.customerAddress}</CommonTableColumn>
@@ -91,6 +136,7 @@ const VOC = () => {
             totalArticles={vocList.length}
             paginate={paginate}
           />
+          
         </div>
       </div>
     </div>
