@@ -50,9 +50,12 @@ useEffect(() => {
       });
     const accessToken = response.data.accessToken;
     console.log('Access token:', accessToken);
-    localStorage.setItem('accessToken', accessToken);
-    navigate('/intro');
-  })
+    if (role === 'ROLE_USER') {
+        navigate('/myexternal'); 
+      } else {
+        navigate('/intro'); 
+      }
+    })
   .catch((error) => {
     console.error('Login error:', error);
     alert('이메일 또는 비밀번호가 일치하지 않습니다.');
