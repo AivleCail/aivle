@@ -8,7 +8,8 @@ import Worker from './pages/main/worker'
 import Article from './pages/main/article/articlelist'
 import CreateArticle from './pages/main/article/createarticle'
 import ExternalList from './pages/external/list'
-import ExternalReceipt from './pages/external/receipt'
+import ExternalReceipt from './pages/external/externalReceipt'
+import VocReceipt from './pages/external/vocReceipt'
 import './App.css'
 /* import Intro from './pages/main/intro';
 import VOC from './pages/main/voc';
@@ -28,6 +29,7 @@ function App() {
           <Route path="/createarticle" element={<CreateArticle />} />
           <Route path="/myexternal" element={<ExternalList />} />
           <Route path="/externalreceipt" element={<ExternalReceipt />} />
+          <Route path="/vocreceipt" element={<VocReceipt />} />
       </Routes>
     </div>
   );

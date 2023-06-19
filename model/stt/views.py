@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse, HttpResponseBadRequest
 import openai
 from mysettings import OPENAI_API_KEY
 import os
@@ -76,3 +76,13 @@ def rest_api(data):
     #     print('데이터 전송 실패')
 
     return None
+
+
+def api(request):
+    if request.method == "POST" and request.FILES.get("file"):
+        response = request.FILES["file"]
+        print(response)
+
+        return HttpResponse("File received successfully.")
+    else:
+        return HttpResponseBadRequest("Bad Request")
