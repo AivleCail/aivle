@@ -20,11 +20,13 @@ const Worker = () => {
   const fetchWorkerList = async () => {
     try {
       const accessToken = localStorage.getItem('accessToken');
-      const workerListData = await axios.get('http://localhost:8080/external/one?id=${id}', {
+      const page = currentPage - 1;
+      const response = await axios.get(`http://localhost:8080/external/page?page=${page}`, {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },
       });
+      const workerListData = response.data.content;
       setWorkerList(workerListData);
     } catch (error) {
       console.error('Error fetching worker list:', error);
@@ -49,8 +51,8 @@ const Worker = () => {
           <div className="worker">
             <CommonTable headersName={['번호', '업체명', '접수 내용', '공사 주소', '공사예정일', '완료여부']}>
               {currentWorkerList.map((worker) => (
-                <CommonTableRow key={worker.workerId}>
-                  <CommonTableColumn>{worker.workerId}</CommonTableColumn>
+                <CommonTableRow key={worker.externalId}>
+                  <CommonTableColumn>{worker.externalId}</CommonTableColumn>
                   <CommonTableColumn>{worker.companyName}</CommonTableColumn>
                   <CommonTableColumn>{worker.receiptContent}</CommonTableColumn>
                   <CommonTableColumn>{worker.externalAddress}</CommonTableColumn>
