@@ -152,7 +152,7 @@ const VOC = () => {
                   </CommonTableColumn>
                   <CommonTableColumn>{voc.vocId}</CommonTableColumn>
                   <CommonTableColumn>{voc.customerName}</CommonTableColumn>
-                  <CommonTableColumn>{voc.customerAddress}</CommonTableColumn>
+                  <CommonTableColumn className="left-align">{voc.customerAddress}</CommonTableColumn>
                   <CommonTableColumn>{voc.customerPhone}</CommonTableColumn>
                   <CommonTableColumn>{voc.type}</CommonTableColumn>
                   <CommonTableColumn>{voc.receptionDate}</CommonTableColumn>
