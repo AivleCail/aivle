@@ -29,6 +29,7 @@ const VocReceipt = () => {
       const formData = new FormData();
       formData.append('file', selectedFile);
       formData.append('voc_id', vocId);
+      formData.append('token',localStorage.getItem('accessToken'));
 
       axios.post("http://localhost:8000/stt/voc_api", formData, {
         headers: {

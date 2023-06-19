@@ -29,6 +29,7 @@ public class WorkerExternalController {
     //  공사 시작 정보 받음
     @PostMapping("/result")
     public ResponseEntity<ExternalResponseDto> createExternal(@RequestBody CreateExternalRequestDto request) {
+        System.out.println("이거실행");
         return ResponseEntity.ok(externalService.postExternal(request.getCompanyName(), request.getReceiptContent(),request.getExternalAddress(),request.getExternalStartdate()));
     }
 
