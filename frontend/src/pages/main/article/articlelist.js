@@ -95,17 +95,21 @@ const ArticleList = () => {
           <span className="article-text-2">공지사항을 빠르고 정확하게 안내해드립니다.</span>
 
           <div className="article">
-            <CommonTable headersName={['번호', '제목', '글쓴이', '작성일시', '조회']}>
-              {currentArticles.map((article) => (
-                <CommonTableRow key={article.articleId} onClick={() => openModal(article)}>
-                  <CommonTableColumn>{article.articleId}</CommonTableColumn>
-                  <CommonTableColumn>{article.articleTitle}</CommonTableColumn>
-                  <CommonTableColumn>{article.managerName}</CommonTableColumn>
-                  <CommonTableColumn>{article.createdAt}</CommonTableColumn>
-                  <CommonTableColumn></CommonTableColumn>
-                </CommonTableRow>
-              ))}
-            </CommonTable>
+            <div className="article-table-container">
+              <div className="article-table-scroll">
+                <CommonTable headersName={['번호', '제목', '글쓴이', '작성일시', '조회']} columnWidths={['4%','', '15%', '20%', '8%']}>
+                  {currentArticles.map((article) => (
+                    <CommonTableRow key={article.articleId} onClick={() => openModal(article)}>
+                      <CommonTableColumn>{article.articleId}</CommonTableColumn>
+                      <CommonTableColumn>{article.articleTitle}</CommonTableColumn>
+                      <CommonTableColumn>{article.managerName}</CommonTableColumn>
+                      <CommonTableColumn>{article.createdAt}</CommonTableColumn>
+                      <CommonTableColumn></CommonTableColumn>
+                    </CommonTableRow>
+                  ))}
+                </CommonTable>
+              </div>
+            </div>
           </div>
 
           {/* ArticleDetailModal */}
