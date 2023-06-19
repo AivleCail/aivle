@@ -36,12 +36,6 @@
 	top: 233px;
 }
 
-.notice-img {
-	position: absolute;
-	left :35px;
-	top  : 410px;
-}
-
 .text-1 {
 	position: absolute;
 	width: 21px;
@@ -74,7 +68,7 @@
 	position: absolute;
 	width: 90px;
 	height: 20px;
-	left: 90px;
+	left: 88px;
 	top: 287px;
 	font-size: 20px;
 	font-weight: 400;
@@ -92,9 +86,9 @@
 
 .text-4 {
 	position: absolute;
-	width: 100px;
+	width: 150px;
 	height: 20px;
-	left: 90px;
+	left: 85px;
 	top: 330px;
 	font-family: 'NanumGothic';
 	font-style: normal;
@@ -110,18 +104,6 @@
 	color: #F1B7B7;
 }
 
-.text-5 {
-	position: absolute;
-	font-family: 'NanumGothic';
-	width: 100px;
-	height: 25px;
-	left: 86px;
-	top: 410px;
-	font-size:24px;
-	font-weight: 500;
-	color: #000000; 
-}
-
 .Sidebar-home {
 	position: absolute;
 	width: 94px;
@@ -134,21 +116,38 @@
 	color: #F1B7B7;
 }
 
-.Sidebar-Notice {
+.Sidebar-article {
 	position: absolute;
 	width: 155px;
 	height: 43px;
 	left: 35px;
 	top: 414px;
+	
+	.Text-5 {
+		position: absolute;
+		font-family: 'NanumGothic';
+		width: 100px;
+		height: 25px;
+		left: 51px;
+		top: -4px;
+		font-size:24px;
+		font-weight: 500;
+		color: #000000; 
+	}
+
+	.article-img {
+		position: absolute;
+		top  : -4px;
+	}
 }
 
-.Sidebar-Notice:hover .text-5 {
+.Sidebar-article:hover .Text-5 {
 	color: #F1B7B7;
 }
 
 .Sidebar a.active .text-1,
-.Sidebar a.active .text-5,
 .Sidebar a.active .text-3,
-.Sidebar a.active .text-4 {
+.Sidebar a.active .text-4,
+.Sidebar a.active .Text-5 {
     color: #F1B7B7;
 }

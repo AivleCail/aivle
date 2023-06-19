@@ -23,14 +23,14 @@ const Sidebar = () => {
                         <div className="text-3">VOC 내역</div>
                     </Link>
                     <Link to="/worker" className={location.pathname === "/worker" ? "active" : ""}>
-                        <div className="text-4">사외공사자</div>
+                        <div className="text-4">사외공사 관리</div>
                     </Link>
                 </div>
 
                 <Link to="/article" className={location.pathname === "/article" ? "active" : ""}>
-                    <div className="Sidebar-task">
-                        <img className="notice-img" alt="Element"  src={process.env.PUBLIC_URL + "notice.png"} />
-                        <div className="text-5">공지사항</div>
+                    <div className="Sidebar-article">
+                        <img className="article-img" alt="Element"  src={process.env.PUBLIC_URL + "notice.png"} />
+                        <div className="Text-5">공지사항</div>
                     </div>
                 </Link>
             </div>

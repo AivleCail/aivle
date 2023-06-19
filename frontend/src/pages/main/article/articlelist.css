@@ -53,5 +53,9 @@
             position: relative; 
             margin-top: 130px;
         }
+
+        .left-align {
+            text-align: left;
+          }
     }
 }
