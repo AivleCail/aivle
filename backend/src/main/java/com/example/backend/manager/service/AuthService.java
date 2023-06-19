@@ -33,11 +33,24 @@ public class AuthService {
     }
 
     public TokenDto login(ManagerRequestDto requestDto) {
-        UsernamePasswordAuthenticationToken authenticationToken = requestDto.toAuthentication();
+        String email = requestDto.getEmail();
+        String password = requestDto.getPassword();
+        String auth = requestDto.getAuth();
 
+        Manager manager = managerRespository.findByEmail(email)
+                .orElseThrow(() -> new RuntimeException("로그인 유저 정보가 없습니다"));
+
+        if (!passwordEncoder.matches(password, manager.getPassword())) {
+            throw new RuntimeException("비밀번호가 맞지 않습니다");
+        }
+
+        if (!auth.equals(manager.getAuth())) {
+            throw new IllegalArgumentException("올바른 권한을 입력해주세요");
+        }
+
+        UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(email, password);
         Authentication authentication = managerBuilder.getObject().authenticate(authenticationToken);
 
         return tokenProvider.generateTokenDto(authentication);
     }
-
 }
