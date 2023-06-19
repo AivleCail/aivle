@@ -72,10 +72,11 @@ const ArticleList = () => {
           <div className="article">
             <div className="article-table-container">
               <div className="article-table-scroll">
-                <CommonTable headersName={['번호', '제목', '글쓴이', '작성일시', '조회수']}>
+                <CommonTable headersName={['번호', '제목', '글쓴이', '작성일시', '조회수']}
+                columnWidths={['4%','', '15%', '20%', '8%']}>
                   {currentArticles.map((article) => (
                     <CommonTableRow key={article.articleId}>
-                      <CommonTableColumn>{article.articleId}</CommonTableColumn>
+                      <CommonTableColumn className="left-align">{article.articleId}</CommonTableColumn>
                       <CommonTableColumn>{article.articleTitle}</CommonTableColumn>
                       <CommonTableColumn>{article.managerName}</CommonTableColumn>
                       <CommonTableColumn>{article.createdAt}</CommonTableColumn>
