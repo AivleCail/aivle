@@ -10,13 +10,13 @@ import CommonTableRow from '../components/table/CommonTableRow';
 const Intro = () => {
   const navigate = useNavigate();
   
-  useEffect(() => {
-    const accessToken = localStorage.getItem('accessToken');
-    if (!accessToken) {
-      alert('로그인 후 이용가능합니다.');
-      navigate('/');
-    }
-  }, [navigate]);
+  // useEffect(() => {
+  //   const accessToken = localStorage.getItem('accessToken');
+  //   if (!accessToken) {
+  //     alert('로그인 후 이용가능합니다.');
+  //     navigate('/');
+  //   }
+  // }, [navigate]);
 
   return (
     <div className="intro-container">
