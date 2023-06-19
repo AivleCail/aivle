@@ -97,7 +97,7 @@ const ArticleList = () => {
           <div className="article">
             <CommonTable headersName={['번호', '제목', '글쓴이', '작성일시', '조회']}>
               {currentArticles.map((article) => (
-                <CommonTableRow key={article.articleId}>
+                <CommonTableRow key={article.articleId} onClick={() => openModal(article)}>
                   <CommonTableColumn>{article.articleId}</CommonTableColumn>
                   <CommonTableColumn>{article.articleTitle}</CommonTableColumn>
                   <CommonTableColumn>{article.managerName}</CommonTableColumn>
@@ -107,6 +107,12 @@ const ArticleList = () => {
               ))}
             </CommonTable>
           </div>
+
+          {/* ArticleDetailModal */}
+          {isOpenModal && (
+            <ArticleDetailModal isOpen={isOpenModal} closeModal={closeModal} article={selectedArticle} />
+          )}
+          
           <Paging
             articlesPerPage={articlesPerPage}
             totalArticles={articles.length}
