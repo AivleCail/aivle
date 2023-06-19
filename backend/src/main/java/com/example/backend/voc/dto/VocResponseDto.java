@@ -18,7 +18,7 @@ public class VocResponseDto {
     private String customerAddress;
     private String customerPhone;
     private String type;
-    private String status_detail;
+    private String opinion;
     private String receptionDate;
     private String checkStatus;
 
@@ -29,7 +29,7 @@ public class VocResponseDto {
                 .customerAddress(voc.getCustomerAddress())
                 .customerPhone(voc.getCustomerPhone())
                 .type(voc.getType())
-                .status_detail(voc.getStatusDetail())
+                .opinion(voc.getOpinion())
                 .receptionDate(voc.getDate().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")))
                 .checkStatus(voc.getStatus())
                 .build();
