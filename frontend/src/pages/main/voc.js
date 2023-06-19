@@ -101,7 +101,7 @@ const VOC = () => {
         },
       });
 
-  
+      
     } catch (error) {
       console.error('Error sending SMS:', error);
     }
@@ -125,19 +125,14 @@ const VOC = () => {
 
           <div className="board">
             <CommonTable headersName={[
-              <tr>
-                <th className='checkhead'>
-                  <div className="checkbox-container">
-                    <input 
-                      type='checkbox' 
-                      name='select-all'
-                      onChange={(e) => handleAllCheck(e.target.checked)}
-                      checked={checkItems.length === VOC.length ? true : false} 
-                    />
-                  </div>
-                </th>
-              </tr>
-              ,'번호', '고객명', '지역', '전화번호', '장애유형', '접수 일시', '조치여부']}>
+              <input 
+                type='checkbox' 
+                name='select-all'
+                onChange={(e) => handleAllCheck(e.target.checked)}
+                checked={checkItems.length === vocList.length && vocList.length > 0}
+              />
+              ,'번호', '고객명', '지역', '전화번호', '장애유형', '접수 일시', '조치여부']}
+              columnWidths={['3%', '4%', '8%', '20%', '15%', '10%', '20%', '5%']}>
               {currentVocList.map((voc) => (
                 <CommonTableRow key={voc.vocId}>
                   <CommonTableColumn>
