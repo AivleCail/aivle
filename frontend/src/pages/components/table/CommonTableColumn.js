@@ -1,11 +1,13 @@
 import React from 'react';
 
-const CommonTableColumn = ({ children, width, className }) => {
+const CommonTableColumn = ({ children }) => {
   return (
-    <td className={`common-table-column ${className}`} style={{ width }}>
-      {children}
+    <td className="common-table-column">
+      {
+        children
+      }
     </td>
-  );
-};
+  )
+}
 
 export default CommonTableColumn;
