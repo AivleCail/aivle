@@ -20,7 +20,7 @@ const Worker = () => {
   const fetchWorkerList = async () => {
     try {
       const accessToken = localStorage.getItem('accessToken');
-      const page = currentPage - 1;
+      const page = currentPage;
       const response = await axios.get(`http://localhost:8080/external/page?page=${page}`, {
         headers: {
           Authorization: `Bearer ${accessToken}`,
