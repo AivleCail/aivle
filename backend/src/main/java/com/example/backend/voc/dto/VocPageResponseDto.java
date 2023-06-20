@@ -16,6 +16,7 @@ public class VocPageResponseDto {
     private String type;
     private String receptionDate;
     private String checkStatus;
+    private String percentage;
 
     public static VocPageResponseDto of(Voc voc) {
         return VocPageResponseDto.builder()
@@ -26,6 +27,7 @@ public class VocPageResponseDto {
                 .type(voc.getType())
                 .receptionDate(voc.getDate().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")))
                 .checkStatus(voc.getStatus())
+                .percentage(voc.getPercentage())
                 .build();
     }
 }
