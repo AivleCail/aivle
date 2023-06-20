@@ -50,15 +50,14 @@ const Worker = () => {
 
           <div className="worker">
             <CommonTable headersName={['번호', '업체명', '공사 주소', '공사시작시간', '접수시간', 'ID', '완료여부']}
-            columnWidths={['5%', '10%', '20%', '12%', '12%', '10%', '5%']}>
+            columnWidths={['5%', '10%', '20%', '10%', '12%', '10%', '5%']}>
               {currentWorkerList.map((worker) => (
                 <CommonTableRow key={worker.externalId}>
                   <CommonTableColumn>{worker.externalId}</CommonTableColumn>
                   <CommonTableColumn className="left-align">{worker.companyName}</CommonTableColumn>
-                  <CommonTableColumn className="left-align">{worker.externalAddress}</CommonTableColumn>
+                  <CommonTableColumn>{worker.externalAddress}</CommonTableColumn>
                   <CommonTableColumn>{worker.externalStartdate}</CommonTableColumn>
                   <CommonTableColumn>{worker.receiptDate}</CommonTableColumn>
-                  <CommonTableColumn>{worker.externalStartdate}</CommonTableColumn>
                   <CommonTableColumn className="left-align">{worker.managerId}</CommonTableColumn>
                   <CommonTableColumn>{worker.externalStatus}</CommonTableColumn>
                 </CommonTableRow>

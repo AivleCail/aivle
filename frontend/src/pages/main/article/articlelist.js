@@ -91,7 +91,7 @@ const ArticleList = () => {
 
       <div className="background">
         <div className="container">
-          <span className="article-text-1">공지사항</span>
+          <span className="article-text-1">운영자 커뮤니티</span>
           <span className="article-text-2">공지사항을 빠르고 정확하게 안내해드립니다.</span>
 
           <div className="article">
