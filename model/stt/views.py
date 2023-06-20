@@ -42,14 +42,18 @@ def voc_api(request):
         index = res.find(keyword)
 
         if index != -1:
+            before_sentence = res[:index].strip()
             after_sentence = res[index:].replace(keyword,"").strip()
         else:
+            before_sentence = ""
             after_sentence = ""
 
         data = {
             "voc_id": voc_id,
+            "voc_entire":before_sentence+after_sentence,
             "voc_status": "O" if score > 0.5 else "X",
-            "voc_status_detail": after_sentence
+            "voc_status_detail": after_sentence,
+            "percentage":"{:.2f}%".format(score * 100) if score>0.5 else "{:.2f}%".format((1-score)*100)
         }
         voc_to_spring(data)
         
