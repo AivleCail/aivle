@@ -1,44 +1,36 @@
-import React, { useState } from 'react';
-import { ChevronDownIcon, ChevronUpIcon } from '../icons/Icons';
-import FoldedListBody from './FoldedListBody';
+import React from "react";
 import UnfoldedListBody from './UnfoldedListBody';
+import FoldedListBody from './FoldedListBody';
 
-import './List.css';
-
-const ListItem = ({ handleComplete, completed, index }) => {
-  const [isExpanded, setIsExpanded] = useState(false);
-  const [isToggled, setIsToggled] = useState(false);
-
-  const handleClick = () => {
-    setIsExpanded((prevState) => !prevState);
-    setIsToggled(!isToggled);
-  };
-
-  const handleButtonClick = (event) => {
-    event.stopPropagation();
-    handleComplete(index);
+const ListItem = ({ external, index, expanded, handleClick }) => {
+  const getStatusClass = () => {
+    if (external.externalStatus === '공사완료') {
+      return 'external-completed';
+    } else if (external.externalStatus === '공사예정') {
+      return 'external-scheduled';
+    } else {
+      return '';
+    }
   };
 
   return (
-    <li className={`li ${isExpanded ? 'expanded' : ''}`} onClick={handleClick}>
+    <li className={`li ${expanded[index] ? 'expanded' : ''}`} onClick={() => handleClick(index)}>
       <div className='li-content'>
         <div className='li-top'>
-          <span>한국가스공사</span>
+          <span>{external.companyName}</span>
           <div className='li-buttons'>
-            <button
-              onClick={handleButtonClick}
-              disabled={completed}
-              className={`external_status ${completed ? 'external-completed' : ''}`}
-            >
-              {completed ? '공사 완료' : '공사중'}
-            </button>
-            {isToggled ? <ChevronUpIcon /> : <ChevronDownIcon />}
+            <button className={`external_status ${getStatusClass()}`}>{external.externalStatus}</button>
           </div>
         </div>
-        {isExpanded ? <UnfoldedListBody /> : <FoldedListBody />}
+        {expanded[index] ? (
+          <UnfoldedListBody external={external} />
+        ) : (
+          <FoldedListBody external={external} />
+        )}
       </div>
     </li>
   );
 };
+
 
 export default ListItem;

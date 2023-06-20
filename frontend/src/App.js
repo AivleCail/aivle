@@ -7,7 +7,7 @@ import VOC from './pages/main/voc';
 import Worker from './pages/main/worker'
 import Article from './pages/main/article/articlelist'
 import CreateArticle from './pages/main/article/createarticle'
-import ExternalList from './pages/subcustomer/list'
+import ExternalList from './pages/subcustomer/externalList'
 import ExternalReceipt from './pages/subcustomer/externalReceipt'
 import VocReceipt from './pages/subcustomer/vocReceipt'
 import './App.css'
