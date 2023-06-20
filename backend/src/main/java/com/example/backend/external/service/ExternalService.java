@@ -7,7 +7,7 @@ import com.example.backend.external.entity.External;
 import com.example.backend.external.repository.ExternalRepository;
 import com.example.backend.external.repository.WorkerExternalRepository;
 import com.example.backend.manager.entity.Manager;
-import com.example.backend.manager.repository.ManagerRespository;
+import com.example.backend.manager.repository.ManagerRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -22,7 +22,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class ExternalService {
 
     private final ExternalRepository externalRepository;
-    private final ManagerRespository managerRespository;
+    private final ManagerRepository managerRepository;
     private final WorkerExternalRepository workerexternalRepository;
 
 
@@ -44,7 +44,7 @@ public class ExternalService {
         if (authentication == null || authentication.getPrincipal() == "anonymousUser") {
             return ExternalResponseDto.of(external, false);
         } else {
-            Manager manager = managerRespository.findById(Long.parseLong(authentication.getName())).orElseThrow();
+            Manager manager = managerRepository.findById(Long.parseLong(authentication.getName())).orElseThrow();
             boolean result = external.getManager().equals(manager);
             return ExternalResponseDto.of(external, result);
         }
@@ -83,7 +83,7 @@ public class ExternalService {
 
 
     public Manager isManagerCurrent() {
-        return managerRespository.findById(SecurityUtil.getCurrentManagerId())
+        return managerRepository.findById(SecurityUtil.getCurrentManagerId())
                 .orElseThrow(() -> new RuntimeException("로그인 유저 정보가 없습니다"));
     }
 

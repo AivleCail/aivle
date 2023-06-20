@@ -1,7 +1,7 @@
 package com.example.backend.manager.service;
 
 import com.example.backend.manager.entity.Manager;
-import com.example.backend.manager.repository.ManagerRespository;
+import com.example.backend.manager.repository.ManagerRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -16,11 +16,11 @@ import java.util.Collections;
 @Service
 @RequiredArgsConstructor
 public class CustomManagerDetailsService implements UserDetailsService {
-    private final ManagerRespository managerRespository;
+    private final ManagerRepository managerRepository;
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        return managerRespository.findByEmail(email)
+        return managerRepository.findByEmail(email)
                 .map(this::createUserDetails)
                 .orElseThrow(() -> new UsernameNotFoundException(email + " 을 DB에서 찾을 수 없습니다"));
     }
