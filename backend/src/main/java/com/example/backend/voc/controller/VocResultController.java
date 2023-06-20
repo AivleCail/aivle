@@ -17,7 +17,7 @@ public class VocResultController {
     private final VocService vocService;
     @PostMapping
     public ResponseEntity<VocResponseDto> updataVocStatus(@RequestBody VocResultRequestDto requestDto) {
-        return ResponseEntity.ok(vocService.updateVocResult(requestDto.getVoc_id(), requestDto.getVoc_status(), requestDto.getVoc_status_detail()));
+        return ResponseEntity.ok(vocService.updateVocResult(requestDto.getVoc_id(), requestDto.getVoc_status(), requestDto.getVoc_status_detail(), requestDto.getPercentage(), requestDto.getVoc_entire()));
     }
 
 

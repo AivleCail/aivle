@@ -21,6 +21,8 @@ public class VocResponseDto {
     private String opinion;
     private String receptionDate;
     private String checkStatus;
+    private String percentage;
+    private String entire;
 
     public static VocResponseDto of(Voc voc) {
         return VocResponseDto.builder()
@@ -32,6 +34,8 @@ public class VocResponseDto {
                 .opinion(voc.getOpinion())
                 .receptionDate(voc.getDate().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")))
                 .checkStatus(voc.getStatus())
+                .percentage(voc.getPercentage())
+                .entire(voc.getVocEntire())
                 .build();
     }
 }
