@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from 'axios';
+import { useNavigate } from "react-router-dom";  
 import './external.css';
 import AiIcon from '../components/icons/ai.svg';
 import WorkerIcon from '../components/icons/worker.svg';
@@ -9,6 +10,7 @@ import FormContent from '../components/receipt/FormContent';
 const ExternalReceipt = () => {
   const [selectedFile, setSelectedFile] = useState(null);
   const vocIdForm = false;
+  const navigate = useNavigate();  
 
   const handleFileChange = (event) => {
     setSelectedFile(event.target.files[0]);
@@ -37,6 +39,7 @@ const ExternalReceipt = () => {
       })
       .then((response) => {
         console.log(response.data);
+        navigate("/myexternal"); 
       })
       .catch((error) => {
         console.error("Error:", error);
@@ -58,6 +61,7 @@ const ExternalReceipt = () => {
       <div className='title'>
         <span className='title-text'>새로운 공사 신고 접수</span>
       </div>
+
       <hr />
       <InformContent
         aiIcon={AiIcon}

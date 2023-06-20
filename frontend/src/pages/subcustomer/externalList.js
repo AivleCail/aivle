@@ -2,14 +2,14 @@ import React, { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import ListContainer from '../components/list/ListContainer';
-import Paging from '../main/page/paging';
+import Paging from '../main/page/paging'; 
 import './external.css';
 
 const ExternalList = () => {
   const [externalList, setExternalList] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [externalPerPage] = useState(5);
-  const [expanded, setExpanded] = useState([]);
+  const [externalPerPage] = useState(5); 
+   const [expanded, setExpanded] = useState([]);
 
   const handleClick = (index) => {
     setExpanded((prevState) => {
@@ -21,7 +21,7 @@ const ExternalList = () => {
 
   useEffect(() => {
     fetchMyExternalList();
-  }, [currentPage]); // Include currentPage as a dependency
+  }, []);
 
   const fetchMyExternalList = async () => {
     try {
@@ -47,7 +47,7 @@ const ExternalList = () => {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   const handleRefresh = () => {
-    fetchMyExternalList(); // Call the fetchMyExternalList function to refresh the data
+    fetchMyExternalList(); 
   };
 
   return (

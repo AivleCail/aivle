@@ -121,6 +121,7 @@ const ArticleList = () => {
             articlesPerPage={articlesPerPage}
             totalArticles={articles.length}
             paginate={paginate}
+            currentPage={currentPage}
           />
         </div>
       </div>
