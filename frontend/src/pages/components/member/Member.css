@@ -29,13 +29,13 @@
     height: 100px;
 }
 
-ul {
+.login-ul {
     display: flex;
     justify-content: center;
     padding: 0;
   }
 
-li {
+.radio-li {
     list-style-type: none;
     cursor: pointer;
     padding: 0 4rem;

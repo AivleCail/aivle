@@ -4,11 +4,11 @@ import './Member.css';
 const LoginForm = ({ activeIndex, handleManagerClick, handleExternalWorkerClick, email, password, setEmail, setPassword, handleLogin }) => {
   return (
     <div className="login-form">
-      <ul>
-        <li onClick={handleManagerClick} className={activeIndex === 0 ? 'active' : ''}>
+      <ul className='login-ul'>
+        <li onClick={handleManagerClick} className={`radio-li ${activeIndex === 0 ? 'active' : ''}`}>
           <p className='login-li-text'>매니저</p>
           </li>
-        <li onClick={handleExternalWorkerClick} className={activeIndex === 1 ? 'active' : ''}>
+        <li onClick={handleExternalWorkerClick} className={`radio-li ${activeIndex === 1 ? 'active' : ''}`}>
           <p className='login-li-text'>사외공사자</p>
         </li>
       </ul>
