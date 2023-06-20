@@ -30,12 +30,12 @@
 }
 .signup-button:hover {
     background-color: #34495e;
-    transform: scale(1.05);
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    transform: scale(1.02);
+    transition: background-color 0.2s ease, transform 0.2s ease;
 }
 .signup-button:active {
-    transform: scale(0.95);
-    transition: transform 0.3s ease;
+    transform: scale(0.98);
+    transition: transform 0.2s ease;
 }
 .signup .overlap {
     height: 800px;
@@ -197,6 +197,15 @@
 
 .input-wrapper {
     position: relative;
+
+    .field-error-message {
+        position: absolute;
+        left: 75px; 
+        top: 45px; 
+        color: red;
+        font-size: 15px;
+        width: 150px;
+    }
   }
   
   .input-wrapper .text-input {
@@ -211,4 +220,48 @@
     border: 2px solid #B7B7B7;
   }
   
-  
+  .overlap-group-wrapper-1 .field-error-message {
+    position: absolute;
+    left: 99px; 
+    top: 5px; 
+    color: red;
+    font-size: 15px;
+    width: 150px;
+    }
+
+  .overlap-group-wrapper-2 {
+    .field-error-message {
+        position: absolute;
+        left: 145px; 
+        top: 5px; 
+        color: red;
+        font-size: 15px;
+        width: 150px;
+        }
+    .password-error-message {
+        position: absolute;
+        left: 145px; 
+        top: 5px; 
+        color: red;
+        font-size: 15px;
+        width: 230px;
+        }
+    }
+    .overlap-group-wrapper-3 .field-error-message {
+        position: absolute;
+        left: 58px; 
+        top: -16px; 
+        color: red;
+        font-size: 15px;
+        width: 150px;
+    }
+    
+    .signup .error-alert {
+        position: absolute;
+        top: 235px; 
+        left: 1020px;
+        transform: translateX(-50%); 
+        color: red;
+        font-size: 15px;
+        width: 250px;
+    }
