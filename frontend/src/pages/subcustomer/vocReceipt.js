@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import axios from 'axios';
 import './external.css';
 import AiIcon from '../components/icons/ai.svg';
@@ -29,7 +29,7 @@ const VocReceipt = () => {
       const formData = new FormData();
       formData.append('file', selectedFile);
       formData.append('voc_id', vocId);
-      formData.append('token',localStorage.getItem('accessToken'));
+      formData.append('token', localStorage.getItem('accessToken'));
 
       axios.post("http://localhost:8000/stt/voc_api", formData, {
         headers: {
@@ -56,7 +56,6 @@ const VocReceipt = () => {
     "3. 운용자에게 추가로 전달하고 싶은 메세지는 '추가사항'이라고 말한 뒤 말씀해주세요.",
     "ex: 추가사항, 전원 버튼 자체가 동작하지 않아요."
   ];
-
 
   return (
     <div className='mobile-container'>
