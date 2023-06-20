@@ -11,19 +11,21 @@ const ArticleDetailModal = ({ isOpen, closeModal, article, comments }) => {
         <br></br>
         <p>{article.managerName} {article.updatedAt}</p>
 
-        <h3>댓글</h3>
-        {comments && comments.length > 0 ? (
-          <ul>
-            {comments.map((comment) => (
-              <li key={comment.commentId}>
-                <p>닉네임 : {comment.managerName}</p>
-                <p>{comment.commentText}</p>
-              </li>
-            ))}
-          </ul>
-        ) : (
-          <p>댓글이 없습니다.</p>
-        )}
+        <div className="modal-comment">
+          <h3>Comment</h3>
+          {comments && comments.length > 0 ? (
+            <ul>
+              {comments.map((comment) => (
+                <li key={comment.commentId} className="one">
+                  <h4>{comment.managerName}</h4>
+                  <p>{comment.commentText}</p>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p>댓글이 없습니다.</p>
+          )}
+        </div>
         <button onClick={closeModal}>CLOSE</button>
       </div>
     </div>
