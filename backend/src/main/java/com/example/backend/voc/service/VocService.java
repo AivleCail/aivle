@@ -2,10 +2,9 @@ package com.example.backend.voc.service;
 
 import com.example.backend.config.SecurityUtil;
 import com.example.backend.manager.entity.Manager;
-import com.example.backend.manager.repository.ManagerRespository;
+import com.example.backend.manager.repository.ManagerRepository;
 import com.example.backend.voc.dto.VocPageResponseDto;
 import com.example.backend.voc.dto.VocResponseDto;
-import com.example.backend.voc.dto.VocResultRequestDto;
 import com.example.backend.voc.entity.Voc;
 import com.example.backend.voc.repository.VocRepository;
 import lombok.RequiredArgsConstructor;
@@ -15,7 +14,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -23,7 +21,7 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class VocService {
     private final VocRepository vocRepository;
-    private final ManagerRespository managerRespository;
+    private final ManagerRepository managerRepository;
 
     public List<VocPageResponseDto> allVoc() {
         List<Voc> vocs = vocRepository.findAll();
@@ -44,7 +42,7 @@ public class VocService {
     }
 
     public Manager isManagerCurrent() {
-        return managerRespository.findById(SecurityUtil.getCurrentManagerId())
+        return managerRepository.findById(SecurityUtil.getCurrentManagerId())
                 .orElseThrow(() -> new RuntimeException("로그인 유저 정보가 없습니다"));
     }
 

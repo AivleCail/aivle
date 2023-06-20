@@ -1,7 +1,9 @@
 package com.example.backend.voc.entity;
 
 import com.example.backend.manager.entity.Manager;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -9,6 +11,7 @@ import java.time.LocalDateTime;
 
 @Entity
 @NoArgsConstructor
+@AllArgsConstructor
 @Getter
 public class Voc {
 
@@ -30,7 +33,7 @@ public class Voc {
     private String type;
 
     @Column
-    private LocalDateTime date;
+    private String date;
 
     @Column
     private String status;
