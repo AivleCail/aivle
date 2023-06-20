@@ -60,43 +60,42 @@
     }
 }
 
-
 .modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.4);
-  }
-  
-  .modal.open {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .modal-content {
-    background-color: #fff;
-    padding: 20px;
-    max-width: 400px;
-    border-radius: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  }
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
 
-  .modal-content button {
-    text-align: center;
-    display: block;
-    margin: 0 auto;
-  }
+.modal.open {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-  .modal-content h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 10px;
-  }
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  max-width: 400px;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content button {
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+}
+
+.modal-content h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+}
   
