@@ -59,13 +59,26 @@ const ArticleList = () => {
   const openModal = async (article) => {
     try {
       const accessToken = localStorage.getItem('accessToken');
+      // Article 정보 가져오기
       const response = await axios.get(`http://localhost:8080/article/one?id=${article.articleId}`, {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },
       });
       const detailedArticle = response.data;
-      setSelectedArticle(detailedArticle);
+
+      // 댓글 정보 가져오기
+      const commentResponse = await axios.get(`http://localhost:8080/comment/list?id=${article.articleId}`, {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      });
+      const comments = commentResponse.data;
+
+      // Article 정보와 댓글 정보를 합쳐서 선택된 article에 comments 필드 추가
+      const articleWithComments = { ...detailedArticle, comments };
+
+      setSelectedArticle(articleWithComments);
       setIsOpenModal(true);
     } catch (error) {
       console.error('Error fetching article details:', error);
@@ -114,7 +127,7 @@ const ArticleList = () => {
 
           {/* ArticleDetailModal */}
           {isOpenModal && (
-            <ArticleDetailModal isOpen={isOpenModal} closeModal={closeModal} article={selectedArticle} />
+            <ArticleDetailModal isOpen={isOpenModal} closeModal={closeModal} article={selectedArticle} comments={selectedArticle.comments}/>
           )}
           
           <Paging

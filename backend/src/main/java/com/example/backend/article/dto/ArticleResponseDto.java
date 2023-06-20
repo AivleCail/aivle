@@ -17,6 +17,7 @@ public class ArticleResponseDto {
     private String managerName;
     private String articleTitle;
     private String articleBody;
+    private String category;
     private String createdAt;
     private String updatedAt;
     private boolean isWritten;
@@ -28,6 +29,7 @@ public class ArticleResponseDto {
                 .managerName(article.getManager().getName())
                 .articleTitle(article.getTitle())
                 .articleBody(article.getBody())
+                .category(article.getCategory())
                 .createdAt(article.getCreatedAt().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")))
                 .updatedAt(article.getUpdatedAt().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")))
                 .isWritten(bool)
