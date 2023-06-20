@@ -36,6 +36,10 @@
     display: flex;
 }
 
+.date-span {
+    margin-right: 10px;
+}
+
 
 .external_status {
     width: 70px;
