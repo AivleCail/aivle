@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import AudioRecord from "./AudioContent";
 
 const FormContent = ({ vocIdForm, selectedFile, handleFileChange, handleSubmit, vocId, setVocId }) => {
   const audioRef = useRef(null);
@@ -18,6 +19,7 @@ const FormContent = ({ vocIdForm, selectedFile, handleFileChange, handleSubmit, 
     <div className='form-content'>
       <form onSubmit={handleSubmit}>
         { vocIdForm ? <div className='vocId-input'><label htmlFor='voc_id'>VoC Number를 입력해주세요: </label><input type='number' name='voc_id' value={vocId} onChange={handleVocIdChange}></input></div> : null}
+        <AudioRecord />
         <div className='upload-start'>
           <input type='file' name='file' accept='.mp3, .m4a' onChange={handleFileChange} />
           <div className='audio-start'>
