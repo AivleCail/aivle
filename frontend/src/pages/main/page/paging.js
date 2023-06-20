@@ -10,7 +10,7 @@ const Paging = ({ articlesPerPage, totalArticles, currentPage, paginate }) => {
   return (
     <div className="pagination-container">
       <Pagination
-        key={currentPage} // Add the key prop with a unique value
+        key={currentPage}
         activePage={currentPage}
         itemsCountPerPage={articlesPerPage}
         totalItemsCount={totalArticles}

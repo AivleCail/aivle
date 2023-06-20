@@ -89,7 +89,7 @@ const VOC = () => {
   
   const handleSend = async () => {
     if (selectedItems.length === 0) {
-      alert('Please select at least one item to send.');
+      alert('보낼 대상을 체크해주세요.');
       return;
     }
   
@@ -163,6 +163,7 @@ const VOC = () => {
             articlesPerPage={vocPerPage}
             totalArticles={vocList.length}
             paginate={paginate}
+            currentPage={currentPage}
           />
           
         </div>
