@@ -9,7 +9,9 @@
   "status": "해제",
   "opinion": "[고객요청사항]수신불\/조치전자연회복\n[회선\/단말특이사항]\n[진단결과]\n[기타\/추가연락처]",
   "manager_id": 2,
-  "status_detail": "temp"
+  "status_detail": "빈값입니다",
+  "percentage": "빈값입니다",
+  "entire": "빈값입니다"
  },
  {
   "voc_id": 2,
@@ -21,7 +23,9 @@
   "status": "발생",
   "opinion": "[고객요청사항]장비장애\/오전수리예정안내 ‘NMS 현장수배요청’\n[회선\/단말특이사항]\n[진단결과]\n[기타\/추가연락처]",
   "manager_id": 3,
-  "status_detail": "temp"
+  "status_detail": "빈값입니다",
+  "percentage": "빈값입니다",
+  "entire": "빈값입니다"
  },
  {
   "voc_id": 3,
@@ -33,7 +37,9 @@
   "status": "해제",
   "opinion": "#공감\n[고객요청사항] 리모컨 작동불\/택배 비용 안내 드림\/sMS로 통합리모컨 설정및 페어링 방법 안내 드림",
   "manager_id": 4,
-  "status_detail": "temp"
+  "status_detail": "빈값입니다",
+  "percentage": "빈값입니다",
+  "entire": "빈값입니다"
  },
  {
   "voc_id": 4,
@@ -45,7 +51,9 @@
   "status": "발생",
   "opinion": "[연락불필요]장애안내",
   "manager_id": 5,
-  "status_detail": "temp"
+  "status_detail": "빈값입니다",
+  "percentage": "빈값입니다",
+  "entire": "빈값입니다"
  },
  {
   "voc_id": 5,
@@ -57,7 +65,9 @@
   "status": "발생",
   "opinion": "[고객요청사항] tv수신불,공사안내",
   "manager_id": 1,
-  "status_detail": "temp"
+  "status_detail": "빈값입니다",
+  "percentage": "빈값입니다",
+  "entire": "빈값입니다"
  },
  {
   "voc_id": 6,
@@ -69,7 +79,9 @@
   "status": "해제",
   "opinion": "[고객요청사항] tv안나옴\/장애안내\/미수배상태로 수배요청안되 장애접수함\n[회선\/단말특이사항]\n[진단결과]\n[기타\/추가연락처]",
   "manager_id": 2,
-  "status_detail": "temp"
+  "status_detail": "빈값입니다",
+  "percentage": "빈값입니다",
+  "entire": "빈값입니다"
  },
  {
   "voc_id": 7,
@@ -81,7 +93,9 @@
   "status": "해제",
   "opinion": "[멀] 코로나이상무 \/ 연후방 \/ 빠른방문요청 \/ 티수신불 \/ 관리자 번호 이런거 뜸 \n[고객요청사항]\n[회선\/단말특이사항]\n[진단결과]\n[기타\/추가연락처]",
   "manager_id": 3,
-  "status_detail": "temp"
+  "status_detail": "빈값입니다",
+  "percentage": "빈값입니다",
+  "entire": "빈값입니다"
  },
  {
   "voc_id": 8,
@@ -93,7 +107,9 @@
   "status": "발생",
   "opinion": "[고객요청사항]장애안내\/연락불필요\n[회선\/단말특이사항]\n[진단결과]\n[기타\/추가연락처]",
   "manager_id": 4,
-  "status_detail": "temp"
+  "status_detail": "빈값입니다",
+  "percentage": "빈값입니다",
+  "entire": "빈값입니다"
  },
  {
   "voc_id": 9,
@@ -105,7 +121,9 @@
   "status": "발생",
   "opinion": "[고객요청사항]ots위성안테나가 위태롭게 베란다에 달려있어서 위험하여 재연결요청하심\/이전설치는as기사분이못해드림안내\/별도신청가능안내\/연락후방문\n[회선\/단말특이사항]\n[진단결과]\n[기타\/추가연락처]",
   "manager_id": 5,
-  "status_detail": "temp"
+  "status_detail": "빈값입니다",
+  "percentage": "빈값입니다",
+  "entire": "빈값입니다"
  },
  {
   "voc_id": 10,
@@ -117,7 +135,9 @@
   "status": "해제",
   "opinion": "수신불\/장애안내함\/#공감",
   "manager_id": 1,
-  "status_detail": "temp"
+  "status_detail": "빈값입니다",
+  "percentage": "빈값입니다",
+  "entire": "빈값입니다"
  },
  {
   "voc_id": 11,
@@ -129,7 +149,9 @@
   "status": "발생",
   "opinion": "[고객요청사항]tv시청불. 인터넷~\/리셋\n[회선\/단말특이사항]\n[진단결과]확인불\n[기타\/추가연락처]",
   "manager_id": 2,
-  "status_detail": "temp"
+  "status_detail": "빈값입니다",
+  "percentage": "빈값입니다",
+  "entire": "빈값입니다"
  },
  {
   "voc_id": 12,
@@ -141,7 +163,9 @@
   "status": "발생",
   "opinion": "* 빠른 방문 요청 *\n[고객요청사항] TV 네트워크 오류 되며 수신되지 않는다함. \n[회선\/단말특이사항]\n[진단결과] \n[기타\/추가연락처]인)010-5698-7788",
   "manager_id": 3,
-  "status_detail": "temp"
+  "status_detail": "빈값입니다",
+  "percentage": "빈값입니다",
+  "entire": "빈값입니다"
  },
  {
   "voc_id": 13,
@@ -153,7 +177,9 @@
   "status": "해제",
   "opinion": "[고객요청사항]접속불\/티비수신불\/모뎀,공유기 전원불 안들어온다고 하심 \n[회선\/단말특이사항]\n[진단결과]신호 비정상 \n[기타\/추가연락처]",
   "manager_id": 4,
-  "status_detail": "temp"
+  "status_detail": "빈값입니다",
+  "percentage": "빈값입니다",
+  "entire": "빈값입니다"
  },
  {
   "voc_id": 14,
@@ -165,7 +191,9 @@
   "status": "해제",
   "opinion": "[고객요청사항] 수신불\/리셋후정상\n[회선\/단말특이사항]\n[진단결과]\n[기타\/추가연락처]",
   "manager_id": 5,
-  "status_detail": "temp"
+  "status_detail": "빈값입니다",
+  "percentage": "빈값입니다",
+  "entire": "빈값입니다"
  },
  {
   "voc_id": 15,
@@ -177,7 +205,9 @@
   "status": "발생",
   "opinion": "#공감\n★사업장, 취소건발생시 선방문요청★\n[고객요청사항]음성이상\/\/셋탑교체필요\n[회선\/단말특이사항]\n[진단결과]정상\n[기타\/추가연락처]",
   "manager_id": 1,
-  "status_detail": "temp"
+  "status_detail": "빈값입니다",
+  "percentage": "빈값입니다",
+  "entire": "빈값입니다"
  },
  {
   "voc_id": 16,
@@ -189,6 +219,8 @@
   "status": "해제",
   "opinion": "[상품명]\n[신고자\/연락처]동사무소 033-660-3951\n[문의(고장)내용]회선다운\/목동운용센타 070-4229-8059 대신신고주심\n[답변(진단)내용]망구성도 확인시 ont cable down상태\n[기타]",
   "manager_id": 2,
-  "status_detail": "temp"
+  "status_detail": "빈값입니다",
+  "percentage": "빈값입니다",
+  "entire": "빈값입니다"
  }
 ]
