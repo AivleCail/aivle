@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import { Redirect } from "react-router-dom" 
 
 const FormContent = ({ vocIdForm, selectedFile, handleFileChange, handleSubmit, vocId, setVocId }) => {
   const audioRef = useRef(null);
