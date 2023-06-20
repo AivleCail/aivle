@@ -7,7 +7,7 @@ import com.example.backend.article.repository.ArticleRepository;
 import com.example.backend.article.repository.CommentRepository;
 import com.example.backend.config.SecurityUtil;
 import com.example.backend.manager.entity.Manager;
-import com.example.backend.manager.repository.ManagerRespository;
+import com.example.backend.manager.repository.ManagerRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -26,7 +26,7 @@ import java.util.stream.Stream;
 @RequiredArgsConstructor
 public class CommentService {
     private final ArticleRepository articleRepository;
-    private final ManagerRespository managerRespository;
+    private final ManagerRepository managerRepository;
     private final CommentRepository commentRepository;
 
     public List<CommentResponseDto> getComment(Long id) {
@@ -42,7 +42,7 @@ public class CommentService {
                     .map(comment -> CommentResponseDto.of(comment, false))
                     .collect(Collectors.toList());
         } else {
-            Manager manager = managerRespository.findById(Long.parseLong(authentication.getName())).orElseThrow();
+            Manager manager = managerRepository.findById(Long.parseLong(authentication.getName())).orElseThrow();
             Map<Boolean, List<Comment>> collect = comments.stream()
                     .collect(
                             Collectors.partitioningBy(
@@ -65,7 +65,7 @@ public class CommentService {
 
     @Transactional
     public CommentResponseDto createComment(Long id, String text) {
-        Manager manager = managerRespository.findById(
+        Manager manager = managerRepository.findById(
                         SecurityUtil.getCurrentManagerId())
                 .orElseThrow(() -> new RuntimeException("로그인 유저 정보가 없습니다"));
         Article article = articleRepository.findById(id).orElseThrow(() -> new RuntimeException("댓글이 없습니다."));
@@ -81,7 +81,7 @@ public class CommentService {
 
     @Transactional
     public void removeComment(Long id) {
-        Manager manager = managerRespository.findById(
+        Manager manager = managerRepository.findById(
                         SecurityUtil.getCurrentManagerId())
                 .orElseThrow(() -> new RuntimeException("로그인 하십시오"));
         Comment comment = commentRepository.findById(id).orElseThrow(() -> new RuntimeException("댓글이 없습니다."));

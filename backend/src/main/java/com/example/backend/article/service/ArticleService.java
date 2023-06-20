@@ -6,7 +6,7 @@ import com.example.backend.article.entity.Article;
 import com.example.backend.article.repository.ArticleRepository;
 import com.example.backend.config.SecurityUtil;
 import com.example.backend.manager.entity.Manager;
-import com.example.backend.manager.repository.ManagerRespository;
+import com.example.backend.manager.repository.ManagerRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -21,7 +21,7 @@ import org.springframework.transaction.annotation.Transactional;
 @RequiredArgsConstructor
 public class ArticleService {
     private final ArticleRepository articleRepository;
-    private final ManagerRespository managerRespository;
+    private final ManagerRepository managerRepository;
 
     @Transactional
     public ArticleResponseDto oneArticle(Long id) {
@@ -36,7 +36,7 @@ public class ArticleService {
         if (authentication == null || authentication.getPrincipal() == "anonymousUser") {
             return ArticleResponseDto.of(article, false);
         } else {
-            Manager manager = managerRespository.findById(Long.parseLong(authentication.getName())).orElseThrow();
+            Manager manager = managerRepository.findById(Long.parseLong(authentication.getName())).orElseThrow();
             boolean result = article.getManager().equals(manager);
             return ArticleResponseDto.of(article, result);
         }
@@ -67,7 +67,7 @@ public class ArticleService {
     }
 
     public Manager isManagerCurrent() {
-        return managerRespository.findById(SecurityUtil.getCurrentManagerId())
+        return managerRepository.findById(SecurityUtil.getCurrentManagerId())
                 .orElseThrow(() -> new RuntimeException("로그인 유저 정보가 없습니다"));
     }
 

@@ -5,7 +5,7 @@ import com.example.backend.config.jwt.dto.TokenDto;
 import com.example.backend.manager.dto.ManagerRequestDto;
 import com.example.backend.manager.dto.ManagerResponseDto;
 import com.example.backend.manager.entity.Manager;
-import com.example.backend.manager.repository.ManagerRespository;
+import com.example.backend.manager.repository.ManagerRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -19,17 +19,17 @@ import org.springframework.stereotype.Service;
 @Transactional
 public class AuthService {
     private final AuthenticationManagerBuilder managerBuilder;
-    private final ManagerRespository managerRespository;
+    private final ManagerRepository managerRepository;
     private final PasswordEncoder passwordEncoder;
     private final TokenProvider tokenProvider;
 
     public ManagerResponseDto signup(ManagerRequestDto requestDto) {
-        if (managerRespository.existsByEmail(requestDto.getEmail())) {
+        if (managerRepository.existsByEmail(requestDto.getEmail())) {
             throw new RuntimeException("이미 가입되어 있는 유저입니다");
         }
 
         Manager manager = requestDto.toManager(passwordEncoder);
-        return ManagerResponseDto.of(managerRespository.save(manager));
+        return ManagerResponseDto.of(managerRepository.save(manager));
     }
 
     public TokenDto login(ManagerRequestDto requestDto) {
@@ -37,7 +37,7 @@ public class AuthService {
         String password = requestDto.getPassword();
         String auth = requestDto.getAuth();
 
-        Manager manager = managerRespository.findByEmail(email)
+        Manager manager = managerRepository.findByEmail(email)
                 .orElseThrow(() -> new RuntimeException("로그인 유저 정보가 없습니다"));
 
         if (!passwordEncoder.matches(password, manager.getPassword())) {

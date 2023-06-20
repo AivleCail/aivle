@@ -3,7 +3,7 @@ package com.example.backend.manager.service;
 import com.example.backend.config.SecurityUtil;
 import com.example.backend.manager.dto.ManagerResponseDto;
 import com.example.backend.manager.entity.Manager;
-import com.example.backend.manager.repository.ManagerRespository;
+import com.example.backend.manager.repository.ManagerRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -13,7 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
 public class ManagerService {
-    private final ManagerRespository managerRepository;
+    private final ManagerRepository managerRepository;
     private final PasswordEncoder passwordEncoder;
 
     public ManagerResponseDto getMyInfoBySecurity() {
