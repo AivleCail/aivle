@@ -1,22 +1,23 @@
 import React, { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import Header from '../components/header';
 import Sidebar from '../components/sidebar';
 import './intro.css';
 import IntroTable from '../components/table/introtable/introtable';
 import IntroTableColumn from '../components/table/introtable/introtablecolumn';
 import IntroTableRow from '../components/table/introtable/introtablerow';
+import { useNavigate } from 'react-router-dom';
 
 const Intro = () => {
   const navigate = useNavigate();
   
-  useEffect(() => {
+  useEffect(() => { // 로그인 여부 확인
     const accessToken = localStorage.getItem('accessToken');
     if (!accessToken) {
       alert('로그인 후 이용가능합니다.');
       navigate('/');
     }
   }, [navigate]);
+
 
   return (
     <div className="intro-container">

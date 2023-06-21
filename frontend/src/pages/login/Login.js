@@ -62,11 +62,20 @@ const Login = () => {
         }
       })
       .catch((error) => {
-        // Handle error.
         console.error('Login error:', error);
         alert('이메일 또는 비밀번호가 일치하지 않습니다.');
       });
   };
+
+  useEffect(() => {
+    const accessToken = localStorage.getItem('accessToken');
+    if (accessToken) {
+      navigate('/intro');
+    } else {
+      navigate('/');
+    }
+  }, [navigate]);
+
 
   return (
     <div className="container">
@@ -86,4 +95,3 @@ const Login = () => {
 };
 
 export default Login;
-

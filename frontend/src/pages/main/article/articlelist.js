@@ -8,6 +8,7 @@ import CommonTableColumn from '../../components/table/CommonTableColumn';
 import CommonTableRow from '../../components/table/CommonTableRow';
 import Paging from '../page/paging';
 import Modal from '../../components/modal/Modal';
+import { useNavigate } from 'react-router-dom';
 
 const ArticleList = () => {
   const [articles, setArticles] = useState([]);
@@ -15,10 +16,19 @@ const ArticleList = () => {
   const [articlesPerPage] = useState(8);
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [selectedArticle, setSelectedArticle] = useState(null);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const accessToken = localStorage.getItem('accessToken');
+    if (!accessToken) {
+      alert('로그인 후 이용가능합니다.');
+      navigate('/');
+    }
+  }, [navigate]);
 
   useEffect(() => {
     fetchArticles();
-  }, []);
+  },[]);
 
   const fetchArticles = async () => {
     try {

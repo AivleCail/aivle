@@ -7,15 +7,26 @@ import CommonTableColumn from '../components/table/CommonTableColumn';
 import CommonTableRow from '../components/table/CommonTableRow';
 import Paging from './page/paging';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const Worker = () => {
   const [workerList, setWorkerList] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [workerPerPage] = useState(8);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const accessToken = localStorage.getItem('accessToken');
+    if (!accessToken) {
+      alert('로그인 후 이용가능합니다.');
+      navigate('/');
+    }
+  }, [navigate]);
 
   useEffect(() => {
     fetchWorkerList();
-  }, []);
+  },[]);
+
 
   const fetchWorkerList = async () => {
     try {

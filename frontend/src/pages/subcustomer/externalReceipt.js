@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";  
 import './external.css';
@@ -15,6 +15,14 @@ const ExternalReceipt = () => {
   const handleFileChange = (event) => {
     setSelectedFile(event.target.files[0]);
   };
+
+  useEffect(() => { // 로그인 여부 확인
+    const accessToken = localStorage.getItem('accessToken');
+    if (!accessToken) {
+      alert('로그인 후 이용가능합니다.');
+      navigate('/');
+    }
+  }, [navigate]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();

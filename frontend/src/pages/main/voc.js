@@ -3,6 +3,7 @@ import Header from '../components/header';
 import Sidebar from '../components/sidebar';
 import './voc.css';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import CommonTable from '../components/table/CommonTable';
 import CommonTableColumn from '../components/table/CommonTableColumn';
 import CommonTableRow from '../components/table/CommonTableRow';
@@ -13,10 +14,20 @@ const VOC = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [vocPerPage] = useState(8);
   const [selectedItems, setSelectedItems] = useState([]);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const accessToken = localStorage.getItem('accessToken');
+    if (!accessToken) {
+      alert('로그인 후 이용가능합니다.');
+      navigate('/');
+    }
+  }, [navigate]);
 
   useEffect(() => {
     fetchVocList();
-  }, []);
+  },[]);
+
 
   const fetchVocList = async () => {
     try {
