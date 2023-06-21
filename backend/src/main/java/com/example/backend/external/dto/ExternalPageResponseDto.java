@@ -28,7 +28,8 @@ public class ExternalPageResponseDto {
                 .receiptContent(external.getReceiptContent())
                 .externalAddress(external.getExternalAddress())
                 .receiptDate(external.getReceiptDate().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")))
-                .externalStartdate(external.getExternalStartdate())
+                //.externalStartdate(external.getExternalStartdate())
+                .externalStartdate(external.getExternalStartdate().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")))
                 .externalEnddate(external.getExternalEnddate())
                 .externalStatus(external.getExternalStatus())
                 .build();

@@ -2,7 +2,9 @@ package com.example.backend.external.entity;
 
 import com.example.backend.manager.entity.Manager;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
@@ -10,6 +12,8 @@ import java.time.format.DateTimeFormatter;
 
 @Entity
 @Getter
+@AllArgsConstructor
+@NoArgsConstructor
 public class External {
 
     @Id
@@ -31,8 +35,8 @@ public class External {
     @Column
     private LocalDateTime receiptDate;
 
-    @Column(nullable = false, columnDefinition = "TEXT")
-    private String externalStartdate;
+    @Column
+    private LocalDateTime externalStartdate;
 
 
     @Column
@@ -52,7 +56,9 @@ public class External {
         external.companyName = companyName;
         external.receiptContent = receiptContent;
         external.externalAddress = externalAddress;
-        external.externalStartdate = externalStartdate;
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd H:mm");  // 이부분은 장고에서 어떻게 받지 정해야 함
+        LocalDateTime dateTime = LocalDateTime.parse(externalStartdate, formatter);
+        external.externalStartdate = dateTime;
         external.manager = manager;
         external.externalEnddate = "null";  // 문자컬럼인데 만약에
         external.externalStatus = "공사 예정";      // external.externalStatus = "공사 예정";
