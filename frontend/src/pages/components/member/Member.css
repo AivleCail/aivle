@@ -1,11 +1,11 @@
 .context {
     width: 50%;
-    height: 100%;
+    height: 80%;
     position: absolute;
     justify-content: center;
-    top: 0;
+    align-items: center;
+    top: 10%;
     left: 50%;
-    margin: 8rem 0;
   }
 
 .logo-text {
@@ -22,11 +22,16 @@
     justify-content: center;
     margin-top: 1rem;
 }
-
+  
 .logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+    text-align: center;
+    width: 100%;
     margin: auto;
-    width: 300px;
-    height: 100px;
 }
 
 .login-ul {
@@ -43,7 +48,7 @@
 }
 
 .login-li-text {
-    width: 6rem;
+    width: 7rem;
     text-align: center;
 }
   

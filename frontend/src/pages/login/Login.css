@@ -1,10 +1,11 @@
 @media (max-width: 1000px) {
+  .bg-img {
+    display: none;
+  }
   .container {
-    margin-top: 10rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
   }
   .context {
     position: static;
@@ -14,37 +15,11 @@
 .container{
   position: relative;
   height: 100%;
-}
-
-.bg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  width: 55%;
-  height: 100%;
+  margin: auto;
 }
 
 .bg-img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
+  background-repeat: no-repeat;
+  background-size: contain;
   height: 100%;
-  object-fit: cover;
-}
-
-
-
-.logo-img {
-  width: 250px;
-  height: 250px;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  text-align: center;
 }
