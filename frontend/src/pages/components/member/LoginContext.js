@@ -13,6 +13,9 @@ const LoginContext = ({
   setEmail,
   setPassword,
   handleLogin,
+  emailErr,
+  passwordErr,
+  err,
 }) => {
   return (
     <div className="context">
@@ -30,6 +33,15 @@ const LoginContext = ({
         setPassword={setPassword}
         handleLogin={handleLogin}
       />
+      {emailErr && <p className="log-error-message1">이메일을 입력해주세요.</p>}
+      {passwordErr && <p className="log-error-message1">비밀번호를 입력해주세요.</p>}
+      {err && (
+        <div
+          className="log-error-message2"
+          dangerouslySetInnerHTML={{ __html: err }}
+        />
+      )}
+
       <Link to={"/signup"} className='signup-link'>회원가입</Link>
     </div>
   );
