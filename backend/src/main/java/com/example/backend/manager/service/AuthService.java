@@ -6,6 +6,7 @@ import com.example.backend.manager.dto.ManagerRequestDto;
 import com.example.backend.manager.dto.ManagerResponseDto;
 import com.example.backend.manager.entity.Manager;
 import com.example.backend.manager.repository.ManagerRepository;
+import jakarta.annotation.PostConstruct;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -52,5 +53,19 @@ public class AuthService {
         Authentication authentication = managerBuilder.getObject().authenticate(authenticationToken);
 
         return tokenProvider.generateTokenDto(authentication);
+    }
+
+    @PostConstruct
+    public void memberInit() {
+        ManagerRequestDto requestDto1 = new ManagerRequestDto("admin@aivle.com","12345","윤태호","ROLE_ADMIN");
+        ManagerRequestDto requestDto2 = new ManagerRequestDto("user2@aivle.com","12345","윤태호","ROLE_USER");
+        ManagerRequestDto requestDto3 = new ManagerRequestDto("user3@aivle.com","12345","윤태호","ROLE_USER");
+        ManagerRequestDto requestDto4 = new ManagerRequestDto("user4@aivle.com","12345","윤태호","ROLE_USER");
+        ManagerRequestDto requestDto5 = new ManagerRequestDto("user5@aivle.com","12345","윤태호","ROLE_USER");
+        managerRepository.save(requestDto1.toManager(passwordEncoder));
+        managerRepository.save(requestDto2.toManager(passwordEncoder));
+        managerRepository.save(requestDto3.toManager(passwordEncoder));
+        managerRepository.save(requestDto4.toManager(passwordEncoder));
+        managerRepository.save(requestDto5.toManager(passwordEncoder));
     }
 }
