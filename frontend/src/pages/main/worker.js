@@ -9,6 +9,7 @@ import CommonTableRow from '../components/table/CommonTableRow';
 import Paging from './page/paging';
 import axios from 'axios';
 import Modal from '../components/modal/Modal';
+import { useNavigate } from 'react-router-dom';
 
 const Worker = () => {
   const [workerList, setWorkerList] = useState([]);
@@ -19,7 +20,8 @@ const Worker = () => {
 
   useEffect(() => {
     fetchWorkerList();
-  }, []);
+  },[]);
+
 
   const fetchWorkerList = async () => {
     try {
