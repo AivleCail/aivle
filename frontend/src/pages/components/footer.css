@@ -1,0 +1,22 @@
+.footer {
+    position: absolute;
+    background-color: rgba( 255, 255, 255, 0.5 );
+    bottom:0px;
+    height:23px;
+    width:100%;
+    text-align: center;
+    flex-shrink: 0;
+    
+    }
+  
+  .footer-text {
+    color: #000000;
+    font-size: 14px;
+  
+  }
+  .content-secure{
+    margin-right: 15px;
+  }
+  .content-secure2{
+    margin-right: 30px;
+  }
