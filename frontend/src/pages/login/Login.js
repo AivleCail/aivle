@@ -71,7 +71,7 @@ const Login = () => {
       })
       .catch((error) => {
         console.error('Login error:', error);
-        setErr('이메일 또는 비밀번호가<br>일치하지 않습니다.');
+        setErr('이메일 또는 비밀번호가 일치하지 않습니다.');
       });
   };
 

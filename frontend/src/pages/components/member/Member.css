@@ -1,18 +1,7 @@
-.context {
-    width: 50%;
-    height: 80%;
-    position: absolute;
-    justify-content: center;
-    align-items: center;
-    top: 10%;
-    left: 50%;
-  }
-  
-  .logo-text {
+.logo-text {
     font-weight: bold;
     font-size: 1.2rem;
     width: 30rem;
-    margin-top: 1rem;
   }
   
   .login-form,
@@ -113,6 +102,19 @@
     justify-content: center;
     color: #4c87f8;
   }
+
+.terms-group {
+  margin: 3rem;
+  color: #999999;
+  width: 15rem;
+  text-align: center;
+}
+
+  .terms {
+    text-decoration: none;
+    margin: 0.1rem;
+    color: #999999;
+  }
   
   .input-border {
     border: 0.1rem solid black;
@@ -140,6 +142,15 @@
     width: 2rem;
   }
   
+  .log-error-message {
+    color: red;
+  }
+
+  .error-group {
+    height: 1rem;
+  }
+
+
   .log-error-message1 {
     display: flex;
     align-items: center;
