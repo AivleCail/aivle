@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header from '../components/header';
 import Sidebar from '../components/sidebar';
+import Footer from '../components/footer';
 import './intro.css';
 import IntroTable from '../components/table/introtable/introtable';
 import IntroTableColumn from '../components/table/introtable/introtablecolumn';
@@ -123,6 +124,7 @@ const Intro = () => {
         </div>
 
       </div>
+      <Footer />
     </div>
   );
 };

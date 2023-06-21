@@ -65,7 +65,7 @@ const ExternalList = () => {
   return (
     <div className='mobile-container'>
       <div className='title'>
-        <span className='title-text'>oo님의 공사 신고 접수 내역</span>
+        <span className='title-text'>공사 신고 접수 내역</span>
       </div>
       <div>
       <button className="list-logout-button" onClick={handleLogout}>

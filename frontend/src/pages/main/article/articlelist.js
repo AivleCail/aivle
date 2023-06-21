@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Header from '../../components/header';
 import Sidebar from '../../components/sidebar';
+import Footer from '../../components/footer';
 import './articlelist.css';
 import axios from 'axios';
 import CommonTable from '../../components/table/CommonTable';
@@ -19,7 +20,7 @@ const ArticleList = () => {
   useEffect(() => {
     fetchArticles();
   }, []);
-
+  
   const fetchArticles = async () => {
     try {
       const accessToken = localStorage.getItem('accessToken');
@@ -102,29 +103,29 @@ const ArticleList = () => {
       <Header />
       <Sidebar />
 
-      <div className="background">
-        <div className="container">
-          <span className="article-text-1">커뮤니티</span>
-          <span className="article-text-2">공지사항 & 운영자들 간 소통 게시판입니다.</span>
-          <button className='add-article-btn'>추가</button>
+        <div className="background">
+          <div className="container">
+            <span className="article-text-1">커뮤니티</span>
+            <span className="article-text-2">공지사항 & 운영자들 간 소통 게시판입니다.</span>
+            <button className='add-article-btn'>추가</button>
 
-          <div className="article">
-            <div className="article-table-container">
-              <div className="article-table-scroll">
-                <CommonTable headersName={['번호', '제목', '글쓴이', '작성일시', '조회']} columnWidths={['4%','', '15%', '20%', '8%']}>
-                  {currentArticles.map((article) => (
-                    <CommonTableRow key={article.articleId} onClick={() => openModal(article)}>
-                      <CommonTableColumn>{article.articleId}</CommonTableColumn>
-                      <CommonTableColumn>{article.articleTitle}</CommonTableColumn>
-                      <CommonTableColumn>{article.managerName}</CommonTableColumn>
-                      <CommonTableColumn>{article.createdAt}</CommonTableColumn>
-                      <CommonTableColumn>{article.count}</CommonTableColumn>
-                    </CommonTableRow>
-                  ))}
-                </CommonTable>
+            <div className="article">
+              <div className="article-table-container">
+                <div className="article-table-scroll">
+                  <CommonTable headersName={['번호', '제목', '글쓴이', '작성일시', '조회']} columnWidths={['4%','', '15%', '20%', '8%']}>
+                    {currentArticles.map((article) => (
+                      <CommonTableRow key={article.articleId} onClick={() => openModal(article)}>
+                        <CommonTableColumn>{article.articleId}</CommonTableColumn>
+                        <CommonTableColumn>{article.articleTitle}</CommonTableColumn>
+                        <CommonTableColumn>{article.managerName}</CommonTableColumn>
+                        <CommonTableColumn>{article.createdAt}</CommonTableColumn>
+                        <CommonTableColumn>{article.count}</CommonTableColumn>
+                      </CommonTableRow>
+                    ))}
+                  </CommonTable>
+                </div>
               </div>
             </div>
-          </div>
 
           {/* ArticleDetailModal */}
           {isOpenModal && (
@@ -139,6 +140,7 @@ const ArticleList = () => {
           />
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
