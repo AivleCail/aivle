@@ -53,7 +53,7 @@ const ArticalContent = ({ article, comments }) => {
               onChange={(e) => setNewCommentText(e.target.value)}
               className="comment-input"
             />
-            <button type="submit">댓글 작성</button>
+            <button type="submit" className="comment-button">Add Comment</button>
         </form>
         {comments && comments.length > 0 ? (
           <ul>
