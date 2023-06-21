@@ -1,5 +1,6 @@
 package com.example.backend.voc.repository;
 
+import com.example.backend.voc.dto.VocIntroResponseDto;
 import com.example.backend.voc.dto.VocPageResponseDto;
 import com.example.backend.voc.entity.QVoc;
 import com.example.backend.voc.entity.Voc;
@@ -44,5 +45,24 @@ public class VocRepositoryImpl implements VocRepositoryCustom{
                 .fetchCount();
 
         return new PageImpl<>(pages, pageable, totalCount);
+    }
+
+    @Override
+    public List<VocIntroResponseDto> searchNow() {
+        QVoc voc = QVoc.voc; // Assuming QVoc is the generated Q-class for your Voc entity
+
+        List<Voc> content = queryFactory
+                .selectFrom(voc)
+                .where()
+                .orderBy(voc.date.desc())
+                .limit(4)
+                .fetch();
+
+        List<VocIntroResponseDto> Vocs = content
+                .stream()
+                .map(VocIntroResponseDto::of)
+                .collect(Collectors.toList());
+
+        return Vocs;
     }
 }
