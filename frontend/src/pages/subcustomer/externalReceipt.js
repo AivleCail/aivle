@@ -56,12 +56,26 @@ const ExternalReceipt = () => {
     "공사날짜 : 2023년 06월 17일 오후 1시",
   ];
 
+
+  const handleLogout = () => { // 로그아웃
+    const confirmLogout = window.confirm('로그아웃 하시겠습니까?');
+    if (confirmLogout) {
+      localStorage.removeItem('accessToken');
+      alert('로그아웃 되었습니다.');
+      navigate('/');
+    }
+  };
+  
   return (
     <div className='mobile-container'>
       <div className='title'>
         <span className='title-text'>새로운 공사 신고 접수</span>
       </div>
-
+      <div>
+      <button className="receipt-logout-button" onClick={handleLogout}>
+        <img className="receipt-logout-button-detail" src={process.env.PUBLIC_URL + '/logout.svg'} alt="Logout"/>
+      </button>
+      </div>
       <hr />
       <InformContent
         aiIcon={AiIcon}
