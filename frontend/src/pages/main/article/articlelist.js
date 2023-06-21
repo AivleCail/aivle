@@ -7,7 +7,7 @@ import CommonTable from '../../components/table/CommonTable';
 import CommonTableColumn from '../../components/table/CommonTableColumn';
 import CommonTableRow from '../../components/table/CommonTableRow';
 import Paging from '../page/paging';
-import ArticleDetailModal from './articledetail';
+import Modal from '../../components/modal/Modal';
 
 const ArticleList = () => {
   const [articles, setArticles] = useState([]);
@@ -127,7 +127,7 @@ const ArticleList = () => {
 
           {/* ArticleDetailModal */}
           {isOpenModal && (
-            <ArticleDetailModal isOpen={isOpenModal} closeModal={closeModal} article={selectedArticle} comments={selectedArticle.comments}/>
+            <Modal isOpen={isOpenModal} closeModal={closeModal} article={selectedArticle} comments={selectedArticle.comments}/>
           )}
           
           <Paging
