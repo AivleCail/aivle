@@ -79,7 +79,7 @@ const VOC = () => {
       if (selectedItem) {
         setSelectedItems((prev) => [
           ...prev,
-          { to: selectedItem.customerPhone, content: `${id}` },
+          { to: selectedItem.customerPhone.replace(/-/g, ''), content: `${id}` },
         ]);
       }
     } else {
@@ -91,7 +91,7 @@ const VOC = () => {
   const handleAllCheck = (checked) => {
     if (checked) {
       const items = vocList.map((voc) => ({
-        to: voc.customerPhone,
+        to: voc.customerPhone.replace(/-/g, ''),
         content: `Your message content for ID ${voc.vocId}`,
       }));
       setSelectedItems(items);
