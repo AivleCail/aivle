@@ -29,35 +29,11 @@ public class JsonProcessor implements CommandLineRunner {
     public void run(String... args) throws Exception {
         JSONParser parser = new JSONParser();
         Reader vocReader = new FileReader("src/main/resources/voc1.json");
-//        Reader articleReader = new FileReader("src/main/resources/voc1.json");
-//        Reader externalReader = new FileReader("src/main/resources/voc1.json");
-        initVoc(parser,vocReader);
         Reader externalReader = new FileReader("src/main/resources/external.json");
-        JSONArray array = (JSONArray) parser.parse(externalReader);
-        for (int i=0; i< array.size(); i++) {
-            JSONObject element = (JSONObject) array.get(i);
-            String externalStatus = (String) element.get("external_status");
-            String rd = (String) element.get("receipt_date");
-//            rd = rd.substring(0,19);
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd H:mm:ss");
-            LocalDateTime dateTime = LocalDateTime.parse(rd, formatter);
-            LocalDateTime receiptDate = dateTime;
-            String receiptContent = (String) element.get("receipt_content");
-            String sd = (String) element.get("external_startdate");
-            DateTimeFormatter formatter2 = DateTimeFormatter.ofPattern("yyyy-MM-dd H:mm:ss");
-            LocalDateTime dateTime2 = LocalDateTime.parse(sd, formatter2);
-            LocalDateTime externalStartDate = dateTime2;
-            String companyName = (String) element.get("company_name");
-            String externalAddress = (String) element.get("external_address");
-            String externalEndDate = (String) element.get("external_enddate");
-            Long id = (Long) element.get("external_id");
-            Long managerId = (Long) element.get("manager_id");
-            Manager manager = managerRepository.findById(managerId)
-                    .orElseThrow(() -> new IllegalArgumentException("Manager not found with id: " + managerId));
+//        Reader articleReader = new FileReader("src/main/resources/voc1.json");
+        initVoc(parser,vocReader);
+        initExternal(parser, externalReader);
 
-            External external = new External(id, companyName, receiptContent, externalAddress, receiptDate, externalStartDate, externalEndDate, externalStatus, manager);
-            externalRepository.save(external);
-        }
     }
 
     public void initVoc(JSONParser parser, Reader reader) throws Exception{
@@ -85,6 +61,34 @@ public class JsonProcessor implements CommandLineRunner {
             Voc voc = new Voc(vocId, customerName, customerAddress, customerPhone, type, date, status, percentage, entire, opinion, detail, manager);
             // Voc 저장
             vocRepository.save(voc);
+        }
+    }
+
+    public void initExternal(JSONParser parser, Reader reader) throws Exception{
+        JSONArray array = (JSONArray) parser.parse(reader);
+        for (int i=0; i< array.size(); i++) {
+            JSONObject element = (JSONObject) array.get(i);
+            String externalStatus = (String) element.get("external_status");
+            String rd = (String) element.get("receipt_date");
+//            rd = rd.substring(0,19);
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd H:mm:ss");
+            LocalDateTime dateTime = LocalDateTime.parse(rd, formatter);
+            LocalDateTime receiptDate = dateTime;
+            String receiptContent = (String) element.get("receipt_content");
+            String sd = (String) element.get("external_startdate");
+            DateTimeFormatter formatter2 = DateTimeFormatter.ofPattern("yyyy-MM-dd H:mm:ss");
+            LocalDateTime dateTime2 = LocalDateTime.parse(sd, formatter2);
+            LocalDateTime externalStartDate = dateTime2;
+            String companyName = (String) element.get("company_name");
+            String externalAddress = (String) element.get("external_address");
+            String externalEndDate = (String) element.get("external_enddate");
+            Long id = (Long) element.get("external_id");
+            Long managerId = (Long) element.get("manager_id");
+            Manager manager = managerRepository.findById(managerId)
+                    .orElseThrow(() -> new IllegalArgumentException("Manager not found with id: " + managerId));
+
+            External external = new External(id, companyName, receiptContent, externalAddress, receiptDate, externalStartDate, externalEndDate, externalStatus, manager);
+            externalRepository.save(external);
         }
     }
 }
