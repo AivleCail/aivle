@@ -100,8 +100,8 @@ hr {
     background-color: transparent;
     padding : -10px;
     cursor: pointer;
-    top : 40px;
-    left : 360px;
+    top : 140px;
+    left : 380px;
   }
 
   .external-refresh-button .voc-img {
@@ -110,4 +110,63 @@ hr {
   }
   .record{
     margin-right: 10px;
+  }
+
+
+  
+  .list-logout-button {
+    position: absolute;
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    left: 350px;
+    top: 42px;
+  }
+  
+  .list-logout-button:focus {
+    outline: none;
+  }
+  
+  .list-logout-button:hover {
+    filter: brightness(1.8); 
+  }
+
+  
+  .list-logout-button-detail {
+    width: 90px;
+    height: 18px;
+    border: none;
+    padding: 0;
+    background: none;
+    cursor: pointer;
+  }
+  
+
+  .receipt-logout-button {
+    position: absolute;
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    left: 350px;
+    top: 42px;
+  }
+  
+  .receipt-logout-button:focus {
+    outline: none;
+  }
+  
+  .receipt-logout-button:hover {
+    filter: brightness(1.8); 
+  }
+
+  
+  .receipt-logout-button-detail {
+    width: 90px;
+    height: 18px;
+    border: none;
+    padding: 0;
+    background: none;
+    cursor: pointer;
   }
