@@ -1,5 +1,6 @@
 package com.example.backend.external.repository;
 
+import com.example.backend.external.dto.ExternalIntroResponseDto;
 import com.example.backend.external.dto.ExternalPageResponseDto;
 
 import com.example.backend.external.entity.External;
@@ -48,6 +49,25 @@ public class ExternalRepositoryImpl implements ExternalRepositoryCustom{
                 .size();
 
         return new PageImpl<>(pages, pageable, totalSize);
+    }
+
+    @Override
+    public List<ExternalIntroResponseDto> searchNow() {
+
+
+        List<External> contents = queryFactory
+                .selectFrom(external)
+                .orderBy(external.externalStartdate.desc())
+                .limit(4)
+                .fetch();
+
+        List<ExternalIntroResponseDto> externals = contents
+                .stream()
+                .map(ExternalIntroResponseDto::of)
+                .collect(Collectors.toList());
+
+
+        return externals;
     }
 
 }

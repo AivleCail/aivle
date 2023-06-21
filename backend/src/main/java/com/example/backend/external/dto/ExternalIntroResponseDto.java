@@ -4,6 +4,8 @@ import com.example.backend.external.entity.External;
 import lombok.Builder;
 import lombok.Getter;
 
+import java.time.format.DateTimeFormatter;
+
 
 @Getter
 @Builder
@@ -20,7 +22,8 @@ public class ExternalIntroResponseDto {
                 .externalId(external.getId())
                 .companyName(external.getCompanyName())
                 .receiptContent(external.getReceiptContent())
-                .externalStartdate(external.getExternalStartdate())
+                //.externalStartdate(external.getExternalStartdate())
+                .externalStartdate(external.getExternalStartdate().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")))
                 .externalStatus(external.getExternalStatus())
                 .build();
     }
