@@ -9,7 +9,10 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [activeIndex, setActiveIndex] = useState(0);
-  const [role, setRole] = useState('');
+  const [role, setRole] = useState(''); //eslint-disable-line no-unused-vars
+  const [emailErr, setEmailErr] = useState(false);
+  const [passwordErr, setPasswordErr] = useState(false);
+  const [err, setErr] = useState('');
 
   const handleManagerClick = () => {
     setActiveIndex(0);
@@ -27,14 +30,19 @@ const Login = () => {
     }
   }, [activeIndex]);
 
+  
   const handleLogin = () => {
+    setEmailErr(false); // 이메일 에러 상태 초기화
+    setPasswordErr(false); // 비밀번호 에러 상태 초기화
+    setErr(''); // 일치하지 않는 이메일 또는 비밀번호 에러 초기화
+
     if (email.trim() === '') {
-      alert('이메일을 입력해주세요.');
+      setEmailErr(true); // 이메일이 비어있는 경우 에러 표시
       return;
     }
 
     if (password.trim() === '') {
-      alert('비밀번호를 입력해주세요.');
+      setPasswordErr(true); // 비밀번호가 비어있는 경우 에러 표시
       return;
     }
 
@@ -64,7 +72,7 @@ const Login = () => {
       .catch((error) => {
         // Handle error.
         console.error('Login error:', error);
-        alert('이메일 또는 비밀번호가 일치하지 않습니다.');
+        setErr('이메일 또는 비밀번호가<br>일치하지 않습니다.');
       });
   };
 
@@ -80,6 +88,9 @@ const Login = () => {
         setEmail={setEmail}
         setPassword={setPassword}
         handleLogin={handleLogin}
+        emailErr={emailErr}
+        passwordErr={passwordErr}
+        err={err}
       />
     </div>
   );
