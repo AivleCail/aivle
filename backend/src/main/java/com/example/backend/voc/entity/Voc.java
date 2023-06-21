@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
 
@@ -32,8 +33,9 @@ public class Voc {
     @Column(nullable = false)
     private String type;
 
+    @CreationTimestamp
     @Column
-    private String date;
+    private LocalDateTime date;
 
     @Column
     private String status;

@@ -13,6 +13,7 @@ import org.json.simple.parser.JSONParser;
 import java.io.FileReader;
 import java.io.Reader;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 @Component
 @RequiredArgsConstructor
@@ -32,7 +33,10 @@ public class JsonProcessor implements CommandLineRunner {
             String customerAddress = (String) element.get("customer_address");
             String customerPhone = (String) element.get("customer_phone");
             String type = (String) element.get("type");
-            String date = (String) element.get("date");
+            String d = (String) element.get("date");
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd H:mm:ss");
+            LocalDateTime dateTime = LocalDateTime.parse(d, formatter);
+            LocalDateTime date =dateTime;
             String status = (String) element.get("status");
             String percentage = (String) element.get("percentage");
             String entire = (String) element.get("entire");
