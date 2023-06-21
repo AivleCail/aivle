@@ -4,8 +4,7 @@ const ArticleDetailModal = ({ isOpen, closeModal, article, comments }) => {
   return (
     <div className={`modal ${isOpen ? 'open' : ''}`}>
       <div className="modal-content">
-        <p>번호 : {article.articleId}</p>
-        <p>카테고리 : {article.category}</p>
+        <button className="close-button" onClick={closeModal}>X</button>
         <h2>{article.articleTitle}</h2>
         <p>{article.articleBody}</p>
         <br></br>
@@ -26,7 +25,6 @@ const ArticleDetailModal = ({ isOpen, closeModal, article, comments }) => {
             <p>댓글이 없습니다.</p>
           )}
         </div>
-        <button onClick={closeModal}>CLOSE</button>
       </div>
     </div>
   );
