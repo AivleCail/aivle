@@ -9,40 +9,35 @@ import IntroTableColumn from '../components/table/introtable/introtablecolumn';
 import IntroTableRow from '../components/table/introtable/introtablerow';
 import axios from 'axios';
 
-
 const Intro = () => {
   const navigate = useNavigate();
   const [introArticle, setIntroArticle] = useState([]);
   const [introExternal, setIntroExternal] = useState([]);
   const [introVoc, setIntroVoc] = useState([]);
 
-
   useEffect(() => {
     const accessToken = localStorage.getItem('accessToken');
     if (!accessToken) {
       alert('로그인 후 이용가능합니다.');
       navigate('/');
-    }
-    else{
+    } else {
       introArticles();
       introExternals();
       introVocs();
     }
   }, [navigate]);
-  
+
   const introArticles = async () => {
     try {
       const accessToken = localStorage.getItem('accessToken');
-      // article 정보 가져오기
       const response = await axios.get(`http://localhost:8080/intro/article`, {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },
       });
-    const introArticle = response.data;
-    setIntroArticle(introArticle);
-    }
-    catch (error) {
+      const introArticle = response.data;
+      setIntroArticle(introArticle);
+    } catch (error) {
       console.error('Error article', error);
     }
   };
@@ -50,16 +45,14 @@ const Intro = () => {
   const introExternals = async () => {
     try {
       const accessToken = localStorage.getItem('accessToken');
-      // External 정보 가져오기
       const response = await axios.get(`http://localhost:8080/intro/external`, {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },
       });
-    const introExternal = response.data;
-    setIntroExternal(introExternal);
-    }
-    catch (error) {
+      const introExternal = response.data;
+      setIntroExternal(introExternal);
+    } catch (error) {
       console.error('Error External', error);
     }
   };
@@ -67,19 +60,25 @@ const Intro = () => {
   const introVocs = async () => {
     try {
       const accessToken = localStorage.getItem('accessToken');
-      // Voc 정보 가져오기
       const response = await axios.get(`http://localhost:8080/intro/voc`, {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },
       });
-    const introVoc = response.data;
-    setIntroVoc(introVoc);
-    }
-    catch (error) {
+      const introVoc = response.data;
+      setIntroVoc(introVoc);
+    } catch (error) {
       console.error('Error Voc', error);
     }
   };
+
+  useEffect(() => {
+    const blockedPaths = ['/myexternal'];
+    if (blockedPaths.includes(window.location.pathname)) {
+      navigate('/article');
+    }
+  }, [navigate]);
+
     
 
 
