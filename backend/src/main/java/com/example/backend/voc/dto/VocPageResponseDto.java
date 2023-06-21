@@ -25,8 +25,8 @@ public class VocPageResponseDto {
                 .customerAddress(voc.getCustomerAddress())
                 .customerPhone(voc.getCustomerPhone())
                 .type(voc.getType())
-//                .receptionDate(voc.getDate().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")))
-                .receptionDate(voc.getDate())
+                .receptionDate(voc.getDate().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")))
+//                .receptionDate(voc.getDate())
                 .checkStatus(voc.getStatus())
                 .percentage(voc.getPercentage())
                 .build();
