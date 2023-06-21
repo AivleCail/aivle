@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import ListContainer from '../components/list/ListContainer';
 import Paging from '../main/page/paging';
@@ -25,41 +25,8 @@ const ExternalList = () => {
     if (!accessToken) {
       alert('로그인 후 이용가능합니다.');
       navigate('/');
-    } else {
-      axios
-        .get('http://localhost:8080/auth/user', {
-          headers: {
-            Authorization: `Bearer ${accessToken}`,
-          },
-        })
-        .then((response) => {
-          const userRole = response.data.role;
-          if (userRole === 'ROLE_ADMIN') {
-            alert('접근 권한이 없습니다.');
-            navigate('/');
-          }
-        })
-        .catch((error) => {
-          console.error('Error checking user role:', error);
-        });
-    }
+    } 
   }, [navigate]);
-
-  useEffect(() => {
-    const accessToken = localStorage.getItem('accessToken');
-    if (accessToken) {
-      axios
-        .post('http://localhost:8080/auth/user', {
-          auth: 'ROLE_USER',
-        })
-        .then(() => {
-          console.log('User role set to ROLE_USER');
-        })
-        .catch((error) => {
-          console.error('Error setting user role:', error);
-        });
-    }
-  }, []);
 
   const handleLogout = () => {
     const confirmLogout = window.confirm('로그아웃 하시겠습니까?');
@@ -101,6 +68,20 @@ const ExternalList = () => {
     fetchMyExternalList();
   };
 
+
+  useEffect(() => {
+    const handleBackButton = (event) => {
+      event.preventDefault();
+      window.history.forward(); 
+    };
+
+    window.history.pushState(null, null, window.location.href);
+    window.addEventListener('popstate', handleBackButton);
+
+    return () => {
+      window.removeEventListener('popstate', handleBackButton);
+    };
+  }, []);
 
   return (
     <div className='mobile-container'>
