@@ -1,222 +1,131 @@
-.signup {
-    background-color: #ffffff;
+@media (max-width: 1000px) {
+    .bg-img {
+      display: none;
+    }
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .context {
+      position: static !important;
+    }
+}
+  
+.container{
+    position: relative;
+    height: 100%;
+    margin: auto;
+}
+
+.context {
+    width: 50%;
+    height: 80%;
+    position: absolute;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
-    width: 90%;
+    top: 10%;
+    left: 50%;
 }
-.signup .overlap-wrapper {
-    background-color: #ffffff;
-    border: 1px none;
-    height: 800px;
-    width: 1420px;
+
+.bg-img {
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 100%;
 }
+
+.context {
+    width: 50%;
+    height: 80%;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    top: 10%;
+    left: 50%;
+}
+
+.title {
+    display: flex;
+    margin-top: 1rem;
+    margin: 1.5rem 0;
+    font-size: 2rem;
+    font-weight: bold;
+    width: 28rem;
+}
+
+.radio-buttons {
+    display: flex;
+    margin: 1.5rem 0;
+    width: 28rem;
+}
+
+.user-type-button {
+    background-color: #ccc;
+    color: #fff;
+    font-size: 1.1rem;
+    border: none;
+    cursor: pointer;
+    width : 14rem;
+    height : 3rem;
+}
+  
+.selected {
+    background-color: #333;
+}
+
+
+.a-input-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+  }
+  
+.a-input-group-label {
+    align-self: flex-start;
+    font-size: 1.2rem;
+    margin-bottom: 0.3rem;
+    margin-right: 1rem;
+}
+
+.signup-input {
+    font-size: 1rem;
+    width: 26rem;
+    height: 2.5rem;
+    padding: 0 1rem;
+    border: 0.1rem solid #B7B7B7;
+}
+
 .signup-button {
-    margin-top: -20px;
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: #272626;
     color: white;
-    font-size: 16px;
+    font-size: 1.3rem;
     font-weight: bold;
-    border-radius: 5px;
+    border-radius: 0.2rem;
     border: none;
     cursor: pointer;
-    width: 565px;
-    height: 65px;
-    left: 805px;
-    top: 732px;
+    width: 28rem;
+    height: 3rem;
 }
+
 .signup-button:hover {
     background-color: #34495e;
     transform: scale(1.02);
     transition: background-color 0.2s ease, transform 0.2s ease;
 }
+
 .signup-button:active {
     transform: scale(0.98);
     transition: transform 0.2s ease;
 }
-.signup .overlap {
-    height: 800px;
-    position: relative;
-    width: 1376px;
-}
-.signup .overlap-group {
-    height: 800px;
-    left: 0;
-    position: absolute;
-    top: 0px;
-    width: 1311px;
-}
-.signup .overlap-group-wrapper-1 {
-    height: 45px;
-    left: 813px;
-    position: absolute;
-    top: 340px;
-}
-.signup .overlap-group-wrapper-2 {
-    height: 50px;
-    left: 813px;
-    position: absolute;
-    top: 450px;
-}
-.signup .overlap-group-wrapper-3 {
-    height: 50px;
-    left: 813px;
-    position: absolute;
-    top: 580px;
-}
-.signup .group {
-    height: 50px;
-    left: 815px;
-    position: absolute;
-    top: 190px;
-    width: 496px;
-}
-.signup .group-2 {
-    height: 60px;
-    left: 813px;
-    position: absolute;
-    top: 700px;
-    width: 498px;
-}
-.signup .div-wrapper input, .signup .div input {
-    top : -0px;
-    border-radius: 0px;
-    height: 45px;
-    position: relative;
-    width: 520px;
-    font-family: "Segoe UI-Regular", Helvetica;
-    font-size: 17px;
-    padding: 0 20px;
-    border: 2px solid #B7B7B7;
-}
-.signup .div-wrapper input::placeholder, .signup .div input::placeholder {
-    color: #9b9b9b;
-}
-.signup .div-1 input {
-    border-radius: 0px;
-    height: 45px;
-    position: relative;
-    width: 520px;
-    font-family: "Segoe UI-Regular", Helvetica;
-    font-size: 17px;
-    padding: 0 20px;
-    border: 2px solid #B7B7B7;
-    top : -20px;
-}
-
 
   
-.signup .img {
-    height: 800px;
-    left: 0;
-    object-fit: cover;
-    position: absolute;
-    top: 0;
-    width: 824px;
-}
-.signup .signup_title {
-    font-family: "Segoe UI-Semibold", Helvetica;
-    left: 815px;
-    position: absolute;
-    top: 15px;
-    font-size: 40px;
-    font-weight: 800;
-}
-.signup .signup-text-0 {
-    font-family: "Segoe UI-Semibold", Helvetica;
-    left: 815px;
-    position: absolute;
-    top: 130px;
-    font-size: 20px;
-    font-weight: 600;
-}
-.signup .signup-text-1 {
-    font-family: "Segoe UI-Semibold", Helvetica;
-    left: 815px;
-    position: absolute;
-    top: 230px;
-    font-size: 20px;
-    font-weight: 600;
-}
-.signup .signup-text-2 {
-    font-family: "Segoe UI-Semibold", Helvetica;
-    left: 815px;
-    position: absolute;
-    top: 340px;
-    font-size: 20px;
-    font-weight: 600;
-}
-.signup .signup-text-3 {
-    font-family: "Segoe UI-Semibold", Helvetica;
-    left: 815px;
-    position: absolute;
-    top: 450px;
-    font-size: 20px;
-    font-weight: 600;
-}
-.signup .signup-text-4 {
-    font-family: "Segoe UI-Semibold", Helvetica;
-    left: 815px;
-    position: absolute;
-    top: 560px;
-    font-size: 20px;
-    font-weight: 600;
-}
-
-
-.signup-user-type {
-    position: relative;
-    top: 150px;
-    left: 815px;
-  }
-  
-  .user-type-button {
-    background-color: #ccc;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    width : 280px;
-    height : 50px;
-  }
-  
-  .selected {
-    background-color: #333;
-  }
-
-  
-.signup .div-wrapper input,
-.signup .div input,
-.signup .div-1 input {
-
-  margin-top: 40px;
-}
-
-.input-wrapper {
-    position: relative;
-
-    .field-error-message {
-        position: absolute;
-        left: 75px; 
-        top: 43px; 
-        color: red;
-        font-size: 15px;
-        width: 150px;
-    }
-    .email-error-message {
-        position: absolute;
-        left: 75px; 
-        top: 43px; 
-        color: red;
-        font-size: 15px;
-        width: 230px;
-    }
-  }
-  
-  .input-wrapper .text-input {
+.input-wrapper .text-input {
     top : 80px;
     border-radius: 0px;
     height: 45px;
@@ -228,48 +137,16 @@
     border: 2px solid #B7B7B7;
   }
   
-  .overlap-group-wrapper-1 .field-error-message {
-    position: absolute;
-    left: 99px; 
-    top: 5px; 
+.field-error-message, .error-alert {
     color: red;
-    font-size: 15px;
-    width: 150px;
-    }
+    font-size: 1.1rem;
+    width: 15rem;
+}
 
-  .overlap-group-wrapper-2 {
-    .field-error-message {
-        position: absolute;
-        left: 145px; 
-        top: 5px; 
-        color: red;
-        font-size: 15px;
-        width: 150px;
-        }
-    .password-error-message {
-        position: absolute;
-        left: 145px; 
-        top: 5px; 
-        color: red;
-        font-size: 15px;
-        width: 230px;
-        }
-    }
-    .overlap-group-wrapper-3 .field-error-message {
-        position: absolute;
-        left: 58px; 
-        top: -16px; 
-        color: red;
-        font-size: 15px;
-        width: 150px;
-    }
-    
-    .signup .error-alert {
-        position: absolute;
-        top: 235px; 
-        left: 1020px;
-        transform: translateX(-50%); 
-        color: red;
-        font-size: 15px;
-        width: 250px;
-    }
+.error-group {
+    height: 2rem;
+  }
+
+  .error-alert {
+    text-align: center;
+  }
