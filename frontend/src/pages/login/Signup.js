@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import './Signup.css';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import './Signup.css';
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -87,107 +87,75 @@ const Signup = () => {
   };
 
   return (
-    <div className="signup">
-      <div className="overlap-wrapper">
-        <div className="overlap">
-          <div className="overlap-group">
-            <div className="signup-user-type">
-              <button
-                className={role === 'manager' ? 'user-type-button selected' : 'user-type-button'}
-                onClick={() => handleUserType('manager')}
-              >
-                매니저
-              </button>
-              <button
-                className={role === 'external' ? 'user-type-button selected' : 'user-type-button'}
-                onClick={() => handleUserType('external')}
-              >
-                사외공사자
-              </button>
-            </div>
-            <div className="signup-text-1">이메일</div>
-            <div className="group">
-              <div className="input-wrapper">
-                <input
-                  type="text"
-                  className="text-input"
-                  value={email}
-                  onChange={(e) => {
-                    setEmail(e.target.value);
-                    setEmailError(false);
-                    setErrorAlert('');
-                    setSubmitted(false);
-                  }}
-                />
-                {submitted && !email && <span className="field-error-message">필드를 입력해주세요.</span>}
-                {emailError && <span className="email-error-message">유효한 이메일을 입력해주세요.</span>}
-              </div>
-            </div>
-            <div className="signup-text-2">비밀번호</div>
-            <div className="overlap-group-wrapper-1">
-              <div className="div">
-                <input
-                  type="password"
-                  className="text-input"
-                  value={password}
-                  onChange={(e) => {
-                    setPassword(e.target.value);
-                    setErrorAlert('');
-                    setSubmitted(false);
-                  }}
-                />
-                {submitted && !password && <span className="field-error-message">필드를 입력해주세요.</span>}
-              </div>
-            </div>
-            <div className="signup-text-3">비밀번호 확인</div>
-            <div className="overlap-group-wrapper-2">
-              <div className="div">
-                <input
-                  type="password"
-                  className="text-input"
-                  value={confirmPassword}
-                  onChange={(e) => {
-                    setConfirmPassword(e.target.value);
-                    setConfirmPasswordError(false);
-                    setErrorAlert('');
-                    setSubmitted(false);
-                  }}
-                />
-                {submitted && !confirmPassword && <span className="field-error-message">필드를 입력해주세요.</span>}
-                {confirmPasswordError && <span className="password-error-message">비밀번호가 일치하지 않습니다.</span>}
-              </div>
-            </div>
-            <div className="signup-text-4">이름</div>
-            <div className="overlap-group-wrapper-3">
-              <div className="div-1">
-                <input
-                  type="text"
-                  className="text-input"
-                  value={name}
-                  onChange={(e) => {
-                    setName(e.target.value);
-                    setErrorAlert('');
-                    setSubmitted(false);
-                  }}
-                />
-                {submitted && !name && <span className="field-error-message">필드를 입력해주세요.</span>}
-              </div>
-            </div>
-            <div className="group-2">
-              <button className="signup-button" onClick={handleSignup}>
-                다 음
-              </button>
-            </div>
-            <img
-              className="img"
-              alt="Element"
-              src={process.env.PUBLIC_URL + 'login_background.png'}
-            />
-          </div>
-          <div className="signup_title">회원가입</div>
+    <div className="container">
+      <div className="bg-img" style={{ backgroundImage: 'url(bg.svg)' }}></div>
+      <div className="context">
+        <div>회원가입</div>
+        <div>
+          <button
+            className={role === 'manager' ? 'user-type-button selected' : 'user-type-button'}
+            onClick={() => handleUserType('manager')}
+          >
+          매니저
+          </button>
+          <button
+            className={role === 'external' ? 'user-type-button selected' : 'user-type-button'}
+            onClick={() => handleUserType('external')}
+          >
+            사외공사자
+          </button>
         </div>
+        <div>
+          이메일
+            <input type="text" value={email} onChange={(e) => {
+                setEmail(e.target.value);
+                setEmailError(false);
+                setErrorAlert('');
+                setSubmitted(false);
+              }}
+            />
+            {submitted && !email && <span className="field-error-message">필드를 입력해주세요.</span>}
+            {emailError && <span className="email-error-message">유효한 이메일을 입력해주세요.</span>}
+        </div>
+        <div>
+          비밀번호
+          <input type="password" className="text-input" value={password} onChange={(e) => {
+              setPassword(e.target.value);
+              setErrorAlert('');
+              setSubmitted(false);
+            }}
+          />
+          {submitted && !password && <span className="field-error-message">필드를 입력해주세요.</span>}
+        </div>
+        <div>
+          비밀번호 확인
+          <input type="password" value={confirmPassword} onChange={(e) => {
+            setConfirmPassword(e.target.value);
+            setConfirmPasswordError(false);
+            setErrorAlert('');
+            setSubmitted(false);
+            }}
+          />
+          {submitted && !confirmPassword && <span className="field-error-message">필드를 입력해주세요.</span>}
+          {confirmPasswordError && <span className="password-error-message">비밀번호가 일치하지 않습니다.</span>}
+        </div>
+        <div>
+          이름
+          <input type="text" value={name} onChange={(e) => {
+              setName(e.target.value);
+              setErrorAlert('');
+              setSubmitted(false);
+            }}
+          />
+          {submitted && !name && <span className="field-error-message">필드를 입력해주세요.</span>}
+        </div>
+        <div>
+          <button className="signup-button" onClick={handleSignup}>
+            다 음
+          </button>
+        </div>
+        {errorAlert && <div className="error-alert">{errorAlert}</div>}
       </div>
-      {errorAlert && <div className="error-alert">{errorAlert}</div>}
     </div>
   );
 };
