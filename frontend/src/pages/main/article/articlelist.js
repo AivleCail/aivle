@@ -104,8 +104,9 @@ const ArticleList = () => {
 
       <div className="background">
         <div className="container">
-          <span className="article-text-1">운영자 커뮤니티</span>
-          <span className="article-text-2">공지사항을 빠르고 정확하게 안내해드립니다.</span>
+          <span className="article-text-1">커뮤니티</span>
+          <span className="article-text-2">공지사항 & 운영자들 간 소통 게시판입니다.</span>
+          <button className='add-article-btn'>추가</button>
 
           <div className="article">
             <div className="article-table-container">

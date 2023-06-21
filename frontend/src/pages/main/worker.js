@@ -46,7 +46,7 @@ const Worker = () => {
       <div className="background">
         <div className="container">
           <span className="worker-text-1">사외공사 관리</span>
-          <span className="worker-text-2">협력체의 장애 신고 접수내용을 확인합니다.</span>
+          <span className="worker-text-2">협력체 공사 신고 접수 내용을 확인합니다.</span>
 
           <div className="worker">
             <CommonTable headersName={['번호', '업체명', '공사 주소', '공사시작시간', '접수시간', 'ID', '완료여부']}
