@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Header from '../components/header';
 import Sidebar from '../components/sidebar';
+import Footer from '../components/footer';
 import './worker.css';
 import CommonTable from '../components/table/CommonTable';
 import CommonTableColumn from '../components/table/CommonTableColumn';
@@ -73,6 +74,7 @@ const Worker = () => {
           />
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
