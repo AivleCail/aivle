@@ -128,7 +128,7 @@ const ArticleList = () => {
 
           {/* ArticleDetailModal */}
           {isOpenModal && (
-            <Modal isOpen={isOpenModal} closeModal={closeModal} article={selectedArticle} comments={selectedArticle.comments}/>
+            <Modal isOpen={isOpenModal} closeModal={closeModal} entity="article" article={selectedArticle} comments={selectedArticle.comments}/>
           )}
           
           <Paging
