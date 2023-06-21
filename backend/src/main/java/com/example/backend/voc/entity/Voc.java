@@ -33,7 +33,7 @@ public class Voc {
     @Column(nullable = false)
     private String type;
 
-    @CreationTimestamp
+//    @CreationTimestamp
     @Column
     private LocalDateTime date;
 
