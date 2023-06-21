@@ -201,10 +201,18 @@
     .field-error-message {
         position: absolute;
         left: 75px; 
-        top: 45px; 
+        top: 43px; 
         color: red;
         font-size: 15px;
         width: 150px;
+    }
+    .email-error-message {
+        position: absolute;
+        left: 75px; 
+        top: 43px; 
+        color: red;
+        font-size: 15px;
+        width: 230px;
     }
   }
   
