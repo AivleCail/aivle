@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate} from 'react-router-dom';
 import axios from 'axios';
 import ListContainer from '../components/list/ListContainer';
 import Paging from '../main/page/paging'; 
 import './external.css';
+
 
 const ExternalList = () => {
   const [externalList, setExternalList] = useState([]);
@@ -17,6 +18,17 @@ const ExternalList = () => {
       updatedExpanded[index] = !updatedExpanded[index];
       return updatedExpanded;
     });
+  };
+
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    const confirmLogout = window.confirm('로그아웃 하시겠습니까?');
+    if (confirmLogout) {
+      localStorage.removeItem('accessToken');
+      alert('로그아웃 되었습니다.');
+      navigate('/');
+    }
   };
 
   useEffect(() => {
@@ -55,6 +67,12 @@ const ExternalList = () => {
       <div className='title'>
         <span className='title-text'>oo님의 공사 신고 접수 내역</span>
       </div>
+      <div>
+      <button className="list-logout-button" onClick={handleLogout}>
+        <img className="list-logout-button-detail" src={process.env.PUBLIC_URL + '/logout.svg'} alt="Logout"/>
+      </button>
+      </div>
+
       <div>
         <button className="external-refresh-button" onClick={handleRefresh}>
           <img className="voc-img" alt="Element" src={process.env.PUBLIC_URL + "/refresh-arrow.png"} />
