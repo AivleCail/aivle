@@ -7,11 +7,14 @@ import CommonTableColumn from '../components/table/CommonTableColumn';
 import CommonTableRow from '../components/table/CommonTableRow';
 import Paging from './page/paging';
 import axios from 'axios';
+import Modal from '../components/modal/Modal';
 
 const Worker = () => {
   const [workerList, setWorkerList] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [workerPerPage] = useState(8);
+  const [isOpenModal, setIsOpenModal] = useState(false);
+  const [selectedWorker, setSelectedWorker] = useState(null);
 
   useEffect(() => {
     fetchWorkerList();
@@ -39,6 +42,31 @@ const Worker = () => {
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
+  // Modal Open
+   const openModal = async (worker) => {
+    try {
+      const accessToken = localStorage.getItem('accessToken');
+      // Article 정보 가져오기
+      const response = await axios.get(`http://localhost:8080/external/one?id=${worker.externalId}`, {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      });
+      const detailedWorker = response.data;
+
+      setSelectedWorker(detailedWorker);
+      setIsOpenModal(true);
+    } catch (error) {
+      console.error('Error fetching worker details:', error);
+    }
+  };
+
+  // Model Close
+  const closeModal = () => {
+    setSelectedWorker(null);
+    setIsOpenModal(false);
+  };
+
   return (
     <div className="worker-container">
       <Header />
@@ -52,7 +80,7 @@ const Worker = () => {
             <CommonTable headersName={['번호', '업체명', '공사 주소', '공사시작시간', '접수시간', 'ID', '완료여부']}
             columnWidths={['5%', '10%', '20%', '10%', '12%', '10%', '5%']}>
               {currentWorkerList.map((worker) => (
-                <CommonTableRow key={worker.externalId}>
+                <CommonTableRow key={worker.externalId} onClick={() => openModal(worker)}>
                   <CommonTableColumn>{worker.externalId}</CommonTableColumn>
                   <CommonTableColumn className="left-align">{worker.companyName}</CommonTableColumn>
                   <CommonTableColumn>{worker.externalAddress}</CommonTableColumn>
@@ -64,6 +92,11 @@ const Worker = () => {
               ))}
             </CommonTable>
           </div>
+
+          {/* ArticleDetailModal */}
+          {isOpenModal && (
+            <Modal isOpen={isOpenModal} closeModal={closeModal} entity="worker" worker={selectedWorker}/>
+          )}
 
           <Paging
             articlesPerPage={workerPerPage}
