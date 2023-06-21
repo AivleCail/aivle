@@ -80,16 +80,15 @@ const Worker = () => {
           <span className="worker-text-2">협력체 공사 신고 접수 내용을 확인합니다.</span>
 
           <div className="worker">
-            <CommonTable headersName={['번호', '업체명', '공사 주소', '공사시작시간', '접수시간', 'ID', '완료여부']}
-            columnWidths={['5%', '10%', '20%', '10%', '12%', '10%', '5%']}>
+            <CommonTable headersName={['번호', '업체명', '공사 주소', '공사시작시간', '접수시간', '완료여부']}
+            columnWidths={['5%', '10%', '20%', '13%', '13%','5%']}>
               {currentWorkerList.map((worker) => (
                 <CommonTableRow key={worker.externalId} onClick={() => openModal(worker)}>
                   <CommonTableColumn>{worker.externalId}</CommonTableColumn>
-                  <CommonTableColumn className="left-align">{worker.companyName}</CommonTableColumn>
-                  <CommonTableColumn>{worker.externalAddress}</CommonTableColumn>
+                  <CommonTableColumn>{worker.companyName}</CommonTableColumn>
+                  <CommonTableColumn>{`${worker.externalAddress.split(' ').slice(0, 3).join(' ')}`}</CommonTableColumn>
                   <CommonTableColumn>{worker.externalStartdate}</CommonTableColumn>
                   <CommonTableColumn>{worker.receiptDate}</CommonTableColumn>
-                  <CommonTableColumn className="left-align">{worker.managerId}</CommonTableColumn>
                   <CommonTableColumn>{worker.externalStatus}</CommonTableColumn>
                 </CommonTableRow>
               ))}
