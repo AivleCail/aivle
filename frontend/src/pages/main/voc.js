@@ -107,6 +107,7 @@ const VOC = () => {
       alert('보낼 대상을 체크해주세요.');
       return;
     }
+
   
     try {
       const accessToken = localStorage.getItem('accessToken');
@@ -115,6 +116,7 @@ const VOC = () => {
           Authorization: `Bearer ${accessToken}`,
         },
       });
+      alert('해당 고객분들께 메세지 전송이 완료 되었습니다!');
 
       
     } catch (error) {
