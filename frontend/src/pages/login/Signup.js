@@ -90,71 +90,66 @@ const Signup = () => {
     <div className="container">
       <div className="bg-img" style={{ backgroundImage: 'url(bg.svg)' }}></div>
       <div className="context">
-        <div>회원가입</div>
-        <div>
-          <button
-            className={role === 'manager' ? 'user-type-button selected' : 'user-type-button'}
-            onClick={() => handleUserType('manager')}
-          >
-          매니저
-          </button>
-          <button
-            className={role === 'external' ? 'user-type-button selected' : 'user-type-button'}
-            onClick={() => handleUserType('external')}
-          >
-            사외공사자
-          </button>
+        <div className='title'><span>회원 가입</span></div>
+        <div className='radio-buttons'>
+          <button className={role === 'manager' ? 'user-type-button selected' : 'user-type-button'}
+            onClick={() => handleUserType('manager')}>매니저</button>
+          <button className={role === 'external' ? 'user-type-button selected' : 'user-type-button'}
+            onClick={() => handleUserType('external')}>사외공사자</button>
         </div>
-        <div>
-          이메일
-            <input type="text" value={email} onChange={(e) => {
-                setEmail(e.target.value);
-                setEmailError(false);
-                setErrorAlert('');
-                setSubmitted(false);
-              }}
-            />
+        <div className='a-input-group'>
+          <div className='sub-title'>
+            <span className='a-input-group-label'>이메일</span>
             {submitted && !email && <span className="field-error-message">필드를 입력해주세요.</span>}
-            {emailError && <span className="email-error-message">유효한 이메일을 입력해주세요.</span>}
+            {emailError && <span className="field-error-message">유효한 이메일을 입력해주세요.</span>}
+          </div>
+          <input className='signup-input' type="text" value={email} onChange={(e) => {
+            setEmail(e.target.value);
+            setEmailError(false);
+            setErrorAlert('');
+            setSubmitted(false);
+          }} />
         </div>
-        <div>
-          비밀번호
-          <input type="password" className="text-input" value={password} onChange={(e) => {
-              setPassword(e.target.value);
-              setErrorAlert('');
-              setSubmitted(false);
-            }}
-          />
-          {submitted && !password && <span className="field-error-message">필드를 입력해주세요.</span>}
+        <div className='a-input-group'>
+          <div className='sub-title'>
+            <span className='a-input-group-label'>비밀번호</span>
+            {submitted && !password && <span className="field-error-message">필드를 입력해주세요.</span>}
+          </div>
+          <input className='signup-input' type="password" value={password} onChange={(e) => {
+            setPassword(e.target.value);
+            setErrorAlert('');
+            setSubmitted(false);
+          }} />
         </div>
-        <div>
-          비밀번호 확인
-          <input type="password" value={confirmPassword} onChange={(e) => {
+        <div className='a-input-group'>
+          <div className='sub-title'>
+            <span className='a-input-group-label'>비밀번호 확인</span>
+            {submitted && !confirmPassword && <span className="field-error-message">필드를 입력해주세요.</span>}
+            {confirmPasswordError && <span className="field-error-message">비밀번호가 일치하지 않습니다.</span>}
+          </div>
+          <input className='signup-input' type="password" value={confirmPassword} onChange={(e) => {
             setConfirmPassword(e.target.value);
             setConfirmPasswordError(false);
             setErrorAlert('');
             setSubmitted(false);
             }}
           />
-          {submitted && !confirmPassword && <span className="field-error-message">필드를 입력해주세요.</span>}
-          {confirmPasswordError && <span className="password-error-message">비밀번호가 일치하지 않습니다.</span>}
         </div>
-        <div>
-          이름
-          <input type="text" value={name} onChange={(e) => {
-              setName(e.target.value);
-              setErrorAlert('');
-              setSubmitted(false);
-            }}
-          />
-          {submitted && !name && <span className="field-error-message">필드를 입력해주세요.</span>}
+        <div className='a-input-group'>
+          <div className='sub-title'>
+            <span className='a-input-group-label'>이름</span>
+            {submitted && !name && <span className="field-error-message">필드를 입력해주세요.</span>}
+          </div>
+          <input className='signup-input' type="text" value={name} onChange={(e) => {
+            setName(e.target.value);
+            setErrorAlert('');
+            setSubmitted(false);
+          }}/>
         </div>
-        <div>
-          <button className="signup-button" onClick={handleSignup}>
-            다 음
-          </button>
+        <div className='error-group'>
+          {errorAlert && <div className="error-alert">{errorAlert}</div>}
         </div>
-        {errorAlert && <div className="error-alert">{errorAlert}</div>}
+        <button className="signup-button" onClick={handleSignup}>가 입</button>
       </div>
     </div>
   );

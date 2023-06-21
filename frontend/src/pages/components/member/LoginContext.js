@@ -32,17 +32,16 @@ const LoginContext = ({
         setEmail={setEmail}
         setPassword={setPassword}
         handleLogin={handleLogin}
+        emailErr={emailErr}
+        passwordErr={passwordErr}
+        err={err}
       />
-      {emailErr && <p className="log-error-message1">이메일을 입력해주세요.</p>}
-      {passwordErr && <p className="log-error-message1">비밀번호를 입력해주세요.</p>}
-      {err && (
-        <div
-          className="log-error-message2"
-          dangerouslySetInnerHTML={{ __html: err }}
-        />
-      )}
-
       <Link to={"/signup"} className='signup-link'>회원가입</Link>
+      <div className='terms-group'>
+        <Link to={"/signup"} className='terms'>개인정보 처리방침</Link>
+        |
+        <Link to={"/signup"} className='terms'>이용약관</Link>
+      </div>
     </div>
   );
 };
