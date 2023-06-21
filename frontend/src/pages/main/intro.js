@@ -6,7 +6,6 @@ import './intro.css';
 import IntroTable from '../components/table/introtable/introtable';
 import IntroTableColumn from '../components/table/introtable/introtablecolumn';
 import IntroTableRow from '../components/table/introtable/introtablerow';
-import Footer from '../components/footer';
 
 const Intro = () => {
   const navigate = useNavigate();
@@ -124,7 +123,6 @@ const Intro = () => {
         </div>
 
       </div>
-      <Footer/>
     </div>
   );
 };
