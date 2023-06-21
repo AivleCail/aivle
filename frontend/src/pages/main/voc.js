@@ -7,12 +7,15 @@ import CommonTable from '../components/table/CommonTable';
 import CommonTableColumn from '../components/table/CommonTableColumn';
 import CommonTableRow from '../components/table/CommonTableRow';
 import Paging from './page/paging';
+import Modal from '../components/modal/Modal';
 
 const VOC = () => {
   const [vocList, setVocList] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [vocPerPage] = useState(8);
   const [selectedItems, setSelectedItems] = useState([]);
+  const [isOpenModal, setIsOpenModal] = useState(false);
+  const [selectedVoc, setSelectedVoc] = useState(null);
 
   useEffect(() => {
     fetchVocList();
@@ -107,6 +110,31 @@ const VOC = () => {
     }
   };
 
+   // Modal Open
+   const openModal = async (voc) => {
+    try {
+      const accessToken = localStorage.getItem('accessToken');
+      // Article 정보 가져오기
+      const response = await axios.get(`http://localhost:8080/voc/one?id=${voc.vocId}`, {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      });
+      const detailedVoc = response.data;
+
+      setSelectedVoc(detailedVoc);
+      setIsOpenModal(true);
+    } catch (error) {
+      console.error('Error fetching voc details:', error);
+    }
+  };
+
+  // Model Close
+  const closeModal = () => {
+    setSelectedVoc(null);
+    setIsOpenModal(false);
+  };
+
   
 
   return (
@@ -134,7 +162,7 @@ const VOC = () => {
               ,'번호', '고객명', '지역', '전화번호', '장애유형', '접수 일시', '조치여부']}
               columnWidths={['3%', '4%', '8%', '20%', '15%', '10%', '20%', '5%']}>
               {currentVocList.map((voc) => (
-                <CommonTableRow key={voc.vocId}>
+                <CommonTableRow key={voc.vocId} onClick={() => openModal(voc)}>
                   <CommonTableColumn>
                     <div className="checkbox-container">
                       <input 
@@ -156,6 +184,11 @@ const VOC = () => {
               ))}
             </CommonTable>
           </div>
+
+          {/* ArticleDetailModal */}
+          {isOpenModal && (
+            <Modal isOpen={isOpenModal} closeModal={closeModal} entity="voc" voc={selectedVoc}/>
+          )}
 
 
 

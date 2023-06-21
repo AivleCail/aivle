@@ -1,13 +1,17 @@
 import React from 'react';
 import './Modal.css';
 import ArticalContent from './ArticalContent';
+import VocContent from './VocContent';
+import WorkerContent from './WorkerContent';
 
-const Modal = ({ isOpen, closeModal, article, comments }) => {
+const Modal = ({ isOpen, closeModal, entity, article, comments, voc, worker }) => {
   return (
     <div className={`modal ${isOpen ? 'open' : ''}`}>
       <div className="modal-content">
         <button className="close-button" onClick={closeModal}>X</button>
-        <ArticalContent article={article} comments={comments} />
+        {entity === 'article' && <ArticalContent article={article} comments={comments} />}
+        {entity === 'voc' && <VocContent voc={voc} />}
+        {entity === 'worker' && <WorkerContent worker={worker} />}
       </div>
     </div>
   );

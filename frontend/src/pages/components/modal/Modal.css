@@ -20,7 +20,7 @@
   .modal-content {
     background-color: #fff;
     padding: 40px;
-    max-width: 600px;
+    width: 40%;
     height: 80%;
     overflow: scroll;
     border-radius: 20px;
