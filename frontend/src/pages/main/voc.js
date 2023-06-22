@@ -215,8 +215,9 @@ const VOC = () => {
           />
           
         </div>
-      </div>
       <Footer />
+      </div>
+      
     </div>
   );
 

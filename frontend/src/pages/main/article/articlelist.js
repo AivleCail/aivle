@@ -149,8 +149,9 @@ const ArticleList = () => {
             currentPage={currentPage}
           />
         </div>
+        <Footer />
       </div>
-      <Footer />
+      
     </div>
   );
 };
