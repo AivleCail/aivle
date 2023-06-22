@@ -196,9 +196,9 @@ const VOC = () => {
                   <CommonTableColumn>{voc.receptionDate.slice(0, 16)}</CommonTableColumn>
                   <CommonTableColumn>
                     {voc.checkStatus === '발생' ? (
-                      <span style={{ color: 'red' }}>X</span>
+                      <span style={{ color: 'red', fontWeight:'600' }}>X</span>
                     ) : (
-                      <span style={{ color: 'blue' }}>O</span>
+                      <span style={{ color: 'blue', fontWeight:'600' }}>O</span>
                     )}
                   </CommonTableColumn>
                 </CommonTableRow>
