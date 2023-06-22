@@ -78,8 +78,13 @@ const ArticalContent = ({ article, comments }) => {
   };
 
   return (
-    <div>
-      <h2>{article.articleTitle}</h2>
+    <div className="article-total">
+      <div className='title-group'>
+        <h2>{article.articleTitle}</h2>
+        <button className="edit-button">
+          <img src={process.env.PUBLIC_URL + "editicon.svg"} alt="Update"/>
+        </button>
+      </div>
       <p>{article.articleBody}</p>
       <br />
       <p>{article.managerName} {article.updatedAt}</p>
@@ -104,7 +109,9 @@ const ArticalContent = ({ article, comments }) => {
                   <h4>{comment.managerName}</h4>
                   <div className="right">
                     <p>{new Date(comment.createdAt).toLocaleString({ year: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' })}</p>
-                    <button onClick={() => handleDeleteComment(comment.commentId, comment.managerId)}>delete</button>
+                    <button className="delete-button" onClick={() => handleDeleteComment(comment.commentId, comment.managerId)}>
+                      <img src={process.env.PUBLIC_URL + "deleteico.svg"} alt="Delete" />
+                    </button>
                   </div>
                 </div>
                 <p>{comment.commentText}</p>
