@@ -9,12 +9,17 @@ import FormContent from '../components/receipt/FormContent';
 
 const ExternalReceipt = () => {
   const [selectedFile, setSelectedFile] = useState(null);
+  const [companyName, setCompanyName] = useState("");
+  const [receiptContent, setreceiptContent] = useState("");
+  const [externalAddress, setexternalAddress] = useState("");
+  const [externalStartdate, setexternalStartdate] = useState("");
   const vocIdForm = false;
   const navigate = useNavigate();  
 
   const handleFileChange = (event) => {
     setSelectedFile(event.target.files[0]);
   };
+
 
   useEffect(() => { // 로그인 여부 확인
     const accessToken = localStorage.getItem('accessToken');
@@ -46,12 +51,29 @@ const ExternalReceipt = () => {
         withCredentials: true,
       })
       .then((response) => {
-        console.log(response.data);
-        navigate("/myexternal"); 
+        console.log(response.data.companyName);
+        setCompanyName(response.data.companyName);
+        setexternalAddress(response.data.externalAddress);
+        setexternalStartdate(response.data.externalStartdate);
+        setreceiptContent(response.data.receiptContent);
+
+        // navigate("/myexternal"); 
       })
       .catch((error) => {
         console.error("Error:", error);
       });
+
+      
+      // .then((response) => {
+      //   console.log(response.data);
+        
+
+      //   console.log(result);
+      //   // navigate("/myexternal"); 
+      // })
+      // .catch((error) => {
+      //   console.error("Error:", error);
+      // });
     }
   };
 
@@ -98,6 +120,10 @@ const ExternalReceipt = () => {
         handleFileChange={handleFileChange}
         handleSubmit={handleSubmit}
       />
+      <div>회사 이름: {companyName}</div>
+      <div>공사 내용: {receiptContent}</div>
+      <div>공사 주소: {externalAddress}</div>
+      <div>공사 날짜: {externalStartdate}</div>
     </div>
   );
 };

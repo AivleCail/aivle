@@ -14,7 +14,7 @@
  {
   "Column1": 1,
   "external_id": 2,
-  "company_name": "밀리의 서재",
+  "company_name": "쿨링솔루션스",
   "external_address": "서울특별시 마포구 양화로 45, 16층 전체",
   "external_enddate": "2023-06-13 12:00:00",
   "external_startdate": "2023-06-11 12:00:00",
@@ -26,7 +26,7 @@
  {
   "Column1": 2,
   "external_id": 3,
-  "company_name": "밀리의 서재",
+  "company_name": "정승네트워크",
   "external_address": "서울특별시 마포구 양화로 45, 16층",
   "external_enddate": "2023-05-31 00:30:00",
   "external_startdate": "2023-05-14 14:30:00",
@@ -38,7 +38,7 @@
  {
   "Column1": 3,
   "external_id": 4,
-  "company_name": "밀리의 서재",
+  "company_name": "우리시스템즈",
   "external_address": "서울특별시 마포구 양화로 45, 16층 화장실",
   "external_enddate": "2023-06-11 18:30:00",
   "external_startdate": "2023-06-06 12:30:00",
@@ -62,7 +62,7 @@
  {
   "Column1": 5,
   "external_id": 6,
-  "company_name": "밀리의 서재",
+  "company_name": "우리시스템즈",
   "external_address": "서울특별시 마포구 양화로 45, 16층 여자 화장실",
   "external_enddate": "2023-06-23 15:50:00",
   "external_startdate": "2023-06-19 23:00:00",
@@ -86,7 +86,7 @@
  {
   "Column1": 7,
   "external_id": 8,
-  "company_name": "밀리의 서재",
+  "company_name": "규영솔루션스",
   "external_address": "서울특별시 마포구 양화로 45, 16층 엘레베이터 2호기",
   "external_enddate": "2023-03-23 23:00:00",
   "external_startdate": "2023-02-19 23:00:00",
@@ -98,7 +98,7 @@
  {
   "Column1": 8,
   "external_id": 9,
-  "company_name": "밀리의 서재",
+  "company_name": "우성시스템",
   "external_address": "서울특별시 마포구 양화로 45, 16층",
   "external_enddate": "2023-10-01 13:30:00",
   "external_startdate": "2023-09-29 09:00:00",
@@ -110,7 +110,7 @@
  {
   "Column1": 9,
   "external_id": 10,
-  "company_name": "지니 뮤직",
+  "company_name": "이지웍스",
   "external_address": "서울특별시 강남구 역삼동 809-10 한석타워 7층 컨퍼런스룸",
   "external_enddate": "2023-07-02 03:00:00",
   "external_startdate": "2023-06-19 10:30:00",
@@ -122,7 +122,7 @@
  {
   "Column1": 10,
   "external_id": 11,
-  "company_name": "지니 뮤직",
+  "company_name": "원더테크",
   "external_address": "서울특별시 강남구 역삼동 809-10 한석타워 8층",
   "external_enddate": "2023-01-30 13:30:00",
   "external_startdate": "2023-01-12 09:30:00",
@@ -134,7 +134,7 @@
  {
   "Column1": 11,
   "external_id": 12,
-  "company_name": "지니 뮤직",
+  "company_name": "퓨처라이즈",
   "external_address": "서울특별시 강남구 역삼동 809-10 한석타워 9층",
   "external_enddate": "2023-05-31 12:30:00",
   "external_startdate": "2023-05-01 09:00:00",
@@ -170,7 +170,7 @@
  {
   "Column1": 14,
   "external_id": 15,
-  "company_name": "지니 뮤직",
+  "company_name": "신한드림스",
   "external_address": "서울특별시 강남구 역삼동 809-10 한석타워 7층 사내 식당",
   "external_enddate": "2023-06-01 23:00:00",
   "external_startdate": "2023-05-20 09:00:00",
@@ -182,7 +182,7 @@
  {
   "Column1": 15,
   "external_id": 16,
-  "company_name": "밀리의 서재",
+  "company_name": "넥스트웍스",
   "external_address": "서울특별시 마포구 양화로 45, 16층",
   "external_enddate": "2023-06-22 14:30:00",
   "external_startdate": "2023-06-01 13:00:00",
@@ -194,7 +194,7 @@
  {
   "Column1": 16,
   "external_id": 17,
-  "company_name": "지니 뮤직",
+  "company_name": "퓨처네트워크",
   "external_address": "서울특별시 강남구 역삼동 809-10 한석타워 6층 네트워크 관리실",
   "external_enddate": "2023-05-11 16:00:00",
   "external_startdate": "2023-05-09 07:00:00",
@@ -218,7 +218,7 @@
  {
   "Column1": 18,
   "external_id": 19,
-  "company_name": "밀리의 서재",
+  "company_name": "모두플러스",
   "external_address": "서울특별시 마포구 양화로 45, 16층 엘레베이터 앞",
   "external_enddate": "2023-06-23 15:50:00",
   "external_startdate": "2023-06-19 23:00:00",
@@ -230,7 +230,7 @@
  {
   "Column1": 19,
   "external_id": 20,
-  "company_name": "밀리의 서재",
+  "company_name": "퓨처네트워크",
   "external_address": "서울특별시 마포구 양화로 45, 16층 각 회의실",
   "external_enddate": "2023-04-06 18:20:00",
   "external_startdate": "2023-04-01 12:00:00",
@@ -242,7 +242,7 @@
  {
   "Column1": 20,
   "external_id": 21,
-  "company_name": "skylife",
+  "company_name": "kt skylife",
   "external_address": "서울특별시 마포구 매봉산로 75 DDMC 빌딩 8,9층 소화전",
   "external_enddate": "2023-01-03 13:30:00",
   "external_startdate": "2023-01-02 09:00:00",
@@ -254,7 +254,7 @@
  {
   "Column1": 21,
   "external_id": 22,
-  "company_name": "skylife",
+  "company_name": "kt skylife",
   "external_address": "서울특별시 마포구 매봉산로 75 DDMC 빌딩 8층",
   "external_enddate": "2023-06-20 01:30:00",
   "external_startdate": "2023-06-19 09:00:00",
@@ -290,7 +290,7 @@
  {
   "Column1": 24,
   "external_id": 25,
-  "company_name": "skylife",
+  "company_name": "원더랜드",
   "external_address": "서울특별시 마포구 매봉산로 75 DDMC 빌딩 8층 로비",
   "external_enddate": "2023-02-14 12:30:00",
   "external_startdate": "2023-02-06 09:00:00",
@@ -302,7 +302,7 @@
  {
   "Column1": 25,
   "external_id": 26,
-  "company_name": "K Bank",
+  "company_name": "이노베이션랩",
   "external_address": "서울특별시 중구 을지로 170, 동관 6층 금고",
   "external_enddate": "2023-05-13 20:30:00",
   "external_startdate": "2023-05-10 18:00:00",
@@ -314,7 +314,7 @@
  {
   "Column1": 26,
   "external_id": 27,
-  "company_name": "skylife",
+  "company_name": "새로움소프트",
   "external_address": "서울특별시 마포구 매봉산로 75 DDMC 빌딩 8층,9층 엘레베이터 앞",
   "external_enddate": "2023-08-01 20:30:00",
   "external_startdate": "2023-07-28 15:30:00",
@@ -326,7 +326,7 @@
  {
   "Column1": 27,
   "external_id": 28,
-  "company_name": "K Bank",
+  "company_name": "한솔그린텍",
   "external_address": "서울특별시 중구 을지로 170, 동관 6층",
   "external_enddate": "2023-02-15 20:30:00",
   "external_startdate": "2023-02-13 16:00:00",
@@ -338,7 +338,7 @@
  {
   "Column1": 28,
   "external_id": 29,
-  "company_name": "BC카드",
+  "company_name": "아이디어랩",
   "external_address": "서울시 중구 을지로 170 남자 화장실",
   "external_enddate": "2023-06-23 15:50:00",
   "external_startdate": "2023-06-19 23:00:00",
@@ -350,7 +350,7 @@
  {
   "Column1": 29,
   "external_id": 30,
-  "company_name": "skylife",
+  "company_name": "텔레네트워크",
   "external_address": "서울특별시 마포구 매봉산로 75 DDMC 빌딩 8층,9층",
   "external_enddate": "2023-06-20 18:30:00",
   "external_startdate": "2023-06-19 15:00:00",
@@ -362,7 +362,7 @@
  {
   "Column1": 30,
   "external_id": 31,
-  "company_name": "K Bank",
+  "company_name": "신트로닉스",
   "external_address": "서울특별시 중구 을지로 170, 동관 6층 안내데스크",
   "external_enddate": "2023-07-20 20:50:00",
   "external_startdate": "2023-07-02 06:00:00",
@@ -374,7 +374,7 @@
  {
   "Column1": 31,
   "external_id": 32,
-  "company_name": "BC카드",
+  "company_name": "유진네트워크",
   "external_address": "서울시 중구 을지로 170 로비",
   "external_enddate": "2023-03-12 20:45:00",
   "external_startdate": "2023-03-09 07:30:00",
@@ -386,7 +386,7 @@
  {
   "Column1": 32,
   "external_id": 33,
-  "company_name": "K Bank",
+  "company_name": "하나네트워크",
   "external_address": "서울특별시 중구 을지로 170, 동관 6층 회의실",
   "external_enddate": "2023-06-30 23:00:00",
   "external_startdate": "2023-06-02 06:20:00",
@@ -398,7 +398,7 @@
  {
   "Column1": 33,
   "external_id": 34,
-  "company_name": "K Bank",
+  "company_name": "효진네트워크",
   "external_address": "서울특별시 중구 을지로 170, 동관 6층 엘레베이터 앞",
   "external_enddate": "2023-05-18 21:15:00",
   "external_startdate": "2023-05-13 13:20:00",
@@ -410,7 +410,7 @@
  {
   "Column1": 34,
   "external_id": 35,
-  "company_name": "K Bank",
+  "company_name": "우리시스템즈",
   "external_address": "서울특별시 중구 을지로 170, 동관 6층 회의실 앞",
   "external_enddate": "2023-01-26 09:30:00",
   "external_startdate": "2023-01-20 14:00:00",
@@ -422,7 +422,7 @@
  {
   "Column1": 35,
   "external_id": 36,
-  "company_name": "BC카드",
+  "company_name": "신화시스템",
   "external_address": "서울시 중구 을지로 170 회의실 내 카드리더기",
   "external_enddate": "2023-06-18 19:40:00",
   "external_startdate": "2023-06-10 09:00:00",
@@ -434,7 +434,7 @@
  {
   "Column1": 36,
   "external_id": 37,
-  "company_name": "skylife",
+  "company_name": "새로움소프트",
   "external_address": "서울특별시 마포구 매봉산로 75 DDMC 빌딩 8층 회로 보관실",
   "external_enddate": "2023-06-24 15:30:00",
   "external_startdate": "2023-06-20 10:30:00",
@@ -446,7 +446,7 @@
  {
   "Column1": 37,
   "external_id": 38,
-  "company_name": "BC카드",
+  "company_name": "텔레네트워크",
   "external_address": "서울시 중구 을지로 170 여자 화장실",
   "external_enddate": "2023-06-30 15:50:00",
   "external_startdate": "2023-06-28 09:00:00",
@@ -458,7 +458,7 @@
  {
   "Column1": 38,
   "external_id": 39,
-  "company_name": "skylife",
+  "company_name": "이지웍스",
   "external_address": "서울특별시 마포구 매봉산로 75 DDMC 빌딩 8층,9층 회의실 옆 정수기",
   "external_enddate": "2023-06-18 17:30:00",
   "external_startdate": "2023-06-17 06:30:00",
@@ -470,7 +470,7 @@
  {
   "Column1": 39,
   "external_id": 40,
-  "company_name": "BC카드",
+  "company_name": "K Bank",
   "external_address": "서울시 중구 을지로 170 남자 화장실",
   "external_enddate": "2023-06-12 18:40:00",
   "external_startdate": "2023-06-09 12:00:00",
@@ -482,7 +482,7 @@
  {
   "Column1": 40,
   "external_id": 41,
-  "company_name": "K Bank",
+  "company_name": "모두플러스",
   "external_address": "서울특별시 중구 을지로 170, 동관 1층 구내식당",
   "external_enddate": "2023-06-29 20:30:00",
   "external_startdate": "2023-06-19 23:00:00",
@@ -494,7 +494,7 @@
  {
   "Column1": 41,
   "external_id": 42,
-  "company_name": "BC카드",
+  "company_name": "우성시스템",
   "external_address": "서울시 중구 을지로 170 구내식당",
   "external_enddate": "2023-05-03 12:30:00",
   "external_startdate": "2023-05-01 09:30:00",
@@ -506,7 +506,7 @@
  {
   "Column1": 42,
   "external_id": 43,
-  "company_name": "K Bank",
+  "company_name": "아이디어랩",
   "external_address": "서울특별시 중구 을지로 170, 동관 옥상정원",
   "external_enddate": "2023-08-13 18:00:00",
   "external_startdate": "2023-08-10 08:00:00",
@@ -518,7 +518,7 @@
  {
   "Column1": 43,
   "external_id": 44,
-  "company_name": "skylife",
+  "company_name": "kt skylife",
   "external_address": "서울특별시 마포구 매봉산로 75 DDMC 빌딩 8층,9층 전체",
   "external_enddate": "2023-05-26 20:40:00",
   "external_startdate": "2023-05-20 09:30:00",
@@ -530,7 +530,7 @@
  {
   "Column1": 44,
   "external_id": 45,
-  "company_name": "skylife",
+  "company_name": "규영솔루션스",
   "external_address": "서울특별시 마포구 매봉산로 75 DDMC 빌딩 9층 대회의실",
   "external_enddate": "2023-06-27 20:40:00",
   "external_startdate": "2023-06-26 19:40:00",
@@ -542,7 +542,7 @@
  {
   "Column1": 45,
   "external_id": 46,
-  "company_name": "BC카드",
+  "company_name": "유진네트워크",
   "external_address": "서울시 중구 을지로 170 영업부 오른쪽 빈 사무실",
   "external_enddate": "2023-02-09 21:30:00",
   "external_startdate": "2023-02-05 19:00:00",
@@ -554,7 +554,7 @@
  {
   "Column1": 46,
   "external_id": 47,
-  "company_name": "BC카드",
+  "company_name": "신화시스템",
   "external_address": "서울시 중구 을지로 170 정보보안실",
   "external_enddate": "2023-12-30 09:00:00",
   "external_startdate": "2023-12-23 14:30:00",
@@ -566,7 +566,7 @@
  {
   "Column1": 47,
   "external_id": 48,
-  "company_name": "K Bank",
+  "company_name": "우리시스템즈",
   "external_address": "서울특별시 중구 을지로 170, 동관 6층 대회의실",
   "external_enddate": "2023-10-23 22:50:00",
   "external_startdate": "2023-10-06 23:20:00",
@@ -578,7 +578,7 @@
  {
   "Column1": 48,
   "external_id": 49,
-  "company_name": "K Bank",
+  "company_name": "스타일라이프",
   "external_address": "서울특별시 중구 을지로 170, 동관 6층 휴게실",
   "external_enddate": "2023-06-30 13:25:00",
   "external_startdate": "2023-06-20 08:50:00",

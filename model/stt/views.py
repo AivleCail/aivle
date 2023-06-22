@@ -3,12 +3,13 @@ import re
 import datetime
 import pickle
 import requests
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 from mecab import MeCab
 import openai
 from mysettings import OPENAI_API_KEY
+import json
 
 
 openai.api_key = OPENAI_API_KEY
@@ -56,7 +57,6 @@ def voc_api(request):
             "percentage":"{:.2f}%".format(score * 100) if score>0.5 else "{:.2f}%".format((1-score)*100)
         }
         voc_to_spring(data)
-        
         return JsonResponse(data, safe=False, json_dumps_params={'ensure_ascii': False})
     
     else: 
@@ -66,6 +66,21 @@ def voc_api(request):
     
 
 def external_api(request):
+    if request.method == "POST" and request.POST:
+        token = request.POST.get("token")
+        data = json.loads(request.body)
+        external_to_spring(data,token)
+
+        return JsonResponse({
+            "result": "업로드 완료"
+        })
+    
+    else: 
+        return JsonResponse({
+            "result": "업로드 실패"
+        })
+
+def external_check(request):
     if request.method == "POST" and request.FILES.get("file"):
         file = request.FILES["file"]
         token = request.POST.get("token")
@@ -112,22 +127,22 @@ def external_api(request):
             "externalAddress": sentences[3],
             "externalStartdate": formatted_date
         }
-        external_to_spring(data,token)
-        return JsonResponse(data, safe=False, json_dumps_params={'ensure_ascii': False})
+        response_data = json.dumps(data, ensure_ascii=False)  # 데이터를 JSON 문자열로 변환
+
+        return HttpResponse(response_data, content_type="application/json")
     
     else: 
         return JsonResponse({
             "result": "업로드 실패"
         })
 
-    
 def voc_to_spring(data):
     url = 'http://localhost:8080/vocResult'
     headers = {'Content-Type': 'application/json'}
     
     response = requests.post(url, json=data, headers=headers)
     
-    if response.status_code == 401:
+    if response.status_code == 200:
         print('데이터 전송 성공')
     else:
         print('데이터 전송 실패')
@@ -141,9 +156,9 @@ def external_to_spring(data,token):
     
     requests.post(url, json=data, headers=headers)
     
-    # if response.status_code == 200:
-    #     print('데이터 전송 성공')
-    # else:
-    #     print('데이터 전송 실패')
+    if response.status_code == 200:
+        print('데이터 전송 성공')
+    else:
+        print('데이터 전송 실패')
 
     return None
