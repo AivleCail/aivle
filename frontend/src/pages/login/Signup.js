@@ -116,7 +116,7 @@ const Signup = () => {
   const showUserTypeAlert = () => {
     let userType = '';
     if (role === 'manager') {
-      userType = '매니저';
+      userType = '서비스 운용자';
     } else if (role === 'external') {
       userType = '사외공사자';
     }
@@ -136,7 +136,7 @@ const Signup = () => {
         <div className='title'><span>회원 가입</span></div>
         <div className='radio-buttons'>
           <button className={role === 'manager' ? 'user-type-button selected' : 'user-type-button'}
-            onClick={() => handleUserType('manager')}>매니저</button>
+            onClick={() => handleUserType('manager')}>서비스 운용자</button>
           <button className={role === 'external' ? 'user-type-button selected' : 'user-type-button'}
             onClick={() => handleUserType('external')}>사외공사자</button>
         </div>
