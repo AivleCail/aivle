@@ -59,7 +59,7 @@ const VocReceipt = () => {
 
   return (
     <div className='mobile-container'>
-      <div className='title'>
+      <div className='mobile-title'>
         <span className='title-text'>장애 조치 확인</span>
       </div>
       <hr />
