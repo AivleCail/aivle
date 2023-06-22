@@ -13,6 +13,7 @@ public class ArticlePageResponseDto {
     private String articleTitle;
     private String managerName;
     private String createdAt;
+    private String category;
     private int count;
 
 
@@ -23,6 +24,7 @@ public class ArticlePageResponseDto {
                 .managerName(article.getManager().getName())
                 .createdAt(article.getCreatedAt().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")))
                 .count(article.getCount())
+                .category(article.getCategory())
                 .build();
     }
 }

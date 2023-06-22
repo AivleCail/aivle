@@ -29,9 +29,38 @@ const VOC = () => {
   }, [navigate]);
 
   useEffect(() => {
-    fetchVocList();
-  },[]);
+    fetchVocList(); 
+    const interval = setInterval(fetchVocList, 3000); 
 
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
+
+
+  useEffect(() => {
+    // 컴포넌트가 처음 마운트될 때와 currentPage가 변경될 때마다 실행됩니다.
+    console.log('Worker component has been mounted or currentPage has been changed.');
+
+    // fetchWorkerList 등 다른 로직 실행
+
+    // 컴포넌트가 언마운트되기 전에 실행됩니다.
+    return () => {
+      console.log('Worker component is being unmounted.');
+    };
+  }, [currentPage]);
+
+  useEffect(() => {
+    // 컴포넌트가 처음 마운트될 때만 실행됩니다.
+    console.log('Worker component has been mounted.');
+
+    // fetchWorkerList 등 다른 로직 실행
+
+    // 컴포넌트가 언마운트되기 전에 실행됩니다.
+    return () => {
+      console.log('Worker component is being unmounted.');
+    };
+  }, []);
 
   const fetchVocList = async () => {
     try {
@@ -66,7 +95,7 @@ const VOC = () => {
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
-  const handleRefresh = () => {
+  const handleRefresh = () => {  // 새로고침 버튼 로직
     fetchVocList(); 
   };
 
@@ -160,10 +189,12 @@ const VOC = () => {
         <div className="container">
           <span className="voc-text-1">VOC 내역</span>
           <span className="voc-text-2">고객들의 장애 조치 여부를 확인합니다.</span>
-          <button className="send-button" onClick={handleSend}>조치확인 문자 발송</button>
-          <button className="refresh-button" onClick={handleRefresh}>
+          <button className="send-button" onClick={handleSend}>발송</button>
+           {/*
+           <button className="refresh-button" onClick={handleRefresh}> 
             <img className="voc-img" alt="Element" src={process.env.PUBLIC_URL + "/refresh-arrow.png"} />
           </button>
+          */}  {/* 새로고침 버튼 */}
 
           <div className="board">
             <CommonTable headersName={[
