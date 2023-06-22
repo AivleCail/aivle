@@ -28,12 +28,12 @@ public class ExternalService {
 
     // 매니저가 모든 정보를 조회하는 페이지
     public Page<ExternalPageResponseDto> pageExternal(int pageNum) {
-        return externalRepository.searchAll(PageRequest.of(pageNum - 1, 20));
+        return externalRepository.searchAll(PageRequest.of(pageNum - 1, 50));
     }
 
     // 로그인한 사용자가 모든 정보를 조회하는 페이지
     public Page<ExternalPageResponseDto> WorkerPageExternal(int pageNum) {
-        return workerexternalRepository.searchWorker(PageRequest.of(pageNum - 1, 20));
+        return workerexternalRepository.searchWorker(PageRequest.of(pageNum - 1, 50));
     }
 
 
