@@ -8,7 +8,7 @@
   "external_startdate": "2023-08-21 15:00:00",
   "external_status": "공사예정",
   "receipt_content": "신규 사업부서 사무실 리모델링",
-  "receipt_date": "2023-08-24 18:00:00",
+  "receipt_date": "2023-08-20 18:00:00",
   "manager_id": 1
  },
  {
@@ -20,7 +20,7 @@
   "external_startdate": "2023-06-11 12:00:00",
   "external_status": "공사완료",
   "receipt_content": "사내 에어컨 설치 공사",
-  "receipt_date": "2023-08-24 18:00:00",
+  "receipt_date": "2023-06-09 14:00:00",
   "manager_id": 2
  },
  {
@@ -32,7 +32,7 @@
   "external_startdate": "2023-05-14 14:30:00",
   "external_status": "공사완료",
   "receipt_content": "외벽 공사",
-  "receipt_date": "2023-05-31 18:30:00",
+  "receipt_date": "2023-05-10 13:30:00",
   "manager_id": 2
  },
  {
@@ -44,7 +44,7 @@
   "external_startdate": "2023-06-06 12:30:00",
   "external_status": "공사완료",
   "receipt_content": "사내 화장실 누수 공사",
-  "receipt_date": "2023-06-11 18:30:00",
+  "receipt_date": "2023-06-01 14:30:00",
   "manager_id": 2
  },
  {
@@ -56,7 +56,7 @@
   "external_startdate": "2023-05-31 00:00:00",
   "external_status": "공사중",
   "receipt_content": "엘레베이터 1호기 수리 공사",
-  "receipt_date": "2023-06-20 18:00:00",
+  "receipt_date": "2023-05-29 18:00:00",
   "manager_id": 1
  },
  {
@@ -68,7 +68,7 @@
   "external_startdate": "2023-06-19 23:00:00",
   "external_status": "공사중",
   "receipt_content": "여자 화장실 타일 공사",
-  "receipt_date": "2023-06-23 18:00:00",
+  "receipt_date": "2023-06-15 18:00:00",
   "manager_id": 2
  },
  {
@@ -80,7 +80,7 @@
   "external_startdate": "2023-05-29 11:00:00",
   "external_status": "공사완료",
   "receipt_content": "외벽 도색 공사",
-  "receipt_date": "2023-06-01 20:00:00",
+  "receipt_date": "2023-05-17 20:00:00",
   "manager_id": 1
  },
  {
@@ -92,7 +92,7 @@
   "external_startdate": "2023-02-19 23:00:00",
   "external_status": "공사완료",
   "receipt_content": "엘레베이터 2호기 공사",
-  "receipt_date": "2023-03-24 09:00:00",
+  "receipt_date": "2023-02-17 09:00:00",
   "manager_id": 2
  },
  {
@@ -104,7 +104,7 @@
   "external_startdate": "2023-09-29 09:00:00",
   "external_status": "공사예정",
   "receipt_content": "내부 컴퓨터 설치 공사",
-  "receipt_date": "2023-10-01 13:30:00",
+  "receipt_date": "2023-09-18 13:30:00",
   "manager_id": 2
  },
  {
@@ -116,7 +116,7 @@
   "external_startdate": "2023-06-19 10:30:00",
   "external_status": "공사중",
   "receipt_content": "컨퍼런스 룸 리모델링 공사",
-  "receipt_date": "2023-07-02 03:00:00",
+  "receipt_date": "2023-06-17 03:00:00",
   "manager_id": 1
  },
  {
@@ -126,7 +126,7 @@
   "external_address": "서울특별시 강남구 역삼동 809-10 한석타워 8층",
   "external_enddate": "2023-01-30 13:30:00",
   "external_startdate": "2023-01-12 09:30:00",
-  "external_status": "공사중",
+  "external_status": "공사완료",
   "receipt_content": "천장 리모델링 공사",
   "receipt_date": "2023-02-01 00:00:00",
   "manager_id": 1
@@ -140,7 +140,7 @@
   "external_startdate": "2023-05-01 09:00:00",
   "external_status": "공사완료",
   "receipt_content": "자동문 설치 공사",
-  "receipt_date": "2023-05-31 18:00:00",
+  "receipt_date": "2023-04-26 18:00:00",
   "manager_id": 1
  },
  {
@@ -164,7 +164,7 @@
   "external_startdate": "2023-01-19 09:00:00",
   "external_status": "공사완료",
   "receipt_content": "사물함 설치 공사",
-  "receipt_date": "2023-02-02 10:00:00",
+  "receipt_date": "2023-01-17 10:00:00",
   "manager_id": 1
  },
  {
@@ -176,7 +176,7 @@
   "external_startdate": "2023-05-20 09:00:00",
   "external_status": "공사완료",
   "receipt_content": "사내 식당 리모델링 공사",
-  "receipt_date": "2023-06-02 00:00:00",
+  "receipt_date": "2023-05-18 00:00:00",
   "manager_id": 1
  },
  {
@@ -188,7 +188,7 @@
   "external_startdate": "2023-06-01 13:00:00",
   "external_status": "공사중",
   "receipt_content": "천장 누수 보수 공사",
-  "receipt_date": "2023-06-23 18:00:00",
+  "receipt_date": "2023-05-29 18:00:00",
   "manager_id": 2
  },
  {
@@ -200,7 +200,7 @@
   "external_startdate": "2023-05-09 07:00:00",
   "external_status": "공사완료",
   "receipt_content": "사내 네트워크 확장 공사",
-  "receipt_date": "2023-05-11 16:00:00",
+  "receipt_date": "2023-05-07 16:00:00",
   "manager_id": 1
  },
  {
@@ -212,7 +212,7 @@
   "external_startdate": "2023-06-28 20:00:00",
   "external_status": "공사예정",
   "receipt_content": "형광등 전체 교체 공사",
-  "receipt_date": "2023-06-30 07:00:00",
+  "receipt_date": "2023-06-26 07:00:00",
   "manager_id": 1
  },
  {
@@ -224,7 +224,7 @@
   "external_startdate": "2023-06-19 23:00:00",
   "external_status": "공사중",
   "receipt_content": "소방 안전 기구 추가 설치 공사",
-  "receipt_date": "2023-06-23 18:00:00",
+  "receipt_date": "2023-06-15 13:00:00",
   "manager_id": 2
  },
  {
@@ -236,7 +236,7 @@
   "external_startdate": "2023-04-01 12:00:00",
   "external_status": "공사완료",
   "receipt_content": "회의실별 pt용 TV 설치 공사",
-  "receipt_date": "2023-04-06 18:00:00",
+  "receipt_date": "2023-04-01 09:00:00",
   "manager_id": 2
  },
  {
@@ -248,7 +248,7 @@
   "external_startdate": "2023-01-02 09:00:00",
   "external_status": "공사완료",
   "receipt_content": "소화전 설치 공사",
-  "receipt_date": "2023-01-03 15:00:00",
+  "receipt_date": "2023-01-01 15:00:00",
   "manager_id": 3
  },
  {
@@ -260,7 +260,7 @@
   "external_startdate": "2023-06-19 09:00:00",
   "external_status": "공사중",
   "receipt_content": "광케이블 설치 공사",
-  "receipt_date": "2023-06-20 08:00:00",
+  "receipt_date": "2023-06-09 08:00:00",
   "manager_id": 3
  },
  {
@@ -272,7 +272,7 @@
   "external_startdate": "2023-02-19 09:30:00",
   "external_status": "공사완료",
   "receipt_content": "카드 발급 기기 수리 공사",
-  "receipt_date": "2023-02-21 18:00:00",
+  "receipt_date": "2023-02-17 18:00:00",
   "manager_id": 4
  },
  {
@@ -281,10 +281,10 @@
   "company_name": "BC카드",
   "external_address": "서울시 중구 을지로 170 회의실 앞 atm",
   "external_enddate": "2023-07-06 15:30:00",
-  "external_startdate": "2023-07-01 09:00:00",
+  "external_startdate": "2023-07-02 09:00:00",
   "external_status": "공사예정",
   "receipt_content": "atm 수리 공사",
-  "receipt_date": "2023-07-06 18:00:00",
+  "receipt_date": "2023-07-01 15:00:00",
   "manager_id": 4
  },
  {
@@ -296,7 +296,7 @@
   "external_startdate": "2023-02-06 09:00:00",
   "external_status": "공사완료",
   "receipt_content": "로비 바닥 보수 공사",
-  "receipt_date": "2023-02-14 14:30:00",
+  "receipt_date": "2023-02-03 14:30:00",
   "manager_id": 3
  },
  {
@@ -308,7 +308,7 @@
   "external_startdate": "2023-05-10 18:00:00",
   "external_status": "공사완료",
   "receipt_content": "금고 점검 공사",
-  "receipt_date": "2023-05-13 18:00:00",
+  "receipt_date": "2023-05-08 14:00:00",
   "manager_id": 5
  },
  {
@@ -320,7 +320,7 @@
   "external_startdate": "2023-07-28 15:30:00",
   "external_status": "공사예정",
   "receipt_content": "스프링클러 설치 공사",
-  "receipt_date": "2023-08-01 20:03:00",
+  "receipt_date": "2023-07-20 18:03:00",
   "manager_id": 3
  },
  {
@@ -330,9 +330,9 @@
   "external_address": "서울특별시 중구 을지로 170, 동관 6층",
   "external_enddate": "2023-02-15 20:30:00",
   "external_startdate": "2023-02-13 16:00:00",
-  "external_status": "공사중",
+  "external_status": "공사완료",
   "receipt_content": "앱 서버 점검 공사",
-  "receipt_date": "2023-02-15 19:53:28",
+  "receipt_date": "2023-02-10 19:53:28",
   "manager_id": 5
  },
  {
@@ -344,7 +344,7 @@
   "external_startdate": "2023-06-19 23:00:00",
   "external_status": "공사중",
   "receipt_content": "남자 화장실 타일 공사",
-  "receipt_date": "2023-06-23 18:00:00",
+  "receipt_date": "2023-06-17 18:00:00",
   "manager_id": 4
  },
  {
@@ -354,9 +354,9 @@
   "external_address": "서울특별시 마포구 매봉산로 75 DDMC 빌딩 8층,9층",
   "external_enddate": "2023-06-20 18:30:00",
   "external_startdate": "2023-06-19 15:00:00",
-  "external_status": "공사중",
+  "external_status": "공사완료",
   "receipt_content": "사옥 외벽 공사",
-  "receipt_date": "2023-06-20 18:12:57",
+  "receipt_date": "2023-06-17 18:12:57",
   "manager_id": 3
  },
  {
@@ -368,7 +368,7 @@
   "external_startdate": "2023-07-02 06:00:00",
   "external_status": "공사예정",
   "receipt_content": "안내 데스크 설치 공사",
-  "receipt_date": "2023-07-20 18:50:12",
+  "receipt_date": "2023-06-29 18:50:12",
   "manager_id": 5
  },
  {
@@ -380,7 +380,7 @@
   "external_startdate": "2023-03-09 07:30:00",
   "external_status": "공사완료",
   "receipt_content": "로비 바닥 보수 공사",
-  "receipt_date": "2023-03-12 19:46:24",
+  "receipt_date": "2023-03-07 19:46:24",
   "manager_id": 4
  },
  {
@@ -392,7 +392,7 @@
   "external_startdate": "2023-06-02 06:20:00",
   "external_status": "공사중",
   "receipt_content": "회의실 에어컨 설치 공사",
-  "receipt_date": "2023-06-30 20:06:48",
+  "receipt_date": "2023-06-01 20:06:48",
   "manager_id": 5
  },
  {
@@ -404,7 +404,7 @@
   "external_startdate": "2023-05-13 13:20:00",
   "external_status": "공사완료",
   "receipt_content": "자동문 추가 설치 공사",
-  "receipt_date": "2023-05-18 20:39:06",
+  "receipt_date": "2023-05-09 20:39:06",
   "manager_id": 5
  },
  {
@@ -416,7 +416,7 @@
   "external_startdate": "2023-01-20 14:00:00",
   "external_status": "공사완료",
   "receipt_content": "자동문 추가 설치 공사",
-  "receipt_date": "2023-01-26 06:08:46",
+  "receipt_date": "2023-01-18 06:08:46",
   "manager_id": 5
  },
  {
@@ -428,7 +428,7 @@
   "external_startdate": "2023-06-10 09:00:00",
   "external_status": "공사완료",
   "receipt_content": "카드 리더기 설치 공사",
-  "receipt_date": "2023-06-18 18:23:46",
+  "receipt_date": "2023-06-09 18:23:46",
   "manager_id": 4
  },
  {
@@ -440,7 +440,7 @@
   "external_startdate": "2023-06-20 10:30:00",
   "external_status": "공사중",
   "receipt_content": "회로 보관소 보수 공사",
-  "receipt_date": "2023-06-24 18:00:00",
+  "receipt_date": "2023-06-18 18:00:00",
   "manager_id": 3
  },
  {
@@ -452,7 +452,7 @@
   "external_startdate": "2023-06-28 09:00:00",
   "external_status": "공사예정",
   "receipt_content": "환풍구 추가 설치 공사",
-  "receipt_date": "2023-06-30 17:00:00",
+  "receipt_date": "2023-06-16 17:00:00",
   "manager_id": 4
  },
  {
@@ -464,7 +464,7 @@
   "external_startdate": "2023-06-17 06:30:00",
   "external_status": "공사완료",
   "receipt_content": "정수기 추가 설치 공사",
-  "receipt_date": "2023-06-18 18:13:24",
+  "receipt_date": "2023-06-01 18:13:24",
   "manager_id": 3
  },
  {
@@ -476,7 +476,7 @@
   "external_startdate": "2023-06-09 12:00:00",
   "external_status": "공사완료",
   "receipt_content": "환풍구 추가 설치 공사",
-  "receipt_date": "2023-06-12 17:46:32",
+  "receipt_date": "2023-06-05 17:46:32",
   "manager_id": 4
  },
  {
@@ -488,7 +488,7 @@
   "external_startdate": "2023-06-19 23:00:00",
   "external_status": "공사중",
   "receipt_content": "구내 식당 바닥 타일 공사",
-  "receipt_date": "2023-06-29 20:08:36",
+  "receipt_date": "2023-06-17 20:08:36",
   "manager_id": 5
  },
  {
@@ -500,7 +500,7 @@
   "external_startdate": "2023-05-01 09:30:00",
   "external_status": "공사완료",
   "receipt_content": "구내식당 배식대 추가 설치 공사",
-  "receipt_date": "2023-05-03 09:56:18",
+  "receipt_date": "2023-04-29 09:56:18",
   "manager_id": 4
  },
  {
@@ -512,7 +512,7 @@
   "external_startdate": "2023-08-10 08:00:00",
   "external_status": "공사 예정",
   "receipt_content": "옥상정원 벤치 설치 공사",
-  "receipt_date": "2023-08-13 18:00:00",
+  "receipt_date": "2023-08-06 18:00:00",
   "manager_id": 5
  },
  {
@@ -524,7 +524,7 @@
   "external_startdate": "2023-05-20 09:30:00",
   "external_status": "공사완료",
   "receipt_content": "전체 컴퓨터 교체 공사",
-  "receipt_date": "2023-06-23 18:00:00",
+  "receipt_date": "2023-05-18 18:00:00",
   "manager_id": 3
  },
  {
@@ -532,11 +532,11 @@
   "external_id": 45,
   "company_name": "skylife",
   "external_address": "서울특별시 마포구 매봉산로 75 DDMC 빌딩 9층 대회의실",
-  "external_enddate": "2023-06-26 20:40:00",
+  "external_enddate": "2023-06-27 20:40:00",
   "external_startdate": "2023-06-26 19:40:00",
   "external_status": "공사예정",
   "receipt_content": "테스트 TV 설치 공사",
-  "receipt_date": "2023-06-26 20:30:29",
+  "receipt_date": "2023-06-20 20:30:29",
   "manager_id": 3
  },
  {
@@ -548,7 +548,7 @@
   "external_startdate": "2023-02-05 19:00:00",
   "external_status": "공사완료",
   "receipt_content": "해외 사업부 사무실 설치",
-  "receipt_date": "2023-02-09 19:56:49",
+  "receipt_date": "2023-02-02 19:56:49",
   "manager_id": 4
  },
  {
@@ -560,7 +560,7 @@
   "external_startdate": "2023-12-23 14:30:00",
   "external_status": "공사예정",
   "receipt_content": "슈퍼컴퓨터 설치",
-  "receipt_date": "2023-12-30 09:00:00",
+  "receipt_date": "2023-12-10 09:00:00",
   "manager_id": 4
  },
  {
@@ -572,7 +572,7 @@
   "external_startdate": "2023-10-06 23:20:00",
   "external_status": "공사예정",
   "receipt_content": "화이트보드 설치 공사",
-  "receipt_date": "2023-10-23 23:13:32",
+  "receipt_date": "2023-10-04 23:13:32",
   "manager_id": 5
  },
  {
@@ -584,7 +584,7 @@
   "external_startdate": "2023-06-20 08:50:00",
   "external_status": "공사중",
   "receipt_content": "휴게실 확장 공사",
-  "receipt_date": "2023-06-30 14:02:57",
+  "receipt_date": "2023-06-19 14:02:57",
   "manager_id": 5
  },
  {
@@ -596,7 +596,7 @@
   "external_startdate": "2023-06-20 07:20:00",
   "external_status": "공사중",
   "receipt_content": "프린트 & FAX 전용 공간 구축 공사",
-  "receipt_date": "2023-06-25 12:52:11",
+  "receipt_date": "2023-06-18 12:52:11",
   "manager_id": 3
  }
 ]
