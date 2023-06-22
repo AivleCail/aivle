@@ -160,7 +160,7 @@ const VOC = () => {
         <div className="container">
           <span className="voc-text-1">VOC 내역</span>
           <span className="voc-text-2">고객들의 장애 조치 여부를 확인합니다.</span>
-          <button className="send-button" onClick={handleSend}>발송</button>
+          <button className="send-button" onClick={handleSend}>조치확인 문자 발송</button>
           <button className="refresh-button" onClick={handleRefresh}>
             <img className="voc-img" alt="Element" src={process.env.PUBLIC_URL + "/refresh-arrow.png"} />
           </button>
@@ -174,7 +174,7 @@ const VOC = () => {
                 checked={checkItems.length === vocList.length && vocList.length > 0}
               />
               ,'번호', '고객명', '지역', '전화번호', '장애유형', '접수 일시', '조치여부']}
-              columnWidths={['3%', '4%', '8%', '20%', '15%', '10%', '20%', '5%']}>
+              columnWidths={['4%', '4%', '9%', '20%', '12%', '15%', '15%', '6%']}>
               {currentVocList.map((voc) => (
                 <CommonTableRow key={voc.vocId} onClick={() => openModal(voc)}>
                   <CommonTableColumn>
@@ -184,17 +184,23 @@ const VOC = () => {
                         name={`select-${voc.vocId}`}
                         onChange={(e) => handleSingleCheck(e.target.checked, voc.vocId)}
                         checked={checkItems.includes(voc.vocId) ? true : false}
-                        onClick={(e) => e.stopPropagation()}  // 체크 부분 누르면 모달 보이는거 없앰
+                        onClick={(e) => e.stopPropagation()}
                       />
                     </div>
                   </CommonTableColumn>
                   <CommonTableColumn>{voc.vocId}</CommonTableColumn>
-                  <CommonTableColumn>{voc.customerName}</CommonTableColumn>
-                  <CommonTableColumn className="left-align">{voc.customerAddress}</CommonTableColumn>
-                  <CommonTableColumn>{voc.customerPhone}</CommonTableColumn>
+                  <CommonTableColumn>{voc.customerName.length > 1 ? `${voc.customerName.charAt(0)}*${voc.customerName.slice(-1)}` : voc.customerName}</CommonTableColumn>
+                  <CommonTableColumn>{voc.customerAddress}</CommonTableColumn>
+                  <CommonTableColumn>{voc.customerPhone.replace(/(\d{3})-(\d{1})(\d{3})-(\d{4})/, '$1-$2***-$4')}</CommonTableColumn>
                   <CommonTableColumn>{voc.type}</CommonTableColumn>
-                  <CommonTableColumn>{voc.receptionDate}</CommonTableColumn>
-                  <CommonTableColumn>{voc.checkStatus}</CommonTableColumn>
+                  <CommonTableColumn>{voc.receptionDate.slice(0, 16)}</CommonTableColumn>
+                  <CommonTableColumn>
+                    {voc.checkStatus === '발생' ? (
+                      <span style={{ color: 'red' }}>X</span>
+                    ) : (
+                      <span style={{ color: 'blue' }}>O</span>
+                    )}
+                  </CommonTableColumn>
                 </CommonTableRow>
               ))}
             </CommonTable>
