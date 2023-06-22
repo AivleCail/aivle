@@ -107,8 +107,10 @@ const Worker = () => {
             currentPage={currentPage}
           />
         </div>
-      </div>
       <Footer />
+        
+      </div>
+      
     </div>
   );
 };
