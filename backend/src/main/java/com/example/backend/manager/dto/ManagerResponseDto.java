@@ -13,11 +13,13 @@ import lombok.NoArgsConstructor;
 public class ManagerResponseDto {
     private String email;
     private String name;
+    private Long managerId;
 
     public static ManagerResponseDto of(Manager manager) {
         return ManagerResponseDto.builder()
                 .email(manager.getEmail())
                 .name(manager.getName())
+                .managerId(manager.getId())
                 .build();
     }
 }
