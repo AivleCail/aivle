@@ -85,7 +85,7 @@ const ExternalList = () => {
 
   return (
     <div className='mobile-container'>
-      <div className='title'>
+      <div className='mobile-title'>
         <span className='title-text'>공사 신고 접수 내역</span>
       </div>
       <div>
