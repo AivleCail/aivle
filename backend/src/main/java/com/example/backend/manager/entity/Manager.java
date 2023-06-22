@@ -48,6 +48,8 @@ public class Manager implements UserDetails {
                 .email(email)
                 .password(passwordEncoder.encode(password))
                 .name(name)
+                .address(address)
+                .phone(phone)
                 .authority(Authority.ROLE_USER)
                 .auth(auth)
                 .build();

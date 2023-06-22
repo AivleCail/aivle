@@ -15,6 +15,7 @@ public class ManagerResponseDto {
     private String name;
     private Long managerId;
 
+
     public static ManagerResponseDto of(Manager manager) {
         return ManagerResponseDto.builder()
                 .email(manager.getEmail())
