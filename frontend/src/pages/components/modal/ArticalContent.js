@@ -46,6 +46,37 @@ const ArticalContent = ({ article, comments }) => {
     }
   };
 
+  const handleDeleteComment = async (commentId, managerId) => {
+    try {
+      const accessToken = localStorage.getItem('accessToken');
+      const response = await axios.get('http://localhost:8080/member/me', {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      });
+      const curManager = response.data;
+      console.log(curManager);
+      if (managerId !== curManager.managerId) {
+        alert('삭제가 불가합니다.');
+        return;
+      }
+      await axios.delete(`http://localhost:8080/comment/one?id=${commentId}`, {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      });
+
+      setSelectedArticle((prevArticle) => ({
+        ...prevArticle,
+        comments: prevArticle.comments.filter((comment) => comment.commentId !== commentId),
+      }));
+
+      setArticleComments((prevComments) => prevComments.filter((comment) => comment.commentId !== commentId));
+    } catch (error) {
+      console.error('Error deleting comment:', error);
+    }
+  };
+
   return (
     <div>
       <h2>{article.articleTitle}</h2>
@@ -69,7 +100,13 @@ const ArticalContent = ({ article, comments }) => {
           <ul>
             {articleComments.map((comment) => ( //추가
               <li key={comment.commentId} className="article-comment-one">
-                <h4>{comment.managerName}</h4>
+                <div className="comment-line">
+                  <h4>{comment.managerName}</h4>
+                  <div className="right">
+                    <p>{new Date(comment.createdAt).toLocaleString({ year: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' })}</p>
+                    <button onClick={() => handleDeleteComment(comment.commentId, comment.managerId)}>delete</button>
+                  </div>
+                </div>
                 <p>{comment.commentText}</p>
               </li>
             ))}
