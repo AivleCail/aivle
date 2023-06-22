@@ -12,6 +12,19 @@
     text-align : center;
 }
 
+.mobile-title {
+  display: flex;
+  margin-left: 11rem;
+  justify-content: space-between;
+}
+
+.sub-title {
+  display: flex;
+  margin-left: 13.5rem;
+  justify-content: space-between;
+}
+
+
 hr {
     border-top: 1px solid #bbb;
 }
@@ -96,12 +109,9 @@ hr {
 
 .external-refresh-button {
     border: none;
-    position: absolute;
     background-color: transparent;
     padding : -10px;
     cursor: pointer;
-    top : 140px;
-    left : 380px;
   }
 
   .external-refresh-button .voc-img {
@@ -113,15 +123,11 @@ hr {
   }
 
 
-  
   .list-logout-button {
-    position: absolute;
     background: none;
     border: none;
     padding: 0;
     margin: 0;
-    left: 350px;
-    top: 42px;
   }
   
   .list-logout-button:focus {

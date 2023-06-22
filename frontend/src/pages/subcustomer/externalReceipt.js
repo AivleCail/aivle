@@ -123,13 +123,11 @@ const ExternalReceipt = () => {
   
   return (
     <div className='mobile-container'>
-      <div className='title'>
+      <div className='mobile-title'>
         <span className='title-text'>새로운 공사 신고 접수</span>
-      </div>
-      <div>
-      <button className="receipt-logout-button" onClick={handleLogout}>
-        <img className="receipt-logout-button-detail" src={process.env.PUBLIC_URL + '/logout.svg'} alt="Logout"/>
-      </button>
+        <button className="list-logout-button" onClick={handleLogout}>
+          <img className="list-logout-button-detail" src={process.env.PUBLIC_URL + '/logout.svg'} alt="Logout"/>
+        </button>
       </div>
       <hr />
       <InformContent

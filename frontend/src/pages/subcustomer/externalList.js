@@ -87,16 +87,8 @@ const ExternalList = () => {
     <div className='mobile-container'>
       <div className='mobile-title'>
         <span className='title-text'>공사 신고 접수 내역</span>
-      </div>
-      <div>
-      <button className="list-logout-button" onClick={handleLogout}>
-        <img className="list-logout-button-detail" src={process.env.PUBLIC_URL + '/logout.svg'} alt="Logout"/>
-      </button>
-      </div>
-
-      <div>
-        <button className="external-refresh-button" onClick={handleRefresh}>
-          <img className="voc-img" alt="Element" src={process.env.PUBLIC_URL + "/refresh-arrow.png"} />
+        <button className="list-logout-button" onClick={handleLogout}>
+          <img className="list-logout-button-detail" src={process.env.PUBLIC_URL + '/logout.svg'} alt="Logout"/>
         </button>
       </div>
       <hr />
@@ -104,7 +96,10 @@ const ExternalList = () => {
       <hr />
       <div className='list-content'>
         <div className='sub-title'>
-          <span className='sub-title'>접수 목록</span>
+          <span className='sub-title-text'>접수 목록</span>
+          <button className="external-refresh-button" onClick={handleRefresh}>
+            <img className="voc-img" alt="Element" src={process.env.PUBLIC_URL + "/refresh-arrow.png"} />
+          </button>
         </div>
         <hr />
         <ListContainer currentExternalList={currentExternalList} expanded={expanded} handleClick={handleClick} />
