@@ -44,7 +44,7 @@ const ExternalReceipt = () => {
       formData.append('file', selectedFile);
       formData.append('token',localStorage.getItem('accessToken'));
 
-      axios.post("http://localhost:8000/stt/external_api", formData, {
+      axios.post("http://localhost:8000/stt/external_check", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
@@ -76,7 +76,32 @@ const ExternalReceipt = () => {
       // });
     }
   };
+  const tospring = (e) => {
+    e.preventDefault();
 
+
+    const externalData = {
+      "companyName": companyName,
+      "receiptContent": receiptContent,
+      "externalAddress": externalAddress,
+      "externalStartdate": externalStartdate,
+    }
+    console.log(externalData)
+
+    axios.post("http://localhost:8080/worker/result", externalData, {
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${localStorage.getItem('accessToken')}`,
+      },
+    })
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+
+  }
 
   const informText = "안녕하세요 Cail 입니다. 원활한 공사 신고를 위해 다음 안내사항에 따라 공사 정보를 등록해주세요.";
   const speechBubbleText = [
@@ -124,6 +149,8 @@ const ExternalReceipt = () => {
       <div>공사 내용: {receiptContent}</div>
       <div>공사 주소: {externalAddress}</div>
       <div>공사 날짜: {externalStartdate}</div>
+
+      <button type="submit" className='receipt-button voice-send-button' onClick={tospring}>전송</button>
     </div>
   );
 };
