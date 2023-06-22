@@ -1,17 +1,18 @@
 .footer {
-    position: absolute;
-    background-color: rgba( 255, 255, 255, 0.5 );
-    bottom:0px;
-    height:23px;
-    width:100%;
-    text-align: center;
-    flex-shrink: 0;
-    
-    }
+	position: absolute;
+	width: 1307px;
+	bottom: -23px;
+	background: #FFFFFF;
+	border: 1px solid #DDDDDD;
+  text-align: center;
+  height:10000px;
+  top:635px
+  }
   
   .footer-text {
     color: #000000;
     font-size: 14px;
+    text-align: center;
   
   }
   .content-secure{
