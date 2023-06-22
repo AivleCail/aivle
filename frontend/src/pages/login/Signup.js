@@ -9,16 +9,49 @@ const Signup = () => {
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
   const [role, setRole] = useState('manager');
+  const [address, setAddress] = useState('');
+  const [phonenumber, setPhonenumber] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [emailError, setEmailError] = useState(false);
   const [confirmPasswordError, setConfirmPasswordError] = useState(false);
+  const [phonenumberError, setPhonenumberError] = useState(false);
   const [errorAlert, setErrorAlert] = useState('');
   const [submitted, setSubmitted] = useState(false);
+  const [isChecked, setIsChecked] = useState(false);
 
   const handleSignup = () => {
-    if (!email || !password || !confirmPassword || !name || !role) {
+    if (!isChecked) {
+      alert('개인정보 활용에 동의해야 합니다.');
+      return;
+    }
+
+    if (!email || !password || !confirmPassword || !name || !role || !address || !phonenumber ) {
       setErrorAlert('');
       setSubmitted(true);
+      return;
+    }
+
+    if ((password !== confirmPassword) && (!validateEmail(email)) && (!validatePhonenumber(phonenumber))){
+      setConfirmPasswordError(true);
+      setEmailError(true);
+      setPhonenumberError(true);
+      return;
+    }
+    if ((!validateEmail(email)) && (!validatePhonenumber(phonenumber))){
+      setEmailError(true);
+      setPhonenumberError(true);
+      return;
+    }
+    if ((password !== confirmPassword) && (!validatePhonenumber(phonenumber))){
+      setConfirmPasswordError(true);
+      setPhonenumberError(true);
+      return;
+    }
+
+
+    if ((password !== confirmPassword) && (!validateEmail(email))){
+      setConfirmPasswordError(true);
+      setEmailError(true);
       return;
     }
 
@@ -29,6 +62,11 @@ const Signup = () => {
 
     if (!validateEmail(email)) {
       setEmailError(true);
+      return;
+    }
+    
+    if (!validatePhonenumber(phonenumber)) {
+      setPhonenumberError(true);
       return;
     }
 
@@ -64,6 +102,11 @@ const Signup = () => {
   const validateEmail = (email) => {
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     return emailRegex.test(email);
+  };
+  
+  const validatePhonenumber = (phonenumber) => {
+    const phonenumberRegex = /^(010|070|02|0[3-9]{1}[0-9]{1})[0-9]{3,4}[0-9]{4}$/;
+    return phonenumberRegex.test(phonenumber);
   };
 
   const handleUserType = (selectedRole) => {
@@ -146,6 +189,39 @@ const Signup = () => {
             setSubmitted(false);
           }}/>
         </div>
+        <div className='a-input-group'>
+          <div className='sub-title'>
+            <span className='a-input-group-label'>주소</span>
+            {submitted && !address && <span className="field-error-message">필드를 입력해주세요.</span>}
+          </div>
+          <input className='signup-input' type="text" value={address} onChange={(e) => {
+            setAddress(e.target.value);
+            setErrorAlert('');
+            setSubmitted(false);
+          }} />
+        </div>
+        <div className='a-input-group'>
+          <div className='sub-title'>
+            <span className='a-input-group-label'>전화번호</span>
+            {submitted && !phonenumber && <span className="field-error-message">필드를 입력해주세요.</span>}
+            {phonenumberError && <span className="field-error-message">유효한 전화번호를 입력해주세요.</span>}
+          </div>
+          <input className='signup-input' type="text" value={phonenumber} onChange={(e) => {
+            setPhonenumber(e.target.value);
+            setPhonenumberError(false);
+            setErrorAlert('');
+            setSubmitted(false);
+          }} />
+          
+        </div>
+        <div className="checkbox-container">
+          <input
+            type="checkbox"
+            checked={isChecked}
+            onChange={() => setIsChecked(!isChecked)}
+          />
+          <label>개인정보 활용에 동의하시겠습니까?</label>
+          </div>
         <div className='error-group'>
           {errorAlert && <div className="error-alert">{errorAlert}</div>}
         </div>
