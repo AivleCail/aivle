@@ -4,6 +4,7 @@ import com.example.backend.config.jwt.TokenProvider;
 import com.example.backend.config.jwt.dto.TokenDto;
 import com.example.backend.manager.dto.ManagerRequestDto;
 import com.example.backend.manager.dto.ManagerResponseDto;
+import com.example.backend.manager.entity.Authority;
 import com.example.backend.manager.entity.Manager;
 import com.example.backend.manager.repository.ManagerRepository;
 import jakarta.annotation.PostConstruct;
@@ -57,15 +58,15 @@ public class AuthService {
 
     @PostConstruct
     public void memberInit() {
-        ManagerRequestDto requestDto1 = new ManagerRequestDto("admin@aivle.com","12345","윤태호","ROLE_ADMIN");
-        ManagerRequestDto requestDto2 = new ManagerRequestDto("user2@aivle.com","12345","윤태호","ROLE_USER");
-        ManagerRequestDto requestDto3 = new ManagerRequestDto("user3@aivle.com","12345","윤태호","ROLE_USER");
-        ManagerRequestDto requestDto4 = new ManagerRequestDto("user4@aivle.com","12345","윤태호","ROLE_USER");
-        ManagerRequestDto requestDto5 = new ManagerRequestDto("user5@aivle.com","12345","윤태호","ROLE_USER");
-        managerRepository.save(requestDto1.toManager(passwordEncoder));
-        managerRepository.save(requestDto2.toManager(passwordEncoder));
-        managerRepository.save(requestDto3.toManager(passwordEncoder));
-        managerRepository.save(requestDto4.toManager(passwordEncoder));
-        managerRepository.save(requestDto5.toManager(passwordEncoder));
+        Manager manager1 = new Manager(1L, "12345", "admin@aivle.com", "윤태호", "주소주소", "010-2478-9135", Authority.ROLE_ADMIN, "ROLE_ADMIN");
+        Manager manager2 = new Manager(2L, "12345", "admin@aivle.com", "윤태호", "주소주소", "010-2478-9135", Authority.ROLE_USER, "ROLE_USER");
+        Manager manager3 = new Manager(3L, "12345", "admin@aivle.com", "윤태호", "주소주소", "010-2478-9135", Authority.ROLE_USER, "ROLE_USER");
+        Manager manager4 = new Manager(4L, "12345", "admin@aivle.com", "윤태호", "주소주소", "010-2478-9135", Authority.ROLE_USER, "ROLE_USER");
+        Manager manager5 = new Manager(5L, "12345", "admin@aivle.com", "윤태호", "주소주소", "010-2478-9135", Authority.ROLE_USER, "ROLE_USER");
+        managerRepository.save(manager1.toManager(passwordEncoder));
+        managerRepository.save(manager2.toManager(passwordEncoder));
+        managerRepository.save(manager3.toManager(passwordEncoder));
+        managerRepository.save(manager4.toManager(passwordEncoder));
+        managerRepository.save(manager5.toManager(passwordEncoder));
     }
 }
