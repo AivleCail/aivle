@@ -5,6 +5,7 @@ import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.Collection;
 import java.util.HashSet;
@@ -14,6 +15,7 @@ import java.util.Set;
 @Getter @Setter
 @Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor
 public class Manager implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -40,18 +42,16 @@ public class Manager implements UserDetails {
     @Column(name = "auth")
     private String auth;
 
-    @Builder
-    public Manager(Long id, String password, String email, String name, String address, String phone, Authority authority, String auth) {
-        this.id = id;
-        this.password = password;
-        this.email = email;
-        this.name = name;
-        this.address = address;
-        this.phone = phone;
-        this.authority = authority;
-        this.auth = auth;
+    public Manager toManager(PasswordEncoder passwordEncoder) {
+        return Manager.builder()
+                .id(id)
+                .email(email)
+                .password(passwordEncoder.encode(password))
+                .name(name)
+                .authority(Authority.ROLE_USER)
+                .auth(auth)
+                .build();
     }
-
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         Set<GrantedAuthority> roles = new HashSet<>();
