@@ -59,10 +59,10 @@ public class AuthService {
     @PostConstruct
     public void memberInit() {
         Manager manager1 = new Manager(1L, "12345", "admin@aivle.com", "윤태호", "주소주소", "010-2478-9135", Authority.ROLE_ADMIN, "ROLE_ADMIN");
-        Manager manager2 = new Manager(2L, "12345", "admin@aivle.com", "윤태호", "주소주소", "010-2478-9135", Authority.ROLE_USER, "ROLE_USER");
-        Manager manager3 = new Manager(3L, "12345", "admin@aivle.com", "윤태호", "주소주소", "010-2478-9135", Authority.ROLE_USER, "ROLE_USER");
-        Manager manager4 = new Manager(4L, "12345", "admin@aivle.com", "윤태호", "주소주소", "010-2478-9135", Authority.ROLE_USER, "ROLE_USER");
-        Manager manager5 = new Manager(5L, "12345", "admin@aivle.com", "윤태호", "주소주소", "010-2478-9135", Authority.ROLE_USER, "ROLE_USER");
+        Manager manager2 = new Manager(2L, "12345", "user2@aivle.com", "윤태호", "주소주소", "010-2478-9135", Authority.ROLE_USER, "ROLE_USER");
+        Manager manager3 = new Manager(3L, "12345", "user3@aivle.com", "윤태호", "주소주소", "010-2478-9135", Authority.ROLE_USER, "ROLE_USER");
+        Manager manager4 = new Manager(4L, "12345", "user4@aivle.com", "윤태호", "주소주소", "010-2478-9135", Authority.ROLE_USER, "ROLE_USER");
+        Manager manager5 = new Manager(5L, "12345", "user5@aivle.com", "윤태호", "주소주소", "010-2478-9135", Authority.ROLE_USER, "ROLE_USER");
         managerRepository.save(manager1.toManager(passwordEncoder));
         managerRepository.save(manager2.toManager(passwordEncoder));
         managerRepository.save(manager3.toManager(passwordEncoder));
