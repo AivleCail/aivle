@@ -15,6 +15,7 @@ import java.sql.Timestamp;
 public class CommentResponseDto {
     private long commentId;
     private String managerName;
+    private long managerId;
     private String commentText;
     private Long createdAt;
     private boolean isWritten;
@@ -23,6 +24,7 @@ public class CommentResponseDto {
         return CommentResponseDto.builder()
                 .commentId(comment.getId())
                 .managerName(comment.getManager().getName())
+                .managerId(comment.getManager().getId())
                 .commentText(comment.getText())
                 .createdAt(Timestamp.valueOf(comment.getCreatedAt()).getTime())
                 .isWritten(bool)
