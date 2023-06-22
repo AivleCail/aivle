@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';  
 import axios from 'axios';
 import './ArticalContent.css'
 
@@ -6,6 +6,11 @@ const ArticalContent = ({ article, comments }) => {
 
   const [newCommentText, setNewCommentText] = useState('');
   const [selectedArticle, setSelectedArticle] = useState(article);
+  const [articleComments, setArticleComments] = useState(comments); //추가
+
+  useEffect(() => {
+    setArticleComments(comments);
+  }, [comments]);
 
   const handleNewCommentSubmit = async (e) => {
     e.preventDefault();
@@ -30,7 +35,12 @@ const ArticalContent = ({ article, comments }) => {
         comments: [...prevArticle.comments, newComment],
       }));
       
+      
+
+      setArticleComments((prevComments) => [...prevComments, newComment]);
+
       setNewCommentText('');
+
     } catch (error) {
       console.error('Error adding comment:', error);
     }
@@ -55,9 +65,9 @@ const ArticalContent = ({ article, comments }) => {
             />
             <button type="submit" className="comment-button">Add Comment</button>
         </form>
-        {comments && comments.length > 0 ? (
+        {articleComments && articleComments.length > 0 ? (
           <ul>
-            {comments.map((comment) => (
+            {articleComments.map((comment) => ( //추가
               <li key={comment.commentId} className="article-comment-one">
                 <h4>{comment.managerName}</h4>
                 <p>{comment.commentText}</p>
