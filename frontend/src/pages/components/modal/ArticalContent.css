@@ -38,7 +38,6 @@ margin-bottom: 10px;
   align-items: center;
 }
 
-
 .right {
   display: flex;
   align-items: center;
@@ -46,4 +45,42 @@ margin-bottom: 10px;
 }
 .right p {
   margin-right: 5px;
+}
+
+.article-total h2 {
+  border-bottom: none;
+}
+
+.title-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 3px solid #ccc;
+}
+
+.edit-button {
+  align: right;
+  padding-top: 7px;
+  cursor: pointer;
+  font-size: 18px;  
+  border: none;
+  background-color: #fff;
+}
+
+.edit-button img{
+  width: 20px;
+  height: 20px;
+}
+
+.delete-button {
+  padding-top: 7px;
+  cursor: pointer;
+  font-size: 18px;  
+  border: none;
+  background-color: #fff;
+}
+
+.delete-button img {
+  width: 20px;
+  height: 20px;
 }
