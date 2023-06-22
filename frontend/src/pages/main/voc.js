@@ -183,7 +183,8 @@ const VOC = () => {
                         type='checkbox' 
                         name={`select-${voc.vocId}`}
                         onChange={(e) => handleSingleCheck(e.target.checked, voc.vocId)}
-                        checked={checkItems.includes(voc.vocId) ? true : false} 
+                        checked={checkItems.includes(voc.vocId) ? true : false}
+                        onClick={(e) => e.stopPropagation()}  // 체크 부분 누르면 모달 보이는거 없앰
                       />
                     </div>
                   </CommonTableColumn>
