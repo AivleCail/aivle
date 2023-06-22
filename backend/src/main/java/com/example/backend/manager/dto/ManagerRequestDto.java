@@ -18,6 +18,8 @@ public class ManagerRequestDto {
     private String password;
     private String name;
     private String auth;
+    private String address;
+    private String phoneNumber;
 
     public Manager toManager(PasswordEncoder passwordEncoder) {
         return Manager.builder()
@@ -26,6 +28,8 @@ public class ManagerRequestDto {
                 .name(name)
                 .authority(Authority.ROLE_USER)
                 .auth(auth)
+                .address(address)
+                .phone(phoneNumber)
                 .build();
     }
 
