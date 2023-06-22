@@ -22,7 +22,7 @@ const CreateArticleList = () => {
       while (articleExists) {
         try {
           const response = await axios.get(
-            `http://localhost:8080/article/one?id=${id}`, {
+            `http://localhost:8080/article/`, {
               headers: {
                 Authorization: `Bearer ${accessToken}`,
               },
@@ -118,6 +118,7 @@ const CreateArticleList = () => {
       <p>{article.articleTitle}</p>
       <p>{article.managerName}</p>
       <p>{article.createdAt}</p>
+      <p>{article.cateogry}</p>
     </div>
   ))}
 </div>
