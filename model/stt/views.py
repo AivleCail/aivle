@@ -17,7 +17,7 @@ openai.api_key = OPENAI_API_KEY
 # Create your views here.
 def voc_check(request):
     if request.method == "POST" and request.FILES.get("file"):
-        voc_id = int(request.POST.get("voc_id"))
+        # voc_id = int(request.POST.get("voc_id"))
         file = request.FILES["file"]
         # token = request.POST.get("token")
         result = openai.Audio.transcribe("whisper-1", file)
@@ -50,7 +50,7 @@ def voc_check(request):
             after_sentence = ""
 
         data = {
-            "voc_id": voc_id,
+            
             "voc_entire":before_sentence+after_sentence,
             "voc_status": "O" if score > 0.5 else "X",
             "voc_status_detail": after_sentence,

@@ -33,7 +33,7 @@ public class VocService {
     }
 
     public Page<VocPageResponseDto> pageVoc(int pageNum, Long managerId) {
-        return vocRepository.searchAll(PageRequest.of(pageNum-1,20),managerId);
+        return vocRepository.searchAll(PageRequest.of(pageNum-1,1000),managerId);
     }
 
     public VocResponseDto oneVoc(Long id) {

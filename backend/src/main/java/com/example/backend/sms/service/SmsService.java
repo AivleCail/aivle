@@ -85,7 +85,7 @@ public class SmsService {
         headers.set("x-ncp-apigw-signature-v2", getSignature(time)); // signature 서명
 
         String cur = messageDto.getContent();
-        messageDto.setContent("[CaiL] 아래 링크에 전송된 ID를 입력하세요. \nID : " + cur + "\nURL : http://localhost:3000/vocreceipt");
+        messageDto.setContent("[CaiL] 입니다.\nURL : http://localhost:3000/vocreceipt?id=" + cur);
 
         List<SmsMessageDto> messages = new ArrayList<>();
         messages.add(messageDto);

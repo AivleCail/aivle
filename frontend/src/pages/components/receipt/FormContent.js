@@ -18,7 +18,7 @@ const FormContent = ({ vocIdForm, selectedFile, handleFileChange, handleSubmit, 
   return (
     <div className='form-content'>
       <form onSubmit={handleSubmit}>
-        { vocIdForm ? <div className='vocId-input'><label htmlFor='voc_id'>VoC Number를 입력해주세요: </label><input type='number' name='voc_id' value={vocId} onChange={handleVocIdChange} className="input_vocid"></input></div> : null}
+        { vocIdForm ? <div className='vocId-input'><label htmlFor='voc_id'>VoC Number </label><input type='number' name='voc_id' value={vocId} onChange={handleVocIdChange} className="input_vocid"></input></div> : null}
         {/* <AudioRecord /> */}
         <div className='upload-start'>
           <input type='file' name='file' accept='.mp3, .m4a' onChange={handleFileChange} />
