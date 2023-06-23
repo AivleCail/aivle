@@ -6,8 +6,12 @@ const ArticalContent = ({ article, comments }) => {
 
   const [newCommentText, setNewCommentText] = useState('');
   const [selectedArticle, setSelectedArticle] = useState(article);
-  const [articleComments, setArticleComments] = useState(comments); //추가
+  const [articleComments, setArticleComments] = useState(comments);
   const [curManager, setCurManager] = useState(null);
+  const [editMode, setEditMode] = useState(false);
+  const [editedTitle, setEditedTitle] = useState(article.articleTitle);
+  const [editedBody, setEditedBody] = useState(article.articleBody);
+  const [editedCategory, setEditedCategory] = useState(article.category);
 
   useEffect(() => {
     setArticleComments(comments);
@@ -16,9 +20,7 @@ const ArticalContent = ({ article, comments }) => {
   useEffect(() => {
     const fetchCurManager = async () => {
       try {
-        
         const accessToken = localStorage.getItem('accessToken');
-    
         const response = await axios.get('http://localhost:8080/member/me', {
           headers: {
             Authorization: `Bearer ${accessToken}`,
@@ -33,6 +35,7 @@ const ArticalContent = ({ article, comments }) => {
     fetchCurManager();
   }, []);
   console.log(curManager);
+  
   const handleNewCommentSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -55,13 +58,8 @@ const ArticalContent = ({ article, comments }) => {
         ...prevArticle,
         comments: [...prevArticle.comments, newComment],
       }));
-      
-      
-
       setArticleComments((prevComments) => [...prevComments, newComment]);
-
       setNewCommentText('');
-
     } catch (error) {
       console.error('Error adding comment:', error);
     }
@@ -91,20 +89,90 @@ const ArticalContent = ({ article, comments }) => {
     } catch (error) {
       console.error('Error deleting comment:', error);
     }
+  };
 
+  const handleUpdateArticle = async () => {
+    const check = window.confirm('수정 하시겠습니까?');
+      if (!check) {
+        return;
+      }
+    try {
+      const accessToken = localStorage.getItem('accessToken');
+      const response = await axios.put(
+        `http://localhost:8080/article/`,
+        {
+          id: article.articleId,
+          title: editedTitle,
+          body: editedBody,
+          category: editedCategory,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        }
+      );
+      
+      setSelectedArticle((prevArticle) => ({
+        ...prevArticle,
+        id: article.articleId,
+        title: editedTitle,
+        body: editedBody,
+        category: editedCategory,
+      }));
+      
+      setEditMode(false);
+      window.alert("수정 완료되었습니다!")
+    } catch (error) {
+      console.error('글을 업데이트하는 중 오류 발생:', error);
+    }
   };
 
   return (
     <div className="article-total">
       <div className='title-group'>
-        <h2>{article.articleTitle}</h2>
-        <button className="edit-button">
-          <img src={process.env.PUBLIC_URL + "editicon.svg"} alt="Update"/>
-        </button>
+        {editMode ? (
+          <input
+            type="text"
+            value={editedTitle}
+            onChange={(e) => setEditedTitle(e.target.value)}
+          />
+        ) : (
+          <h2>{editedTitle}</h2>
+        )}
+        {curManager && curManager.managerId === article.managerId && (
+          editMode ? (
+            <button className="update-button" onClick={handleUpdateArticle}>
+              수정 완료
+            </button>
+          ) : (
+            <button className="edit-button" onClick={() => setEditMode(true)}>
+              <img src={process.env.PUBLIC_URL + "editicon.svg"} alt="Update" />
+            </button>
+          )
+        )}
       </div>
-      <p>{article.articleBody}</p>
+      {editMode ? (
+        <textarea
+          value={editedBody}
+          onChange={(e) => setEditedBody(e.target.value)}
+        />
+      ) : (
+        <p>{editedBody}</p>
+      )}
       <br />
       <p>{article.managerName} {article.updatedAt}</p>
+      <p>
+        {editMode ? (
+          <textarea
+            value={editedCategory}
+            onChange={(e) => setEditedCategory(e.target.value)}
+          />
+        ) : (
+          <p>{editedCategory}</p>
+        )}
+      </p>
+      <p>{article.articleId}</p>
 
       <div className="article-comment">
         <h3>Comment</h3>
@@ -120,7 +188,7 @@ const ArticalContent = ({ article, comments }) => {
         </form>
         {articleComments && articleComments.length > 0 ? (
           <ul>
-            {articleComments.map((comment) => ( //추가
+            {articleComments.map((comment) => (
               <li key={comment.commentId} className="article-comment-one">
                 <div className="comment-line">
                   <h4>{comment.managerName}</h4>
