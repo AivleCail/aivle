@@ -141,7 +141,7 @@ const Signup = () => {
             onClick={() => handleUserType('external')}>사외공사자</button>
         </div>
         <div className='a-input-group'>
-          <div className='sub-title'>
+          <div className='input-labels'>
             <span className='a-input-group-label'>이메일</span>
             {submitted && !email && <span className="field-error-message">필드를 입력해주세요.</span>}
             {emailError && <span className="field-error-message">유효한 이메일을 입력해주세요.</span>}
@@ -154,7 +154,7 @@ const Signup = () => {
           }} />
         </div>
         <div className='a-input-group'>
-          <div className='sub-title'>
+          <div className='input-labels'>
             <span className='a-input-group-label'>비밀번호</span>
             {submitted && !password && <span className="field-error-message">필드를 입력해주세요.</span>}
           </div>
@@ -165,7 +165,7 @@ const Signup = () => {
           }} />
         </div>
         <div className='a-input-group'>
-          <div className='sub-title'>
+          <div className='input-labels'>
             <span className='a-input-group-label'>비밀번호 확인</span>
             {submitted && !confirmPassword && <span className="field-error-message">필드를 입력해주세요.</span>}
             {confirmPasswordError && <span className="field-error-message">비밀번호가 일치하지 않습니다.</span>}
@@ -179,7 +179,7 @@ const Signup = () => {
           />
         </div>
         <div className='a-input-group'>
-          <div className='sub-title'>
+          <div className='input-labels'>
             <span className='a-input-group-label'>이름</span>
             {submitted && !name && <span className="field-error-message">필드를 입력해주세요.</span>}
           </div>
@@ -190,7 +190,7 @@ const Signup = () => {
           }}/>
         </div>
         <div className='a-input-group'>
-          <div className='sub-title'>
+          <div className='input-labels'>
             <span className='a-input-group-label'>주소</span>
             {submitted && !address && <span className="field-error-message">필드를 입력해주세요.</span>}
           </div>
@@ -201,7 +201,7 @@ const Signup = () => {
           }} />
         </div>
         <div className='a-input-group'>
-          <div className='sub-title'>
+          <div className='input-labels'>
             <span className='a-input-group-label'>전화번호</span>
             {submitted && !phonenumber && <span className="field-error-message">필드를 입력해주세요.</span>}
             {phonenumberError && <span className="field-error-message">유효한 전화번호를 입력해주세요.</span>}
