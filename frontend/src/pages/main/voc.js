@@ -38,30 +38,6 @@ const VOC = () => {
   }, []);
 
 
-  useEffect(() => {
-    // 컴포넌트가 처음 마운트될 때와 currentPage가 변경될 때마다 실행됩니다.
-    console.log('Worker component has been mounted or currentPage has been changed.');
-
-    // fetchWorkerList 등 다른 로직 실행
-
-    // 컴포넌트가 언마운트되기 전에 실행됩니다.
-    return () => {
-      console.log('Worker component is being unmounted.');
-    };
-  }, [currentPage]);
-
-  useEffect(() => {
-    // 컴포넌트가 처음 마운트될 때만 실행됩니다.
-    console.log('Worker component has been mounted.');
-
-    // fetchWorkerList 등 다른 로직 실행
-
-    // 컴포넌트가 언마운트되기 전에 실행됩니다.
-    return () => {
-      console.log('Worker component is being unmounted.');
-    };
-  }, []);
-
   const fetchVocList = async () => {
     try {
       const accessToken = localStorage.getItem('accessToken');

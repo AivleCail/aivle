@@ -29,8 +29,14 @@ const ArticleList = () => {
 
   useEffect(() => {
     fetchArticles();
+    const interval = setInterval(fetchArticles, 2000); 
+
+    return () => {
+      clearInterval(interval);
+    };
   }, []);
-  
+
+
   const fetchArticles = async () => {
     try {
       const accessToken = localStorage.getItem('accessToken');
