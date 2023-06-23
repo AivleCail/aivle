@@ -5,7 +5,7 @@ import AiIcon from '../components/icons/ai.svg';
 import UserIcon from '../components/icons/user.svg';
 import InformContent from '../components/receipt/InformContent';
 import FormContent from '../components/receipt/FormContent';
-
+import { useLocation } from "react-router-dom";
 const VocReceipt = () => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [vocId, setVocId] = useState('');
@@ -14,8 +14,10 @@ const VocReceipt = () => {
   const [vocStatusDetail,setVocStatusDetail] = useState("");
   const [percentage,setPercentage] = useState("");
 
-  const vocIdForm = true;
-
+  const vocIdForm = 5;
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const id = searchParams.get('id');
   const handleFileChange = (event) => {
     setSelectedFile(event.target.files[0]);
   };
@@ -56,7 +58,7 @@ const VocReceipt = () => {
 
 
     const vocData = {
-      "voc_id": vocId,
+      "voc_id": id,
       "voc_entire": vocEntire,
       "voc_status": vocStatus,
       "voc_status_detail": vocStatusDetail,
@@ -109,7 +111,7 @@ const VocReceipt = () => {
       />
       <hr />
       <FormContent
-        vocIdForm={vocIdForm}
+        // vocIdForm={id}
         selectedFile={selectedFile}
         handleFileChange={handleFileChange}
         handleSubmit={handleSubmit}
