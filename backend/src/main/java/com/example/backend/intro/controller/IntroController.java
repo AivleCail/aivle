@@ -6,6 +6,7 @@ import com.example.backend.article.dto.ArticleIntroResponseDto;
 import com.example.backend.article.service.ArticleService;
 import com.example.backend.external.dto.ExternalIntroResponseDto;
 import com.example.backend.external.dto.ExternalStartDateCountDto;
+import com.example.backend.external.dto.ExternalStatusCountDto;
 import com.example.backend.external.service.ExternalService;
 import com.example.backend.intro.service.IntroService;
 import com.example.backend.voc.dto.VocIntroResponseDto;
@@ -53,6 +54,13 @@ public class IntroController {
     public ResponseEntity<List<ExternalStartDateCountDto>> getExternalStartDateCount() {
         return ResponseEntity.ok(externalService.getExternalStartDateCount());
     }
+
+    //사외공사 진행현황 비율
+    @GetMapping("/external-status")
+    public ResponseEntity<List<ExternalStatusCountDto>> getExternalStatusCount() {
+        return ResponseEntity.ok(externalService.getExternalStatusCount());
+    }
+
 
 
 

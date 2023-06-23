@@ -4,6 +4,7 @@ import com.example.backend.config.SecurityUtil;
 import com.example.backend.external.dto.ExternalPageResponseDto;
 import com.example.backend.external.dto.ExternalResponseDto;
 import com.example.backend.external.dto.ExternalStartDateCountDto;
+import com.example.backend.external.dto.ExternalStatusCountDto;
 import com.example.backend.external.entity.External;
 import com.example.backend.external.repository.ExternalRepository;
 import com.example.backend.external.repository.WorkerExternalRepository;
@@ -104,6 +105,8 @@ public class ExternalService {
         return externalRepository.getExternalStartDateCounts();
     }
 
-
-
+    // 사외공사 현황 합계
+    public List<ExternalStatusCountDto> getExternalStatusCount() {
+        return externalRepository.getExternalStatusCounts();
+    }
 }
