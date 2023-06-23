@@ -3,6 +3,7 @@ package com.example.backend.external.service;
 import com.example.backend.config.SecurityUtil;
 import com.example.backend.external.dto.ExternalPageResponseDto;
 import com.example.backend.external.dto.ExternalResponseDto;
+import com.example.backend.external.dto.ExternalStartDateCountDto;
 import com.example.backend.external.entity.External;
 import com.example.backend.external.repository.ExternalRepository;
 import com.example.backend.external.repository.WorkerExternalRepository;
@@ -15,6 +16,8 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 @Service
 @Transactional(readOnly = true)
@@ -94,6 +97,11 @@ public class ExternalService {
             throw new RuntimeException("로그인한 유저와 작성 유저가 같지 않습니다.");
         }
         return external;
+    }
+
+    // 월별 사외공사 건수 가져오기
+    public List<ExternalStartDateCountDto> getExternalStartDateCount() {
+        return externalRepository.getExternalStartDateCounts();
     }
 
 
