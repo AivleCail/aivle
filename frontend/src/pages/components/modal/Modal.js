@@ -3,8 +3,9 @@ import './Modal.css';
 import ArticalContent from './ArticalContent';
 import VocContent from './VocContent';
 import WorkerContent from './WorkerContent';
+import UserInfoContent from './UserInfoContent';
 
-const Modal = ({ isOpen, closeModal, entity, article, comments, voc, worker }) => {
+const Modal = ({ isOpen, closeModal, entity, article, comments, voc, worker, userInfo}) => {
   return (
     <div className={`modal ${isOpen ? 'open' : ''}`}>
       <div className="modal-content">
@@ -14,6 +15,7 @@ const Modal = ({ isOpen, closeModal, entity, article, comments, voc, worker }) =
         {entity === 'article' && <ArticalContent article={article} comments={comments} />}
         {entity === 'voc' && <VocContent voc={voc} />}
         {entity === 'worker' && <WorkerContent worker={worker} />}
+        {entity === 'userInfo' && <UserInfoContent/> }
       </div>
     </div>
   );

@@ -3,6 +3,7 @@ package com.example.backend.external.repository;
 import com.example.backend.external.dto.ExternalIntroResponseDto;
 import com.example.backend.external.dto.ExternalPageResponseDto;
 import com.example.backend.external.dto.ExternalStartDateCountDto;
+import com.example.backend.external.dto.ExternalStatusCountDto;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -14,4 +15,6 @@ public interface ExternalRepositoryCustom {
     List<ExternalIntroResponseDto> searchNow();
 
     List<ExternalStartDateCountDto> getExternalStartDateCounts();
+
+    List<ExternalStatusCountDto> getExternalStatusCounts();
 }
