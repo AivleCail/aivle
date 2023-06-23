@@ -9,8 +9,10 @@ import com.example.backend.external.dto.ExternalStartDateCountDto;
 import com.example.backend.external.dto.ExternalStatusCountDto;
 import com.example.backend.external.service.ExternalService;
 import com.example.backend.intro.service.IntroService;
+import com.example.backend.voc.dto.VocAnswerDto;
 import com.example.backend.voc.dto.VocIntroResponseDto;
 
+import com.example.backend.voc.dto.VocTypeCountDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -62,7 +64,17 @@ public class IntroController {
     }
 
 
+    //전체 발생오류중 유형 분석
+    @GetMapping("/voc-total")
+    public ResponseEntity<VocTypeCountDto> vocTypeCount() {
+        return ResponseEntity.ok(introService.TypeVoc());
+    }
 
+    //전체 발생오류중 응답 유형
+    @GetMapping("/voc-answer")
+    public ResponseEntity<VocAnswerDto> vocAnswer() {
+        return ResponseEntity.ok(introService.AnswerVoc());
+    }
 
 
 

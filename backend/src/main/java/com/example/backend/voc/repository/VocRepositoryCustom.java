@@ -1,8 +1,10 @@
 package com.example.backend.voc.repository;
 
 import com.example.backend.manager.entity.Manager;
+import com.example.backend.voc.dto.VocAnswerDto;
 import com.example.backend.voc.dto.VocIntroResponseDto;
 import com.example.backend.voc.dto.VocPageResponseDto;
+import com.example.backend.voc.dto.VocTypeCountDto;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -13,4 +15,7 @@ public interface VocRepositoryCustom {
 
     List<VocIntroResponseDto> searchNow();
 
+    VocTypeCountDto searchType();
+
+    VocAnswerDto searchAnswer();
 }
