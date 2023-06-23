@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './Signup.css';
-
+import Modal from '../components/modal/Modal';
 const Signup = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
@@ -18,7 +18,7 @@ const Signup = () => {
   const [errorAlert, setErrorAlert] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
-
+  const [isOpenModal, setIsOpenModal] = useState(false);
   const handleSignup = () => {
     if (!isChecked) {
       alert('개인정보 활용에 동의해야 합니다.');
@@ -134,6 +134,19 @@ const Signup = () => {
     });
   };
 
+  const openModal = () => {
+    try {
+      setIsOpenModal(true);
+    } catch (error) {
+      console.error('Error fetching voc details:', error);
+    }
+  };
+
+  // Modal Close
+  const closeModal = () => {
+    setIsOpenModal(false);
+  };
+
   return (
     <div className="container">
       <div className="bg-img" style={{ backgroundImage: 'url(bg.svg)' }}></div>
@@ -225,14 +238,19 @@ const Signup = () => {
             checked={isChecked}
             onChange={() => setIsChecked(!isChecked)}
           />
-          <label>개인정보 활용에 동의하시겠습니까?</label>
+          <label><strong onClick={openModal}>개인정보 활용에 동의하시겠습니까?</strong></label>
           </div>
         <div className='error-group'>
           {errorAlert && <div className="error-alert">{errorAlert}</div>}
         </div>
         <button className="signup-button" onClick={handleSignup}>가 입</button>
       </div>
+      {isOpenModal && (
+      <Modal isOpen={isOpenModal} closeModal={closeModal} entity="userInfo"/>
+    )}
     </div>
+
+    
   );
 };
 
