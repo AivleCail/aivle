@@ -12,10 +12,10 @@ import { Chart } from 'react-google-charts';
 
 const Intro = () => {
   const navigate = useNavigate();
-  const [introArticle, setIntroArticle] = useState([]);
   const [introExternal, setIntroExternal] = useState([]);
   const [introVoc, setIntroVoc] = useState([]);
-  const [chartData, setChartData] = useState([]);
+  const [chart1Data, setChart1Data] = useState([]);
+  const [chart2Data, setChart2Data] = useState([]);
 
   useEffect(() => {
     const accessToken = localStorage.getItem('accessToken');
@@ -23,14 +23,14 @@ const Intro = () => {
       alert('로그인 후 이용가능합니다.');
       navigate('/');
     } else {
-      introArticles();
       introExternals();
       introVocs();
-      fetchChartData();
+      fetchChart1Data();
+      fetchChart2Data();
     }
   }, [navigate]);
 
-  const fetchChartData = async () => {
+  const fetchChart1Data = async () => {
     try {
       const accessToken = localStorage.getItem('accessToken');
       const response = await axios.get('http://localhost:8080/intro/external-month-count', {
@@ -39,26 +39,28 @@ const Intro = () => {
         },
       });
       const data = response.data;
-      setChartData(data);
+      setChart1Data(data);
     } catch (error) {
       console.error('Error fetching chart data', error);
     }
   };
 
-  const introArticles = async () => {
+  const fetchChart2Data = async () => {
     try {
       const accessToken = localStorage.getItem('accessToken');
-      const response = await axios.get(`http://localhost:8080/intro/article`, {
+      const response = await axios.get('http://localhost:8080/intro/external-status', {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },
       });
-      const introArticle = response.data;
-      setIntroArticle(introArticle);
+      const data = response.data;
+      setChart2Data(data);
     } catch (error) {
-      console.error('Error article', error);
+      console.error('Error fetching chart data', error);
     }
   };
+
+
 
   const introExternals = async () => {
     try {
@@ -114,53 +116,71 @@ const Intro = () => {
             chartType="ColumnChart"
             loader={<div>Loading Chart</div>}
             data={[
-              ['month', 'count'],
-              ...chartData.map((item) => [new Date(item.yearMonth), item.count]),
+              ['월', '건수'],
+              ...chart1Data.map((item) => [new Date(item.yearMonth), item.count]),
             ]}
             options={{
-              title: 'Monthly External Counts',
+              title: '월별 사외공사 건수',
               hAxis: {
-                title: 'Month',
+                title: '월',
                 format: 'MM월',
                 textStyle: {
-                  fontSize: 10, // 글꼴 크기를 조정하여 라벨이 잘리지 않도록 함
-                  bold: false, // 라벨을 보다 가늘게 표시함
+                  fontSize: 10,
+                  bold: false,
                 },
                 ticks: [
-                  new Date(2023, 0), // 1월
-                  new Date(2023, 1), // 2월
-                  new Date(2023, 2), // 3월
-                  new Date(2023, 3), // 4월
-                  new Date(2023, 4), // 5월
-                  new Date(2023, 5), // 6월
-                  new Date(2023, 6), // 7월
-                  new Date(2023, 7), // 8월
-                  new Date(2023, 8), // 9월
-                  new Date(2023, 9), // 10월
-                  new Date(2023, 10), // 11월
-                  new Date(2023, 11), // 12월
+                  new Date(2023, 0),
+                  new Date(2023, 1),
+                  new Date(2023, 2),
+                  new Date(2023, 3),
+                  new Date(2023, 4),
+                  new Date(2023, 5),
+                  new Date(2023, 6),
+                  new Date(2023, 7),
+                  new Date(2023, 8),
+                  new Date(2023, 9),
+                  new Date(2023, 10),
+                  new Date(2023, 11),
                 ],
+                titleTextStyle: {
+                  italic: false,
+                  bold: true,
+                }
               },
               vAxis: {
-                title: 'Count',
+                title: '건수',
+                titleTextStyle: {
+                  italic: false,
+                  bold: true,
+                }
               },
             }}
           />
         </div>
 
         <div className="container-2">
-          <span className='board-text-2'>공지사항</span>
-          <div className="board-2">
-            <IntroTable headersName={['글쓴이', '제목', '작성일']} columnWidths={['20%','55%','25%']}>
-              {introArticle.map((article) => (
-                <IntroTableRow>
-                  <IntroTableColumn>{article.managerName}</IntroTableColumn>
-                  <IntroTableColumn>{article.articleTitle}</IntroTableColumn>
-                  <IntroTableColumn>{article.createdAt.substring(0,16)}</IntroTableColumn>
-                </IntroTableRow>
-              ))}
-            </IntroTable>
-          </div>          
+          <Chart 
+            width={'100%'}
+            height={'100%'}
+            chartType="PieChart"
+            loader={<div>Loading Chart</div>}
+            data={[
+              ['status', 'total'],
+              ...chart2Data.map((item) => [item.status, item.total]),
+            ]}
+            options={{
+              title: '사외공사현황',
+              is3D: true,
+              colors: ['#FFF100','#16C60C','#E81224'],
+              slices: {  
+                textStyle: {color: 'black', },
+              },
+              pieSliceTextStyle:{
+                color: 'black',
+                bold: true,
+              },
+            }}
+          />
         </div>
 
         <div className="container-3">

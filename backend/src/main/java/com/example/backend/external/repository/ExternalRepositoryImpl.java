@@ -4,6 +4,7 @@ import com.example.backend.external.dto.ExternalIntroResponseDto;
 import com.example.backend.external.dto.ExternalPageResponseDto;
 
 import com.example.backend.external.dto.ExternalStartDateCountDto;
+import com.example.backend.external.dto.ExternalStatusCountDto;
 import com.example.backend.external.entity.External;
 import com.querydsl.core.Tuple;
 import com.querydsl.core.types.dsl.Expressions;
@@ -86,6 +87,22 @@ public class ExternalRepositoryImpl implements ExternalRepositoryCustom{
         List<ExternalStartDateCountDto> dtoList = result
                 .stream()
                 .map(tuple -> new ExternalStartDateCountDto(tuple.get(0, String.class), tuple.get(1, Long.class)))
+                .collect(Collectors.toList());
+
+        return dtoList;
+    }
+
+    @Override
+    public List<ExternalStatusCountDto> getExternalStatusCounts() {
+        List<Tuple> result = queryFactory
+                .select(external.externalStatus.as("status"), external.count().as("total"))
+                .from(external)
+                .groupBy(external.externalStatus)
+                .fetch();
+
+        List<ExternalStatusCountDto> dtoList = result
+                .stream()
+                .map(tuple -> new ExternalStatusCountDto(tuple.get(0, String.class), tuple.get(1, Long.class)))
                 .collect(Collectors.toList());
 
         return dtoList;
