@@ -1,73 +1,50 @@
 .voc-container .background {
-    position: absolute;
+    position: relative;
     width: 1307px;
     height: 665px;
-    left: 225px;
-    top: 85px;
+    left: 14.06rem;
+    top: 5.31rem;
     background: #F8F8F8;
     border: 1px solid #DDDDDD;
     .container {
-        position: absolute;
+        position: relative;
         width: 1230px;
         height: 600px;
-        left: 39px;
-        top: 30px;
+        top: 1.9rem;
         background: #FFFFFF;
         border: 1px solid #DDDDDD;
         border-radius: 15px;
 
         .voc-text-1 {
-            position: absolute;
-            width: 115px;
-            height: 30px;
-            left: 30px;
-            top: 25px;
+            position: relative;
+            left: 2.3rem;
+            top: 1.4rem;
             font-family: 'Inter';
-            font-style: normal;
             font-weight: 700;
             font-size: 25px;
-            line-height: 30px;
-            text-align: center;
-            color: #000000;
         }
         
         .voc-text-2 {
-            position: absolute;
-            width: 280px;
-            height: 18px;
-            left: 24px;
-            top: 70px;
-
+            position: relative;
+            left: -4.7rem;
+            top: 3.5rem;
             font-family: 'Inter';
-            font-style: normal;
             font-weight: 400;
             font-size: 15px;
-            line-height: 18px;
-            text-align: center;
-
-            color: #000000;
-
-        }
-        .voc-img {
-            width: 25px;
-            height: 25px;
-            position: absolute;
-            left: 1160px;
-            top: 40px;
         }
 
         .board {
             position: relative; 
-            margin-top: 130px; 
+            margin-top: 5.3rem; 
         } 
         
         
         .send-button {
-            position: absolute;
-            z-index: 2;
-            top: 70px;
-            left: 1105px;
-            width: 90px;
+            position: relative;
+            z-index: 1;
+            top: 4rem;
+            left: 41.79rem;
+            width: 155px;
             height: 45px;
             cursor: pointer;
             background-color: #272626;
@@ -91,20 +68,20 @@
         .left-align {
             text-align: left;
           }
+        
+        .checkbox-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+          }
+          
+        .checkbox-container input {
+            display: inline-block;
+            vertical-align: middle;
+          }
+          
     }   
 }
-
-
-.refresh-button {
-    border: none;
-    position: absolute;
-    background-color: transparent;
-    padding : -10px;
-    cursor: pointer;
-  }
-  
-  .refresh-button .voc-img {
-    width: 20px;
-    height: 20px;
-  }
-  
