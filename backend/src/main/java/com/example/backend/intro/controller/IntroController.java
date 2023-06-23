@@ -5,6 +5,7 @@ package com.example.backend.intro.controller;
 import com.example.backend.article.dto.ArticleIntroResponseDto;
 import com.example.backend.article.service.ArticleService;
 import com.example.backend.external.dto.ExternalIntroResponseDto;
+import com.example.backend.external.dto.ExternalStartDateCountDto;
 import com.example.backend.external.service.ExternalService;
 import com.example.backend.intro.service.IntroService;
 import com.example.backend.voc.dto.VocIntroResponseDto;
@@ -45,6 +46,12 @@ public class IntroController {
     public ResponseEntity<List<VocIntroResponseDto>> introVoc() {
 
         return ResponseEntity.ok(introService.introVoc());
+    }
+
+    //월별 사외공사 건수
+    @GetMapping("/external-month-count")
+    public ResponseEntity<List<ExternalStartDateCountDto>> getExternalStartDateCount() {
+        return ResponseEntity.ok(externalService.getExternalStartDateCount());
     }
 
 

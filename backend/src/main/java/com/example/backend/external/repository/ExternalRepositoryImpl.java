@@ -3,7 +3,10 @@ package com.example.backend.external.repository;
 import com.example.backend.external.dto.ExternalIntroResponseDto;
 import com.example.backend.external.dto.ExternalPageResponseDto;
 
+import com.example.backend.external.dto.ExternalStartDateCountDto;
 import com.example.backend.external.entity.External;
+import com.querydsl.core.Tuple;
+import com.querydsl.core.types.dsl.Expressions;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -70,5 +73,22 @@ public class ExternalRepositoryImpl implements ExternalRepositoryCustom{
         return externals;
     }
 
+    @Override
+    public List<ExternalStartDateCountDto> getExternalStartDateCounts() {
+        List<Tuple> result = queryFactory
+                .select(Expressions.stringTemplate("DATE_FORMAT({0}, '%Y-%m')", external.externalStartdate).as("yearMonth"),
+                        external.count())
+                .from(external)
+                .groupBy(Expressions.stringTemplate("DATE_FORMAT({0}, '%Y-%m')", external.externalStartdate))
+                .orderBy(Expressions.stringTemplate("DATE_FORMAT({0}, '%Y-%m')", external.externalStartdate).asc())
+                .fetch();
+
+        List<ExternalStartDateCountDto> dtoList = result
+                .stream()
+                .map(tuple -> new ExternalStartDateCountDto(tuple.get(0, String.class), tuple.get(1, Long.class)))
+                .collect(Collectors.toList());
+
+        return dtoList;
+    }
 }
 
