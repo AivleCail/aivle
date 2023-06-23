@@ -85,7 +85,7 @@ def external_check(request):
         file = request.FILES["file"]
         token = request.POST.get("token")
         result = openai.Audio.transcribe("whisper-1", file)
-        keywords = ["회사이름","공사내용","공사주소","공사날짜","회사 이름","공사 내용","공사 주소","공사 날짜"]
+        keywords = ["회사이름", "회사 이름", "공사내용", "공사 내용", "공사주소", "공사 주소", "공사날짜", "공사 날짜"]
         res = result["text"]
         sentences = []
         start_index = 0
@@ -100,7 +100,12 @@ def external_check(request):
         last_sentence = res[start_index:].strip().replace(" ","").replace(",","")
         sentences.append(last_sentence)
         
-        string=sentences[4]
+        company_name = sentences[1]
+        construction_content = sentences[2]
+        construction_address = sentences[3]
+        construction_date = sentences[4]
+        
+        string=construction_date
         search_value = "오전"
 
         if search_value in string:
@@ -122,9 +127,9 @@ def external_check(request):
             formatted_date = afternoon_time.strftime("%Y-%m-%d %H:%M")
 
         data = {
-            "companyName": sentences[1],
-            "receiptContent": sentences[2],
-            "externalAddress": sentences[3],
+            "companyName": company_name,
+            "receiptContent": construction_content,
+            "externalAddress": construction_address,
             "externalStartdate": formatted_date
         }
         response_data = json.dumps(data, ensure_ascii=False)  # 데이터를 JSON 문자열로 변환
