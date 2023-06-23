@@ -1,57 +1,41 @@
 .worker-container .background {
-    position: absolute;
+    position: relative;
     width: 1307px;
     height: 665px;
-    left: 225px;
-    top: 85px;
+    left: 14.06rem;
+    top: 5.31rem;
     background: #F8F8F8;
     border: 1px solid #DDDDDD;
     .container {
-        position: absolute;
+        position: relative;
         width: 1230px;
         height: 600px;
-        left: 39px;
-        top: 30px;
+        top: 1.9rem;
         background: #FFFFFF;
         border: 1px solid #DDDDDD;
         border-radius: 15px;
 
         .worker-text-1 {
             position: absolute;
-            width: 159px;
-            height: 30px;
-            left: 34px;
-            top: 25px;
+            left: 2.1rem;
+            top: 1.56rem;
             font-family: 'Inter';
-            font-style: normal;
             font-weight: 700;
             font-size: 25px;
-            line-height: 30px;
-            text-align: center;
-            color: #000000;
         }
         
         .worker-text-2 {
-            position: absolute;
-            width: 295px;
-            height: 18px;
-            left: 30px;
-            top: 70px;
-
+            position: relative;
+            left: 2.2rem;
+            top: 4.37rem;
             font-family: 'Inter';
-            font-style: normal;
             font-weight: 400;
             font-size: 15px;
-            line-height: 18px;
-            text-align: center;
-
-            color: #000000;
-
         }
 
         .worker {
             position: relative; 
-            margin-top: 130px; 
+            margin-top: 6.8rem; 
         } 
         
         .left-align {
