@@ -17,6 +17,7 @@
     height: 100%;
     margin: auto;
     
+    
 }
 
 .context {
@@ -30,6 +31,7 @@
     top: 0px;
     left: 50%;
     overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .bg-img {
