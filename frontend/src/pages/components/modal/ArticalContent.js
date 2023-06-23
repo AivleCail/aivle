@@ -7,11 +7,32 @@ const ArticalContent = ({ article, comments }) => {
   const [newCommentText, setNewCommentText] = useState('');
   const [selectedArticle, setSelectedArticle] = useState(article);
   const [articleComments, setArticleComments] = useState(comments); //추가
+  const [curManager, setCurManager] = useState(null);
 
   useEffect(() => {
     setArticleComments(comments);
   }, [comments]);
 
+  useEffect(() => {
+    const fetchCurManager = async () => {
+      try {
+        
+        const accessToken = localStorage.getItem('accessToken');
+    
+        const response = await axios.get('http://localhost:8080/member/me', {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        });
+        const curManagerData = response.data;
+        setCurManager(curManagerData);
+      } catch (error) {
+        console.error('Error fetching current manager:', error);
+      }
+    };
+    fetchCurManager();
+  }, []);
+  console.log(curManager);
   const handleNewCommentSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -46,35 +67,31 @@ const ArticalContent = ({ article, comments }) => {
     }
   };
 
-  const handleDeleteComment = async (commentId, managerId) => {
-    try {
-      const accessToken = localStorage.getItem('accessToken');
-      const response = await axios.get('http://localhost:8080/member/me', {
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-        },
-      });
-      const curManager = response.data;
-      console.log(curManager);
-      if (managerId !== curManager.managerId) {
-        alert('삭제가 불가합니다.');
+  const handleDeleteComment = async (commentId) => {
+    const check = window.confirm("해당 댓글을 삭제하시겠습니까?");
+      if (!check) {
         return;
       }
-      await axios.delete(`http://localhost:8080/comment/one?id=${commentId}`, {
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-        },
-      });
-
+    try {
+      const accessToken = localStorage.getItem('accessToken');
+        await axios.delete(`http://localhost:8080/comment/one?id=${commentId}`, {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        });
+      
       setSelectedArticle((prevArticle) => ({
         ...prevArticle,
         comments: prevArticle.comments.filter((comment) => comment.commentId !== commentId),
       }));
 
       setArticleComments((prevComments) => prevComments.filter((comment) => comment.commentId !== commentId));
+
+      window.alert("삭제가 완료되었습니다.");
     } catch (error) {
       console.error('Error deleting comment:', error);
     }
+
   };
 
   return (
@@ -109,9 +126,11 @@ const ArticalContent = ({ article, comments }) => {
                   <h4>{comment.managerName}</h4>
                   <div className="right">
                     <p>{new Date(comment.createdAt).toLocaleString({ year: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' })}</p>
-                    <button className="delete-button" onClick={() => handleDeleteComment(comment.commentId, comment.managerId)}>
-                      <img src={process.env.PUBLIC_URL + "deleteico.svg"} alt="Delete" />
-                    </button>
+                    {curManager && comment.managerId === curManager.managerId ? (
+                      <button className="delete-button" onClick={() => handleDeleteComment(comment.commentId)}>
+                        <img src={process.env.PUBLIC_URL + "deleteico.svg"} alt="Delete" />
+                      </button>
+                    ) : null}
                   </div>
                 </div>
                 <p>{comment.commentText}</p>
