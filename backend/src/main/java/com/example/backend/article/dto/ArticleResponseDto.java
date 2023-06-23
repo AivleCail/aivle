@@ -14,6 +14,7 @@ import java.time.format.DateTimeFormatter;
 @Builder
 public class ArticleResponseDto {
     private Long articleId;
+    private Long managerId;
     private String managerName;
     private String articleTitle;
     private String articleBody;
@@ -26,6 +27,7 @@ public class ArticleResponseDto {
     public static ArticleResponseDto of(Article article, boolean bool) {
         return ArticleResponseDto.builder()
                 .articleId(article.getId())
+                .managerId(article.getManager().getId())
                 .managerName(article.getManager().getName())
                 .articleTitle(article.getTitle())
                 .articleBody(article.getBody())
