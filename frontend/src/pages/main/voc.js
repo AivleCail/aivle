@@ -165,7 +165,7 @@ const VOC = () => {
         <div className="container">
           <span className="voc-text-1">VOC 내역</span>
           <span className="voc-text-2">고객들의 장애 조치 여부를 확인합니다.</span>
-          <button className="send-button" onClick={handleSend}>발송</button>
+          <button className="send-button" onClick={handleSend}>조치확인 문자발송</button>
            {/*
            <button className="refresh-button" onClick={handleRefresh}> 
             <img className="voc-img" alt="Element" src={process.env.PUBLIC_URL + "/refresh-arrow.png"} />
@@ -181,7 +181,7 @@ const VOC = () => {
                 checked={checkItems.length === vocList.length && vocList.length > 0}
               />
               ,'번호', '고객명', '지역', '전화번호', '장애유형', '접수 일시', '조치여부']}
-              columnWidths={['4%', '4%', '9%', '20%', '12%', '15%', '15%', '6%']}>
+              columnWidths={['3%', '4%', '8%', '18%', '10%', '15%', '10%', '5%']}>
               {currentVocList.map((voc) => (
                 <CommonTableRow key={voc.vocId} onClick={() => openModal(voc)}>
                   <CommonTableColumn>
