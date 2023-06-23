@@ -28,7 +28,7 @@ const FormContent = ({ vocIdForm, selectedFile, handleFileChange, handleSubmit, 
           </div>
         </div>
         <div>
-          <button type="submit" className='receipt-button voice-send-button'>내가 보낼 메세지 확인</button>
+          <button type="submit" className='receipt-button voice-send-button'>접수 내용 확인</button>
         </div>
       </form>
     </div>

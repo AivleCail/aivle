@@ -37,10 +37,7 @@ const ExternalReceipt = () => {
       return;
     }
 
-    const confirmResult = window.confirm("파일을 전송하시겠습니까?");
-
-    if (confirmResult) {
-      const formData = new FormData();
+    const formData = new FormData();
       formData.append('file', selectedFile);
       formData.append('token',localStorage.getItem('accessToken'));
 
@@ -56,29 +53,14 @@ const ExternalReceipt = () => {
         setexternalAddress(response.data.externalAddress);
         setexternalStartdate(response.data.externalStartdate);
         setreceiptContent(response.data.receiptContent);
-
-        // navigate("/myexternal"); 
       })
       .catch((error) => {
         console.error("Error:", error);
       });
 
-      
-      // .then((response) => {
-      //   console.log(response.data);
-        
-
-      //   console.log(result);
-      //   // navigate("/myexternal"); 
-      // })
-      // .catch((error) => {
-      //   console.error("Error:", error);
-      // });
-    }
   };
   const tospring = (e) => {
     e.preventDefault();
-
 
     const externalData = {
       "companyName": companyName,
@@ -86,9 +68,11 @@ const ExternalReceipt = () => {
       "externalAddress": externalAddress,
       "externalStartdate": externalStartdate,
     }
-    console.log(externalData)
 
-    axios.post("http://localhost:8080/worker/result", externalData, {
+    const confirm = window.confirm("해당 접수 내용을 전송하시겠습니까?");
+
+    if (confirm) {
+      axios.post("http://localhost:8080/worker/result", externalData, {
       headers: {
         "Content-Type": "application/json",
         "Authorization": `Bearer ${localStorage.getItem('accessToken')}`,
@@ -100,7 +84,13 @@ const ExternalReceipt = () => {
       .catch((error) => {
         console.error("Error:", error);
       });
-
+    }
+    setTimeout(function(){
+      window.alert("접수가 완료되었습니다!");
+      navigate("/myexternal");
+    }, 1000);
+    //사외공사 리스트로 보내버리기
+     
   }
 
   const informText = "안녕하세요 Cail 입니다. 원활한 공사 신고를 위해 다음 안내사항에 따라 공사 정보를 등록해주세요.";

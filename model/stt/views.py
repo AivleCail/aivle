@@ -15,7 +15,7 @@ import json
 openai.api_key = OPENAI_API_KEY
 
 # Create your views here.
-def voc_api(request):
+def voc_check(request):
     if request.method == "POST" and request.FILES.get("file"):
         voc_id = int(request.POST.get("voc_id"))
         file = request.FILES["file"]
@@ -56,8 +56,8 @@ def voc_api(request):
             "voc_status_detail": after_sentence,
             "percentage":"{:.2f}%".format(score * 100) if score>0.5 else "{:.2f}%".format((1-score)*100)
         }
-        voc_to_spring(data)
-        return JsonResponse(data, safe=False, json_dumps_params={'ensure_ascii': False})
+        response_data = json.dumps(data, ensure_ascii=False)  # 데이터를 JSON 문자열로 변환
+        return HttpResponse(response_data, content_type="application/json")
     
     else: 
         return JsonResponse({
