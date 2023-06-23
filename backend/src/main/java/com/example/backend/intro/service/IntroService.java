@@ -4,8 +4,10 @@ import com.example.backend.article.dto.ArticleIntroResponseDto;
 import com.example.backend.article.repository.ArticleRepository;
 import com.example.backend.external.dto.ExternalIntroResponseDto;
 import com.example.backend.external.repository.ExternalRepository;
+import com.example.backend.voc.dto.VocAnswerDto;
 import com.example.backend.voc.dto.VocIntroResponseDto;
 
+import com.example.backend.voc.dto.VocTypeCountDto;
 import com.example.backend.voc.repository.VocRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -35,4 +37,11 @@ public class IntroService {
 
     }
 
+    public VocTypeCountDto TypeVoc() {
+        return vocRepository.searchType();
+    }
+
+    public VocAnswerDto AnswerVoc() {
+        return vocRepository.searchAnswer();
+    }
 }

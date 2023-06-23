@@ -1,7 +1,9 @@
 package com.example.backend.voc.repository;
 
+import com.example.backend.voc.dto.VocAnswerDto;
 import com.example.backend.voc.dto.VocIntroResponseDto;
 import com.example.backend.voc.dto.VocPageResponseDto;
+import com.example.backend.voc.dto.VocTypeCountDto;
 import com.example.backend.voc.entity.QVoc;
 import com.example.backend.voc.entity.Voc;
 import com.querydsl.core.types.dsl.BooleanExpression;
@@ -65,4 +67,83 @@ public class VocRepositoryImpl implements VocRepositoryCustom{
 
         return Vocs;
     }
+
+    public VocTypeCountDto searchType() {
+        QVoc voc = QVoc.voc; // Assuming QVoc is the generated Q-class for your Voc entity
+
+        List<Voc> content = queryFactory
+                .selectFrom(voc)
+                .where()
+                .orderBy(voc.date.desc())
+                .fetch();
+
+        long statusCount = 0;
+        long tvCount = 0;
+        long internetCount = 0;
+        long phoneCount = 0;
+
+        for (Voc vocs : content) {
+            String type = vocs.getType();
+            if (type.equals("전화")) {
+                phoneCount++;
+            } else if (type.equals("인터넷")) {
+                internetCount++;
+            } else if (type.equals("TV")) {
+                tvCount++;
+            }
+            statusCount++;
+        }
+
+        VocTypeCountDto vocTypeCountDto = new VocTypeCountDto();
+        vocTypeCountDto.setStatusCount(statusCount);
+        vocTypeCountDto.setTvCount(tvCount);
+        vocTypeCountDto.setInternetCount(internetCount);
+        vocTypeCountDto.setPhoneCount(phoneCount);
+
+        return vocTypeCountDto;
+    }
+
+    public VocAnswerDto searchAnswer() {
+        QVoc voc = QVoc.voc;
+
+        List<Voc> content = queryFactory
+                .selectFrom(voc)
+                .where(voc.percentage.endsWith("%"))
+                .orderBy(voc.date.desc())
+                .fetch();
+
+
+        long totalAnswer = 0;
+        long goodAnswer = 0;
+        long badAnswer = 0;
+        long veryBadAnswer = 0;
+
+        for (Voc vocA : content) {
+            String status = vocA.getStatus();
+            String per = vocA.getPercentage();
+            String percents  = per.substring(0,2);
+            int percent = Integer.parseInt(percents);
+
+            if (status.equals("해제")){
+                goodAnswer++;
+            }else{
+                if (percent >= 85.0){
+                    veryBadAnswer++;
+                }else{
+                    badAnswer++;
+                }
+            }
+            totalAnswer++;
+        }
+
+        VocAnswerDto vocAnswerDto = new VocAnswerDto();
+        vocAnswerDto.setTotalAnswer(totalAnswer);
+        vocAnswerDto.setGoodAnswer(goodAnswer);
+        vocAnswerDto.setBadAnswer(badAnswer);
+        vocAnswerDto.setVeryBadAnswer(veryBadAnswer);
+
+        return vocAnswerDto;
+    }
+
+
 }
