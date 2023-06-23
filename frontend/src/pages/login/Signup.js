@@ -104,11 +104,16 @@ const Signup = () => {
     return emailRegex.test(email);
   };
   
+  // const validatePhonenumber = (phonenumber) => {
+  //   const phonenumberRegex = /^(010|070|02|0[3-9]{1}[0-9]{1})[0-9]{3,4}[0-9]{4}$/;
+  //   return phonenumberRegex.test(phonenumber);
+  // };
+
   const validatePhonenumber = (phonenumber) => {
-    const phonenumberRegex = /^(010|070|02|0[3-9]{1}[0-9]{1})[0-9]{3,4}[0-9]{4}$/;
+    const phonenumberRegex = /^(010)-\d{4}-\d{4}$/;
     return phonenumberRegex.test(phonenumber);
   };
-
+  
   const handleUserType = (selectedRole) => {
     setRole(selectedRole);
   };

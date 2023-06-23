@@ -14,7 +14,6 @@ const VocReceipt = () => {
   const [vocStatusDetail,setVocStatusDetail] = useState("");
   const [percentage,setPercentage] = useState("");
 
-  const vocIdForm = 5;
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const id = searchParams.get('id');
@@ -88,13 +87,13 @@ const VocReceipt = () => {
 
   const informText = "안녕하세요 Cail 입니다. 고객님의 문의 건에 대해 장애 처리가 완료되었습니다. 다음 안내에 알맞게 고객님의 제품이 정상 작동하는지 Cail에게 알려주세요.";
   const speechBubbleText = [
-    "1. 고객님의 VoC Number를 입력해주세요.",
-    "2. 고객님의 제품이 잘 작동하는지를 알려주세요.",
-    "ex: TV가 잘 작동합니다.",
-    "ex: 여전히 작동하지 않습니다.",
+    "1. 고객님의 제품이 잘 작동하는지를 알려주세요.",
+    "ex) TV가 잘 작동합니다.",
+    "ex) 여전히 작동하지 않습니다.",
+
     "",
-    "3. 운용자에게 추가로 전달하고 싶은 메세지는 '추가사항'이라고 말한 뒤 말씀해주세요.",
-    "ex: 추가사항, 전원 버튼 자체가 동작하지 않아요."
+    "2. 운용자에게 추가로 전달하고 싶은 메세지는 '추가사항'이라고 말한 뒤 말씀해주세요.",
+    "ex) 추가사항, 전원 버튼 자체가 동작하지 않아요."
   ];
 
   return (
