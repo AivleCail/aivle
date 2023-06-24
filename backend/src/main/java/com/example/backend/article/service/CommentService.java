@@ -79,6 +79,12 @@ public class CommentService {
         return CommentResponseDto.of(commentRepository.save(comment), true);
     }
 
+    // 게시글 삭제시 댓글 작성자와 관계없이 댓글 삭제 기능
+    @Transactional
+    public void removeAllCommentsByArticleId(Long articleId) {
+        commentRepository.deleteAllByArticleId(articleId);
+    }
+
     @Transactional
     public void removeComment(Long id) {
         Manager manager = managerRepository.findById(

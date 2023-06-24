@@ -13,7 +13,7 @@ const Modal = ({ isOpen, closeModal, entity, article, comments, voc, worker, use
         <button className="close-button" onClick={closeModal}>
           <img src={process.env.PUBLIC_URL + "xicon1.png"} alt="Close" />
         </button>
-        {entity === 'article' && <ArticalContent article={article} comments={comments} />}
+        {entity === 'article' && <ArticalContent article={article} comments={comments} isOpen={isOpen} closeModal={closeModal}/>}
         {entity === 'voc' && <VocContent voc={voc} />}
         {entity === 'worker' && <WorkerContent worker={worker} />}
         {entity === 'userInfo' && <UserInfoContent/> }
