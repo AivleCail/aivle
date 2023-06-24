@@ -2,16 +2,20 @@ package com.example.backend.article.controller;
 
 import com.example.backend.article.dto.*;
 import com.example.backend.article.service.ArticleService;
+import com.example.backend.article.service.CommentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/article")
 public class ArticleController {
     private final ArticleService articleService;
+    private final CommentService commentService;
 
     //ㅇ
     @GetMapping("/page")
@@ -43,6 +47,10 @@ public class ArticleController {
 
     @DeleteMapping("/one")
     public ResponseEntity<MessageDto> deleteArticle(@RequestParam(name = "id") Long id) {
+        // 게시글에 연관된 모든 댓글 삭제
+        commentService.removeAllCommentsByArticleId(id);
+
+        // 게시글 삭제
         articleService.deleteArticle(id);
         return ResponseEntity.ok(new MessageDto("Success"));
     }
