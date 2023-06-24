@@ -151,7 +151,7 @@ const Signup = () => {
     <div className="container">
       <div className="bg-img" style={{ backgroundImage: 'url(bg.svg)' }}></div>
       <div className="context">
-        <div className='title'><span>회원 가입</span></div>
+        <div className='signup-title'><span>회원 가입</span></div>
         <div className='radio-buttons'>
           <button className={role === 'manager' ? 'user-type-button selected' : 'user-type-button'}
             onClick={() => handleUserType('manager')}>서비스 운용자</button>
@@ -238,12 +238,14 @@ const Signup = () => {
             checked={isChecked}
             onChange={() => setIsChecked(!isChecked)}
           />
-          <label><strong onClick={openModal}>개인정보 활용에 동의하시겠습니까?</strong></label>
-          </div>
+          <strong onClick={openModal}>개인정보 활용에 동의하시겠습니까?</strong>
+        </div>
         <div className='error-group'>
           {errorAlert && <div className="error-alert">{errorAlert}</div>}
         </div>
+        <div className='signup-button-div'>
         <button className="signup-button" onClick={handleSignup}>가 입</button>
+        </div>
       </div>
       {isOpenModal && (
       <Modal isOpen={isOpenModal} closeModal={closeModal} entity="userInfo"/>
