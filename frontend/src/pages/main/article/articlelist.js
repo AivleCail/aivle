@@ -17,6 +17,7 @@ const ArticleList = () => {
   const [articlesPerPage] = useState(8);
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [selectedArticle, setSelectedArticle] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -107,6 +108,15 @@ const ArticleList = () => {
     setIsOpenModal(false);
   };
 
+  //create article Modal Close
+  const openModals = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModals = () => {
+    setIsModalOpen(false);
+  };
+
   // Pagination
   const indexOfLastArticle = currentPage * articlesPerPage;
   const indexOfFirstArticle = indexOfLastArticle - articlesPerPage;
@@ -123,7 +133,7 @@ const ArticleList = () => {
           <div className="container">
             <span className="article-text-1">커뮤니티</span>
             <span className="article-text-2">공지사항 & 운영자들 간 소통 게시판입니다.</span>
-            <button className='add-article-btn'>추가</button>
+            <button className='add-article-btn' onClick={() => openModals()}>추가</button>
 
             <div className="article">
               <div className="article-table-container">
@@ -148,6 +158,10 @@ const ArticleList = () => {
             <Modal isOpen={isOpenModal} closeModal={closeModal} entity="article" article={selectedArticle} comments={selectedArticle.comments}/>
           )}
           
+          {isModalOpen && (
+            <Modal isOpen={isModalOpen} closeModal={closeModals} entity="null" />
+          )}
+
           <Paging
             articlesPerPage={articlesPerPage}
             totalArticles={articles.length}
