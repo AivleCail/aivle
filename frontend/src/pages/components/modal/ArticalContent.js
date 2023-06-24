@@ -153,7 +153,7 @@ const ArticalContent = ({ article, comments, isOpen, closeModal }) => {
     <div className="article-total">
       <div className='title-group'>
         {editMode ? (
-          <input
+          <input className='title-edit'
             type="text"
             value={editedTitle}
             onChange={(e) => setEditedTitle(e.target.value)}
@@ -163,8 +163,8 @@ const ArticalContent = ({ article, comments, isOpen, closeModal }) => {
         )}
         {curManager && curManager.managerId === article.managerId && (
           editMode ? (
-            <button className="update-button" onClick={handleUpdateArticle}>
-              수정 완료
+            <button className="edit-button" onClick={handleUpdateArticle}>
+              <img src={process.env.PUBLIC_URL + "saveicon.svg"} alt="Update" />
             </button>
           ) : (
             <button className="edit-button" onClick={() => setEditMode(true)}>
@@ -174,12 +174,12 @@ const ArticalContent = ({ article, comments, isOpen, closeModal }) => {
         )}
         {curManager && curManager.managerId === article.managerId && (
           <button className="delete-button" onClick={() => handleDeleteArticle(article.articleId)}>
-            <img src={process.env.PUBLIC_URL + "deleteico.svg"} alt="Delete" />
+            <img src={process.env.PUBLIC_URL + "deleteicon.svg"} alt="Delete" />
           </button>
         )}
       </div>
       {editMode ? (
-        <textarea
+        <textarea className='body-edit'
           value={editedBody}
           onChange={(e) => setEditedBody(e.target.value)}
         />
@@ -190,7 +190,7 @@ const ArticalContent = ({ article, comments, isOpen, closeModal }) => {
       <p>{article.managerName} {article.updatedAt}</p>
       <p>
         {editMode ? (
-          <textarea
+          <textarea className='category-edit'
             value={editedCategory}
             onChange={(e) => setEditedCategory(e.target.value)}
           />
@@ -222,7 +222,7 @@ const ArticalContent = ({ article, comments, isOpen, closeModal }) => {
                     <p>{new Date(comment.createdAt).toLocaleString({ year: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' })}</p>
                     {curManager && comment.managerId === curManager.managerId ? (
                       <button className="delete-button" onClick={() => handleDeleteComment(comment.commentId)}>
-                        <img src={process.env.PUBLIC_URL + "deleteico.svg"} alt="Delete" />
+                        <img src={process.env.PUBLIC_URL + "deleteicon.svg"} alt="Delete" />
                       </button>
                     ) : null}
                   </div>
