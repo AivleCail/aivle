@@ -41,7 +41,7 @@
     text-align: center;
   }
   
-  .active {
+  .login-form .login-ul .active{
     background-color: transparent;
     font-weight: bold;
     position: relative;

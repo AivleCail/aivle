@@ -11,11 +11,13 @@ import ExternalList from './pages/subcustomer/externalList'
 import ExternalReceipt from './pages/subcustomer/externalReceipt'
 import VocReceipt from './pages/subcustomer/vocReceipt'
 import './App.css'
+import SidebarTest from './test/sidebar_test'
 
 function App() {
   return (
     <div className="App">
      <Routes>
+         {/* 메인 페이지 */}
           <Route path="/" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/intro" element={<Intro />} />
@@ -26,6 +28,11 @@ function App() {
           <Route path="/myexternal" element={<ExternalList />} />
           <Route path="/externalreceipt" element={<ExternalReceipt />} />
           <Route path="/vocreceipt" element={<VocReceipt />} />
+
+          {/* 테스트 페이지 */}
+
+          <Route path="/sidebartest" element={<SidebarTest />} />
+
       </Routes>
     </div>
   );
