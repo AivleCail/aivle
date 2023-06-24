@@ -17,7 +17,6 @@ public class ArticleController {
     private final ArticleService articleService;
     private final CommentService commentService;
 
-    //ㅇ
     @GetMapping("/page")
     public ResponseEntity<Page<ArticlePageResponseDto>> pageArticle(@RequestParam(name = "page") int page) {
         return ResponseEntity.ok(articleService.pageArticle(page));
