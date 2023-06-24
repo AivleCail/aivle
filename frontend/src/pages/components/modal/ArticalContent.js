@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './ArticalContent.css'
 
-const ArticalContent = ({ article, comments }) => {
+const ArticalContent = ({ article, comments, isOpen, closeModal }) => {
 
   const [newCommentText, setNewCommentText] = useState('');
   const [selectedArticle, setSelectedArticle] = useState(article);
@@ -12,6 +12,7 @@ const ArticalContent = ({ article, comments }) => {
   const [editedTitle, setEditedTitle] = useState(article.articleTitle);
   const [editedBody, setEditedBody] = useState(article.articleBody);
   const [editedCategory, setEditedCategory] = useState(article.category);
+  const [isOpenModal, setIsOpenModal] = useState(isOpen);
 
   useEffect(() => {
     setArticleComments(comments);
@@ -63,6 +64,26 @@ const ArticalContent = ({ article, comments }) => {
     } catch (error) {
       console.error('Error adding comment:', error);
     }
+  };
+
+  const handleDeleteArticle = async (articleId) => {
+    const check = window.confirm("현재 게시글을 삭제하시겠습니까?");
+    if(!check) {
+      return;
+    }
+    try {
+      const accessToken = localStorage.getItem('accessToken');
+      await axios.delete(`http://localhost:8080/article/one?id=${articleId}`, {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      });
+      window.alert("게시글 삭제가 완료되었습니다.");
+      setIsOpenModal(false);
+      closeModal();
+    } catch(error) {
+      console.error('Error deleting article: ', error);
+    }  
   };
 
   const handleDeleteComment = async (commentId) => {
@@ -150,6 +171,11 @@ const ArticalContent = ({ article, comments }) => {
               <img src={process.env.PUBLIC_URL + "editicon.svg"} alt="Update" />
             </button>
           )
+        )}
+        {curManager && curManager.managerId === article.managerId && (
+          <button className="delete-button" onClick={() => handleDeleteArticle(article.articleId)}>
+            <img src={process.env.PUBLIC_URL + "deleteico.svg"} alt="Delete" />
+          </button>
         )}
       </div>
       {editMode ? (
