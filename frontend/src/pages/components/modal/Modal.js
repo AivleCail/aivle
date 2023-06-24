@@ -5,6 +5,7 @@ import VocContent from './VocContent';
 import WorkerContent from './WorkerContent';
 import UserInfoContent from './UserInfoContent';
 import UserYakwan from './UserYakwan';
+import ArticalCreate from './ArticalCreate';
 
 const Modal = ({ isOpen, closeModal, entity, article, comments, voc, worker, userInfo,userInfo2}) => {
   return (
@@ -18,6 +19,7 @@ const Modal = ({ isOpen, closeModal, entity, article, comments, voc, worker, use
         {entity === 'worker' && <WorkerContent worker={worker} />}
         {entity === 'userInfo' && <UserInfoContent/> }
         {entity === 'userInfo2' && <UserYakwan/> }
+        {entity === 'null' && <ArticalCreate closeModal={closeModal}/>}
       </div>
     </div>
   );
