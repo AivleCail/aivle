@@ -1,0 +1,44 @@
+.create-article-container {
+    max-width: 90%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f8f8f8;
+    border-radius: 8px;
+  }
+  
+  .create-article-container form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .create-article-container input,
+  .create-article-container textarea,
+  .create-article-container select {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .create-article-container textarea {
+    height: 300px;
+  }
+  
+  .create-article-container select {
+    appearance: none;
+    background-color: #fff;
+  }
+  
+  .create-article-container button{
+    padding: 10px 20px;
+    background-color: #272626;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+  }
