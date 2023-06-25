@@ -4,16 +4,13 @@ import Header from '../components/header';
 import Sidebar from '../components/sidebar';
 import Footer from '../components/footer';
 import './intro.css';
-import IntroTable from '../components/table/introtable/introtable';
-import IntroTableColumn from '../components/table/introtable/introtablecolumn';
-import IntroTableRow from '../components/table/introtable/introtablerow';
 import axios from 'axios';
 import { Chart } from 'react-google-charts';
 
 const Intro = () => {
   const navigate = useNavigate();
-  const [introExternal, setIntroExternal] = useState([]);
-  const [introVoc, setIntroVoc] = useState([]);
+  const [voctypeData,  setVocTypeData] = useState([]);
+  const [vocanswerData, setVocAnswerData] = useState([]);
   const [chart1Data, setChart1Data] = useState([]);
   const [chart2Data, setChart2Data] = useState([]);
 
@@ -23,8 +20,8 @@ const Intro = () => {
       alert('로그인 후 이용가능합니다.');
       navigate('/');
     } else {
-      introExternals();
-      introVocs();
+      vocType();
+      vocAnswer();
       fetchChart1Data();
       fetchChart2Data();
     }
@@ -62,31 +59,31 @@ const Intro = () => {
 
 
 
-  const introExternals = async () => {
+  const vocType = async () => {
     try {
       const accessToken = localStorage.getItem('accessToken');
-      const response = await axios.get(`http://localhost:8080/intro/external`, {
+      const response = await axios.get(`http://localhost:8080/intro/voc-total`, {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },
       });
-      const introExternal = response.data;
-      setIntroExternal(introExternal);
+      const data  = response.data;
+      setVocTypeData(data);
     } catch (error) {
       console.error('Error External', error);
     }
   };
 
-  const introVocs = async () => {
+  const vocAnswer = async () => {
     try {
       const accessToken = localStorage.getItem('accessToken');
-      const response = await axios.get(`http://localhost:8080/intro/voc`, {
+      const response = await axios.get(`http://localhost:8080/intro/voc-answer`, {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },
       });
-      const introVoc = response.data;
-      setIntroVoc(introVoc);
+      const data  = response.data;
+      setVocAnswerData(data);
     } catch (error) {
       console.error('Error Voc', error);
     }
@@ -182,37 +179,59 @@ const Intro = () => {
             }}
           />
         </div>
-
+      
         <div className="container-3">
-          <span className='board-text-3'>오늘의 VOC</span>
-          <div className="board-3">
-            <IntroTable headersName={['고객명', '지역', '장애유형', '조치여부']} columnWidths={['10%','','23%','12%']}>
-              {introVoc.map((voc) => (
-                <IntroTableRow>
-                  <IntroTableColumn>{voc.customerName}</IntroTableColumn>
-                  <IntroTableColumn>{voc.customerAddress}</IntroTableColumn>
-                  <IntroTableColumn>{voc.type}</IntroTableColumn>
-                  <IntroTableColumn>{voc.checkStatus}</IntroTableColumn>
-                </IntroTableRow>
-              ))}
-            </IntroTable>
-          </div>
+          <Chart
+            width={'100%'}
+            height={'100%'}
+            chartType="PieChart"
+            loader={<div>Loading</div>}
+            data={[
+              ['Category', 'Count'],
+              ['TV', voctypeData.tvCount],
+              ['인터넷', voctypeData.internetCount],
+              ['전화', voctypeData.phoneCount],
+            ]}
+            options={{
+              title: '장애 유형 분류',
+              is3D: true,
+              colors: ['#FFF100','#16C60C','#E81224'],
+              slices: {  
+                textStyle: {color: 'black', },
+              },
+              pieSliceTextStyle:{
+                color: 'black',
+                bold: true,
+              },
+            }}
+          />
         </div>
-
+        
         <div className="container-4">
-          <span className='board-text-4'>금일 공사 현황</span>
-          <div className="board-4">
-            <IntroTable headersName={['업체명', '접수 내용', '공사일시', '완료여부']} columnWidths={['20%','','21%','12%']}>
-              {introExternal.map((external) => (
-                <IntroTableRow>
-                  <IntroTableColumn>{external.companyName}</IntroTableColumn>
-                  <IntroTableColumn>{external.receiptContent}</IntroTableColumn>
-                  <IntroTableColumn>{external.externalStartdate.substring(0,16)}</IntroTableColumn>
-                  <IntroTableColumn>{external.externalStatus}</IntroTableColumn>
-                </IntroTableRow>
-              ))}
-            </IntroTable>
-          </div>
+          <Chart
+            width={'100%'}
+            height={'100%'}
+            chartType="PieChart"
+            loader={<div>Loading</div>}
+            data={[
+              ['Category', 'Count'],
+              ['만족', vocanswerData.goodAnswer],
+              ['불만족', vocanswerData.badAnswer],
+              ['매우불만족', vocanswerData.veryBadAnswer],
+            ]}
+            options={{
+              title: '고객 응답 현황',
+              is3D: true,
+              colors: ['#16C60C','#FFF100','#E81224'],
+              slices: {  
+                textStyle: {color: 'black', },
+              },
+              pieSliceTextStyle:{
+                color: 'black',
+                bold: true,
+              },
+            }}
+          />
         </div>
       <Footer />
       </div>
