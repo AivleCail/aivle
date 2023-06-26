@@ -44,13 +44,13 @@
   align-items: center;
   white-space: nowrap;
   font-weight: bolder;
-  font-size: 1.4rem;
+  font-size: 1.35rem;
   margin-top: 0.5rem;
 }
 
 .trl-voc {
   display: flex;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   margin-left: 3.7rem;
   color: #737373;
   font-weight: bold;
