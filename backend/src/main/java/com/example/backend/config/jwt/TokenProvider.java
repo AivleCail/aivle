@@ -44,7 +44,7 @@ public class TokenProvider {
     }
 
     // 토큰 생성
-    public TokenDto generateTokenDto(Authentication authentication) {
+    public TokenDto generateTokenDto(Authentication authentication, String managerName) {
 
         String authorities = authentication.getAuthorities().stream()
                 .map(GrantedAuthority::getAuthority)
@@ -80,6 +80,7 @@ public class TokenProvider {
                 .tokenExpiresIn(accessTokenExpiresIn.getTime())
                 .refreshToken(refreshToken)
                 .refreshTokenExpiresIn(refreshTokenExpiresIn.getTime())
+                .name(managerName)
                 .build();
     }
 

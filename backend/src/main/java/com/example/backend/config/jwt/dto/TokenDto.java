@@ -15,13 +15,15 @@ public class TokenDto {
     private Long tokenExpiresIn;
     private String refreshToken;
     private Long refreshTokenExpiresIn;
+    private String name;
 
     @Builder
-    public TokenDto(String grantType, String accessToken, Long tokenExpiresIn, String refreshToken, Long refreshTokenExpiresIn) {
+    public TokenDto(String grantType, String accessToken, Long tokenExpiresIn, String refreshToken, Long refreshTokenExpiresIn, String name) {
         this.grantType = grantType;
         this.accessToken = accessToken;
         this.tokenExpiresIn = tokenExpiresIn;
         this.refreshToken = refreshToken;
         this.refreshTokenExpiresIn = refreshTokenExpiresIn;
+        this.name = name;
     }
 }

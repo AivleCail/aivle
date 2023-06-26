@@ -41,7 +41,7 @@ public class AuthService {
 
         Manager manager = managerRepository.findByEmail(email)
                 .orElseThrow(() -> new RuntimeException("로그인 유저 정보가 없습니다"));
-
+        System.out.println(manager.getName());
         if (!passwordEncoder.matches(password, manager.getPassword())) {
             throw new RuntimeException("비밀번호가 맞지 않습니다");
         }
@@ -52,8 +52,7 @@ public class AuthService {
 
         UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(email, password);
         Authentication authentication = managerBuilder.getObject().authenticate(authenticationToken);
-
-        return tokenProvider.generateTokenDto(authentication);
+        return tokenProvider.generateTokenDto(authentication,manager.getName());
     }
 
     @PostConstruct

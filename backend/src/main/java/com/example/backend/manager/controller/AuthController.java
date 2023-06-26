@@ -27,6 +27,7 @@ public class AuthController {
 
     @PostMapping("/login")
     public ResponseEntity<TokenDto> login(@RequestBody ManagerRequestDto requestDto) {
+        System.out.println(requestDto);
         return ResponseEntity.ok(authService.login(requestDto));
     }
 
@@ -37,7 +38,7 @@ public class AuthController {
             Authentication authentication = tokenProvider.getAuthentication(refreshToken);
 
             // 새로운 액세스 토큰 생성
-            TokenDto newTokenDto = tokenProvider.generateTokenDto(authentication);
+            TokenDto newTokenDto = tokenProvider.generateTokenDto(authentication,"");
             System.out.println("새로운 액세스 토큰:" + newTokenDto.getRefreshToken());
             // 새로운 토큰 DTO를 클라이언트로 전송합니다.
             return newTokenDto;
