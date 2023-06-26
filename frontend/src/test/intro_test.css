@@ -1,43 +1,89 @@
-.intro-container .background {
+.background {
   position: fixed;
   width: 100%;
   height: 100%;
   background: #F8F8F8;
-  border: 1px solid #DDDDDD;
+  border: 1px solid #FFFFFF;
+}
 
+.top-container {
+  display: flex; 
+  padding-left: 16rem;
+  padding-top: 3vh; 
+  width : 100%;
+}
+
+
+.container-1 {
+  width : 80vh;
+  height : 38vh;
+  padding-right : 6vh;
+}
+.chart-1 {
+  width : 80vh;
+  height : 38vh;
+  
+}
+
+.cotainer-2 {
+  width : 80vh;
+}
+
+.chart-2 {
+  width : 80vh;
+  height : 38vh;
+}
+
+.bottom-container {
+
+  display: flex; 
+  padding-left: 16rem;
+  padding-top : 3vh;
+  width : 100%;
+}
+
+.container-3 {
+  width : 80vh;
+  height : 40vh;
+  padding-right : 6vh;
+}
+
+.chart-3 {
+  width : 80vh;
+  height : 38vh;
+}
+
+.chart-4 {
+  width : 80vh;
+  height : 38vh;
+}
+/*
   .container-1 {
     position: relative;
+    padding-top : 50px;
+    padding-left : 150px;
     width: 50%;
     height: 50%;
-    background: #FFFFFF;
     border-radius: 15px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center; /* 가로 정렬 추가 */
+    justify-content: center; 
   }
+  
   
   .container-2 {
     position: relative;
     width: 50%;
     height: 50%;
-    background: #FFFFFF;
     border-radius: 15px;
     display: flex;
     flex-direction: column;
     align-items: center;
-  
-    .board-2 {
-      position: relative;
-      margin-top: 35px;
-  
-      .left-align {
-        text-align: left;
-      }
-    }
+    justify-content: center; 
   }
   
-  
+  /*
   .container-1,
 .container-2 {
   width: 50%;
@@ -112,4 +158,5 @@
       font-size: 20px;
     }
   }
-}
+
+  */
