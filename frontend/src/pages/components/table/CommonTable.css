@@ -1,6 +1,5 @@
 .common-table {
-  width: 95%;
-  margin: 0 auto;
+  width: 156vh;
   text-align: center;
   border-spacing: 0;
   table-layout: fixed;
@@ -8,18 +7,18 @@
 
 .common-table-header-column {
   position: sticky;
-  top: 0;
   background-color: #FFFFFF;
   border-top: 2.5px solid #000000;
   border-bottom: 1px solid #CCCCCC;
   font-size: 16px;
   padding: 15px 5px;
+  text-align: center;
   font-weight: bold;
-  z-index: 1;
 }
 
 .common-table-column {
   border-bottom: 1px solid #CCCCCC;
+  text-align: center;
   padding: 10px 5px;
 }
 
@@ -30,8 +29,6 @@
 
 .fixed-column {
   position: sticky;
-  left: 0;
-  z-index: 2;
   background-color: #FFFFFF;
 }
 
