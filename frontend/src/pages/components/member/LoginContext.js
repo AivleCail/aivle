@@ -1,10 +1,12 @@
-import React from 'react';
+import Reactt, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import LoginForm from './LoginForm';
 import './Member.css';
+import Modal from '../../components/modal/Modal';
 import { ReactComponent as Logo } from '../icons/logo.svg';
 
-const LoginContext = ({
+const LoginContext = (
+  {
   activeIndex,
   handleManagerClick,
   handleExternalWorkerClick,
@@ -17,6 +19,25 @@ const LoginContext = ({
   passwordErr,
   err,
 }) => {
+  const [isOpenModal, setIsOpenModal] = useState(false);
+  const [isOpenModal2, setIsOpenModal2] = useState(false);
+
+  const openModal = () => {
+    setIsOpenModal(true);
+  };
+
+  const openModal2 = () => {
+    setIsOpenModal2(true);
+  };
+
+  const closeModal = () => {
+    setIsOpenModal(false);
+  };
+
+  const closeModal2 = () => {
+    setIsOpenModal2(false);
+  };
+
   return (
     <div className="context">
       <div className="login-logo">
@@ -38,9 +59,15 @@ const LoginContext = ({
       />
       <Link to={"/signup"} className='signup-link'>회원가입</Link>
       <div className='terms-group'>
-        <Link to={"/signup"} className='terms'>개인정보 처리방침</Link>
-        |
-        <Link to={"/signup"} className='terms'>이용약관</Link>
+        <label className='terms'><strong onClick={openModal}>개인정보 처리방침</strong></label>
+        {isOpenModal && (
+        <Modal isOpen={isOpenModal} closeModal={closeModal} entity="userInfo"/>
+      )}  
+  
+        <label className='terms'><strong onClick={openModal2}>이용약관</strong></label>
+        {isOpenModal2 && (
+        <Modal isOpen={isOpenModal2} closeModal={closeModal2} entity="userInfo2"/>
+      )}
       </div>
     </div>
   );
