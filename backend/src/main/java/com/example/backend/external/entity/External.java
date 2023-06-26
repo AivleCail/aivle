@@ -61,14 +61,14 @@ public class External {
         external.externalStartdate = dateTime;
         external.manager = manager;
         external.externalEnddate = "null";  // 문자컬럼인데 만약에
-        external.externalStatus = "공사 예정";      // external.externalStatus = "공사 예정";
+        external.externalStatus = "공사예정";      // external.externalStatus = "공사 예정";
 
 
         return external;
     }
     public static External startchangeExternal (External external) {
 
-        external.externalStatus = "공사 중";
+        external.externalStatus = "공사중";
         return external;
     }
     public static External endchangeExternal (External external) {
@@ -76,7 +76,7 @@ public class External {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         String aString = a.format(formatter);
         external.externalEnddate = aString;
-        external.externalStatus = "공사 종료";
+        external.externalStatus = "공사종료";
 
         return external;
     }
