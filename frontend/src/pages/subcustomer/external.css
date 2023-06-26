@@ -6,7 +6,7 @@
   }
 
 .mobile-container {
-    padding-top: 10%;
+    padding-top: 5%;
     height: 100%;
     overflow: scroll;
     text-align : center;
@@ -14,7 +14,7 @@
 
 .mobile-title {
   display: flex;
-  margin-left: 11rem;
+
   justify-content: space-between;
 }
 
@@ -122,6 +122,30 @@ hr {
     margin-right: 10px;
   }
 
+  .list-back-button {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .list-back-button:focus {
+    outline: none;
+  }
+  
+  .list-back-button:hover {
+    filter: brightness(1.8); 
+  }
+
+  
+  .list-back-button-detail {
+    width: 90px;
+    height: 18px;
+    border: none;
+    padding: 0;
+    background: none;
+    cursor: pointer;
+  }
 
   .list-logout-button {
     background: none;

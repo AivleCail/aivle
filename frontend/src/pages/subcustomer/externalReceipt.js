@@ -110,14 +110,27 @@ const ExternalReceipt = () => {
       navigate('/');
     }
   };
+  const handleBackButton = () => {
+    const confirmLeavePage = window.confirm(
+      "현재 페이지를 나가시면 내용이 저장되지 않을 수 있습니다.\n" +
+      "정말 나가시겠습니까?"
+    );
+    if (confirmLeavePage) {
+      navigate("/myexternal");
+    }
+  };
   
   return (
     <div className='mobile-container'>
       <div className='mobile-title'>
+        <button className="list-back-button" onClick={handleBackButton}>
+          <img className="list-back-button-detail" src={process.env.PUBLIC_URL + '/arrowback.svg'} alt="Back"/>
+        </button>
         <span className='title-text'>새로운 공사 신고 접수</span>
         <button className="list-logout-button" onClick={handleLogout}>
           <img className="list-logout-button-detail" src={process.env.PUBLIC_URL + '/logout.svg'} alt="Logout"/>
         </button>
+
       </div>
       <hr />
       <InformContent
