@@ -3,7 +3,7 @@ import './UserYakwan.css'
 
 const UserYakwan = ({userInfo2}) => {
     return (
-        <div className="report-container2">
+        <div className="use-container">
           <h2>이용약관</h2>
           <table>
             <tbody>

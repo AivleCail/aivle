@@ -3,7 +3,7 @@ import './UserInfoContent.css'
 
 const UserInfoContent = ({userInfo}) => {
     return (
-        <div className="report-container">
+        <div className="secure-container">
           <h2>개인정보처리방침</h2>
           <table>
             <tbody>
