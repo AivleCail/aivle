@@ -7,7 +7,7 @@ const UnfoldedListBody = ({ external }) => {
       <p>공사주소: {external.externalAddress}</p>
       <p>접수 시간: {external.receiptDate}</p>
       <p>공사 시작 시간: {external.externalStartdate}</p>
-      <p>공사 종료 시간: {external.externalEnddate}</p>
+      <p>공사 종료 시간: {external.externalEnddate === 'null' ? '' : external.externalEnddate}</p>
       <p>공사 상세 내용: {external.receiptContent}</p>
     </div>
   );
