@@ -61,8 +61,10 @@ const Login = () => {
       })
       .then((response) => {
         const accessToken = response.data.accessToken;
-        console.log('Access token:', accessToken);
+        const refreshToken = response.data.refreshToken;
         localStorage.setItem('accessToken', accessToken);
+        localStorage.setItem('refreshToken', refreshToken);
+    
         if (role === 'ROLE_USER') {
           navigate('/myexternal');
         } else {

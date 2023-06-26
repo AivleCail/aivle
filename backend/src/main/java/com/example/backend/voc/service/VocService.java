@@ -32,8 +32,12 @@ public class VocService {
 
     }
 
-    public Page<VocPageResponseDto> pageVoc(int pageNum, Long managerId) {
-        return vocRepository.searchAll(PageRequest.of(pageNum-1,1000),managerId);
+    //사용 X
+//    public Page<VocPageResponseDto> pageVoc(int pageNum, Long managerId) {
+//        return vocRepository.searchAll(PageRequest.of(pageNum-1,1000),managerId);
+//    }
+    public Page<VocPageResponseDto> pageVoc(int pageNum) {
+        return vocRepository.searchAll(PageRequest.of(pageNum-1,1000));
     }
 
     public VocResponseDto oneVoc(Long id) {
