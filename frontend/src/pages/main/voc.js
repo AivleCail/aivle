@@ -185,7 +185,7 @@ const VOC = () => {
               {currentVocList.map((voc) => (
                 <CommonTableRow key={voc.vocId} onClick={() => openModal(voc)}>
                   <CommonTableColumn>
-                    <div className="checkbox-container">
+                    <div className="voc-checkbox-container">
                       <input 
                         type='checkbox' 
                         name={`select-${voc.vocId}`}

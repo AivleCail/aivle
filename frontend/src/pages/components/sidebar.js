@@ -27,7 +27,7 @@ const Sidebar = () => {
             <header>
                 <button classname = 'menu-bars' onClick={toggleNavMenu}><img src={isSidebarCollapsed ? process.env.PUBLIC_URL + "menu.png" : process.env.PUBLIC_URL + "back.png"}></img></button>
             </header>            
-            <ul>
+            <ul className='sidebar-ul'>
                 
                 <li><a><Link to="/intro" className={location.pathname === "/intro" ? "active" : ""}><i class = "fas fa-home"></i><span>홈</span></Link></a></li>
                 <li><a><Link to="" className={location.pathname === "/voc" ? "active" : ""} onClick={toggleSubMenu}><img src={process.env.PUBLIC_URL + "task.png"} /><i class = "fas fa-Task"></i><span>Task</span></Link></a></li>
