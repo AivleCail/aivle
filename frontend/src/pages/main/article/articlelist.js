@@ -138,7 +138,7 @@ const ArticleList = () => {
             <div className="article">
               <div className="article-table-container">
                 <div className="article-table-scroll">
-                  <CommonTable headersName={['번호', '제목', '글쓴이', '작성일시', '조회']} columnWidths={['4%','', '15%', '20%', '8%']}>
+                  <CommonTable headersName={['분류', '제목', '글쓴이', '작성일시', '조회']} columnWidths={['4%','', '15%', '20%', '8%']}>
                     {currentArticles.map((article) => (
                       <CommonTableRow key={article.articleId} onClick={() => openModal(article)}>
                         <CommonTableColumn>{article.category}</CommonTableColumn>
