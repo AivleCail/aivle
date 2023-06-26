@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import ListContainer from '../components/list/ListContainer';
 import Paging from '../main/page/paging';
@@ -86,6 +86,7 @@ const ExternalList = () => {
   return (
     <div className='mobile-container'>
       <div className='mobile-title'>
+        <div className='div-null'></div>
         <span className='title-text'>공사 신고 접수 내역</span>
         <button className="list-logout-button" onClick={handleLogout}>
           <img className="list-logout-button-detail" src={process.env.PUBLIC_URL + '/logout.svg'} alt="Logout"/>

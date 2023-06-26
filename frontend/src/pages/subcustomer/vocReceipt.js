@@ -13,6 +13,7 @@ const VocReceipt = () => {
   const [vocStatus, setVocStatus] = useState("");
   const [vocStatusDetail,setVocStatusDetail] = useState("");
   const [percentage,setPercentage] = useState("");
+  const [isDataReceived, setIsDataReceived] = useState(false);
 
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
@@ -46,6 +47,7 @@ const VocReceipt = () => {
         setVocStatus(response.data.voc_status);
         setVocStatusDetail(response.data.voc_status_detail);
         setPercentage(response.data.percentage);
+        setIsDataReceived(true);
 
       })
       .catch((error) => {
@@ -98,7 +100,7 @@ const VocReceipt = () => {
 
   return (
     <div className='mobile-container'>
-      <div className='mobile-title'>
+      <div className='mobile-title mobile-title-voc'>
         <span className='title-text'>장애 조치 확인</span>
       </div>
       <hr />
@@ -110,16 +112,22 @@ const VocReceipt = () => {
       />
       <hr />
       <FormContent
-        // vocIdForm={id}
         selectedFile={selectedFile}
         handleFileChange={handleFileChange}
         handleSubmit={handleSubmit}
         vocId={vocId}
         setVocId={setVocId}
       />
-      <div>접수 내용: {vocEntire}</div>
 
-      <button type="submit" className='receipt-button voice-send button' onClick={tospring}>전송</button>
+      <div className='received-box'>
+        {isDataReceived && (
+          <div className='received-box-text'>
+            <p className='received-box-text-one'>접수 내용: {vocEntire}</p>
+          </div>
+        )}
+      </div>
+
+      <button type="submit" className='receipt-button voice-send-button' onClick={tospring}>전송</button>
     </div>
   );
 };

@@ -13,7 +13,7 @@ const ExternalReceipt = () => {
   const [receiptContent, setreceiptContent] = useState("");
   const [externalAddress, setexternalAddress] = useState("");
   const [externalStartdate, setexternalStartdate] = useState("");
-  const vocIdForm = false;
+  const [isDataReceived, setIsDataReceived] = useState(false);
   const navigate = useNavigate();  
 
   const handleFileChange = (event) => {
@@ -48,11 +48,11 @@ const ExternalReceipt = () => {
         withCredentials: true,
       })
       .then((response) => {
-        console.log(response.data.companyName);
         setCompanyName(response.data.companyName);
         setexternalAddress(response.data.externalAddress);
         setexternalStartdate(response.data.externalStartdate);
         setreceiptContent(response.data.receiptContent);
+        setIsDataReceived(true);
       })
       .catch((error) => {
         console.error("Error:", error);
@@ -141,15 +141,20 @@ const ExternalReceipt = () => {
       />
       <hr />
       <FormContent
-        vocIdForm={vocIdForm}
         selectedFile={selectedFile}
         handleFileChange={handleFileChange}
         handleSubmit={handleSubmit}
       />
-      <div>회사 이름: {companyName}</div>
-      <div>공사 내용: {receiptContent}</div>
-      <div>공사 주소: {externalAddress}</div>
-      <div>공사 날짜: {externalStartdate}</div>
+      <div className='received-box'>
+      {isDataReceived && (
+        <div className='received-box-text'>
+          <p className='received-box-text-one'>회사 이름: {companyName}</p>
+          <p className='received-box-text-one'>공사 내용: {receiptContent}</p>
+          <p className='received-box-text-one'>공사 주소: {externalAddress}</p>
+          <p className='received-box-text-one'>공사 날짜: {externalStartdate}</p>
+        </div>
+      )}
+      </div>
 
       <button type="submit" className='receipt-button voice-send-button' onClick={tospring}>전송</button>
     </div>
