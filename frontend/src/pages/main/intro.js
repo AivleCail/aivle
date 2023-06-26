@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import Header from '../components/header';
 import Sidebar from '../components/sidebar';
 import Footer from '../components/footer';
-import './intro.css';
-// import '../../test/intro_test.css';
+// import './intro.css';
+import '../../test/intro_test.css';
 import IntroTable from '../components/table/introtable/introtable';
 import IntroTableColumn from '../components/table/introtable/introtablecolumn';
 import IntroTableRow from '../components/table/introtable/introtablerow';
@@ -112,132 +112,146 @@ const Intro = () => {
       <Sidebar />
       </div>
       <div className="background">
-        <div className="container-1">
-          <Chart
-            width={'100%'}
-            height={'100%'}
-            chartType="ColumnChart"
-            loader={<div>Loading Chart</div>}
-            data={[
-              ['월', '건수'],
-              ...chart1Data.map((item) => [new Date(item.yearMonth), item.count]),
-            ]}
-            options={{
-              title: '월별 사외공사 건수',
-              hAxis: {
-                title: '월',
-                format: 'MM월',
-                textStyle: {
-                  fontSize: 10,
-                  bold: false,
+        <div className = "top-container">
+          <div className="container-1">
+            <div className = "chart-1">
+            <Chart
+              width={'100%'}
+              height={'100%'}
+              chartType="ColumnChart"
+              loader={<div>Loading Chart</div>}
+              data={[
+                ['월', '건수'],
+                ...chart1Data.map((item) => [new Date(item.yearMonth), item.count]),
+              ]}
+              options={{
+                title: '월별 사외공사 건수',
+                hAxis: {
+                  title: '월',
+                  format: 'MM월',
+                  textStyle: {
+                    fontSize: 10,
+                    bold: false,
+                  },
+                  ticks: [
+                    new Date(2023, 0),
+                    new Date(2023, 1),
+                    new Date(2023, 2),
+                    new Date(2023, 3),
+                    new Date(2023, 4),
+                    new Date(2023, 5),
+                    new Date(2023, 6),
+                    new Date(2023, 7),
+                    new Date(2023, 8),
+                    new Date(2023, 9),
+                    new Date(2023, 10),
+                    new Date(2023, 11),
+                  ],
+                  titleTextStyle: {
+                    italic: false,
+                    bold: true,
+                  }
                 },
-                ticks: [
-                  new Date(2023, 0),
-                  new Date(2023, 1),
-                  new Date(2023, 2),
-                  new Date(2023, 3),
-                  new Date(2023, 4),
-                  new Date(2023, 5),
-                  new Date(2023, 6),
-                  new Date(2023, 7),
-                  new Date(2023, 8),
-                  new Date(2023, 9),
-                  new Date(2023, 10),
-                  new Date(2023, 11),
-                ],
-                titleTextStyle: {
-                  italic: false,
+                vAxis: {
+                  title: '건수',
+                  titleTextStyle: {
+                    italic: false,
+                    bold: true,
+                  }
+                },
+              }}
+            />
+            </div>
+          </div>
+
+          <div className="container-2">
+              <div className = "chart-2">
+            <Chart 
+              width={'100%'}
+              height={'100%'}
+              chartType="PieChart"
+              loader={<div>Loading Chart</div>}
+              data={[
+                ['status', 'total'],
+                ...chart2Data.map((item) => [item.status, item.total]),
+              ]}
+              options={{
+                title: '사외공사현황',
+                is3D: true,
+                colors: ['#FFF100','#16C60C','#E81224'],
+                slices: {  
+                  textStyle: {color: 'black', },
+                },
+                pieSliceTextStyle:{
+                  color: 'black',
                   bold: true,
-                }
-              },
-              vAxis: {
-                title: '건수',
-                titleTextStyle: {
-                  italic: false,
-                  bold: true,
-                }
-              },
-            }}
-          />
+                },
+              }}
+            />
+            </div>
+          </div>
         </div>
 
-        <div className="container-2">
-          <Chart 
-            width={'100%'}
-            height={'100%'}
-            chartType="PieChart"
-            loader={<div>Loading Chart</div>}
-            data={[
-              ['status', 'total'],
-              ...chart2Data.map((item) => [item.status, item.total]),
-            ]}
-            options={{
-              title: '사외공사현황',
-              is3D: true,
-              colors: ['#FFF100','#16C60C','#E81224'],
-              slices: {  
-                textStyle: {color: 'black', },
-              },
-              pieSliceTextStyle:{
-                color: 'black',
-                bold: true,
-              },
-            }}
-          />
-        </div>
-      
-        <div className="container-3">
-          <Chart
-            width={'100%'}
-            height={'100%'}
-            chartType="PieChart"
-            loader={<div>Loading</div>}
-            data={[
-              ['Category', 'Count'],
-              ['TV', voctypeData.tvCount],
-              ['인터넷', voctypeData.internetCount],
-              ['전화', voctypeData.phoneCount],
-            ]}
-            options={{
-              title: '장애 유형 분류',
-              is3D: true,
-              colors: ['#FFF100','#16C60C','#E81224'],
-              slices: {  
-                textStyle: {color: 'black', },
-              },
-              pieSliceTextStyle:{
-                color: 'black',
-                bold: true,
-              },
-            }}
-          />
-        </div>
-        
-        <div className="container-4">
-          <Chart
-            width={'100%'}
-            height={'100%'}
-            chartType="PieChart"
-            loader={<div>Loading</div>}
-            data={[
-              ['Category', 'Count'],
-              ['만족', vocanswerData.goodAnswer],
-              ['불만족', vocanswerData.badAnswer],
-              ['매우불만족', vocanswerData.veryBadAnswer],
-            ]}
-            options={{
-              title: '고객 응답 현황',
-              is3D: true,
-              colors: ['#16C60C','#FFF100','#E81224'],
-              slices: {  
-                textStyle: {color: 'black', },
-              },
-              pieSliceTextStyle:{
-                color: 'black',
-                bold: true,
-              },
-            }}
-          />
+
+
+        <div className = "bottom-container">
+          <div className="container-3">
+            <div className = "chart-3">
+            <Chart
+              width={'100%'}
+              height={'100%'}
+              chartType="PieChart"
+              loader={<div>Loading</div>}
+              data={[
+                ['Category', 'Count'],
+                ['TV', voctypeData.tvCount],
+                ['인터넷', voctypeData.internetCount],
+                ['전화', voctypeData.phoneCount],
+              ]}
+              options={{
+                title: '장애 유형 분류',
+                is3D: true,
+                colors: ['#FFF100','#16C60C','#E81224'],
+                slices: {  
+                  textStyle: {color: 'black', },
+                },
+                pieSliceTextStyle:{
+                  color: 'black',
+                  bold: true,
+                },
+              }}
+            />
+            </div>
+          </div>
+          
+          <div className="container-4">
+            <div className = "chart-4">
+            <Chart
+              width={'100%'}
+              height={'100%'}
+              chartType="PieChart"
+              loader={<div>Loading</div>}
+              data={[
+                ['Category', 'Count'],
+                ['만족', vocanswerData.goodAnswer],
+                ['불만족', vocanswerData.badAnswer],
+                ['매우불만족', vocanswerData.veryBadAnswer],
+              ]}
+              options={{
+                title: '고객 응답 현황',
+                is3D: true,
+                colors: ['#16C60C','#FFF100','#E81224'],
+                slices: {  
+                  textStyle: {color: 'black', },
+                },
+                pieSliceTextStyle:{
+                  color: 'black',
+                  bold: true,
+                },
+              }}
+            />
+            </div>
+          </div>
         </div>
       <Footer />
       </div>
