@@ -1,7 +1,7 @@
 import "./header.css"
 import Logo from './icons/logo.svg';
 import { Link, useNavigate } from 'react-router-dom';
-import { useState, useRef} from "react";
+import { useState } from "react";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -18,10 +18,10 @@ const Header = () => {
 
   return (
     <div className = "Header">
-      <div>
-        <Link to="/intro"><img className="logo-img" src={Logo} /></Link>
+      <div className='header-logo'>
+        <Link to="/intro"><img className="logo-img" src={Logo} alt='logo'/></Link>
+        <div className="header-title">{userName}님 안녕하세요!</div>
       </div>
-      <div className="header-title">{userName}님 안녕하세요!</div>
       <div className="header-logout"><button className="logout-button" onClick={handleLogout}>로그아웃</button></div>
     </div>
   );

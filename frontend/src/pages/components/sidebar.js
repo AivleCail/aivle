@@ -25,12 +25,12 @@ const Sidebar = () => {
     return ( 
         <div className={sidebarClass}>
             <header>
-                <button classname = 'menu-bars' onClick={toggleNavMenu}><img src={isSidebarCollapsed ? process.env.PUBLIC_URL + "menu.png" : process.env.PUBLIC_URL + "back.png"}></img></button>
+                <button classname = 'menu-bars' onClick={toggleNavMenu}><img src={isSidebarCollapsed ? process.env.PUBLIC_URL + "menu.png" : process.env.PUBLIC_URL + "back.png"} alt='menu'></img></button>
             </header>            
             <ul className='sidebar-ul'>
                 
-                <li><a><Link to="/intro" className={location.pathname === "/intro" ? "active" : ""}><i class = "fas fa-home"></i><span>홈</span></Link></a></li>
-                <li><a><Link to="" className={location.pathname === "/voc" ? "active" : ""} onClick={toggleSubMenu}><img src={process.env.PUBLIC_URL + "task.png"} /><i class = "fas fa-Task"></i><span>Task</span></Link></a></li>
+                <li><Link to="/intro" className={location.pathname === "/intro" ? "active" : ""}><i class = "fas fa-home"></i><span>홈</span></Link></li>
+                <li><Link to="" className={location.pathname === "/voc" ? "active" : ""} onClick={toggleSubMenu}><img src={process.env.PUBLIC_URL + "task.png"} /><i class = "fas fa-Task"></i><span>Task</span></Link></li>
                 
                 <div className={`sub-menu ${isSubMenuOpen ? "active" : ""}` }>
                 <li class = "sub-item" ><Link to="/voc" className={location.pathname === "/voc" ? "active" : ""}><span>VOC 내역</span></Link></li>
@@ -38,7 +38,7 @@ const Sidebar = () => {
                 </div>
                
 
-                <li><a><Link to="/article" className={location.pathname === "/article" ? "active" : ""}><img src={process.env.PUBLIC_URL + "notice.png"} /><i class = "fas fa-Article"></i><span>커뮤니티</span></Link></a></li>
+                <li><Link to="/article" className={location.pathname === "/article" ? "active" : ""}><img src={process.env.PUBLIC_URL + "notice.png"} /><i class = "fas fa-Article"></i><span>커뮤니티</span></Link></li>
             </ul>
         </div>
 

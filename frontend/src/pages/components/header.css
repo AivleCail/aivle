@@ -3,28 +3,28 @@
 	flex-direction: row;
 	align-items: center; /* 세로 중앙 정렬 */
 	position: relative;
-	width: 100%;
-	height: 71px;
+	width: auto;
+	height: 4.5rem;
 	background: #FFFFFF;
-	border: 1px solid #DDDDDD;
+	border-bottom: 1px solid #DDDDDD;
 	transition: margin-left 0.3s ease; /* 전환 효과를 위한 transition 속성 */
-
+	padding: 0 2rem;
+	justify-content: space-between;
   }
 
-  .Header.collapsed {
-    margin-left: 0; 
-  }
 
+.header-logo {
+	display: flex;
+    align-items: center;
+}
 
 .logo-img {
-	padding-left : 260px;
 	width : 70px;
 	height : 70px;
 }
-
   
 .header-title {
-	padding-left: 25px;
+	padding: 1rem;
 	font-family: 'NanumGothic';
 	font-style: normal;
 	font-weight: 900;
@@ -35,9 +35,6 @@
 }
 
 .header-logout {
-	margin-left: auto;
-	text-align: right;
-	margin-right : 20px;
 }
 
 .logout-button{
