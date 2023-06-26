@@ -68,6 +68,9 @@ public class External {
     }
     public static External startchangeExternal (External external) {
 
+        LocalDateTime start = LocalDateTime.now();
+        external.externalStartdate = start;
+
         external.externalStatus = "공사중";
         return external;
     }
