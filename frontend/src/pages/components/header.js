@@ -5,7 +5,8 @@ import { useState, useRef} from "react";
 
 const Header = () => {
   const navigate = useNavigate();
-
+  const [userName, setUserName] = useState(localStorage.getItem('name'));
+  //로그인한 계정 이름 등록
   const handleLogout = () => {
     const confirmLogout = window.confirm('로그아웃 하시겠습니까?');
     if (confirmLogout) {
@@ -20,7 +21,7 @@ const Header = () => {
       <div>
         <Link to="/intro"><img className="logo-img" src={Logo} /></Link>
       </div>
-      <div className="header-title">오늘 하루도 화이팅하세요.</div>
+      <div className="header-title">{userName}님 안녕하세요!</div>
       <div className="header-logout"><button className="logout-button" onClick={handleLogout}>로그아웃</button></div>
     </div>
   );

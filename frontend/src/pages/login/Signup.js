@@ -84,6 +84,7 @@ const Signup = () => {
             console.log('Well done!');
             console.log('User profile', response.data.user);
             console.log('User token', response.data.jwt);
+            window.alert(`회원가입이 완료되었습니다.`)
             navigate('/');
           })
           .catch((error) => {
