@@ -9,7 +9,7 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [activeIndex, setActiveIndex] = useState(0);
-  const [role, setRole] = useState(''); //eslint-disable-line no-unused-vars
+  const [role, setRole] = useState('');
   const [emailErr, setEmailErr] = useState(false);
   const [passwordErr, setPasswordErr] = useState(false);
   const [err, setErr] = useState('');
@@ -30,19 +30,18 @@ const Login = () => {
     }
   }, [activeIndex]);
 
-  
   const handleLogin = () => {
-    setEmailErr(false); // 이메일 에러 상태 초기화
-    setPasswordErr(false); // 비밀번호 에러 상태 초기화
-    setErr(''); // 일치하지 않는 이메일 또는 비밀번호 에러 초기화
+    setEmailErr(false);
+    setPasswordErr(false);
+    setErr('');
 
     if (email.trim() === '') {
-      setEmailErr(true); // 이메일이 비어있는 경우 에러 표시
+      setEmailErr(true);
       return;
     }
 
     if (password.trim() === '') {
-      setPasswordErr(true); // 비밀번호가 비어있는 경우 에러 표시
+      setPasswordErr(true);
       return;
     }
 
@@ -75,6 +74,12 @@ const Login = () => {
       });
   };
 
+  const handleKeyPress = (event) => {
+    if (event.key === 'Enter') {
+      handleLogin();
+    }
+  };
+
   useEffect(() => {
     const accessToken = localStorage.getItem('accessToken');
     if (accessToken) {
@@ -83,7 +88,6 @@ const Login = () => {
       navigate('/');
     }
   }, [navigate]);
-
 
   return (
     <div className="container">
@@ -100,6 +104,7 @@ const Login = () => {
         emailErr={emailErr}
         passwordErr={passwordErr}
         err={err}
+        handleKeyPress={handleKeyPress}
       />
     </div>
   );
