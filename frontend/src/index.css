@@ -17,3 +17,8 @@ html, body {
   height: 100%;
   overflow: hidden;
 }
+
+* {
+	list-style : none;
+	text-decoration : none;
+}

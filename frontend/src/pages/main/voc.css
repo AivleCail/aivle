@@ -9,28 +9,20 @@
 }
 */
 
-.voc-background {
-  width: 100%;
-  height: 100%;
-  background: #f8f8f8;
-  padding-top: 3vh; 
-}
-
 .voc-container {
   display: flex; 
-  padding-left: 5vh;
+  flex-direction: column;
+  padding: 2rem;
   background: #ffffff;
   border: 1px solid #FFFFFF;
-  margin-left: 16rem;
-  width: 161vh;
-  height: 79vh;
+  margin: 2rem;
+  width: auto;
+  height: auto;
 }
 
 .voc-top-container {
-  margin-top: 3vh;
-  width: 200vh;
-  height: 10vh;
-
+  width: auto;
+  margin-bottom: 2rem;
 }
 
 .voc-text-1 {
@@ -54,7 +46,6 @@
   font-size: 16px;
   font-weight: bold;
   border-radius: 5px;
-  margin-right: 4.5vh;
   height : 4vh;
 }
 
@@ -71,17 +62,15 @@
 }
 
 .voc-mid-container {
-  position: fixed;
-  margin-top: 18vh;
-  width : 160vh;
-  height :200vh;
+  width : auto;
+  height :auto;
 }
 
 .voc-bottom-container {
+  justify-content: center;
   position: relative;
   display: flex;
   margin-top: 2%;
-  margin-left: 60vh;
 }
 
 

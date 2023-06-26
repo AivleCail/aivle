@@ -141,7 +141,7 @@ const ExternalReceipt = () => {
       />
       <hr />
       <FormContent
-        selectedFile={selectedFile}
+        setSelectedFile={setSelectedFile}
         handleFileChange={handleFileChange}
         handleSubmit={handleSubmit}
       />
