@@ -69,7 +69,7 @@
             text-align: left;
           }
         
-        .checkbox-container {
+        .voc-checkbox-container {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -78,7 +78,7 @@
             padding: 0;
           }
           
-        .checkbox-container input {
+        .voc-checkbox-container input {
             display: inline-block;
             vertical-align: middle;
           }

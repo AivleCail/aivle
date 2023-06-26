@@ -208,7 +208,7 @@
 		transition : 0.3s;
 	}
 	
-	ul li:hover a { /* 사이드바 글을 눌렀을때 40px 이동 */
+	.sidebar-ul li:hover a { /* 사이드바 글을 눌렀을때 40px 이동 */
 		padding-left : 10px;
 		color: #F1B7B7;
 	}

@@ -21,6 +21,14 @@
   color: #000000;
 }
 
+.pagination li:hover {
+  background-color: #e9e9e9;
+
+}
+
+.pagination .active {
+  background-color: #e9e9e9;
+}
 
 .pagination-container {
   position: absolute;
@@ -28,4 +36,3 @@
   transform: translateX(-50%);
   bottom: 10px;
 }
-

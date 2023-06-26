@@ -5,10 +5,10 @@ const LoginForm = ({ activeIndex, handleManagerClick, handleExternalWorkerClick,
   return (
     <div className="login-form">
       <ul className='login-ul'>
-        <li onClick={handleManagerClick} className={`radio-li ${activeIndex === 0 ? 'active' : ''}`}>
+        <li onClick={handleManagerClick} className={`radio-li ${activeIndex === 0 ? 'login-active' : ''}`}>
           <p className='login-li-text'>매니저</p>
           </li>
-        <li onClick={handleExternalWorkerClick} className={`radio-li ${activeIndex === 1 ? 'active' : ''}`}>
+        <li onClick={handleExternalWorkerClick} className={`radio-li ${activeIndex === 1 ? 'login-active' : ''}`}>
           <p className='login-li-text'>사외공사자</p>
         </li>
       </ul>
