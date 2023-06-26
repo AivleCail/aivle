@@ -1,15 +1,93 @@
-.voc-container .background {
-    position: relative;
-    width: 1307px;
-    height: 665px;
-    left: 14.06rem;
-    top: 5.31rem;
-    background: #F8F8F8;
+/*.background {
+    position: fixed;
+    width : 170vh;
+    height :150vh;
+    margin-left: 15rem;
+    margin-top : 1rem;
+    background: #FFFFFF;
     border: 1px solid #DDDDDD;
+}
+*/
+
+.voc-background {
+    width: 100%;
+    height: 100%;
+    background: #F8F8F8;
+    padding-top: 3vh; 
+  }
+  
+  .voc-container {
+    display: flex; 
+    padding-left: 5vh;
+    border: 1px solid blue;
+    margin-left: 17rem;
+    width: 161vh;
+    height: 79vh;
+  }
+  
+  .voc-top-container {
+    margin-top: 3vh;
+    width: 200vh;
+    height: 10vh;
+
+  }
+  
+  .voc-text-1 {
+    position: relative;
+    font-family: 'Inter';
+    font-weight: 700;
+    font-size: 3.5vh;
+  }
+  
+  .voc-text-2 {
+    display: flex; 
+    margin-top: 3vh;
+    justify-content: space-between; /* 중요 */
+  }
+
+  .send-button {
+    position:relative;
+    cursor: pointer;
+    background-color: #272626;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-right: 4.5vh;
+    height : 4vh;
+}
+
+.send-button:hover { 
+    background-color: #34495e;
+    transform: scale(1.05);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+  
+  
+.send-button:active { 
+    transform: scale(0.95);
+    transition: transform 0.3s ease;
+}
+  
+  .voc-mid-container {
+    position: fixed;
+    margin-top: 18vh;
+    width : 160vh;
+    height :200vh;
+  }
+  
+  .voc-bottom-container {
+    position: relative;
+    display: flex;
+    margin-top: 2%;
+    margin-left: 60vh;
+  }
+  
+  
+
+
+/*
     .container {
-        position: relative;
-        width: 1230px;
-        height: 600px;
         top: 1.9rem;
         background: #FFFFFF;
         border: 1px solid #DDDDDD;
@@ -85,3 +163,4 @@
           
     }   
 }
+*/
