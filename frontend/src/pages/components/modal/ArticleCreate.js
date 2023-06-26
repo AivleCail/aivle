@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';  
+import React, { useState } from 'react';  
 import axios from 'axios';
-import './ArticalCreate.css';
+import './ArticleCreate.css';
 
-const ArticalCreate = ({closeModal}) => {
+const ArticleCreate = ({closeModal}) => {
 
     const [title, setTitle] = useState("");
     const [body, setBody] = useState("");
@@ -108,4 +108,4 @@ const ArticalCreate = ({closeModal}) => {
   );
 };
 
-export default ArticalCreate;
+export default ArticleCreate;

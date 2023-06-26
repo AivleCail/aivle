@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';  
 import axios from 'axios';
-import './ArticalContent.css'
+import './ArticleContent.css'
 
-const ArticalContent = ({ article, comments, isOpen, closeModal }) => {
+const ArticleContent = ({ article, comments, isOpen, closeModal }) => {
 
   const [newCommentText, setNewCommentText] = useState('');
   const [selectedArticle, setSelectedArticle] = useState(article);
@@ -239,4 +239,4 @@ const ArticalContent = ({ article, comments, isOpen, closeModal }) => {
   );
 };
 
-export default ArticalContent;
+export default ArticleContent;
