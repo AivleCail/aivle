@@ -151,3 +151,124 @@
 .Sidebar a.active .Text-5 {
     color: #F1B7B7;
 }
+
+
+
+
+
+
+*{
+	list-style : none;
+	text-decoration : none;
+	}
+	
+	.Sidebar{  /* 전체 사이드바 */
+	position : fixed;
+	width: 224px;
+	height: 100%;
+	left: 0px;
+	background: #FFFFFF;
+	z-index : 1;
+	border: 1px solid #DDDDDD;
+	transition : all .35s;
+	}
+	
+	.Sidebar header { /* 사이드바 헤더 */
+		line-height : 70px;
+		border: 1px solid #DDDDDD;
+		user-select: none;
+        text-align: left;
+        padding-left : 40px;
+	}    
+
+	
+    .Sidebar button {
+        border : none;
+        background-color: white;
+        cursor: pointer;
+    }
+	
+	
+    .Sidebar img {
+        width : 18px;
+        height: 18px;
+    }
+
+	.Sidebar ul a{  /* 사이드바 Item 각 줄 */
+		display : block;
+		height : 100%;
+		width : 100%;
+		font-family: 'NanumGothic';
+		line-height : 65px;
+		font-size : 24px;
+		color: black;
+		box-sizing : border-box;
+		border-top :25px solid rgba(255,255,255,.1);
+		border-bottom : 1px solid white;
+		transition : 0.3s;
+	}
+	
+	ul li:hover a { /* 사이드바 글을 눌렀을때 40px 이동 */
+		padding-left : 10px;
+		color: #F1B7B7;
+	}
+	
+	.Sidebar ul a i  {  /* 사이드바 글을 안누르면 16px 이동 */
+		margin-right : 16px;
+		
+	}
+	
+	.Sidebar ul img{  /* images 20px씩 부여 */
+		width : 24px;
+		height : 24px;
+	}
+	
+
+	
+	
+	.Sidebar .sub-menu{
+		display :none;
+	}
+	
+	.Sidebar .sub-item{
+		margin-top : -25px;
+		
+	}
+	
+	.Sidebar .sub-menu.active {
+		display : contents;
+		
+	}
+	
+	
+	  
+	
+	  .Sidebar ul .sub-menu span{
+		margin-left :50px;
+		font-size: 18px;
+		
+		
+	}
+	
+	
+	.Sidebar ul .sub-menu{
+		margin-left : 20px;
+		
+	}
+	
+	
+	.Sidebar.collapsed {  /*/ 사이드바 조절*/
+		width: 100px;
+        font-display: none;
+	  }
+	
+    .Sidebar.collapsed ul li span {
+        display: none;
+    }
+	
+
+    .Sidebar .menubars {
+        border : 0px;
+    }
+
+	

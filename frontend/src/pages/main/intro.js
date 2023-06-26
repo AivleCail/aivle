@@ -4,6 +4,7 @@ import Header from '../components/header';
 import Sidebar from '../components/sidebar';
 import Footer from '../components/footer';
 import './intro.css';
+// import '../../test/intro_test.css';
 import IntroTable from '../components/table/introtable/introtable';
 import IntroTableColumn from '../components/table/introtable/introtablecolumn';
 import IntroTableRow from '../components/table/introtable/introtablerow';
@@ -106,8 +107,10 @@ const Intro = () => {
 
   return (
     <div className="intro-container">
+      <div>
       <Header />
       <Sidebar />
+      </div>
       <div className="background">
         <div className="container-1">
           <Chart
