@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import AudioRecord from "./AudioContent";
 
-const FormContent = ({ vocIdForm, selectedFile, handleFileChange, handleSubmit, vocId, setVocId }) => {
+const FormContent = ({ selectedFile, handleFileChange, handleSubmit }) => {
   const audioRef = useRef(null);
 
   const handlePlayAudio = () => {
@@ -11,14 +11,9 @@ const FormContent = ({ vocIdForm, selectedFile, handleFileChange, handleSubmit, 
     }
   };
 
-  const handleVocIdChange = (event) => {
-    setVocId(event.target.value);
-  };
-
   return (
     <div className='form-content'>
       <form onSubmit={handleSubmit}>
-        { vocIdForm ? <div className='vocId-input'><label htmlFor='voc_id'>VoC Number </label><input type='number' name='voc_id' value={vocId} onChange={handleVocIdChange} className="input_vocid"></input></div> : null}
         {/* <AudioRecord /> */}
         <div className='upload-start'>
           <input type='file' name='file' accept='.mp3, .m4a' onChange={handleFileChange} />
