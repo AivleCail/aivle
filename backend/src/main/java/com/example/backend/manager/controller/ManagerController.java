@@ -1,11 +1,14 @@
 package com.example.backend.manager.controller;
 
+import com.example.backend.config.jwt.TokenProvider;
+import com.example.backend.config.jwt.dto.TokenDto;
 import com.example.backend.manager.dto.ChangePasswordRequestDto;
 import com.example.backend.manager.dto.ManagerRequestDto;
 import com.example.backend.manager.dto.ManagerResponseDto;
 import com.example.backend.manager.service.ManagerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -14,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 public class ManagerController {
 
     private final ManagerService managerService;
+
 
     @GetMapping("/me")
     public ResponseEntity<ManagerResponseDto> getMyMemberInfo() {
@@ -32,5 +36,4 @@ public class ManagerController {
     public ResponseEntity<ManagerResponseDto> setMemberPassword(@RequestBody ChangePasswordRequestDto request) {
         return ResponseEntity.ok(managerService.changeMemberPassword(request.getExPassword(), request.getNewPassword()));
     }
-
 }
