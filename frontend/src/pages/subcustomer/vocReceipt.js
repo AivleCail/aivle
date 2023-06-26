@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState } from "react";
 import axios from 'axios';
 import './external.css';
 import AiIcon from '../components/icons/ai.svg';

@@ -8,7 +8,7 @@ const FoldedListBody = ({ external }) => {
       </div>
       <div className='li-body-date'>
         <span className='date-span'>공사 시작 : {external.externalStartdate.substring(0, 16)}</span>
-        <span className='date-span'>공사 종료 : {external.externalEnddate.substring(0, 16)}</span>
+        <span className='date-span'>공사 종료 : {external.externalEnddate === 'null' ? '' : external.externalEnddate.substring(0, 16)}</span>
       </div>
     </div>
   );
