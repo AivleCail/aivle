@@ -146,77 +146,79 @@ const VOC = () => {
   
 
   return (
-    <div className="voc-layout">
-      <Header />
+    <div className="web-layout">
       <Sidebar />
-      <div className = "voc-background">
-        <div className="voc-container">
-          <div className = "voc-top-container">
-            <div className = "voc-text-1"><span>VOC 내역</span></div>
-            <div className = "voc-text-2"><span>고객들의 장애 조치 여부를 확인합니다.</span>
-            <button className="send-button" onClick={handleSend}>조치확인 문자발송</button>
+      <div className='right-container'>
+        <Header />
+        <div className = "main-background">
+          <div className="voc-container">
+            <div className = "voc-top-container">
+              <div className = "voc-text-1"><span>VOC 내역</span></div>
+              <div className = "voc-text-2"><span>고객들의 장애 조치 여부를 확인합니다.</span>
+              <button className="send-button" onClick={handleSend}>조치확인 문자발송</button>
+              </div>
             </div>
-          </div>
-          <div className="voc-mid-container">
-              <CommonTable headersName={[
-                <input 
-                  type='checkbox' 
-                  name='select-all'
-                  onChange={(e) => handleAllCheck(e.target.checked)}
-                  checked={checkItems.length === vocList.length && vocList.length > 0}
+            <div className="voc-mid-container">
+                <CommonTable headersName={[
+                  <input 
+                    type='checkbox' 
+                    name='select-all'
+                    onChange={(e) => handleAllCheck(e.target.checked)}
+                    checked={checkItems.length === vocList.length && vocList.length > 0}
+                  />
+                  ,'번호', '고객명', '지역', '전화번호', '장애유형', '접수 일시', '조치여부']}
+                  columnWidths={['3%', '5%', '8%', '18%', '10%', '15%', '10%', '5%']}>
+                  {currentVocList.map((voc) => (
+                    <CommonTableRow key={voc.vocId} onClick={() => openModal(voc)}>
+                      <CommonTableColumn>
+                        <div className="voc-checkbox-container">
+                          <input 
+                            type='checkbox' 
+                            name={`select-${voc.vocId}`}
+                            onChange={(e) => handleSingleCheck(e.target.checked, voc.vocId)}
+                            checked={checkItems.includes(voc.vocId) ? true : false}
+                            onClick={(e) => e.stopPropagation()}
+                          />
+                        </div>
+                      </CommonTableColumn>
+                      <CommonTableColumn>{voc.vocId}</CommonTableColumn>
+                      <CommonTableColumn>{voc.customerName.length > 1 ? `${voc.customerName.charAt(0)}*${voc.customerName.slice(-1)}` : voc.customerName}</CommonTableColumn>
+                      <CommonTableColumn>{voc.customerAddress}</CommonTableColumn>
+                      <CommonTableColumn>{voc.customerPhone.replace(/(\d{3})-(\d{1})(\d{3})-(\d{4})/, '$1-$2***-$4')}</CommonTableColumn>
+                      <CommonTableColumn>{voc.type}</CommonTableColumn>
+                      <CommonTableColumn>{voc.receptionDate.slice(0, 16)}</CommonTableColumn>
+                      <CommonTableColumn>
+                        {voc.checkStatus === '발생' ? (
+                          <span style={{ color: 'red', fontWeight:'600' }}>X</span>
+                        ) : (
+                          <span style={{ color: 'blue', fontWeight:'600' }}>O</span>
+                        )}
+                      </CommonTableColumn>
+                    </CommonTableRow>
+                  ))}
+                </CommonTable>
+
+                
+              <div className = "voc-bottom-container">
+                  <Paging
+                  articlesPerPage={vocPerPage}
+                  totalArticles={vocList.length}
+                  paginate={paginate}
+                  currentPage={currentPage}
                 />
-                ,'번호', '고객명', '지역', '전화번호', '장애유형', '접수 일시', '조치여부']}
-                columnWidths={['3%', '5%', '8%', '18%', '10%', '15%', '10%', '5%']}>
-                {currentVocList.map((voc) => (
-                  <CommonTableRow key={voc.vocId} onClick={() => openModal(voc)}>
-                    <CommonTableColumn>
-                      <div className="voc-checkbox-container">
-                        <input 
-                          type='checkbox' 
-                          name={`select-${voc.vocId}`}
-                          onChange={(e) => handleSingleCheck(e.target.checked, voc.vocId)}
-                          checked={checkItems.includes(voc.vocId) ? true : false}
-                          onClick={(e) => e.stopPropagation()}
-                        />
-                      </div>
-                    </CommonTableColumn>
-                    <CommonTableColumn>{voc.vocId}</CommonTableColumn>
-                    <CommonTableColumn>{voc.customerName.length > 1 ? `${voc.customerName.charAt(0)}*${voc.customerName.slice(-1)}` : voc.customerName}</CommonTableColumn>
-                    <CommonTableColumn>{voc.customerAddress}</CommonTableColumn>
-                    <CommonTableColumn>{voc.customerPhone.replace(/(\d{3})-(\d{1})(\d{3})-(\d{4})/, '$1-$2***-$4')}</CommonTableColumn>
-                    <CommonTableColumn>{voc.type}</CommonTableColumn>
-                    <CommonTableColumn>{voc.receptionDate.slice(0, 16)}</CommonTableColumn>
-                    <CommonTableColumn>
-                      {voc.checkStatus === '발생' ? (
-                        <span style={{ color: 'red', fontWeight:'600' }}>X</span>
-                      ) : (
-                        <span style={{ color: 'blue', fontWeight:'600' }}>O</span>
-                      )}
-                    </CommonTableColumn>
-                  </CommonTableRow>
-                ))}
-              </CommonTable>
-
-              
-            <div className = "voc-bottom-container">
-                <Paging
-                articlesPerPage={vocPerPage}
-                totalArticles={vocList.length}
-                paginate={paginate}
-                currentPage={currentPage}
-              />
+              </div>
             </div>
+
+
+            {/* ArticleDetailModal */}
+            {isOpenModal && (
+              <Modal isOpen={isOpenModal} closeModal={closeModal} entity="voc" voc={selectedVoc}/>
+            )}
+
           </div>
-
-
-          {/* ArticleDetailModal */}
-          {isOpenModal && (
-            <Modal isOpen={isOpenModal} closeModal={closeModal} entity="voc" voc={selectedVoc}/>
-          )}
-
         </div>
+        <Footer />
       </div>
-      <Footer />
       
       
     </div>
