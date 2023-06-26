@@ -43,16 +43,16 @@ const Worker = () => {
   const fetchWorkerList = async () => {
     try {
       const accessToken = localStorage.getItem('accessToken');
-      const page = currentPage;
-      const response = await axios.get(`http://localhost:8080/external/page?page=${page}`, {
+      const response = await axios.get(`http://localhost:8080/external/page?page=${currentPage}`, {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },
       });
+  
       const workerListData = response.data.content;
       setWorkerList(workerListData);
     } catch (error) {
-      console.error('Error fetching worker list:', error);
+        console.error('Error fetching worker list:', error);
     }
   };
 

@@ -23,14 +23,14 @@ public class VocRepositoryImpl implements VocRepositoryCustom{
         this.queryFactory = new JPAQueryFactory(em);
     }
     @Override
-    public Page<VocPageResponseDto> searchAll(Pageable pageable, Long managerId) {
+    public Page<VocPageResponseDto> searchAll(Pageable pageable) {
         QVoc voc = QVoc.voc; // Assuming QVoc is the generated Q-class for your Voc entity
 
-        BooleanExpression managerIdPredicate = voc.manager.id.eq(managerId);
+//        BooleanExpression managerIdPredicate = voc.manager.id.eq(managerId);
 
         List<Voc> content = queryFactory
                 .selectFrom(voc)
-                .where(managerIdPredicate)
+//                .where(managerIdPredicate)
                 .offset(pageable.getOffset())
                 .limit(pageable.getPageSize())
                 .fetch();
@@ -42,7 +42,7 @@ public class VocRepositoryImpl implements VocRepositoryCustom{
 
         long totalCount = queryFactory
                 .selectFrom(voc)
-                .where(managerIdPredicate)
+//                .where(managerIdPredicate)
                 .fetchCount();
 
         return new PageImpl<>(pages, pageable, totalCount);

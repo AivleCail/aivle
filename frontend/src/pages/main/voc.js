@@ -41,24 +41,13 @@ const VOC = () => {
   const fetchVocList = async () => {
     try {
       const accessToken = localStorage.getItem('accessToken');
-      const vocListData = [];
-      let id = 1;
-      let vocExists = true;
-
-      while (vocExists) {
-        try {
-          const response = await axios.get(`http://localhost:8080/voc/one?id=${id}`, {
-            headers: {
-              Authorization: `Bearer ${accessToken}`,
-            },
-          });
-          vocListData.unshift(response.data);
-          id++;
-        } catch (error) {
-          vocExists = false;
-        }
-      }
-
+      const response = await axios.get(`http://localhost:8080/voc/page?page=${currentPage}`, {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      });
+  
+      const vocListData = response.data.content;
       setVocList(vocListData);
     } catch (error) {
       console.error('Error fetching VOC list:', error);

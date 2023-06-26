@@ -16,13 +16,17 @@ import org.springframework.web.bind.annotation.*;
 public class VocController {
     private final VocService vocService;
 
+    //이건 managerId에 할당된 voc만 불러오는 페이지인데 사용안함.!
+//    @GetMapping("/page")
+//    public ResponseEntity<Page<VocPageResponseDto>> pageVoc(@RequestParam(name = "page") int page,
+//                                                            @RequestParam(name = "managerId") Long managerId) {
+//        return ResponseEntity.ok(vocService.pageVoc(page, managerId));
+//    }
 
     @GetMapping("/page")
-    public ResponseEntity<Page<VocPageResponseDto>> pageVoc(@RequestParam(name = "page") int page,
-                                                            @RequestParam(name = "managerId") Long managerId) {
-        return ResponseEntity.ok(vocService.pageVoc(page, managerId));
+    public ResponseEntity<Page<VocPageResponseDto>> pageVoc(@RequestParam(name = "page") int page) {
+        return ResponseEntity.ok(vocService.pageVoc(page));
     }
-
     @GetMapping("/one")
     public ResponseEntity<VocResponseDto> getOneVoc(@RequestParam(name = "id") Long id) {
         return ResponseEntity.ok(vocService.oneVoc(id));
