@@ -76,7 +76,7 @@ public class External {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         String aString = a.format(formatter);
         external.externalEnddate = aString;
-        external.externalStatus = "공사종료";
+        external.externalStatus = "공사완료";
 
         return external;
     }
