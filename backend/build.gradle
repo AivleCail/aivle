@@ -4,12 +4,14 @@ buildscript {
         queryDslVersion = "5.0.0"
     }
 }
-
+//배포때 querydsl 오류나던거 이 블로그 참고함 - 23-06-26
+//https://velog.io/@juhyeon1114/Spring-QueryDsl-gradle-%EC%84%A4%EC%A0%95-Spring-boot-3.0-%EC%9D%B4%EC%83%81
 plugins {
     id 'java'
     id 'org.springframework.boot' version '3.1.0'
     id 'io.spring.dependency-management' version '1.1.0'
-    id 'com.ewerk.gradle.plugins.querydsl' version '1.0.10'
+    //6-26 태호가 바꿈
+//    id 'com.ewerk.gradle.plugins.querydsl' version '1.0.10'
 }
 
 group = 'com.example'
@@ -44,10 +46,10 @@ dependencies {
     runtimeOnly group: 'io.jsonwebtoken', name: 'jjwt-jackson', version: '0.11.2'
 
     //2023.06.13
-    implementation "com.querydsl:querydsl-jpa:${queryDslVersion}:jakarta"
-    annotationProcessor "com.querydsl:querydsl-apt:${dependencyManagement.importedProperties['querydsl.version']}:jakarta"
-    annotationProcessor "jakarta.persistence:jakarta.persistence-api"
+    implementation 'com.querydsl:querydsl-jpa:5.0.0:jakarta'
+    annotationProcessor "com.querydsl:querydsl-apt:5.0.0:jakarta"
     annotationProcessor "jakarta.annotation:jakarta.annotation-api"
+    annotationProcessor "jakarta.persistence:jakarta.persistence-api"
 
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 
@@ -68,16 +70,22 @@ tasks.named('test') {
 
 //querydsl 사용 경로
 def querydslDir = "$buildDir/generated/querydsl"
+tasks.withType(JavaCompile) {
+    options.annotationProcessorGeneratedSourcesDirectory = file(querydslDir)
+}
+clean.doLast {
+    file(querydslDir).deleteDir()
+}
 
 //querydsl 사용 설정
-querydsl {
-    jpa = true
-    querydslSourcesDir = querydslDir
-}
+//querydsl {
+//    jpa = true
+//    querydslSourcesDir = querydslDir
+//}
 
 // build 시 사용할 sourceSet
 sourceSets {
-    main.java.srcDir querydslDir
+    main.java.srcDirs += [ querydslDir ]
 }
 
 // compileClasspath와 annotationProcessor 상속
@@ -90,12 +98,12 @@ configurations {
 
 //feature/improve-all
 // querydsl 컴파일 시 사용할 옵션.
-compileQuerydsl {
-    options.annotationProcessorPath = configurations.querydsl
-}
+//compileQuerydsl {
+//    options.annotationProcessorPath = configurations.querydsl
+//}
 
 //feature/improve-all
 // QType 정리
-clean {
-    delete file(querydslDir)
-}
+//clean {
+//    delete file(querydslDir)
+//}
