@@ -178,28 +178,30 @@ const ArticleContent = ({ article, comments, isOpen, closeModal }) => {
           </button>
         )}
       </div>
+      <div className='article-info'>
+        <p>
+          {editMode ? (
+            <textarea className='category-edit'
+              value={editedCategory}
+              onChange={(e) => setEditedCategory(e.target.value)}
+            />
+          ) : (
+            <p>{editedCategory}</p>
+          )}
+        </p>
+        <p>No.{article.articleId}</p>
+        <div>{article.managerName} {article.updatedAt}</div>
+      </div>
       {editMode ? (
         <textarea className='body-edit'
           value={editedBody}
           onChange={(e) => setEditedBody(e.target.value)}
         />
       ) : (
-        <p>{editedBody}</p>
+        <p className='body-edit-text'>{editedBody}</p>
       )}
       <br />
-      <p>{article.managerName} {article.updatedAt}</p>
-      <p>
-        {editMode ? (
-          <textarea className='category-edit'
-            value={editedCategory}
-            onChange={(e) => setEditedCategory(e.target.value)}
-          />
-        ) : (
-          <p>{editedCategory}</p>
-        )}
-      </p>
-      <p>{article.articleId}</p>
-
+      
       <div className="article-comment">
         <h3>Comment</h3>
         <form onSubmit={handleNewCommentSubmit}>

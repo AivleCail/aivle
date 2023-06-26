@@ -17,19 +17,39 @@ margin-bottom: 10px;
   border-bottom: 1px solid #ccc;
 }
 
+.article-info {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  height:2.5rem;
+}
+
+.article-info p{
+  margin-right:0.2rem;
+}
+.article-info div{
+  margin-left:auto;
+}
+
 .comment-input {
   width: 100%;
   height: 100px;
-  border-radius: 20px;
-  background-color: #f4f3f3;
+  border-radius: 12px;
+  background-color: transparent;
   box-sizing: border-box;
   vertical-align: top;
   text-align: left;
+  border-color: #23BDB7;
+  border-width: 0.2rem;
+  margin-bottom: 1rem;
 }
 
 .comment-button {
   background-color: #f4f3f3;
-  border-radius: 10px;
+  border-radius: 8px;
+  width: 8rem;
+  height: 2rem;
+  cursor: pointer;
 }
 
 .comment-line {
@@ -56,6 +76,10 @@ margin-bottom: 10px;
   justify-content: space-between;
   align-items: center;
   border-bottom: 3px solid #ccc;
+}
+
+.title-group button{
+  margin-right:0.2rem;
 }
 
 .edit-button {
@@ -91,6 +115,10 @@ margin-bottom: 10px;
 .body-edit {
   width: 100%;
   height: 200px;
+}
+
+.body-edit-text{
+  font-size: 1.1rem;
 }
 
 .category-edit {
