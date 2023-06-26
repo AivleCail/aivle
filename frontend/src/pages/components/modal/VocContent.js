@@ -4,42 +4,62 @@ import "./VocContent.css";
 const VocContent = ({ voc }) => {
   return (
     <div className="report-container">
-      <h2>VOC {voc.vocId}번 상세 내역</h2>
+      <div>
+        <img className="voc-icon-img" alt="Element" src={process.env.PUBLIC_URL + '/login_id.png'} />
+        <p>
+          <h3 className='voc-id'>VOC {voc.vocId}번</h3>
+          <h1 className='voc-name'>{voc.customerName.length > 1 ? `${voc.customerName.charAt(0)}*${voc.customerName.slice(-1)}` : voc.customerName}</h1>
+        </p>
+        <p className="voc-name-1">고객님</p>
+        <p className="voc-phone">{voc.customerPhone.replace(/(\d{3})-(\d{1})(\d{3})-(\d{4})/, '$1-$2***-$4')}</p>
+      </div>
       <table>
         <tbody>
           <tr>
-            <td className='tdl'>고객명</td>
-            <td>{voc.customerName}</td>
+            <td>
+              <tr className='trl'>
+                <img className="voc-number-icon" alt="Element" src={process.env.PUBLIC_URL + '/voc-number-icon.png'} />
+                지역
+              </tr>
+              <tr className="trl-voc">{voc.customerAddress}</tr>
+            </td>
+            <td>
+              <tr className='trl'>
+                <img className="voc-number-icon" alt="Element" src={process.env.PUBLIC_URL + '/voc-number-icon.png'} />
+                접수일시
+              </tr>
+              <tr className="trl-voc">{voc.receptionDate}</tr>
+            </td>
           </tr>
           <tr>
-            <td className='tdl'>지역</td>
-            <td>{voc.customerAddress}</td>
+            <tr className='trl'>
+              <img className="voc-number-icon" alt="Element" src={process.env.PUBLIC_URL + '/voc-number-icon.png'} />
+              장애유형
+            </tr>
+            <tr className="trl-voc">{voc.type}</tr>
           </tr>
           <tr>
-            <td className='tdl'>전화번호</td>
-            <td>{voc.customerPhone}</td>
+            <tr className='trl'>
+              <img className="voc-number-icon" alt="Element" src={process.env.PUBLIC_URL + '/voc-number-icon.png'} />
+              접수내용
+            </tr>
+            <tr className="trl-voc">{voc.entire}</tr>
           </tr>
           <tr>
-            <td className='tdl'>장애유형</td>
-            <td>{voc.type}</td>
+            <tr className='trl'>
+              <img className="voc-number-icon" alt="Element" src={process.env.PUBLIC_URL + '/voc-number-icon.png'} />
+              추가의견
+            </tr>
+            <tr className="trl-voc">{voc.opinion}</tr>
           </tr>
           <tr>
-            <td className='tdl'>접수일시</td>
-            <td>{voc.receptionDate}</td>
+            <tr className='trl'>
+              <img className="voc-number-icon" alt="Element" src={process.env.PUBLIC_URL + '/voc-number-icon.png'} />
+              상태
+            </tr>
+            <tr className="trl-voc">{voc.checkStatus}</tr>
           </tr>
-          <tr>
-            <td className='tdl'>접수내용</td>
-            <td>{voc.entire}</td>
-          </tr>
-          <tr>
-            <td className='tdl'>추가의견</td>
-            <td>{voc.opinion}</td>
-          </tr>
-          <tr>
-            <td className='tdl'>상태</td>
-            <td>{voc.checkStatus}</td>
-          </tr>
-        </tbody>
+          </tbody>
       </table>
     </div>
   );
