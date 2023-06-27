@@ -225,6 +225,7 @@ const ArticleContent = ({ article, comments, isOpen, closeModal }) => {
   return (
     <div className="article-total">
       <div className='title-group'>
+
         {editMode ? (
           <textarea className='title-edit'
             type="text"
@@ -234,16 +235,12 @@ const ArticleContent = ({ article, comments, isOpen, closeModal }) => {
         ) : (
           <h2 className='title-edit-text'>{editedTitle}</h2>
         )}
+        <div className = "button-group">
         {curManager && curManager.managerId === article.managerId && (
           editMode ? (
-            <button className="edit-button" onClick={handleUpdateArticle}>
-              <img src={process.env.PUBLIC_URL + "saveicon.svg"} alt="Update" />
-            </button>
-          ) : (
-            <button className="edit-button" onClick={() => setEditMode(true)}>
-              <img src={process.env.PUBLIC_URL + "editicon.svg"} alt="Update" />
-            </button>
-          )
+              <button className="edit-button" onClick={handleUpdateArticle}>
+              <img src={process.env.PUBLIC_URL + "saveicon.svg"} alt="Update" /></button>
+          ) : ( <button className="edit-button" onClick={() => setEditMode(true)}><img src={process.env.PUBLIC_URL + "editicon.svg"} alt="Update" /></button>)
         )}
         {curManager && curManager.managerId === article.managerId && (
           <button className="delete-button" onClick={() => handleDeleteArticle(article.articleId)}>
