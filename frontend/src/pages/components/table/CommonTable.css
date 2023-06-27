@@ -1,5 +1,5 @@
 .common-table {
-  width: auto;
+  width: 100%;
   text-align: center;
   border-spacing: 0;
   table-layout: fixed;
@@ -24,11 +24,13 @@
 
 .common-table-row:hover {
   background-color: #ECEAEA;
+  
   cursor: pointer;
 }
 
 .fixed-column {
   position: sticky;
+  
   background-color: #FFFFFF;
 }
 

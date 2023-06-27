@@ -1,23 +1,13 @@
-/*.background {
-    position: fixed;
-    width : 170vh;
-    height :150vh;
-    margin-left: 15rem;
-    margin-top : 1rem;
-    background: #FFFFFF;
-    border: 1px solid #DDDDDD;
-}
-*/
-
 .voc-container {
   display: flex; 
   flex-direction: column;
   padding: 2rem;
   background: #ffffff;
-  border: 1px solid #FFFFFF;
+  border: 1px solid #DDDDDD;
   margin: 2rem;
   width: auto;
   height: auto;
+  border-radius: 30px;
 }
 
 .voc-top-container {
@@ -70,87 +60,4 @@
   justify-content: center;
   position: relative;
   display: flex;
-  margin-top: 2%;
 }
-
-
-
-
-/*
-  .container {
-      top: 1.9rem;
-      background: #FFFFFF;
-      border: 1px solid #DDDDDD;
-      border-radius: 15px;
-
-      .voc-text-1 {
-          position: relative;
-          left: 2.3rem;
-          top: 1.4rem;
-          font-family: 'Inter';
-          font-weight: 700;
-          font-size: 25px;
-      }
-      
-      .voc-text-2 {
-          position: relative;
-          left: -4.7rem;
-          top: 3.5rem;
-          font-family: 'Inter';
-          font-weight: 400;
-          font-size: 15px;
-      }
-
-      .board {
-          position: relative; 
-          margin-top: 5.3rem; 
-      } 
-      
-      
-      .send-button {
-          position: relative;
-          z-index: 1;
-          top: 4rem;
-          left: 41.79rem;
-          width: 155px;
-          height: 45px;
-          cursor: pointer;
-          background-color: #272626;
-          color: white;
-          font-size: 16px;
-          font-weight: bold;
-          border-radius: 5px;
-      }
-      .send-button:hover { 
-          background-color: #34495e;
-          transform: scale(1.05);
-          transition: background-color 0.3s ease, transform 0.3s ease;
-      }
-        
-        
-      .send-button:active { 
-          transform: scale(0.95);
-          transition: transform 0.3s ease;
-      }
-
-      .left-align {
-          text-align: left;
-        }
-      
-      .voc-checkbox-container {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          height: 100%;
-          margin: 0;
-          padding: 0;
-        }
-        
-      .voc-checkbox-container input {
-          display: inline-block;
-          vertical-align: middle;
-        }
-        
-  }   
-}
-*/

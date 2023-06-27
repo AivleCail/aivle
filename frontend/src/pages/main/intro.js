@@ -116,7 +116,7 @@ const Intro = () => {
               <div className = "chart chart-1">
               <Chart
                 width={'100%'}
-                height={'100%'}
+                height={'95%'}
                 chartType="ColumnChart"
                 loader={<div>Loading Chart</div>}
                 data={[
@@ -167,7 +167,7 @@ const Intro = () => {
                 <div className = "chart chart-2">
               <Chart 
                 width={'100%'}
-                height={'100%'}
+                height={'95%'}
                 chartType="PieChart"
                 loader={<div>Loading Chart</div>}
                 data={[
@@ -195,7 +195,7 @@ const Intro = () => {
               <div className = "chart chart-3">
               <Chart
                 width={'100%'}
-                height={'100%'}
+                height={'95%'}
                 chartType="PieChart"
                 loader={<div>Loading</div>}
                 data={[
@@ -209,7 +209,7 @@ const Intro = () => {
                   is3D: true,
                   colors: ['#FFF100','#16C60C','#E81224'],
                   slices: {  
-                    textStyle: {color: 'black', },
+                    textStyle: {color: 'black',  },
                   },
                   pieSliceTextStyle:{
                     color: 'black',
@@ -224,7 +224,7 @@ const Intro = () => {
               <div className = "chart chart-4">
               <Chart
                 width={'100%'}
-                height={'100%'}
+                height={'95%'}
                 chartType="PieChart"
                 loader={<div>Loading</div>}
                 data={[
