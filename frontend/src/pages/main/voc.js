@@ -14,7 +14,7 @@ import Modal from '../components/modal/Modal';
 const VOC = () => {
   const [vocList, setVocList] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [vocPerPage] = useState(8);
+  const [vocPerPage] = useState(6);
   const [selectedItems, setSelectedItems] = useState([]);
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [selectedVoc, setSelectedVoc] = useState(null);
@@ -48,6 +48,7 @@ const VOC = () => {
       });
   
       const vocListData = response.data.content;
+      vocListData.sort((a, b) => b.vocId - a.vocId); // 내림차순
       setVocList(vocListData);
     } catch (error) {
       console.error('Error fetching VOC list:', error);
@@ -60,9 +61,7 @@ const VOC = () => {
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
-  const handleRefresh = () => {  // 새로고침 버튼 로직
-    fetchVocList(); 
-  };
+
 
   const [checkItems, setCheckItems] = useState([]);
 
@@ -155,7 +154,7 @@ const VOC = () => {
             <div className = "voc-top-container">
               <div className = "voc-text-1"><span>VOC 내역</span></div>
               <div className = "voc-text-2"><span>고객들의 장애 조치 여부를 확인합니다.</span>
-              <button className="send-button" onClick={handleSend}>조치확인 문자발송</button>
+                <button className="send-button" onClick={handleSend}>조치확인 문자발송</button>
               </div>
             </div>
             <div className="voc-mid-container">

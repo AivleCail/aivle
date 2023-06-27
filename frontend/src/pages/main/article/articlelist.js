@@ -14,7 +14,7 @@ import { useNavigate } from 'react-router-dom';
 const ArticleList = () => {
   const [articles, setArticles] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [articlesPerPage] = useState(8);
+  const [articlesPerPage] = useState(6);
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [selectedArticle, setSelectedArticle] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -125,54 +125,60 @@ const ArticleList = () => {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
-    <div className="article-container">
-      <Header />
+    <div class="web-layout">
       <Sidebar />
-
-        <div className="background">
-          <div className="container">
-            <span className="article-text-1">커뮤니티</span>
-            <span className="article-text-2">공지사항 & 운영자들 간 소통 게시판입니다.</span>
-            <button className='add-article-btn' onClick={() => openModals()}>추가</button>
-
-            <div className="article">
-              <div className="article-table-container">
-                <div className="article-table-scroll">
-                  <CommonTable headersName={['분류', '제목', '글쓴이', '작성일시', '조회']} columnWidths={['4%','', '15%', '20%', '8%']}>
-                    {currentArticles.map((article) => (
-                      <CommonTableRow key={article.articleId} onClick={() => openModal(article)}>
-                        <CommonTableColumn>{article.category}</CommonTableColumn>
-                        <CommonTableColumn>{article.articleTitle}</CommonTableColumn>
-                        <CommonTableColumn>{article.managerName}</CommonTableColumn>
-                        <CommonTableColumn>{article.createdAt.substring(0,16)}</CommonTableColumn>
-                        <CommonTableColumn>{article.count}</CommonTableColumn>
-                      </CommonTableRow>
-                    ))}
-                  </CommonTable>
-                </div>
+    <div className="right-container">
+      <Header />
+        <div className="main-background">
+          <div className="article-container">
+            <div className = "article-top-container">
+              <div className = "article-text-1"><span>커뮤니티</span></div>
+              <div className = "article-text-2"><span>공지사항 & 운영자들 간 소통 게시판입니다.</span>
+                <button className='article-create-btn' onClick={() => openModals()}>글쓰기</button>
               </div>
             </div>
 
-          {/* ArticleDetailModal */}
-          {isOpenModal && (
-            <Modal isOpen={isOpenModal} closeModal={closeModal} entity="article" article={selectedArticle} comments={selectedArticle.comments}/>
-          )}
-          
-          {isModalOpen && (
-            <Modal isOpen={isModalOpen} closeModal={closeModals} entity="null" />
-          )}
+            <div className="article-mid-container">
+  <CommonTable headersName={['분류', '제목', '글쓴이', '작성일시', '조회']} columnWidths={['6%','', '15%', '20%', '8%']}>
+    {currentArticles.map((article) => (
+      <CommonTableRow
+        key={article.articleId}
+        onClick={() => openModal(article)}
+        style={{ backgroundColor: article.category === '공지' ? 'yellow' : '' }}
+      >
+        <CommonTableColumn>{article.category}</CommonTableColumn>
+        <CommonTableColumn>{article.articleTitle}</CommonTableColumn>
+        <CommonTableColumn>{article.managerName}</CommonTableColumn>
+        <CommonTableColumn>{article.createdAt.substring(0, 16)}</CommonTableColumn>
+        <CommonTableColumn>{article.count}</CommonTableColumn>
+      </CommonTableRow>
+    ))}
+  </CommonTable>
+</div>
 
-          <Paging
-            articlesPerPage={articlesPerPage}
-            totalArticles={articles.length}
-            paginate={paginate}
-            currentPage={currentPage}
-          />
+
+
+            <div className="article-bottom-container">
+                  <Paging
+                    articlesPerPage={articlesPerPage}
+                    totalArticles={articles.length}
+                    paginate={paginate}
+                    currentPage={currentPage}
+                  />
+            </div>
+
+            {/* ArticleDetailModal */}
+              {isOpenModal && (
+              <Modal isOpen={isOpenModal} closeModal={closeModal} entity="article" article={selectedArticle} comments={selectedArticle.comments}/>
+            )}
+            {isModalOpen && (
+              <Modal isOpen={isModalOpen} closeModal={closeModals} entity="null" />
+            )}
         </div>
-        <Footer />
       </div>
-      
+      <Footer />
     </div>
+  </div>
   );
 };
 

@@ -1,45 +1,157 @@
-.worker-container .background {
-    position: relative;
-    width: 1307px;
-    height: 665px;
-    left: 14.06rem;
-    top: 5.31rem;
-    background: #F8F8F8;
+/*.background {
+    position: fixed;
+    width : 170vh;
+    height :150vh;
+    margin-left: 15rem;
+    margin-top : 1rem;
+    background: #FFFFFF;
     border: 1px solid #DDDDDD;
+}
+*/
+
+.worker-container {
+    display: flex; 
+    flex-direction: column;
+    padding: 2rem;
+    background: #ffffff;
+    border: 1px solid #DDDDDD;
+    margin: 2rem;
+    width: auto;
+    height: auto;
+
+    border-radius: 30px;
+  }
+  
+  .worker-top-container {
+    width: auto;
+    margin-bottom: 2rem;
+  }
+  
+  .worker-text-1 {
+    position: relative;
+    font-family: 'Inter';
+    font-weight: 700;
+    font-size: 3.5vh;
+  }
+  
+  .worker-text-2 {
+    display: flex; 
+    margin-top: 3vh;
+    justify-content: space-between; /* 중요 */
+  }
+  
+  .worker-button {
+    position:relative;
+    cursor: pointer;
+    background-color: #272626;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    height : 4vh;
+  }
+  
+  .worker-button:hover { 
+    background-color: #34495e;
+    transform: scale(1.05);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  
+  .worker-button:active { 
+    transform: scale(0.95);
+    transition: transform 0.3s ease;
+  }
+  
+  .worker-mid-container {
+    width : auto;
+    height :auto;
+  }
+  
+  .worker-bottom-container {
+    justify-content: center;
+    position: relative;
+    display: flex;
+  }
+  
+  
+  
+  
+  /*
     .container {
-        position: relative;
-        width: 1230px;
-        height: 600px;
         top: 1.9rem;
         background: #FFFFFF;
         border: 1px solid #DDDDDD;
         border-radius: 15px;
-
-        .worker-text-1 {
-            position: absolute;
-            left: 2.1rem;
-            top: 1.56rem;
+  
+        .voc-text-1 {
+            position: relative;
+            left: 2.3rem;
+            top: 1.4rem;
             font-family: 'Inter';
             font-weight: 700;
             font-size: 25px;
         }
         
-        .worker-text-2 {
+        .voc-text-2 {
             position: relative;
-            left: 2.2rem;
-            top: 4.37rem;
+            left: -4.7rem;
+            top: 3.5rem;
             font-family: 'Inter';
             font-weight: 400;
             font-size: 15px;
         }
-
-        .worker {
+  
+        .board {
             position: relative; 
-            margin-top: 6.8rem; 
+            margin-top: 5.3rem; 
         } 
         
+        
+        .send-button {
+            position: relative;
+            z-index: 1;
+            top: 4rem;
+            left: 41.79rem;
+            width: 155px;
+            height: 45px;
+            cursor: pointer;
+            background-color: #272626;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+        .send-button:hover { 
+            background-color: #34495e;
+            transform: scale(1.05);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+          
+          
+        .send-button:active { 
+            transform: scale(0.95);
+            transition: transform 0.3s ease;
+        }
+  
         .left-align {
             text-align: left;
           }
-    }
-}
+        
+        .voc-checkbox-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+          }
+          
+        .voc-checkbox-container input {
+            display: inline-block;
+            vertical-align: middle;
+          }
+          
+    }   
+  }
+  */

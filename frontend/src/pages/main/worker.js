@@ -14,7 +14,7 @@ import { useNavigate } from 'react-router-dom';
 const Worker = () => {
   const [workerList, setWorkerList] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [workerPerPage] = useState(8);
+  const [workerPerPage] = useState(6);
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [selectedWorker, setSelectedWorker] = useState(null);
   const navigate = useNavigate();
@@ -50,6 +50,7 @@ const Worker = () => {
       });
   
       const workerListData = response.data.content;
+      workerListData.sort((a, b) => b.vocId - a.vocId); // 내림차순
       setWorkerList(workerListData);
     } catch (error) {
         console.error('Error fetching worker list:', error);
@@ -88,59 +89,64 @@ const Worker = () => {
   };
 
   return (
-    <div className="worker-container">
-      <Header />
-      <Sidebar />
-      <div className="background">
-        <div className="container">
-          <span className="worker-text-1">사외공사 관리</span>
-          <span className="worker-text-2">협력체 공사 신고 접수 내용을 확인합니다.</span>
+    <div className = "web-layout">
+        <Sidebar />
+      <div className="right-container">
+        <Header />
+        <div className="main-background">
+          <div className="worker-container">
+            <div className = "worker-top-container">
+              <div><span className="worker-text-1">사외공사 관리</span></div>
+              <div><span className="worker-text-2">협력체 공사 신고 접수 내용을 확인합니다.</span></div>
+            </div>
 
-          <div className="worker">
-            <CommonTable headersName={['번호', '업체명', '공사 주소', '공사시작시간', '완료여부']}
-            columnWidths={['5%', '10%', '20%', '11%','7%']}>
-              {currentWorkerList.map((worker) => (
-                <CommonTableRow key={worker.externalId} onClick={() => openModal(worker)}>
-                  <CommonTableColumn>{worker.externalId}</CommonTableColumn>
-                  <CommonTableColumn>{worker.companyName}</CommonTableColumn>
-                  <CommonTableColumn>{`${worker.externalAddress.split(' ').slice(0, 5).join(' ')}`}</CommonTableColumn>
-                  <CommonTableColumn>{worker.externalStartdate.slice(0, 16)}</CommonTableColumn>
-                  <CommonTableColumn>
-                    {worker.externalStatus === '공사중' || worker.externalStatus === '공사 중'? (
-                      <div>
-                        <span style={{fontSize:'10.5px'}}>🔴</span><span> 공사중</span>
-                        </div>
-                    ) : worker.externalStatus === '공사예정' || worker.externalStatus === '공사 예정' ? (
-                      <div>
-                        <span style={{fontSize:'10.5px'}}>🟡</span><span> 공사예정</span>
-                        </div>
-                    ) : worker.externalStatus === '공사완료' || worker.externalStatus === '공사 완료' ? (
-                      <div>
-                        <span style={{ fontSize:'10.5px'}}>🟢</span><span> 공사완료</span>
-                        </div>
-                    ) : null}
-                  </CommonTableColumn>
-                </CommonTableRow>
-              ))}
-            </CommonTable>
-          </div>
+            <div className="worker-mid-container">
+              <CommonTable headersName={['번호', '업체명', '공사 주소', '공사시작시간', '완료여부']}
+              columnWidths={['5%', '10%', '20%', '11%','7%']}>
+                {currentWorkerList.map((worker) => (
+                  <CommonTableRow key={worker.externalId} onClick={() => openModal(worker)}>
+                    <CommonTableColumn>{worker.externalId}</CommonTableColumn>
+                    <CommonTableColumn>{worker.companyName}</CommonTableColumn>
+                    <CommonTableColumn>{`${worker.externalAddress.split(' ').slice(0, 5).join(' ')}`}</CommonTableColumn>
+                    <CommonTableColumn>{worker.externalStartdate.slice(0, 16)}</CommonTableColumn>
+                    <CommonTableColumn>
+                      {worker.externalStatus === '공사중' || worker.externalStatus === '공사 중'? (
+                        <div>
+                          <span style={{fontSize:'10.5px'}}>🔴</span><span> 공사중</span>
+                          </div>
+                      ) : worker.externalStatus === '공사예정' || worker.externalStatus === '공사 예정' ? (
+                        <div>
+                          <span style={{fontSize:'10.5px'}}>🟡</span><span> 공사예정</span>
+                          </div>
+                      ) : worker.externalStatus === '공사완료' || worker.externalStatus === '공사 완료' ? (
+                        <div>
+                          <span style={{ fontSize:'10.5px'}}>🟢</span><span> 공사완료</span>
+                          </div>
+                      ) : null}
+                    </CommonTableColumn>
+                  </CommonTableRow>
+                ))}
+              </CommonTable>
+            </div>
 
-          {/* ArticleDetailModal */}
-          {isOpenModal && (
-            <Modal isOpen={isOpenModal} closeModal={closeModal} entity="worker" worker={selectedWorker}/>
-          )}
-
-          <Paging
-            articlesPerPage={workerPerPage}
-            totalArticles={workerList.length}
-            paginate={paginate}
-            currentPage={currentPage}
-          />
+            <div className = "worker-bottom-container">
+              <Paging
+                articlesPerPage={workerPerPage}
+                totalArticles={workerList.length}
+                paginate={paginate}
+                currentPage={currentPage}
+              />
+            </div>
         </div>
-      <Footer />
-        
+
+        {/* ArticleDetailModal */}
+            {isOpenModal && (
+              <Modal isOpen={isOpenModal} closeModal={closeModal} entity="worker" worker={selectedWorker}/>
+          )}
+        </div>
+        <Footer />
       </div>
-      
+    
     </div>
   );
 };
