@@ -48,7 +48,7 @@ const WorkerContent = ({ worker }) => {
                   <img className="worker-number-icon" alt="Element" src={process.env.PUBLIC_URL + '/voc-number-icon.png'} />
                     공사시작일시
                   </tr>
-                  <tr className="trl-worker">{worker.externalStartrate}</tr>
+                  <tr className="trl-worker">{worker.externalStartdate}</tr>
                 </td>
                 <td>
                   <tr className='trl'>
@@ -63,7 +63,7 @@ const WorkerContent = ({ worker }) => {
                 <img className="worker-number-icon" alt="Element" src={process.env.PUBLIC_URL + '/voc-number-icon.png'} />
                   접수일시
                 </tr>
-                <tr className="trl-worker">{worker.receiptrate}</tr>
+                <tr className="trl-worker">{worker.receiptDate}</tr>
               </tr>
             </tbody>
           </table>
