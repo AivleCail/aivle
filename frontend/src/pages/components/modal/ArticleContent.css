@@ -96,13 +96,17 @@ margin-bottom: 10px;
 }
 
 .title-group button{
+  margin-left: 0.5rem;
   margin-right:0.2rem;
 }
 
+.button-group {
+  display: flex;
+
+}
+
 .edit-button {
-  padding-top: 7px;
   cursor: pointer;
-  font-size: 18px;  
   border: none;
   background-color: #fff;
 }
@@ -113,9 +117,7 @@ margin-bottom: 10px;
 }
 
 .delete-button {
-  padding-top: 7px;
   cursor: pointer;
-  font-size: 18px;  
   border: none;
   background-color: #fff;
 }
