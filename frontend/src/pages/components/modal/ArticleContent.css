@@ -13,7 +13,6 @@
 margin-bottom: 10px;
 }
 
-
 .article-comment-one {
   border-bottom: 1px solid #ccc;
 }
@@ -27,52 +26,36 @@ margin-bottom: 10px;
 
 .article-info p{
   margin-right:0.2rem;
-  font-weight: bold;
-  text-decoration: underline;
-  color:rgb(0, 95, 36)
-  
 }
 .article-info div{
   margin-left:auto;
 }
 
 .comment-input {
-
-    width: 100%;
-    height: 100px;
-    border-radius: 12px;
-    vertical-align: top;
-    text-align: left;
-    border-color: #027a00;
-    border-width: 0.15rem;
-    margin-bottom: 1rem;
-    resize: none;
-    overflow-y: auto;
-    justify-content: center;
-    word-wrap: break-word;
-    padding: 0.5rem;
-  }
-
+  width: 100%;
+  height: 100px;
+  border-radius: 12px;
+  background-color: transparent;
+  box-sizing: border-box;
+  vertical-align: top;
+  text-align: left;
+  border-color: #23BDB7;
+  border-width: 0.2rem;
+  margin-bottom: 1rem;
+}
 
 .comment-button {
-  background-color: rgba(224, 240, 216, 0.5);
+  background-color: #f4f3f3;
   border-radius: 8px;
   width: 8rem;
   height: 2rem;
   cursor: pointer;
-  border-color: #104038;
-  color:#104038;
-  border-width: 0.11rem;
-  font-family:Arial, Helvetica, sans-serif;
-  font-weight: bold;
 }
 
 .comment-line {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 0.1rem; /* Adjust the top margin as needed */
-  margin-bottom: 0.1rem;
 }
 
 .right {
@@ -96,7 +79,7 @@ margin-bottom: 10px;
 }
 
 .title-group button{
-  margin-left: 0.5rem;
+  margin-left: 1rem;
   margin-right:0.2rem;
 }
 
@@ -126,77 +109,21 @@ margin-bottom: 10px;
   width: 20px;
   height: 20px;
 }
-.delete-button delete-margin {
-  margin-left: 5px; /* 원하는 마진 값을 지정하세요 */
-}
 
 .title-edit {
   width: 100%;
 }
 
-.title-edit-text{
-  word-break: break-all;
-}
-
 .body-edit {
   width: 100%;
-  height: 28rem;
-
+  height: 200px;
 }
 
 .body-edit-text{
   font-size: 1.1rem;
   white-space: pre-wrap;
-  width: auto;
-  word-break: break-all;
 }
 
 .category-edit {
   width: 100%;
-}
-.article-total {
-  overflow-y: auto;
-  max-height: 95%;
-  margin-top: 3%;
-  padding-right: 5%;
-  width: auto; /* Adjust the maximum height as needed */
-}
-
-.article-total::-webkit-scrollbar {
-  width: 0.3rem;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.article-total::-webkit-scrollbar-thumb {
-  background-color: #189b85;
-  border-radius: 10px;
-
-}
-
-.article-total::-webkit-scrollbar-track {
-  background-color: #f1f1f1;
-  border-radius: 10px;
-}
-.article-total:hover::-webkit-scrollbar {
-  opacity: 1; 
-}
-.comment-input::-webkit-scrollbar {
-  width: 0.3rem;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.comment-input::-webkit-scrollbar-thumb {
-  background-color: #189b85;
-  border-radius: 10px;
-
-}
-
-.comment-input::-webkit-scrollbar-track {
-  background-color: #f1f1f1;
-  border-radius: 10px;
-}
-.comment-input:hover::-webkit-scrollbar {
-  opacity: 1; 
 }
