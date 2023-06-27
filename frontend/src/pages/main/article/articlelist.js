@@ -161,7 +161,7 @@ const ArticleList = () => {
       <CommonTableRow
         key={article.articleId}
         onClick={() => openModal(article)}
-        style={{ backgroundColor: article.category === '공지' ? 'yellow' : '' }}
+        className={article.category === '공지' ? 'notice-row' : '' }
       >
         <CommonTableColumn>{article.category}</CommonTableColumn>
         <CommonTableColumn>{article.articleTitle}</CommonTableColumn>
