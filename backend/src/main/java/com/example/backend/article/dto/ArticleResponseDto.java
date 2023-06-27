@@ -21,6 +21,7 @@ public class ArticleResponseDto {
     private String category;
     private String createdAt;
     private String updatedAt;
+    private int likeCount; //총 좋아요 숫자
     private boolean isWritten;
 
 
@@ -34,6 +35,7 @@ public class ArticleResponseDto {
                 .category(article.getCategory())
                 .createdAt(article.getCreatedAt().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")))
                 .updatedAt(article.getUpdatedAt().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")))
+                .likeCount(article.getLikeCount())
                 .isWritten(bool)
                 .build();
     }

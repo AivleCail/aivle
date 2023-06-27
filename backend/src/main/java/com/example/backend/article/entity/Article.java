@@ -45,6 +45,11 @@ public class Article {
     @OneToMany(mappedBy = "article")
     private List<Comment> comments = new ArrayList<>();
 
+    @ColumnDefault("0")
+    @Column(name = "like_count")
+    private int likeCount;        //총 추천숫자
+
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "manager_id")
     private Manager manager;
