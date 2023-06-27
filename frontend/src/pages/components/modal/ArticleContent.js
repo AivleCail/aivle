@@ -255,6 +255,7 @@ const ArticleContent = ({ article, comments, isOpen, closeModal }) => {
            )}
 
       </div>
+      </div>
       <div className='article-info'>
 
             <p>{editedCategory}</p>
