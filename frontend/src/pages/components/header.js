@@ -20,7 +20,7 @@ const Header = () => {
     <div className = "Header">
       <div className='header-logo'>
         <Link to="/intro"><img className="logo-img" src={Logo} alt='logo'/></Link>
-        <div className="header-title">{userName}님 안녕하세요!</div>
+        <div className="header-title">{userName.length > 1 ? `${userName.charAt(0)}*${userName.slice(-1)}` : userName}님 안녕하세요!</div>
       </div>
       <div className="header-logout"><button className="logout-button" onClick={handleLogout}>로그아웃</button></div>
     </div>
