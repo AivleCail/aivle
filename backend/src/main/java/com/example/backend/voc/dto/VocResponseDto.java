@@ -23,7 +23,7 @@ public class VocResponseDto {
     private String checkStatus;
     private String percentage;
     private String entire;
-
+    private String statusDetail;
     public static VocResponseDto of(Voc voc) {
         return VocResponseDto.builder()
                 .vocId(voc.getId())
@@ -37,6 +37,7 @@ public class VocResponseDto {
                 .checkStatus(voc.getStatus())
                 .percentage(voc.getPercentage())
                 .entire(voc.getVocEntire())
+                .statusDetail(voc.getStatusDetail())
                 .build();
     }
 }
