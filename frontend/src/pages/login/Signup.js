@@ -240,7 +240,7 @@ const Signup = () => {
             checked={isChecked}
             onChange={() => setIsChecked(!isChecked)}
           />
-          <strong onClick={openModal}>개인정보 활용에 동의하시겠습니까?</strong>
+          <strong onClick={openModal}>개인정보수집 및 이용에 동의하시겠습니까?</strong>
         </div>
         <div className='error-group'>
           {errorAlert && <div className="error-alert">{errorAlert}</div>}
