@@ -158,7 +158,7 @@ const ArticleContent = ({ article, comments, isOpen, closeModal }) => {
     <div className="article-total">
       <div className='title-group'>
         {editMode ? (
-          <input className='title-edit'
+          <textarea className='title-edit'
             type="text"
             value={editedTitle}
             onChange={(e) => setEditedTitle(e.target.value)}
@@ -203,7 +203,7 @@ const ArticleContent = ({ article, comments, isOpen, closeModal }) => {
       <div className="article-comment">
         <h3>Comment</h3>
         <form onSubmit={handleNewCommentSubmit}>
-            <input
+            <textarea
               type="text"
               placeholder="댓글을 입력하세요."
               value={newCommentText}
