@@ -151,6 +151,7 @@ const ArticleContent = ({ article, comments, isOpen, closeModal }) => {
   return (
     <div className="article-total">
       <div className='title-group'>
+
         {editMode ? (
           <input className='title-edit'
             type="text"
@@ -160,22 +161,21 @@ const ArticleContent = ({ article, comments, isOpen, closeModal }) => {
         ) : (
           <h2>{editedTitle}</h2>
         )}
+        <div className = "button-group">
         {curManager && curManager.managerId === article.managerId && (
           editMode ? (
-            <button className="edit-button" onClick={handleUpdateArticle}>
-              <img src={process.env.PUBLIC_URL + "saveicon.svg"} alt="Update" />
-            </button>
-          ) : (
-            <button className="edit-button" onClick={() => setEditMode(true)}>
-              <img src={process.env.PUBLIC_URL + "editicon.svg"} alt="Update" />
-            </button>
-          )
+              <button className="edit-button" onClick={handleUpdateArticle}>
+              <img src={process.env.PUBLIC_URL + "saveicon.svg"} alt="Update" /></button>
+          ) : ( <button className="edit-button" onClick={() => setEditMode(true)}><img src={process.env.PUBLIC_URL + "editicon.svg"} alt="Update" /></button>)
         )}
         {curManager && curManager.managerId === article.managerId && (
           <button className="delete-button" onClick={() => handleDeleteArticle(article.articleId)}>
             <img src={process.env.PUBLIC_URL + "deleteicon.svg"} alt="Delete" />
           </button>
         )}
+        </div>
+
+        
       </div>
       <div className='article-info'>
         <p>
