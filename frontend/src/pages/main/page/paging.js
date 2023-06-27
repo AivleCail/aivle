@@ -14,7 +14,7 @@ const Paging = ({ articlesPerPage, totalArticles, currentPage, paginate }) => {
         activePage={currentPage}
         itemsCountPerPage={articlesPerPage}
         totalItemsCount={totalArticles}
-        pageRangeDisplayed={8}
+        pageRangeDisplayed={5}
         firstPageText={'«'}
         prevPageText={'‹'}
         nextPageText={'›'}

@@ -15,7 +15,7 @@ import { API_URL } from '../config';
 const Worker = () => {
   const [workerList, setWorkerList] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [workerPerPage] = useState(8);
+  const [workerPerPage] = useState(6);
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [selectedWorker, setSelectedWorker] = useState(null);
   const navigate = useNavigate();
@@ -51,6 +51,7 @@ const Worker = () => {
       });
   
       const workerListData = response.data.content;
+      workerListData.sort((a, b) => b.vocId - a.vocId); // 내림차순
       setWorkerList(workerListData);
     } catch (error) {
         console.error('Error fetching worker list:', error);
@@ -89,13 +90,16 @@ const Worker = () => {
   };
 
   return (
-    <div className="worker-container">
-      <Header />
-      <Sidebar />
-      <div className="background">
-        <div className="container">
-          <span className="worker-text-1">사외공사 관리</span>
-          <span className="worker-text-2">협력체 공사 신고 접수 내용을 확인합니다.</span>
+    <div className = "web-layout">
+        <Sidebar />
+      <div className="right-container">
+        <Header />
+        <div className="main-background">
+          <div className="worker-container">
+            <div className = "worker-top-container">
+              <div><span className="worker-text-1">사외공사 관리</span></div>
+              <div><span className="worker-text-2">협력체 공사 신고 접수 내용을 확인합니다.</span></div>
+            </div>
 
           <div className="worker">
             <CommonTable headersName={['번호', '업체명', '공사 위치', '공사시작시간', '완료여부']}
@@ -126,22 +130,24 @@ const Worker = () => {
             </CommonTable>
           </div>
 
-          {/* ArticleDetailModal */}
-          {isOpenModal && (
-            <Modal isOpen={isOpenModal} closeModal={closeModal} entity="worker" worker={selectedWorker}/>
-          )}
-
-          <Paging
-            articlesPerPage={workerPerPage}
-            totalArticles={workerList.length}
-            paginate={paginate}
-            currentPage={currentPage}
-          />
+            <div className = "worker-bottom-container">
+              <Paging
+                articlesPerPage={workerPerPage}
+                totalArticles={workerList.length}
+                paginate={paginate}
+                currentPage={currentPage}
+              />
+            </div>
         </div>
-      <Footer />
-        
+
+        {/* ArticleDetailModal */}
+            {isOpenModal && (
+              <Modal isOpen={isOpenModal} closeModal={closeModal} entity="worker" worker={selectedWorker}/>
+          )}
+        </div>
+        <Footer />
       </div>
-      
+    
     </div>
   );
 };

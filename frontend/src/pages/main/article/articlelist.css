@@ -1,77 +1,65 @@
-.article-container .background {
-    position: absolute;
-    width: 1307px;
-    height: 100%;
-    left: 225px;
-    top: 85px;
-    background: #F8F8F8;
+.article-container {
+    display: flex; 
+    flex-direction: column;
+    padding: 2rem;
+    background: #ffffff;
     border: 1px solid #DDDDDD;
-    .container {
-        position: absolute;
-        width: 1230px;
-        height: 600px;
-        left: 39px;
-        top: 30px;
-        background: #FFFFFF;
-        border: 1px solid #DDDDDD;
-        border-radius: 15px;
-
-        .article-text-1 {
-            position: absolute;
-            width: 100px;
-            height: 30px;
-            left: 26px;
-            top: 25px;
-            font-family: 'Inter';
-            font-style: normal;
-            font-weight: 700;
-            font-size: 25px;
-            line-height: 30px;
-            text-align: center;
-            color: #000000;
-        }
-        
-        .article-text-2 {
-            position: absolute;
-            width: 305px;
-            height: 18px;
-            left: 30px;
-            top: 70px;
-
-            font-family: 'Inter';
-            font-style: normal;
-            font-weight: 400;
-            font-size: 15px;
-            line-height: 18px;
-            text-align: center;
-
-            color: #000000;
-
-        }
-        .add-article-btn{
-          position: absolute;
-          z-index: 2;
-          top: 60px;
-          left: 1130px;
-          width: 65px;
-          height: 45px;
-          cursor: pointer;
-          background-color: #272626;
-          color: white;
-          font-size: 16px;
-          font-weight: bold;
-          border-radius: 5px;
-          
-
-        }
-
-        .article {
-            position: relative; 
-            margin-top: 130px;
-        }
-
-        .left-align {
-            text-align: left;
-          }
-    }
-}
+    margin: 2rem;
+    width: auto;
+    height: auto;
+    border-radius: 30px;
+  }
+  
+  .article-top-container {
+    width: auto;
+    margin-bottom: 2rem;
+  }
+  
+  .article-text-1 {
+    position: relative;
+    font-family: 'Inter';
+    font-weight: 700;
+    font-size: 3.5vh;
+  }
+  
+  .article-text-2 {
+    display: flex; 
+    margin-top: 3vh;
+    justify-content: space-between; /* 중요 */
+  }
+  
+  .article-create-btn {
+    position:relative;
+    cursor: pointer;
+    background-color: #272626;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    height : 2.2rem;
+    width : 5rem;
+  }
+  
+  .article-create-btn:hover { 
+    background-color: #34495e;
+    transform: scale(1.05);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  
+  .article-create-btn:active { 
+    transform: scale(0.95);
+    transition: transform 0.3s ease;
+  }
+  
+  .article-mid-container{
+    width : auto;
+    height :auto;
+  }
+  
+  .article-bottom-container {
+    justify-content: center;
+    position: relative;
+    display: flex;
+  }
+  

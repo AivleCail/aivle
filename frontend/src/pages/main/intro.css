@@ -1,153 +1,20 @@
 .top-container {
   display: flex; 
   width : 100%;
+  
 }
+
+
 
 .bottom-container {
   display: flex; 
   width : 100%;
+  
+  
 }
 
 .chart {
-  padding: 1.5rem 2rem;
-  width: 36rem;
+  padding: 0.4rem 2rem;
+  width: 38.5rem;
   height: 19rem;
 }
-
-/* 
-
-.container-1 {
-  width : 80vh;
-  height : 38vh;
-}
-.chart-1 {
-  width : 80vh;
-  height : 38vh;
-  
-}
-
-.cotainer-2 {
-  width : 80vh;
-}
-
-.chart-2 {
-  width : 80vh;
-  height : 38vh;
-}
-
-.container-3 {
-  width : 80vh;
-}
-
-.chart-3 {
-  width : 80vh;
-  height : 38vh;
-}
-
-.chart-4 {
-  width : 80vh;
-  height : 38vh;
-} */
-/*
-  .container-1 {
-    position: relative;
-    padding-top : 50px;
-    padding-left : 150px;
-    width: 50%;
-    height: 50%;
-    border-radius: 15px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center; 
-  }
-  
-  
-  .container-2 {
-    position: relative;
-    width: 50%;
-    height: 50%;
-    border-radius: 15px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center; 
-  }
-  
-  /*
-  .container-1,
-.container-2 {
-  width: 50%;
-  height: 50%;
-  background: #FFFFFF;
-  border-radius: 15px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.intro-container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 20px;
-}
-
-  .container-3 {
-    position: absolute;
-    width: 600px;
-    height: 285px;
-    left: 40px;
-    top: 347px;
-    background: #FFFFFF;
-    border-radius: 15px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    
-    .board-3 {
-      position: relative; 
-      margin-top: 35px; 
-    }
-
-    .board-text-3 {
-      font-size: 18px;
-      text-align: center;
-      margin-top: 24px; 
-      font-size: 20px;
-      font-family: 'Inter';
-      font-style: normal;
-      font-weight: 600;
-      font-size: 20px;
-    }
-  }
-
-  .container-4 {
-    position: absolute;
-    width: 600px;
-    height: 285px;
-    left: 665px;
-    top: 347px;
-    background: #FFFFFF;
-    border-radius: 15px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    .board-4 {
-      position: relative; 
-      margin-top: 35px; 
-    }
-
-    .board-text-4 {
-      font-size: 18px;
-      text-align: center;
-      margin-top: 24px; 
-      font-size: 20px;
-      font-family: 'Inter';
-      font-style: normal;
-      font-weight: 600;
-      font-size: 20px;
-    }
-  }
-
-  */
