@@ -31,34 +31,46 @@ const VocContent = ({ voc }) => {
               <tr className="trl-voc">{voc.receptionDate}</tr>
             </td>
           </tr>
-          <tr>
+          <td>
             <tr className='trl'>
               <img className="voc-number-icon" alt="Element" src={process.env.PUBLIC_URL + '/voc-number-icon.png'} />
               장애유형
             </tr>
             <tr className="trl-voc">{voc.type}</tr>
-          </tr>
-          <tr>
-            <tr className='trl'>
-              <img className="voc-number-icon" alt="Element" src={process.env.PUBLIC_URL + '/voc-number-icon.png'} />
-              접수내용
-            </tr>
-            <tr className="trl-voc">{voc.entire}</tr>
-          </tr>
-          <tr>
-            <tr className='trl'>
-              <img className="voc-number-icon" alt="Element" src={process.env.PUBLIC_URL + '/voc-number-icon.png'} />
-              추가의견
-            </tr>
-            <tr className="trl-voc">{voc.opinion}</tr>
-          </tr>
-          <tr>
+          </td>
+          <td>
             <tr className='trl'>
               <img className="voc-number-icon" alt="Element" src={process.env.PUBLIC_URL + '/voc-number-icon.png'} />
               상태
             </tr>
-            <tr className="trl-voc">{voc.checkStatus}</tr>
+            <tr className="trl-voc">{voc.percentage !== "빈값입니다" ?voc.checkStatus + ` (신뢰도 : ${voc.percentage})` : voc.checkStatus}</tr>
+          </td>
+          <tr>
+            <tr className='trl'>
+              <img className="voc-number-icon" alt="Element" src={process.env.PUBLIC_URL + '/voc-number-icon.png'} />
+              초기접수내용
+            </tr>
+            <tr className="trl-voc">{voc.opinion}</tr>
           </tr>
+          
+          {voc.percentage !== "빈값입니다" && (
+            <>
+              <tr>
+                <td className='trl'>
+                  <img className="voc-number-icon" alt="Element" src={process.env.PUBLIC_URL + '/voc-number-icon.png'} />
+                  전체 TM 내용
+                </td>
+                <td className="trl-voc">{voc.entire}</td>
+              </tr>
+              <tr>
+                <td className='trl'>
+                  <img className="voc-number-icon" alt="Element" src={process.env.PUBLIC_URL + '/voc-number-icon.png'} />
+                  TM 추가사항
+                </td>
+                <td className="trl-voc">{voc.statusDetail}</td>
+              </tr>
+            </>
+          )}
           </tbody>
       </table>
     </div>
