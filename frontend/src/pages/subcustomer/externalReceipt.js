@@ -6,7 +6,7 @@ import AiIcon from '../components/icons/ai.svg';
 import WorkerIcon from '../components/icons/worker.svg';
 import InformContent from '../components/receipt/InformContent';
 import FormContent from '../components/receipt/FormContent';
-
+import { API_URL } from "../config";
 const ExternalReceipt = () => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [companyName, setCompanyName] = useState("");
@@ -41,7 +41,7 @@ const ExternalReceipt = () => {
       formData.append('file', selectedFile);
       formData.append('token',localStorage.getItem('accessToken'));
 
-      axios.post("http://localhost:8000/stt/external_check", formData, {
+      axios.post(`${API_URL}8000/stt/external_check`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
@@ -72,7 +72,7 @@ const ExternalReceipt = () => {
     const confirm = window.confirm("해당 접수 내용을 전송하시겠습니까?");
 
     if (confirm) {
-      axios.post("http://localhost:8080/worker/result", externalData, {
+      axios.post(`${API_URL}8080/worker/result`, externalData, {
       headers: {
         "Content-Type": "application/json",
         "Authorization": `Bearer ${localStorage.getItem('accessToken')}`,

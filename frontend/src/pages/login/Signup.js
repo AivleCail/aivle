@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './Signup.css';
 import Modal from '../components/modal/Modal';
+import { API_URL } from '../config';
 const Signup = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
@@ -74,7 +75,7 @@ const Signup = () => {
     showUserTypeAlert()
       .then(() => {
         axios
-          .post('http://localhost:8080/auth/signup', {
+          .post(`${API_URL}8080/auth/signup`, {
             name: name,
             email: email,
             password: password,

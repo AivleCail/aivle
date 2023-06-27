@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import UnfoldedListBody from './UnfoldedListBody';
 import FoldedListBody from './FoldedListBody';
 import axios from 'axios';
-
+import { API_URL } from "../../config";
 const ListItem = ({ external, index, expanded, handleClick }) => {
 
   const getStatusClass = () => {
@@ -33,7 +33,7 @@ const ListItem = ({ external, index, expanded, handleClick }) => {
     }
 
     const accessToken = localStorage.getItem('accessToken');
-    axios.post(`http://localhost:8080/worker/start?id=${external.externalId}`, null, {
+    axios.post(`${API_URL}8080/worker/start?id=${external.externalId}`, null, {
       headers: {
         "Authorization": `Bearer ${accessToken}`,
       },
@@ -63,7 +63,7 @@ const ListItem = ({ external, index, expanded, handleClick }) => {
 
     const accessToken = localStorage.getItem('accessToken');
     console.log(accessToken);
-    axios.post(`http://localhost:8080/worker/end?id=${external.externalId}`, null, {
+    axios.post(`${API_URL}8080/worker/end?id=${external.externalId}`, null, {
       headers: {
         "Authorization": `Bearer ${accessToken}`,
       },

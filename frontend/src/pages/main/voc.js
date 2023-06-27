@@ -10,6 +10,7 @@ import CommonTableColumn from '../components/table/CommonTableColumn';
 import CommonTableRow from '../components/table/CommonTableRow';
 import Paging from './page/paging';
 import Modal from '../components/modal/Modal';
+import { API_URL } from '../config';
 
 const VOC = () => {
   const [vocList, setVocList] = useState([]);
@@ -41,7 +42,7 @@ const VOC = () => {
   const fetchVocList = async () => {
     try {
       const accessToken = localStorage.getItem('accessToken');
-      const response = await axios.get(`http://localhost:8080/voc/page?page=${currentPage}`, {
+      const response = await axios.get(`${API_URL}8080/voc/page?page=${currentPage}`, {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },
@@ -105,7 +106,7 @@ const VOC = () => {
   
     try {
       const accessToken = localStorage.getItem('accessToken');
-      const response = await axios.post('http://localhost:8080/sms/send', selectedItems, {
+      const response = await axios.post(`${API_URL}8080/sms/send`, selectedItems, {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },
@@ -123,7 +124,7 @@ const VOC = () => {
     try {
       const accessToken = localStorage.getItem('accessToken');
       // Article 정보 가져오기
-      const response = await axios.get(`http://localhost:8080/voc/one?id=${voc.vocId}`, {
+      const response = await axios.get(`${API_URL}8080/voc/one?id=${voc.vocId}`, {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },

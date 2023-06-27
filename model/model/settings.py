@@ -27,6 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+SERVER_URL = 'http://localhost:'
 
 # Application definition
 
@@ -127,8 +128,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # CORS & CSRF 공격 보안 설정
 CORS_ALLOWED_ORIGINS = [
-    'http://localhost:3000',
-    'http://localhost:8080',
+    f'{SERVER_URL}3000',
+    f'{SERVER_URL}8080',
 ]
 
 CORS_ALLOW_CREDENTIALS = True

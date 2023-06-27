@@ -9,6 +9,7 @@ import IntroTableColumn from '../components/table/introtable/introtablecolumn';
 import IntroTableRow from '../components/table/introtable/introtablerow';
 import axios from 'axios';
 import { Chart } from 'react-google-charts';
+import { API_URL } from '../config';
 
 const Intro = () => {
   const navigate = useNavigate();
@@ -33,7 +34,7 @@ const Intro = () => {
   const fetchChart1Data = async () => {
     try {
       const accessToken = localStorage.getItem('accessToken');
-      const response = await axios.get('http://localhost:8080/intro/external-month-count', {
+      const response = await axios.get(`${API_URL}8080/intro/external-month-count`, {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },
@@ -48,7 +49,7 @@ const Intro = () => {
   const fetchChart2Data = async () => {
     try {
       const accessToken = localStorage.getItem('accessToken');
-      const response = await axios.get('http://localhost:8080/intro/external-status', {
+      const response = await axios.get(`${API_URL}8080/intro/external-status`, {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },
@@ -65,7 +66,7 @@ const Intro = () => {
   const vocType = async () => {
     try {
       const accessToken = localStorage.getItem('accessToken');
-      const response = await axios.get(`http://localhost:8080/intro/voc-total`, {
+      const response = await axios.get(`${API_URL}8080/intro/voc-total`, {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },
@@ -80,7 +81,7 @@ const Intro = () => {
   const vocAnswer = async () => {
     try {
       const accessToken = localStorage.getItem('accessToken');
-      const response = await axios.get(`http://localhost:8080/intro/voc-answer`, {
+      const response = await axios.get(`${API_URL}8080/intro/voc-answer`, {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },

@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import LoginContext from '../components/member/LoginContext';
 import './Login.css';
-
+import { API_URL } from '../config';
 const Login = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
@@ -53,7 +53,7 @@ const Login = () => {
     }
 
     axios
-      .post('http://localhost:8080/auth/login', {
+      .post(`${API_URL}8080/auth/login`, {
         email: email,
         password: password,
         auth: role,
