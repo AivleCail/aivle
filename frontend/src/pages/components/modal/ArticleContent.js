@@ -19,10 +19,14 @@ const ArticleContent = ({ article, comments, isOpen, closeModal }) => {
     return koreanDateTime.toISOString().replace('T', ' ').substr(0, 19);
   };
 
+  const [likeCount, setLikeCount] = useState(article.likeCount);
+  const [hasRecommendation, sethasRecommendation] = useState(true);
+
 
   useEffect(() => {
     setArticleComments(comments);
-  }, [comments]);
+    setLikeCount(article.likeCount);
+  }, [comments,article.likeCount]);
 
   useEffect(() => {
     const fetchCurManager = async () => {
@@ -154,6 +158,70 @@ const ArticleContent = ({ article, comments, isOpen, closeModal }) => {
     }
   };
 
+  const handleLike = async (e) => {
+    e.preventDefault();
+    try {
+      const accessToken = localStorage.getItem('accessToken');
+      
+      const response = await axios.post(
+        `http://localhost:8080/recommend/check`, 
+         {
+          managerId: curManager.managerId,
+          articleId: article.articleId,
+          likeCount: article.likeCount,
+        },
+        {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+        
+      });
+      
+      const hasRecommendations = response.data;
+
+      sethasRecommendation(hasRecommendations);
+      console.log(hasRecommendation);
+
+      if (hasRecommendations) {
+      
+        await axios.delete(`http://localhost:8080/recommend/one`, {
+          data: {
+            managerId: curManager.managerId,
+            articleId: article.articleId,
+            likeCount: article.likeCount-1,
+          },
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        });
+  
+        setLikeCount((prevCount) => prevCount - 1);
+      } else {
+        // Like the article
+        await axios.post(
+          `http://localhost:8080/recommend/`,
+          {
+            managerId: curManager.managerId,
+            articleId: article.articleId,
+            likeCount: article.likeCount+1,
+          },
+          {
+            headers: {
+              Authorization: `Bearer ${accessToken}`,
+            },
+          }
+        );
+  
+        setLikeCount((prevCount) => prevCount + 1);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+    console.log(likeCount);
+  };
+
+
+
   return (
     <div className="article-total">
       <div className='title-group'>
@@ -182,6 +250,13 @@ const ArticleContent = ({ article, comments, isOpen, closeModal }) => {
             <img src={process.env.PUBLIC_URL + "deleteicon.svg"} alt="Delete" />
           </button>
         )}
+
+        {curManager && curManager.managerId !== article.managerId && (
+          <button className="delete-button" onClick={handleLike}>
+            버튼
+          </button>    
+           )}
+
       </div>
       <div className='article-info'>
 
