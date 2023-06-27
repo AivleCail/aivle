@@ -180,7 +180,6 @@ const ArticleContent = ({ article, comments, isOpen, closeModal }) => {
       const hasRecommendations = response.data;
 
       sethasRecommendation(hasRecommendations);
-      console.log(hasRecommendation);
 
       if (hasRecommendations) {
       
@@ -194,7 +193,7 @@ const ArticleContent = ({ article, comments, isOpen, closeModal }) => {
             Authorization: `Bearer ${accessToken}`,
           },
         });
-  
+        window.alert("추천 삭제가 완료되었습니다.");
         setLikeCount((prevCount) => prevCount - 1);
       } else {
         // Like the article
@@ -211,7 +210,7 @@ const ArticleContent = ({ article, comments, isOpen, closeModal }) => {
             },
           }
         );
-  
+        window.alert("추천 완료되었습니다.");
         setLikeCount((prevCount) => prevCount + 1);
       }
     } catch (error) {
@@ -250,7 +249,7 @@ const ArticleContent = ({ article, comments, isOpen, closeModal }) => {
 
         {curManager && curManager.managerId !== article.managerId && (
           <button className="delete-button" onClick={handleLike}>
-            버튼
+            추천
           </button>    
            )}
 
@@ -261,7 +260,7 @@ const ArticleContent = ({ article, comments, isOpen, closeModal }) => {
             <p>{editedCategory}</p>
 
 
-        <div>{article.managerName} {article.updatedAt}</div>
+        <div>{article.managerName} {article.updatedAt} ({likeCount})</div>
       </div>
       {editMode ? (
         <textarea className='body-edit'
