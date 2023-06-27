@@ -13,6 +13,12 @@ const ArticleContent = ({ article, comments, isOpen, closeModal }) => {
   const [editedBody, setEditedBody] = useState(article.articleBody);
   const [editedCategory, setEditedCategory] = useState(article.category);
   const [isOpenModal, setIsOpenModal] = useState(isOpen);
+  const formatKoreanDateTime = (dateTime) => {
+    const koreanDateTime = new Date(dateTime);
+    koreanDateTime.setHours(koreanDateTime.getHours() + 9); // 한국 시간으로 변경하기 위해 9시간을 더해줍니다.
+    return koreanDateTime.toISOString().replace('T', ' ').substr(0, 19);
+  };
+
 
   useEffect(() => {
     setArticleComments(comments);
@@ -178,17 +184,10 @@ const ArticleContent = ({ article, comments, isOpen, closeModal }) => {
         )}
       </div>
       <div className='article-info'>
-        <p>
-          {editMode ? (
-            <textarea className='category-edit'
-              value={editedCategory}
-              onChange={(e) => setEditedCategory(e.target.value)}
-            />
-          ) : (
+
             <p>{editedCategory}</p>
-          )}
-        </p>
-        <p>No.{article.articleId}</p>
+
+
         <div>{article.managerName} {article.updatedAt}</div>
       </div>
       {editMode ? (
@@ -220,7 +219,7 @@ const ArticleContent = ({ article, comments, isOpen, closeModal }) => {
                 <div className="comment-line">
                   <h4>{comment.managerName}</h4>
                   <div className="right">
-                    <p>{new Date(comment.createdAt).toLocaleString({ year: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' })}</p>
+                   <p>{formatKoreanDateTime(`${new Date(comment.createdAt).toLocaleString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit' })}`)}</p>
                     {curManager && comment.managerId === curManager.managerId ? (
                       <button className="delete-button" onClick={() => handleDeleteComment(comment.commentId)}>
                         <img src={process.env.PUBLIC_URL + "deleteicon.svg"} alt="Delete" />
