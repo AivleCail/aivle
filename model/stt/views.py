@@ -63,23 +63,6 @@ def voc_check(request):
         return JsonResponse({
             "result": "업로드 실패"
         })
-    
-
-def external_api(request):
-    if request.method == "POST" and request.POST:
-        token = request.POST.get("token")
-        data = json.loads(request.body)
-        external_to_spring(data,token)
-
-        return JsonResponse({
-            "result": "업로드 완료"
-        })
-    
-    else: 
-        return JsonResponse({
-            "result": "업로드 실패"
-        })
-
 def external_check(request):
     if request.method == "POST" and request.FILES.get("file"):
         file = request.FILES["file"]
@@ -140,30 +123,3 @@ def external_check(request):
         return JsonResponse({
             "result": "업로드 실패"
         })
-
-def voc_to_spring(data):
-    url = 'http://localhost:8080/vocResult'
-    headers = {'Content-Type': 'application/json'}
-    
-    response = requests.post(url, json=data, headers=headers)
-    
-    if response.status_code == 200:
-        print('데이터 전송 성공')
-    else:
-        print('데이터 전송 실패')
-
-    return None
-
-def external_to_spring(data,token):
-    url = 'http://localhost:8080/worker/result'
-    headers = {'Content-Type': 'application/json',
-               'Authorization': 'Bearer ' + token}
-    
-    requests.post(url, json=data, headers=headers)
-    
-    if response.status_code == 200:
-        print('데이터 전송 성공')
-    else:
-        print('데이터 전송 실패')
-
-    return None

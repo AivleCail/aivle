@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';  
 import axios from 'axios';
 import './ArticleContent.css'
-
+import { API_URL } from '../../config';
 const ArticleContent = ({ article, comments, isOpen, closeModal }) => {
 
   const [newCommentText, setNewCommentText] = useState('');
@@ -22,7 +22,7 @@ const ArticleContent = ({ article, comments, isOpen, closeModal }) => {
     const fetchCurManager = async () => {
       try {
         const accessToken = localStorage.getItem('accessToken');
-        const response = await axios.get('http://localhost:8080/member/me', {
+        const response = await axios.get(`${API_URL}8080/member/me`, {
           headers: {
             Authorization: `Bearer ${accessToken}`,
           },
@@ -35,14 +35,13 @@ const ArticleContent = ({ article, comments, isOpen, closeModal }) => {
     };
     fetchCurManager();
   }, []);
-  console.log(curManager);
   
   const handleNewCommentSubmit = async (e) => {
     e.preventDefault();
     try {
       const accessToken = localStorage.getItem('accessToken');
       const response = await axios.post(
-        'http://localhost:8080/comment/',
+        `${API_URL}8080/comment/`,
         {
           id: article.articleId,
           text: newCommentText,
@@ -73,7 +72,7 @@ const ArticleContent = ({ article, comments, isOpen, closeModal }) => {
     }
     try {
       const accessToken = localStorage.getItem('accessToken');
-      await axios.delete(`http://localhost:8080/article/one?id=${articleId}`, {
+      await axios.delete(`${API_URL}8080/article/one?id=${articleId}`, {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },
@@ -93,7 +92,7 @@ const ArticleContent = ({ article, comments, isOpen, closeModal }) => {
       }
     try {
       const accessToken = localStorage.getItem('accessToken');
-        await axios.delete(`http://localhost:8080/comment/one?id=${commentId}`, {
+        await axios.delete(`${API_URL}8080/comment/one?id=${commentId}`, {
           headers: {
             Authorization: `Bearer ${accessToken}`,
           },
@@ -120,7 +119,7 @@ const ArticleContent = ({ article, comments, isOpen, closeModal }) => {
     try {
       const accessToken = localStorage.getItem('accessToken');
       const response = await axios.put(
-        `http://localhost:8080/article/`,
+        `${API_URL}8080/article/`,
         {
           id: article.articleId,
           title: editedTitle,

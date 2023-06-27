@@ -4,7 +4,7 @@ import axios from 'axios';
 import ListContainer from '../components/list/ListContainer';
 import Paging from '../main/page/paging';
 import './external.css';
-
+import { API_URL } from "../config";
 const ExternalList = () => {
   const [externalList, setExternalList] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -45,7 +45,7 @@ const ExternalList = () => {
     try {
       const accessToken = localStorage.getItem('accessToken');
       const page = currentPage;
-      const response = await axios.get(`http://localhost:8080/worker/page?page=${page}`, {
+      const response = await axios.get(`${API_URL}8080/worker/page?page=${page}`, {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./createarticle.css";
 import axios from 'axios';
-
+import { API_URL } from "../../config";
 const CreateArticleList = () => {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
@@ -22,7 +22,7 @@ const CreateArticleList = () => {
       while (articleExists) {
         try {
           const response = await axios.get(
-            `http://localhost:8080/article/`, {
+            `${API_URL}8080/article/`, {
               headers: {
                 Authorization: `Bearer ${accessToken}`,
               },
@@ -66,7 +66,7 @@ const CreateArticleList = () => {
     };
 
 
-    axios.post("http://localhost:8080/article/", articleData, {
+    axios.post(`${API_URL}8080/article/`, articleData, {
       headers: {
         "Content-Type": "application/json",
         "Authorization": `Bearer ${localStorage.getItem('accessToken')}`,
