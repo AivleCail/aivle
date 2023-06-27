@@ -69,3 +69,7 @@
     white-space: nowrap;
     padding: 0 1.5rem 0;
   }
+
+  .notice-row {
+    background-color: rgba(255, 255, 200, 0.608);
+  }
