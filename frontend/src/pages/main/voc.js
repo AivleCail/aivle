@@ -38,6 +38,12 @@ const VOC = () => {
     };
   }, []);
 
+  useEffect(() => {
+    setCheckItems([]);
+    setSelectedItems([]);
+  }, [currentPage]);
+  
+
 
   const fetchVocList = async () => {
     try {
@@ -84,17 +90,19 @@ const VOC = () => {
   
   const handleAllCheck = (checked) => {
     if (checked) {
-      const items = vocList.map((voc) => ({
-        to: voc.customerPhone.replace(/-/g, ''),
-        content: `Your message content for ID ${voc.vocId}`,
-      }));
-      setSelectedItems(items);
-      setCheckItems(vocList.map((voc) => voc.vocId));
+      const itemsToAdd = currentVocList.filter((voc) => !checkItems.includes(voc.vocId));
+      const updatedItems = [...selectedItems, ...itemsToAdd];
+      setSelectedItems(updatedItems);
+      setCheckItems(currentVocList.map((voc) => voc.vocId));
     } else {
-      setSelectedItems([]);
+      const itemsToRemove = currentVocList.filter((voc) => checkItems.includes(voc.vocId));
+      const updatedItems = selectedItems.filter((item) => !itemsToRemove.some((voc) => voc.vocId === item.to));
+      setSelectedItems(updatedItems);
       setCheckItems([]);
     }
   };
+  
+  
   
   const handleSend = async () => {
     if (selectedItems.length === 0) {
@@ -164,7 +172,7 @@ const VOC = () => {
                     type='checkbox' 
                     name='select-all'
                     onChange={(e) => handleAllCheck(e.target.checked)}
-                    checked={checkItems.length === vocList.length && vocList.length > 0}
+                    checked={checkItems.length === currentVocList.length && currentVocList.length > 0}
                   />
                   ,'번호', '고객명', '지역', '전화번호', '장애유형', '접수 일시', '조치여부']}
                   columnWidths={['3%', '5%', '8%', '18%', '10%', '15%', '10%', '5%']}>
