@@ -10,6 +10,7 @@ import CommonTableRow from '../../components/table/CommonTableRow';
 import Paging from '../page/paging';
 import Modal from '../../components/modal/Modal';
 import { useNavigate } from 'react-router-dom';
+import { API_URL } from '../../config';
 
 const ArticleList = () => {
   const [articles, setArticles] = useState([]);
@@ -48,7 +49,7 @@ const ArticleList = () => {
 
       while (articleExists) {
         try {
-          const response = await axios.get(`http://localhost:8080/article/page?page=${page}`, {
+          const response = await axios.get(`${API_URL}8080/article/page?page=${page}`, {
             headers: {
               Authorization: `Bearer ${accessToken}`,
             },
@@ -78,7 +79,7 @@ const ArticleList = () => {
     try {
       const accessToken = localStorage.getItem('accessToken');
       // Article 정보 가져오기
-      const response = await axios.get(`http://localhost:8080/article/one?id=${article.articleId}`, {
+      const response = await axios.get(`${API_URL}8080/article/one?id=${article.articleId}`, {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },
@@ -86,7 +87,7 @@ const ArticleList = () => {
       const detailedArticle = response.data;
 
       // 댓글 정보 가져오기
-      const commentResponse = await axios.get(`http://localhost:8080/comment/list?id=${article.articleId}`, {
+      const commentResponse = await axios.get(`${API_URL}8080/comment/list?id=${article.articleId}`, {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },

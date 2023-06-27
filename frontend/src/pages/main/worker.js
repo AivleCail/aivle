@@ -10,6 +10,7 @@ import Paging from './page/paging';
 import axios from 'axios';
 import Modal from '../components/modal/Modal';
 import { useNavigate } from 'react-router-dom';
+import { API_URL } from '../config';
 
 const Worker = () => {
   const [workerList, setWorkerList] = useState([]);
@@ -43,7 +44,7 @@ const Worker = () => {
   const fetchWorkerList = async () => {
     try {
       const accessToken = localStorage.getItem('accessToken');
-      const response = await axios.get(`http://localhost:8080/external/page?page=${currentPage}`, {
+      const response = await axios.get(`${API_URL}8080/external/page?page=${currentPage}`, {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },
@@ -67,7 +68,7 @@ const Worker = () => {
     try {
       const accessToken = localStorage.getItem('accessToken');
       // Article 정보 가져오기
-      const response = await axios.get(`http://localhost:8080/external/one?id=${worker.externalId}`, {
+      const response = await axios.get(`${API_URL}8080/external/one?id=${worker.externalId}`, {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },

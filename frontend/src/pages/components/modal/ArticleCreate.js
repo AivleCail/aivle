@@ -1,6 +1,7 @@
 import React, { useState } from 'react';  
 import axios from 'axios';
 import './ArticleCreate.css';
+import { API_URL } from '../../config';
 
 const ArticleCreate = ({closeModal}) => {
 
@@ -52,7 +53,7 @@ const ArticleCreate = ({closeModal}) => {
         };
   
   
-        axios.post("http://localhost:8080/article/", articleData, {
+        axios.post(`${API_URL}8080/article/`, articleData, {
             headers: {
             "Content-Type": "application/json",
             "Authorization": `Bearer ${localStorage.getItem('accessToken')}`,

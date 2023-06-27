@@ -4,6 +4,8 @@ import './index.css';
 import App from './App';
 import {BrowserRouter} from "react-router-dom"
 import axios from 'axios';
+import { API_URL } from './pages/config';
+
 // axios 인터셉터 설정 리프레시 토큰을 위해서 사용.
 axios.interceptors.response.use(
   (response) => response,
@@ -14,7 +16,7 @@ axios.interceptors.response.use(
 
       // 예시: 토큰 갱신 후 재시도하는 로직
       return axios
-        .post('http://localhost:8080/auth/refresh-token', {
+        .post(`${API_URL}8080/auth/refresh-token`, {
           refreshToken: localStorage.getItem('refreshToken'),
         })
         .then((response) => {
