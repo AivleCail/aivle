@@ -12,7 +12,7 @@ const LoginForm = ({ activeIndex, handleManagerClick, handleExternalWorkerClick,
     <div className="login-form">
       <ul className='login-ul'>
         <li onClick={handleManagerClick} className={`radio-li ${activeIndex === 0 ? 'login-active' : ''}`}>
-          <p className='login-li-text'>매니저</p>
+          <p className='login-li-text'>운용자</p>
         </li>
         <li onClick={handleExternalWorkerClick} className={`radio-li ${activeIndex === 1 ? 'login-active' : ''}`}>
           <p className='login-li-text'>사외공사자</p>

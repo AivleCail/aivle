@@ -2,7 +2,7 @@
  {
   "Column1": 0,
   "external_id": 1,
-  "company_name": "지니 뮤직",
+  "company_name": "한성리모델링",
   "external_address": "서울특별시 강남구 역삼동 809-10 한석타워 4층 사업부서 사무실",
   "external_enddate": "2023-08-23 12:00:00",
   "external_startdate": "2023-08-21 15:00:00",
@@ -50,7 +50,7 @@
  {
   "Column1": 4,
   "external_id": 5,
-  "company_name": "지니 뮤직",
+  "company_name": "한성전기",
   "external_address": "서울특별시 강남구 역삼동 809-10 한석타워 5층",
   "external_enddate": "2023-06-20 16:30:00",
   "external_startdate": "2023-05-31 00:00:00",
@@ -74,7 +74,7 @@
  {
   "Column1": 6,
   "external_id": 7,
-  "company_name": "지니 뮤직",
+  "company_name": "유진인테리어",
   "external_address": "서울특별시 강남구 역삼동 809-10 한석타워 6층",
   "external_enddate": "2023-06-02 13:00:00",
   "external_startdate": "2023-05-29 11:00:00",
@@ -146,7 +146,7 @@
  {
   "Column1": 12,
   "external_id": 13,
-  "company_name": "밀리의 서재",
+  "company_name": "유진전기",
   "external_address": "서울특별시 마포구 양화로 45, 16층",
   "external_enddate": "2023-06-30 09:00:00",
   "external_startdate": "2023-06-12 00:00:00",
@@ -158,7 +158,7 @@
  {
   "Column1": 13,
   "external_id": 14,
-  "company_name": "지니 뮤직",
+  "company_name": "한성인테리어",
   "external_address": "서울특별시 강남구 역삼동 809-10 한석타워 9층 회의실",
   "external_enddate": "2023-02-01 13:20:00",
   "external_startdate": "2023-01-19 09:00:00",
@@ -206,7 +206,7 @@
  {
   "Column1": 17,
   "external_id": 18,
-  "company_name": "지니 뮤직",
+  "company_name": "한성전기",
   "external_address": "서울특별시 강남구 역삼동 809-10 한석타워 9층",
   "external_enddate": "2023-06-30 07:00:00",
   "external_startdate": "2023-06-28 20:00:00",
@@ -242,7 +242,7 @@
  {
   "Column1": 20,
   "external_id": 21,
-  "company_name": "kt skylife",
+  "company_name": "마포소방서",
   "external_address": "서울특별시 마포구 매봉산로 75 DDMC 빌딩 8,9층 소화전",
   "external_enddate": "2023-01-03 13:30:00",
   "external_startdate": "2023-01-02 09:00:00",
@@ -254,7 +254,7 @@
  {
   "Column1": 21,
   "external_id": 22,
-  "company_name": "kt skylife",
+  "company_name": "한성전기",
   "external_address": "서울특별시 마포구 매봉산로 75 DDMC 빌딩 8층",
   "external_enddate": "2023-06-20 01:30:00",
   "external_startdate": "2023-06-19 09:00:00",
@@ -266,7 +266,7 @@
  {
   "Column1": 22,
   "external_id": 23,
-  "company_name": "BC카드",
+  "company_name": "우성시스템",
   "external_address": "서울시 중구 을지로 170 카드발급실",
   "external_enddate": "2023-02-21 18:50:00",
   "external_startdate": "2023-02-19 09:30:00",
@@ -278,7 +278,7 @@
  {
   "Column1": 23,
   "external_id": 24,
-  "company_name": "BC카드",
+  "company_name": "우성일렉트릭",
   "external_address": "서울시 중구 을지로 170 회의실 앞 atm",
   "external_enddate": "2023-07-06 15:30:00",
   "external_startdate": "2023-07-02 09:00:00",
@@ -470,7 +470,7 @@
  {
   "Column1": 39,
   "external_id": 40,
-  "company_name": "K Bank",
+  "company_name": "한성전기",
   "external_address": "서울시 중구 을지로 170 남자 화장실",
   "external_enddate": "2023-06-12 18:40:00",
   "external_startdate": "2023-06-09 12:00:00",
@@ -518,7 +518,7 @@
  {
   "Column1": 43,
   "external_id": 44,
-  "company_name": "kt skylife",
+  "company_name": "새로움소프트",
   "external_address": "서울특별시 마포구 매봉산로 75 DDMC 빌딩 8층,9층 전체",
   "external_enddate": "2023-05-26 20:40:00",
   "external_startdate": "2023-05-20 09:30:00",
@@ -590,7 +590,7 @@
  {
   "Column1": 49,
   "external_id": 50,
-  "company_name": "skylife",
+  "company_name": "우리컴퓨터",
   "external_address": "서울특별시 마포구 매봉산로 75 DDMC 빌딩 9층 휴게실 옆",
   "external_enddate": "2023-06-25 13:00:00",
   "external_startdate": "2023-06-20 07:20:00",
