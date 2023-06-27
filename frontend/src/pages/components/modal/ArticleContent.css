@@ -50,6 +50,7 @@ margin-bottom: 10px;
     overflow-y: auto;
     justify-content: center;
     word-wrap: break-word;
+    padding: 0.5rem;
   }
 
 
