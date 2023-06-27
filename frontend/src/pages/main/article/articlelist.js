@@ -15,7 +15,7 @@ import { API_URL } from '../../config';
 const ArticleList = () => {
   const [articles, setArticles] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [articlesPerPage] = useState(6);
+  const [articlesPerPage] = useState(10);
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [selectedArticle, setSelectedArticle] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -121,9 +121,25 @@ const ArticleList = () => {
   // Pagination
   const indexOfLastArticle = currentPage * articlesPerPage;
   const indexOfFirstArticle = indexOfLastArticle - articlesPerPage;
-  const currentArticles = articles.slice(indexOfFirstArticle, indexOfLastArticle);
-
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+  //여기엔 일반만 들어있음.
+  const generalArticles = articles.filter(article => article.category !== '공지');
+  
+  //여기에 공지만 들어있음.
+  const noticeArticles = articles.filter(article => article.category === '공지');
+
+  let currentArticles =[];
+  let start=0;
+  let end=0;
+  //공지가 10개 넘어갈리가 없겠지? 라고 생각하고 만들었슴다.
+  if (currentPage === 1){
+    currentArticles = noticeArticles.concat(generalArticles).slice(indexOfFirstArticle, indexOfLastArticle);
+  }else{
+    start = indexOfFirstArticle - noticeArticles.length;
+    end = start+10;
+    currentArticles = generalArticles.slice(start, end);
+  }
 
   return (
     <div class="web-layout">
@@ -140,22 +156,22 @@ const ArticleList = () => {
             </div>
 
             <div className="article-mid-container">
-  <CommonTable headersName={['분류', '제목', '글쓴이', '작성일시', '조회']} columnWidths={['6%','', '15%', '20%', '8%']}>
-    {currentArticles.map((article) => (
-      <CommonTableRow
-        key={article.articleId}
-        onClick={() => openModal(article)}
-        style={{ backgroundColor: article.category === '공지' ? 'yellow' : '' }}
-      >
-        <CommonTableColumn>{article.category}</CommonTableColumn>
-        <CommonTableColumn>{article.articleTitle}</CommonTableColumn>
-        <CommonTableColumn>{article.managerName}</CommonTableColumn>
-        <CommonTableColumn>{article.createdAt.substring(0, 16)}</CommonTableColumn>
-        <CommonTableColumn>{article.count}</CommonTableColumn>
-      </CommonTableRow>
-    ))}
-  </CommonTable>
-</div>
+              <CommonTable headersName={['분류', '제목', '글쓴이', '작성일시', '조회']} columnWidths={['6%','', '15%', '20%', '8%']}>
+                {currentArticles.map((article) => (
+                    <CommonTableRow
+                      key={article.articleId}
+                      onClick={() => openModal(article)}
+                      style={article.category === '공지' ? { backgroundColor: 'yellow' } : {}}
+                    >
+                      <CommonTableColumn>{article.category}</CommonTableColumn>
+                      <CommonTableColumn>{article.articleTitle}</CommonTableColumn>
+                      <CommonTableColumn>{article.managerName}</CommonTableColumn>
+                      <CommonTableColumn>{article.createdAt.substring(0, 16)}</CommonTableColumn>
+                      <CommonTableColumn>{article.count}</CommonTableColumn>
+                    </CommonTableRow>
+                  ))}
+              </CommonTable>
+            </div>
 
 
 
