@@ -164,7 +164,7 @@ const ArticleContent = ({ article, comments, isOpen, closeModal }) => {
             onChange={(e) => setEditedTitle(e.target.value)}
           />
         ) : (
-          <h2>{editedTitle}</h2>
+          <h2 className='title-edit-text'>{editedTitle}</h2>
         )}
         {curManager && curManager.managerId === article.managerId && (
           editMode ? (
@@ -199,42 +199,43 @@ const ArticleContent = ({ article, comments, isOpen, closeModal }) => {
         <p className='body-edit-text'>{editedBody}</p>
       )}
       <br />
-      
-      <div className="article-comment">
-        <h3>Comment</h3>
-        <form onSubmit={handleNewCommentSubmit}>
-            <input
-              type="text"
-              placeholder="댓글을 입력하세요."
-              value={newCommentText}
-              onChange={(e) => setNewCommentText(e.target.value)}
-              className="comment-input"
-            />
-            <button type="submit" className="comment-button">Add Comment</button>
-        </form>
-        {articleComments && articleComments.length > 0 ? (
-          <ul>
-            {articleComments.map((comment) => (
-              <li key={comment.commentId} className="article-comment-one">
-                <div className="comment-line">
-                  <h4>{comment.managerName}</h4>
-                  <div className="right">
-                   <p>{formatKoreanDateTime(`${new Date(comment.createdAt).toLocaleString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit' })}`)}</p>
-                    {curManager && comment.managerId === curManager.managerId ? (
-                      <button className="delete-button" onClick={() => handleDeleteComment(comment.commentId)}>
-                        <img src={process.env.PUBLIC_URL + "deleteicon.svg"} alt="Delete" />
-                      </button>
-                    ) : null}
+      {editMode ? null :(
+        <div className="article-comment">
+          <h3>Comment</h3>
+          <form onSubmit={handleNewCommentSubmit}>
+              <input
+                type="text"
+                placeholder="댓글을 입력하세요."
+                value={newCommentText}
+                onChange={(e) => setNewCommentText(e.target.value)}
+                className="comment-input"
+              />
+              <button type="submit" className="comment-button">Add Comment</button>
+          </form>
+          {articleComments && articleComments.length > 0 ? (
+            <ul>
+              {articleComments.map((comment) => (
+                <li key={comment.commentId} className="article-comment-one">
+                  <div className="comment-line">
+                    <h4>{comment.managerName}</h4>
+                    <div className="right">
+                    <p>{formatKoreanDateTime(`${new Date(comment.createdAt).toLocaleString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit' })}`)}</p>
+                      {curManager && comment.managerId === curManager.managerId ? (
+                        <button className="delete-button" onClick={() => handleDeleteComment(comment.commentId)}>
+                          <img src={process.env.PUBLIC_URL + "deleteicon.svg"} alt="Delete" />
+                        </button>
+                      ) : null}
+                    </div>
                   </div>
-                </div>
-                <p>{comment.commentText}</p>
-              </li>
-            ))}
-          </ul>
-        ) : (
-          <p>댓글이 없습니다.</p>
-        )}
-      </div>
+                  <p>{comment.commentText}</p>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p>댓글이 없습니다.</p>
+          )}
+        </div>
+      )}
     </div>
   );
 };

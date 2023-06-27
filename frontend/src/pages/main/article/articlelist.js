@@ -148,7 +148,7 @@ const ArticleList = () => {
         style={{ backgroundColor: article.category === '공지' ? 'yellow' : '' }}
       >
         <CommonTableColumn>{article.category}</CommonTableColumn>
-        <CommonTableColumn>{article.articleTitle}</CommonTableColumn>
+        <CommonTableColumn className='article-title-col'>{article.articleTitle}</CommonTableColumn>
         <CommonTableColumn>{article.managerName}</CommonTableColumn>
         <CommonTableColumn>{article.createdAt.substring(0, 16)}</CommonTableColumn>
         <CommonTableColumn>{article.count}</CommonTableColumn>
