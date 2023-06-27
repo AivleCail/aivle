@@ -2,7 +2,6 @@ import os
 import re
 import datetime
 import pickle
-import requests
 from django.http import JsonResponse, HttpResponse
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing.sequence import pad_sequences
@@ -17,27 +16,9 @@ openai.api_key = OPENAI_API_KEY
 # Create your views here.
 def voc_check(request):
     if request.method == "POST" and request.FILES.get("file"):
-        # voc_id = int(request.POST.get("voc_id"))
         file = request.FILES["file"]
-        # token = request.POST.get("token")
         result = openai.Audio.transcribe("whisper-1", file)
 
-        stopwords = ['의','가','이','은','들','는','좀','잘','걍','과','도','를','으로','자','에','와','한','하다','하','게','되','어서','때문','니까','어야','랑','야']
-        max_len = 25
-        model_file = 'best.h5'
-        model_path = os.path.join(os.path.dirname(__file__), model_file)
-        model = load_model(model_path)
-        mecab = MeCab()
-        base_dir = os.path.dirname(os.path.abspath(__file__))
-        tokenizer_file = os.path.join(base_dir, 'tokenizer.pkl')
-        with open(tokenizer_file, 'rb') as f:
-            tokenizer = pickle.load(f, encoding='latin1')
-
-        new_token = [word for word in mecab.morphs(result['text']) if not word in stopwords]
-        new_sequences = tokenizer.texts_to_sequences([new_token])
-        new_pad = pad_sequences(new_sequences, maxlen = max_len)
-        score = float(model.predict(new_pad))
-        
         keyword = "추가사항"
         res=result['text']
         index = res.find(keyword)
@@ -49,8 +30,26 @@ def voc_check(request):
             before_sentence = ""
             after_sentence = ""
 
+        stopwords = ['의','가','이','은','들','는','좀','걍','과','도','를','으로','자','에','와','한','하다','하','게','되','어서','때문','니까','어야','랑','야']
+        max_len = 25
+        model_file = 'new-model.h5'
+        model_path = os.path.join(os.path.dirname(__file__), model_file)
+        model = load_model(model_path)
+        mecab = MeCab()
+        base_dir = os.path.dirname(os.path.abspath(__file__))
+        tokenizer_file = os.path.join(base_dir, 'new_tokenizer.pkl')
+        with open(tokenizer_file, 'rb') as f:
+            tokenizer = pickle.load(f, encoding='latin1')
+
+        new_token = [word for word in mecab.morphs(before_sentence) if not word in stopwords]
+        new_sequences = tokenizer.texts_to_sequences([new_token])
+        new_pad = pad_sequences(new_sequences, maxlen = max_len)
+        score = float(model.predict(new_pad))
+
+        print(new_token)
+        print(new_sequences)
+
         data = {
-            
             "voc_entire":before_sentence+after_sentence,
             "voc_status": "O" if score > 0.5 else "X",
             "voc_status_detail": after_sentence,
