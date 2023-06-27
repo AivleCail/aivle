@@ -34,6 +34,8 @@ public class QArticle extends EntityPathBase<Article> {
 
     public final NumberPath<Long> id = createNumber("id", Long.class);
 
+    public final NumberPath<Integer> likeCount = createNumber("likeCount", Integer.class);
+
     public final com.example.backend.manager.entity.QManager manager;
 
     public final StringPath title = createString("title");
