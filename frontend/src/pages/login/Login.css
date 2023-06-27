@@ -6,9 +6,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    max-width: 500px !important;
   }
   .context {
     position: static !important;
+    width: 100% !important;
   }
 }
 
