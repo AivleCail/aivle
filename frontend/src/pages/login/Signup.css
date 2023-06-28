@@ -9,8 +9,32 @@
     }
     .context {
       position: static !important;
-      height: 90%;
     }
+    .signup-title {
+      padding: 0 !important;
+    }
+
+    .signup-input {
+      margin-top: 0.5rem !important;
+    }
+
+    .a-input-group {
+      margin-bottom: 0.8rem !important;
+    }
+}
+
+@media (max-width: 400px) {
+  .signup-title, .radio-buttons, .signup-button, .signup-close-button-wrapper {
+    width: 20rem !important;
+  }
+  .signup-input {
+    width: 18rem !important;
+  }
+  
+  .signup-close-button img {
+    width: 15px !important;
+    height: 15px !important;
+  }
 }
   
 .container{
@@ -136,7 +160,7 @@
   
 .field-error-message, .error-alert {
     color: red;
-    font-size: 1.1rem;
+    font-size: 1rem;
     width: 15rem;
 }
 .checkbox-container{
