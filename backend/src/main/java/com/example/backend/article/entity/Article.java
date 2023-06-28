@@ -45,6 +45,9 @@ public class Article {
     @OneToMany(mappedBy = "article")
     private List<Comment> comments = new ArrayList<>();
 
+    @OneToMany(mappedBy = "article", cascade = CascadeType.ALL, orphanRemoval = true)   //이거 추가하면 일단은 다 삭제됨
+    private List<Recommend> Recommend = new ArrayList<>();
+
     @Column(name = "like_count")
     private int likeCount;        //총 추천숫자
 

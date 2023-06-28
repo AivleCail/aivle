@@ -48,6 +48,7 @@ public class RecommendServices {
                 Recommend recommend = Recommend.builder()
                         .article(article)
                         .manager(manager)
+                        .counts(1)
                         .build();
 
                 recommendsRepository.save(recommend);

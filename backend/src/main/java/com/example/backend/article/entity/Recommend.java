@@ -27,9 +27,12 @@ public class Recommend {
     @JoinColumn(name = "article_id")
     private Article article;
 
+    private int counts;
+
     @Builder
-    public Recommend(Manager manager, Article article) {
+    public Recommend(Manager manager, Article article, int counts) {
         this.manager = manager;
         this.article = article;
+        this.counts = counts;
     }
 }

@@ -13,12 +13,14 @@ public class RecommendsDTO {
     private Long managerId;
     private Long articleId;
     private int likeCount;
+    private int counts;
 
 
-    public RecommendsDTO(Long managerId, Long articleId,int likeCount) {
+    public RecommendsDTO(Long managerId, Long articleId,int likeCount,int counts) {
         this.managerId = managerId;
         this.articleId = articleId;
         this.likeCount = likeCount;
+        this.counts = counts;
     }
 
 }
