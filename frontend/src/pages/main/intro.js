@@ -14,7 +14,7 @@ import { API_URL } from '../config';
 const Intro = () => {
   const navigate = useNavigate();
   const [voctypeData,  setVocTypeData] = useState([]);
-  const [vocanswerData, setVocAnswerData] = useState([]);
+  const [articleData, setArticleData] = useState([]);
   const [chart1Data, setChart1Data] = useState([]);
   const [chart2Data, setChart2Data] = useState([]);
 
@@ -25,7 +25,7 @@ const Intro = () => {
       navigate('/');
     } else {
       vocType();
-      vocAnswer();
+      bestArticle();
       fetchChart1Data();
       fetchChart2Data();
     }
@@ -78,16 +78,16 @@ const Intro = () => {
     }
   };
 
-  const vocAnswer = async () => {
+  const bestArticle = async () => {
     try {
       const accessToken = localStorage.getItem('accessToken');
-      const response = await axios.get(`${API_URL}8080/intro/voc-answer`, {
+      const response = await axios.get(`${API_URL}8080/intro/article`, {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },
       });
       const data  = response.data;
-      setVocAnswerData(data);
+      setArticleData(data);
     } catch (error) {
       console.error('Error Voc', error);
     }
@@ -101,10 +101,6 @@ const Intro = () => {
   }, [navigate]);
 
     
-
-
-
-
   return (
     <div className="web-layout">
       <Sidebar />
@@ -163,93 +159,97 @@ const Intro = () => {
               </div>
             </div>
 
+              
             <div className="container-2">
-                <div className = "chart chart-2">
-              <Chart 
-                width={'100%'}
-                height={'95%'}
-                chartType="PieChart"
-                loader={<div>Loading Chart</div>}
-                data={[
-                  ['status', 'total'],
-                  ...chart2Data.map((item) => [item.status, item.total]),
-                ]}
-                options={{
-                  title: '사외공사현황',
-                  is3D: true,
-                  colors: ['#FFF100','#16C60C','#E81224'],
-                  slices: {  
-                    textStyle: {color: 'black', },
-                  },
-                  pieSliceTextStyle:{
-                    color: 'black',
-                    bold: true,
-                  },
-                }}
-              />
+              <span >베스트 공지사항</span>
+              <div className="chart chart-2">
+                <IntroTable headersName={['글쓴이', '제목', '추천수','작성일']} columnWidths={['20%','45%','10%','25%']}>
+                    {articleData.map((article) => (
+                      <IntroTableRow>
+                        <IntroTableColumn>{article.managerName}</IntroTableColumn>
+                        <IntroTableColumn>{article.articleTitle}</IntroTableColumn>
+                        <IntroTableColumn>{article.likeCount}</IntroTableColumn>
+                        <IntroTableColumn>{article.createdAt.substring(0,16)}</IntroTableColumn>
+                      </IntroTableRow>
+                    ))}
+                  </IntroTable>
               </div>
             </div>
           </div>
+
+
           <div className = "bottom-container">
             <div className="container-3">
               <div className = "chart chart-3">
-              <Chart
-                width={'100%'}
-                height={'95%'}
-                chartType="PieChart"
-                loader={<div>Loading</div>}
-                data={[
-                  ['Category', 'Count'],
-                  ['TV', voctypeData.tvCount],
-                  ['인터넷', voctypeData.internetCount],
-                  ['전화', voctypeData.phoneCount],
-                ]}
-                options={{
-                  title: '장애 유형 분류',
-                  is3D: true,
-                  colors: ['#FFF100','#16C60C','#E81224'],
-                  slices: {  
-                    textStyle: {color: 'black',  },
-                  },
-                  pieSliceTextStyle:{
-                    color: 'black',
-                    bold: true,
-                  },
-                }}
-              />
+                <Chart 
+                  width={'100%'}
+                  height={'95%'}
+                  chartType="PieChart"
+                  loader={<div>Loading Chart</div>}
+                  data={[
+                    ['status', 'total'],
+                    ...chart2Data.map((item) => [item.status, item.total]),
+                  ]}
+                  options={{
+                    title: '사외공사 진행 현황',
+                    is3D: true,
+                    colors: ['#FFF100','#16C60C','#E81224'],
+                    slices: {  
+                      textStyle: {color: 'black', },
+                    },
+                    legend: {
+                      position: 'bottom',
+                      textStyle: {
+                        color: '#666',
+                        fontSize: 13,
+                      },
+                    },
+                    pieSliceTextStyle:{
+                      color: 'black',
+                      bold: true,
+                    },
+                  }}
+                />
               </div>
             </div>
             
             <div className="container-4">
               <div className = "chart chart-4">
-              <Chart
-                width={'100%'}
-                height={'95%'}
-                chartType="PieChart"
-                loader={<div>Loading</div>}
-                data={[
-                  ['Category', 'Count'],
-                  ['만족', vocanswerData.goodAnswer],
-                  ['불만족', vocanswerData.badAnswer],
-                  ['매우불만족', vocanswerData.veryBadAnswer],
-                ]}
-                options={{
-                  title: '고객 응답 현황',
-                  is3D: true,
-                  colors: ['#16C60C','#FFF100','#E81224'],
-                  slices: {  
-                    textStyle: {color: 'black', },
-                  },
-                  pieSliceTextStyle:{
-                    color: 'black',
-                    bold: true,
-                  },
-                }}
-              />
+                <Chart
+                  width={'100%'}
+                  height={'95%'}
+                  chartType="PieChart"
+                  loader={<div>Loading</div>}
+                  data={[
+                    ['Category', 'Count'],
+                    ['TV', voctypeData.tvCount],
+                    ['인터넷', voctypeData.internetCount],
+                    ['전화', voctypeData.phoneCount],
+                  ]}
+                  options={{
+                    title: '오늘 발생한 장애 유형',
+                    is3D: true,
+                    colors: ['#2196F3','#FF9800','#00BCD4'],
+                    slices: {  
+                      textStyle: {color: 'black',  },
+                    },
+                    legend: {
+                      position: 'bottom',
+                      textStyle: {
+                        color: '#666',
+                        fontSize: 13,
+                      },
+                    },
+                    pieSliceTextStyle:{
+                      color: 'black',
+                      bold: true,
+                    },
+                    }}
+                    />
+                </div>
               </div>
             </div>
           </div>
-        </div>
         <Footer />
       </div>
     </div>
