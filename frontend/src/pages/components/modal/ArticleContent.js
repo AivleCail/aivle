@@ -164,7 +164,7 @@ const ArticleContent = ({ article, comments, isOpen, closeModal }) => {
       const accessToken = localStorage.getItem('accessToken');
       
       const response = await axios.post(
-        `http://localhost:8080/recommend/check`, 
+        `${API_URL}8080/recommend/check`, 
          {
           managerId: curManager.managerId,
           articleId: article.articleId,
@@ -183,7 +183,7 @@ const ArticleContent = ({ article, comments, isOpen, closeModal }) => {
 
       if (hasRecommendations) {
       
-        await axios.delete(`http://localhost:8080/recommend/one`, {
+        await axios.delete(`${API_URL}8080/recommend/one`, {
           data: {
             managerId: curManager.managerId,
             articleId: article.articleId,
@@ -198,7 +198,7 @@ const ArticleContent = ({ article, comments, isOpen, closeModal }) => {
       } else {
         // Like the article
         await axios.post(
-          `http://localhost:8080/recommend/`,
+          `${API_URL}8080/recommend/`,
           {
             managerId: curManager.managerId,
             articleId: article.articleId,
