@@ -33,7 +33,7 @@
     background-color: #fff;
   }
   
-  .create-article-container button{
+  .create-button {
     padding: 10px 20px;
     background-color: #272626;
     color: #fff;
@@ -41,4 +41,8 @@
     border-radius: 4px;
     font-size: 16px;
     cursor: pointer;
+    display: block;
+    margin: 0 auto;
+    width: 20%;
+    height: 50%;
   }

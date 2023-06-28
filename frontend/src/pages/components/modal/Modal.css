@@ -29,8 +29,8 @@
   
   .close-button {
     position: absolute;
-    top: 22px;
-    right: 18.5px;
+    top: 19.5px;
+    right: 14.5px;
     cursor: pointer;
     font-size: 18px;  
     border: none;
@@ -38,8 +38,8 @@
   }
 
   .close-button img {
-    width: 17.5px;
-    height: 17.5px;
+    width: 20px;
+    height: 20px;
   }
   
   .modal-content::-webkit-scrollbar {
@@ -60,7 +60,6 @@
   .modal-content button {
     text-align: center;
     display: block;
-    margin: 0 auto;
   }
   
   .modal-content h2 {

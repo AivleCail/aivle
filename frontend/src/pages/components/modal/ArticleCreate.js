@@ -103,7 +103,7 @@ const ArticleCreate = ({closeModal}) => {
                 <option value="일반">일반</option>
             </select>
 
-          <button type="submit" >업로드</button>
+          <button class = "create-button" type="submit" >업로드</button>
         </form>
         </div>
   );
