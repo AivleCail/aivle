@@ -153,6 +153,11 @@ const Signup = () => {
     <div className="container">
       <div className="bg-img" style={{ backgroundImage: 'url(bg.svg)' }}></div>
       <div className="context">
+        <div className="signup-close-button-wrapper">
+          <button className="signup-close-button" onClick={() => navigate('/')}>
+            <img src={process.env.PUBLIC_URL + "xicon1.png"} alt="Close" />
+          </button>
+        </div>
         <div className='signup-title'><span>회원 가입</span></div>
         <div className='radio-buttons'>
           <button className={role === 'manager' ? 'user-type-button selected' : 'user-type-button'}
@@ -166,7 +171,7 @@ const Signup = () => {
             {submitted && !email && <span className="field-error-message">필드를 입력해주세요.</span>}
             {emailError && <span className="field-error-message">유효한 이메일을 입력해주세요.</span>}
           </div>
-          <input className='signup-input' type="text" value={email} onChange={(e) => {
+          <input className='signup-input' type="text" value={email} placeholder="email@example.com" onChange={(e) => {
             setEmail(e.target.value);
             setEmailError(false);
             setErrorAlert('');
@@ -226,7 +231,7 @@ const Signup = () => {
             {submitted && !phonenumber && <span className="field-error-message">필드를 입력해주세요.</span>}
             {phonenumberError && <span className="field-error-message">유효한 전화번호를 입력해주세요.</span>}
           </div>
-          <input className='signup-input' type="text" value={phonenumber} onChange={(e) => {
+          <input className='signup-input' type="text" value={phonenumber} placeholder="010-0000-0000" onChange={(e) => {
             setPhonenumber(e.target.value);
             setPhonenumberError(false);
             setErrorAlert('');
