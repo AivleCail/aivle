@@ -31,5 +31,15 @@
   font-family: "RIDIBatang";
   src: url("./fonts/RIDIBatang.otf");
 }
+
+@font-face {
+  font-family: "TheJamsil";
+  src: url("./fonts/TheJamsil.ttf");
+}
+
+@font-face {
+  font-family: "TheJamsilLight";
+  src: url("./fonts/TheJamsilLight.ttf");
+}
   
   @import '~@fortawesome/fontawesome-free/css/all.min.css';

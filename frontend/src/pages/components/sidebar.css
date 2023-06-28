@@ -153,9 +153,9 @@
 	height: 100%;
 	left: 0px;
 	background: #FFFFFF;
-	z-index : 1;
 	border: 1px solid #DDDDDD;
 	transition : all .35s;
+	z-index: 2;
 }
 	
 	.Sidebar header { /* 사이드바 헤더 */
