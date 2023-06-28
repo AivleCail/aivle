@@ -137,7 +137,7 @@ const ArticleContent = ({ article, comments, isOpen, closeModal,  }) => {
   };
 
   const handleUpdateArticle = async () => {
-    const check = window.confirm('수정 하시겠습니까?');
+    const check = window.confirm('게시글을 수정하시겠습니까?');
       if (!check) {
         return;
       }
@@ -256,7 +256,7 @@ const ArticleContent = ({ article, comments, isOpen, closeModal,  }) => {
         <div className = "button-group">
           {curManager && curManager.managerId === article.managerId && (
             editMode ? (
-                <button className="edit-button-edit" onClick={handleUpdateArticle}>submit</button>
+                <button className="edit-button-edit" onClick={handleUpdateArticle}>수정</button>
             ) : ( <button className="edit-button" onClick={() => setEditMode(true)}><img src={process.env.PUBLIC_URL + "editicon.svg"} alt="Update" /></button>)
           )}
           {curManager && curManager.managerId === article.managerId && (
