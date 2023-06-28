@@ -247,17 +247,25 @@ const ArticleContent = ({ article, comments, isOpen, closeModal }) => {
             <img src={process.env.PUBLIC_URL + "deleteicon.svg"} alt="Delete" />
           </button>
         )}
-
         {curManager && curManager.managerId !== article.managerId && (
-          <button className="delete-button" onClick={handleLike}>
+          <button className="recommend-button" onClick={handleLike}>
             추천
           </button>    
-           )}
-      </div>
-      </div>
-      <div className='article-info'>
+           )}  
 
-        <div>{article.managerName} {article.updatedAt} ({likeCount})</div>
+        </div>
+        </div>
+        <div className = "title-info">
+          <div className = "info-left">
+            <span className = "manager-name">{article.managerName}</span>
+            <span className = "update-time">{article.updatedAt}</span>
+          </div>
+          <div className = "info-right"> 
+            <span className = "recommand-count">좋아요 {likeCount} 개</span>
+          </div>
+        </div>
+      
+      <div className='article-info'>
       </div>
       {editMode ? (
         <textarea className='body-edit'
