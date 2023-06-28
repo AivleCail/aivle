@@ -278,16 +278,22 @@ const ArticleContent = ({ article, comments, isOpen, closeModal }) => {
       <br />
       {editMode ? null :(
         <div className="article-comment">
-          <h3>Comment</h3>
+          <div className='comments-top'>
+            <img className="img" src={process.env.PUBLIC_URL + "chat.svg"}/>
+            <h3>{ articleComments.length} Comments</h3>
+          </div>          
           <form onSubmit={handleNewCommentSubmit}>
-              <textarea
+            <div className='comment-input-wrapper'>
+            <textarea
                 type="text"
-                placeholder="댓글을 입력하세요."
+                placeholder="댓글 작성 시 타인에 대한 배려와 책임을 담아주세요."
                 value={newCommentText}
                 onChange={(e) => setNewCommentText(e.target.value)}
                 className="comment-input"
               />
-              <button type="submit" className="comment-button">Add Comment</button>
+              <button type="submit" className="comment-button">등록</button>
+            </div>
+             
           </form>
           {articleComments && articleComments.length > 0 ? (
             <ul>
