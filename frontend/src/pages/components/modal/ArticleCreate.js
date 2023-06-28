@@ -40,7 +40,7 @@ const ArticleCreate = ({closeModal}) => {
             return;
         }
 
-        const check = window.confirm('게시물 작성 하기');
+        const check = window.confirm('게시글을 작성하시겠습니까?');
         if (!check) {
             return;
         }  
@@ -62,7 +62,7 @@ const ArticleCreate = ({closeModal}) => {
 
             .then((response) => {
             console.log(response.data);
-            alert("게시글 작성완료"); 
+            alert("게시글을 작성 완료했습니다."); 
             closeModal();
             })
             .catch((error) => {
@@ -79,7 +79,7 @@ const ArticleCreate = ({closeModal}) => {
 
     return (
       <div className="create-article-container">
-        <h2>게시물 생성</h2>
+        <h2>게시글 작성</h2>
         <form onSubmit={handleSubmit}>
           <input
             type="text"
@@ -95,7 +95,7 @@ const ArticleCreate = ({closeModal}) => {
           <div><p>카테고리</p>
             <select
               type="text"
-              placeholder="카테고리 작성해 주세요"
+              placeholder="카테고리를 작성해 주세요"
               value={category}
               onChange={handleCategoryChange}
               >

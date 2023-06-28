@@ -156,25 +156,25 @@ const ArticleList = () => {
             </div>
 
             <div className="article-mid-container">
-  <CommonTable headersName={['카테고리', '제목', '글쓴이', '작성 일시', '조회수', '추천수']} columnWidths={['6%','', '15%', '15%', '5%', '5%']}>
-    {currentArticles.map((article) => (
-      <CommonTableRow
-        key={article.articleId}
-        onClick={() => openModal(article)}
-        className={article.category === '공지' ? 'notice-row' : '' }
-      >
-        <CommonTableColumn>{article.category}</CommonTableColumn>
-        <CommonTableColumn className='article-title-col'>{article.articleTitle}</CommonTableColumn>
-        <CommonTableColumn className='article-name-col'>
-          {article.managerName.length > 1 ? `${article.managerName.charAt(0)}*${article.managerName.slice(-1)}` : article.managerName}
-        </CommonTableColumn>
-        <CommonTableColumn>{article.createdAt.substring(0, 16)}</CommonTableColumn>
-        <CommonTableColumn>{article.count}</CommonTableColumn>
-        <CommonTableColumn>{article.likeCount}</CommonTableColumn>
-      </CommonTableRow>
-    ))}
-  </CommonTable>
-</div>
+              <CommonTable headersName={['카테고리', '제목', '글쓴이', '작성 일시', '조회수', '추천수']} columnWidths={['6%','', '15%', '15%', '5%', '5%']}>
+                {currentArticles.map((article) => (
+                  <CommonTableRow
+                    key={article.articleId}
+                    onClick={() => openModal(article)}
+                    className={article.category === '공지' ? 'notice-row' : '' }
+                  >
+                    <CommonTableColumn>{article.category}</CommonTableColumn>
+                    <CommonTableColumn className='article-title-col'>{article.articleTitle}</CommonTableColumn>
+                    <CommonTableColumn className='article-name-col'>
+                      {article.managerName.length > 1 ? `${article.managerName.charAt(0)}*${article.managerName.slice(-1)}` : article.managerName}
+                    </CommonTableColumn>
+                    <CommonTableColumn>{article.createdAt.substring(0, 16)}</CommonTableColumn>
+                    <CommonTableColumn>{article.count}</CommonTableColumn>
+                    <CommonTableColumn>{article.likeCount}</CommonTableColumn>
+                  </CommonTableRow>
+                ))}
+              </CommonTable>
+            </div>
 
 
 

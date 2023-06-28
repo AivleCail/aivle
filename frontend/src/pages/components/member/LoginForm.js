@@ -24,7 +24,7 @@ const LoginForm = ({ activeIndex, handleManagerClick, handleExternalWorkerClick,
           <input type="text" className="text-input" placeholder="이메일 입력" value={email} onChange={(e) => setEmail(e.target.value)} onKeyPress={handleKeyPress} />
         </div>
         <div className='input-border'>
-          <img className="icon-input" alt="Element" src={process.env.PUBLIC_URL + '/login_pw.png'} />
+          <img className="icon-input1" alt="Element" src={process.env.PUBLIC_URL + '/login_pw.png'} />
           <input type="password" className="text-input" placeholder="비밀번호 입력" value={password} onChange={(e) => setPassword(e.target.value)} onKeyPress={handleKeyPress} />
         </div>
       </div>

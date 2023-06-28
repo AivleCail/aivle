@@ -183,6 +183,12 @@
     width: 2rem;
   }
   
+  .icon-input1 {
+    margin-left: 0.15rem;
+    margin-right: 0.15rem;
+    width: 1.7rem;
+  }
+
   .log-error-message {
     color: red;
   }
