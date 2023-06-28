@@ -19,16 +19,20 @@ def voc_check(request):
         file = request.FILES["file"]
         result = openai.Audio.transcribe("whisper-1", file)
 
-        keyword = "추가사항"
+        keywords = ["추가의견", "추가 의견"]
         res=result['text']
-        index = res.find(keyword)
+        before_sentence = ""
+        after_sentence = ""
 
-        if index != -1:
-            before_sentence = res[:index].strip()
-            after_sentence = res[index:].replace(keyword,"").strip()
-        else:
-            before_sentence = ""
-            after_sentence = ""
+        for keyword in keywords:
+            index = res.find(keyword)
+
+            if index != -1:
+                before_sentence = res[:index].strip()
+                after_sentence = res[index:].replace(keyword,"").strip()
+            else:
+                before_sentence = res
+                after_sentence = ""
             
         stopwords = ['도', '는', '다', '의', '가', '이', '은', '한', '에', '하', '고', '을', '를', '인', '듯', '과', '와', '네', '들', '듯', '지', '임', '게','게임']
         max_len = 100
@@ -52,6 +56,8 @@ def voc_check(request):
         print(new_sequences)
 
         data = {
+            "voc_before":before_sentence,
+            "voc_after":after_sentence,
             "voc_entire":before_sentence+after_sentence,
             "voc_status": "O" if score > 0.5 else "X",
             "voc_status_detail": after_sentence,
