@@ -223,8 +223,9 @@ const ArticleContent = ({ article, comments, isOpen, closeModal }) => {
 
   return (
     <div className="article-total">
+      <div className = 'title-category'>
+        <span>카테고리 : {editedCategory}</span></div>
       <div className='title-group'>
-
         {editMode ? (
           <textarea className='title-edit'
             type="text"
@@ -252,13 +253,9 @@ const ArticleContent = ({ article, comments, isOpen, closeModal }) => {
             추천
           </button>    
            )}
-
       </div>
       </div>
       <div className='article-info'>
-
-            <p>{editedCategory}</p>
-
 
         <div>{article.managerName} {article.updatedAt} ({likeCount})</div>
       </div>
