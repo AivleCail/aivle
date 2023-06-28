@@ -92,16 +92,18 @@ const ArticleCreate = ({closeModal}) => {
             value={body}
             onChange={handleBodyChange}
           ></textarea>
-          <select
-            type="text"
-            placeholder="카테고리 작성해 주세요"
-            value={category}
-            onChange={handleCategoryChange}
-            >
+          <div><p>카테고리</p>
+            <select
+              type="text"
+              placeholder="카테고리 작성해 주세요"
+              value={category}
+              onChange={handleCategoryChange}
+              >
                 <option value="">선택</option>
                 <option value="공지">공지</option>
                 <option value="일반">일반</option>
-            </select>
+              </select>
+          </div>
 
           <button type="submit" >업로드</button>
         </form>
