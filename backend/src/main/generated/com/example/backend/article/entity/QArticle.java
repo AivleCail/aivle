@@ -38,6 +38,8 @@ public class QArticle extends EntityPathBase<Article> {
 
     public final com.example.backend.manager.entity.QManager manager;
 
+    public final ListPath<Recommend, QRecommend> Recommend = this.<Recommend, QRecommend>createList("Recommend", Recommend.class, QRecommend.class, PathInits.DIRECT2);
+
     public final StringPath title = createString("title");
 
     public final DateTimePath<java.time.LocalDateTime> updatedAt = createDateTime("updatedAt", java.time.LocalDateTime.class);

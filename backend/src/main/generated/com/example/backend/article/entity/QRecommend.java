@@ -24,6 +24,8 @@ public class QRecommend extends EntityPathBase<Recommend> {
 
     public final QArticle article;
 
+    public final NumberPath<Integer> counts = createNumber("counts", Integer.class);
+
     public final NumberPath<Long> id = createNumber("id", Long.class);
 
     public final com.example.backend.manager.entity.QManager manager;
