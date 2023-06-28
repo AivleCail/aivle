@@ -82,9 +82,9 @@ const Signup = () => {
             auth: role === 'manager' ? 'ROLE_ADMIN' : 'ROLE_USER',
           }, { withCredentials: true })
           .then((response) => {
-            console.log('Well done!');
-            console.log('User profile', response.data.user);
-            console.log('User token', response.data.jwt);
+            // console.log('Well done!');
+            // console.log('User profile', response.data.user);
+            // console.log('User token', response.data.jwt);
             window.alert(`회원가입이 완료되었습니다.`)
             navigate('/');
           })

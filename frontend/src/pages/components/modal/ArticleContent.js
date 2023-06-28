@@ -224,7 +224,7 @@ const ArticleContent = ({ article, comments, isOpen, closeModal }) => {
   return (
     <div className="article-total">
       <div className = 'title-category'>
-        <span>카테고리 : {editedCategory}</span></div>
+        <span>{editedCategory}</span></div>
       <div className='title-group'>
         {editMode ? (
           <textarea className='title-edit'
@@ -258,7 +258,7 @@ const ArticleContent = ({ article, comments, isOpen, closeModal }) => {
         <div className = "title-info">
           <div className = "info-left">
             <span className = "manager-name">{article.managerName}</span>
-            <span className = "update-time">{article.updatedAt}</span>
+            <span className = "update-time">{article.createdAt}</span>
           </div>
           <div className = "info-right"> 
             <span className = "recommand-count">좋아요 {likeCount} 개</span>
