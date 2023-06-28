@@ -9,6 +9,7 @@
     }
     .context {
       position: static !important;
+      height: 90%;
     }
 }
   
@@ -45,13 +46,13 @@
     font-size: 1.5rem;
     padding: 1rem;
     font-weight: bold;
-    width: 28rem;
+    width: 24rem;
 }
 
 .radio-buttons {
     display: flex;
     margin: 0.5rem;
-    width: 28rem;
+    width: 24rem;
 }
 
 .user-type-button {
@@ -60,8 +61,8 @@
     font-size: 1rem;
     border: none;
     cursor: pointer;
-    width : 14rem;
-    height : 2rem;
+    width : 12rem;
+    height : 1.7rem;
 }
   
 .selected {
@@ -78,15 +79,15 @@
   
 .a-input-group-label {
     align-self: flex-start;
-    font-size: 1.1rem;
+    font-size: 1rem;
     margin-bottom: 0.5rem;
     margin-right: 1rem;
 }
 
 .signup-input {
     font-size: 1rem;
-    width: 26rem;
-    height: 2rem;
+    width: 22rem;
+    height: 1.7rem;
     padding: 0 1rem;
     border: 0.1rem solid #B7B7B7;
     border-radius: 10px;
@@ -105,7 +106,7 @@
     border-radius: 0.2rem;
     border: none;
     cursor: pointer;
-    width: 28rem;
+    width: 24rem;
     height: 2rem;
 }
 
@@ -141,7 +142,7 @@
 .checkbox-container{
     display: flex;
     margin-bottom: 0.5rem;
-    width: 28rem;
+    width: 24rem;
     align-items: center;
     justify-content: center;
 }
@@ -169,9 +170,8 @@
 
   .signup-close-button-wrapper {
     display: flex;
-    margin-left: 37rem;
-    align-items: center;
-    justify-content: center;
+    justify-content: end;
+    width: 24rem;
   }
 
   .signup-close-button {
