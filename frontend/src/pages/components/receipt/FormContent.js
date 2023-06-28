@@ -130,10 +130,10 @@ const FormContent = ({ setSelectedFile, handleFileChange, handleSubmit }) => {
   return (
     <div className='form-content'>
 
-        <div>
-          <button className="record-start" onClick={onRecAudio}>녹음 시작</button>
-          <button className="record-stop" onClick={offRecAudio}>녹음 정지</button>
-        </div>
+        {/* //<div>
+          //<button className="record-start" onClick={onRecAudio}>녹음 시작</button>
+          //<button className="record-stop" onClick={offRecAudio}>녹음 정지</button>
+        //</div> */}
         <div className='audio-start'>
             <button className='upload-start-button' onClick={play} disabled={disabled}>재생</button>
         </div>
