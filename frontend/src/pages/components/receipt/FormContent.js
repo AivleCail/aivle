@@ -1,7 +1,7 @@
 import React, { useState, useRef, useCallback } from "react";
 import AudioRecord from "./AudioContent";
 
-const FormContent = ({ setSelectedFile, handleFileChange, handleSubmit }) => {
+const FormContent = ({ selectedFile, setSelectedFile, handleFileChange, handleSubmit }) => {
   const audioRef = useRef(null);
 
   const [stream, setStream] = useState();
@@ -107,12 +107,12 @@ const FormContent = ({ setSelectedFile, handleFileChange, handleSubmit }) => {
   // };
   
 
-  // const handlePlayAudio = () => {
-  //   if (selectedFile) {
-  //     audioRef.current.src = URL.createObjectURL(selectedFile);
-  //     audioRef.current.play();
-  //   }
-  // };
+  const handlePlayAudio = () => {
+    if (selectedFile) {
+      audioRef.current.src = URL.createObjectURL(selectedFile);
+      audioRef.current.play();
+    }
+  };
 
 //   const downloadAudioFile = useCallback(() => {
 //   if (audioUrl) {
@@ -134,21 +134,21 @@ const FormContent = ({ setSelectedFile, handleFileChange, handleSubmit }) => {
           //<button className="record-start" onClick={onRecAudio}>녹음 시작</button>
           //<button className="record-stop" onClick={offRecAudio}>녹음 정지</button>
         //</div> */}
-        <div className='audio-start'>
+        {/* <div className='audio-start'>
             <button className='upload-start-button' onClick={play} disabled={disabled}>재생</button>
-        </div>
+        </div> */}
         {/* <button onClick={downloadAudioFile}>다운로드</button> */}
         {/* <AudioRecord /> */}
         <form onSubmit={handleSubmit}>
         <div className='upload-start'>
           <input type='file' name='file' accept='.mp3, .m4a' onChange={handleFileChange} />
-          {/* <div className='audio-start'>
-            <button type='button' onClick={handlePlayAudio} className='upload-start-button'>재생</button>
+          <div className='audio-start'>
+            <button type='submit' onClick={handlePlayAudio} className='upload-start-button'>재생</button>
             <audio ref={audioRef} controls></audio>
-          </div> */}
+          </div>
         </div>
         <div>
-          <button type="submit" className='receipt-button voice-send-button'>접수 내용 확인</button>
+          {/* <button type="submit" className='receipt-button voice-send-button'>접수 내용 확인</button> */}
         </div>
         </form>
     </div>
