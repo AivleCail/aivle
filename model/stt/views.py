@@ -29,19 +29,21 @@ def voc_check(request):
         else:
             before_sentence = ""
             after_sentence = ""
-
-        stopwords = ['의','가','이','은','들','는','좀','걍','과','도','를','으로','자','에','와','한','하다','하','게','되','어서','때문','니까','어야','랑','야']
-        max_len = 25
-        model_file = 'new-model.h5'
+            
+        stopwords = ['도', '는', '다', '의', '가', '이', '은', '한', '에', '하', '고', '을', '를', '인', '듯', '과', '와', '네', '들', '듯', '지', '임', '게','게임']
+        max_len = 100
+        model_file = 'third.h5'
         model_path = os.path.join(os.path.dirname(__file__), model_file)
         model = load_model(model_path)
         mecab = MeCab()
         base_dir = os.path.dirname(os.path.abspath(__file__))
-        tokenizer_file = os.path.join(base_dir, 'new_tokenizer.pkl')
+        tokenizer_file = os.path.join(base_dir, 'thirdtry.pickle')
         with open(tokenizer_file, 'rb') as f:
-            tokenizer = pickle.load(f, encoding='latin1')
-
-        new_token = [word for word in mecab.morphs(before_sentence) if not word in stopwords]
+            tokenizer = pickle.load(f, encoding='utf-8')
+            
+        new_token=re.sub(r'[^ㄱ-ㅎㅏ-ㅣ가-힣 ]','', before_sentence)
+        new_token = mecab.morphs(before_sentence)
+        new_token = [word for word in new_token if not word in stopwords]
         new_sequences = tokenizer.texts_to_sequences([new_token])
         new_pad = pad_sequences(new_sequences, maxlen = max_len)
         score = float(model.predict(new_pad))
