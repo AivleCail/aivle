@@ -12,6 +12,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -52,9 +53,17 @@ public class VocRepositoryImpl implements VocRepositoryCustom{
     public VocTypeCountDto searchType() {
         QVoc voc = QVoc.voc; // Assuming QVoc is the generated Q-class for your Voc entity
 
+
+        LocalDate today = LocalDate.now();
+        int year = today.getYear();
+        int month = today.getMonthValue();
+        int day = today.getDayOfMonth();
+
         List<Voc> content = queryFactory
                 .selectFrom(voc)
-                .where()
+                .where(voc.date.year().eq(year),
+                        voc.date.month().eq(month),
+                        voc.date.dayOfMonth().eq(day))
                 .orderBy(voc.date.desc())
                 .fetch();
 
