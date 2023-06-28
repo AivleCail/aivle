@@ -26,7 +26,7 @@ const VocContent = ({ voc }) => {
             <td>
               <tr className='trl'>
                 <img className="voc-number-icon" alt="Element" src={process.env.PUBLIC_URL + '/voc-number-icon.png'} />
-                접수일시
+                접수 일시
               </tr>
               <tr className="trl-voc">{voc.receptionDate}</tr>
             </td>
@@ -42,7 +42,7 @@ const VocContent = ({ voc }) => {
             <td>
               <tr className='trl'>
                 <img className="voc-number-icon" alt="Element" src={process.env.PUBLIC_URL + '/voc-number-icon.png'} />
-                상태
+                조치 여부
               </tr>
               <tr className="trl-voc">{voc.percentage !== "빈값입니다" ?voc.checkStatus + ` (신뢰도 : ${voc.percentage})` : voc.checkStatus}</tr>
             </td>
@@ -50,7 +50,7 @@ const VocContent = ({ voc }) => {
           <tr>
             <tr className='trl'>
               <img className="voc-number-icon" alt="Element" src={process.env.PUBLIC_URL + '/voc-number-icon.png'} />
-              초기접수내용
+              초기 접수 내용
             </tr>
             <tr className="trl-voc">{voc.opinion}</tr>
           </tr>

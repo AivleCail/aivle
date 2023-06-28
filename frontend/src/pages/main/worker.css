@@ -74,7 +74,12 @@
     display: flex;
   }
   
-  
+  .worker-col-address {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding: 0 2.5rem 0;
+  }
   
   
   /*

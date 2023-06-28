@@ -106,7 +106,7 @@ const VOC = () => {
   
   const handleSend = async () => {
     if (selectedItems.length === 0) {
-      alert('보낼 대상을 체크해주세요.');
+      alert('보낼 대상을 체크해 주세요.');
       return;
     }
 
@@ -118,8 +118,11 @@ const VOC = () => {
           Authorization: `Bearer ${accessToken}`,
         },
       });
-      alert('해당 고객분들께 메세지 전송이 완료 되었습니다!');
-
+      if (selectedItems.length === 1) {
+        alert('해당 고객에게 메시지 전송이 완료되었습니다!');
+      } else {
+        alert('해당 고객분들께 메시지 전송이 완료되었습니다!');
+      }
       
     } catch (error) {
       console.error('Error sending SMS:', error);
@@ -174,7 +177,7 @@ const VOC = () => {
                     onChange={(e) => handleAllCheck(e.target.checked)}
                     checked={checkItems.length === currentVocList.length && currentVocList.length > 0}
                   />
-                  ,'번호', '고객명', '지역', '전화번호', '장애유형', '접수 일시', '조치여부']}
+                  ,'번호', '고객명', '지역', '전화번호', '장애유형', '접수 일시', '조치 여부']}
                   columnWidths={['3%', '5%', '8%', '18%', '10%', '15%', '10%', '5%']}>
                   {currentVocList.map((voc) => (
                     <CommonTableRow key={voc.vocId} onClick={() => openModal(voc)}>
