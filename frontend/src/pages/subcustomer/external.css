@@ -18,7 +18,7 @@
   margin-top: 5%;
   justify-content: space-between;
   font-weight: bold;
-  color:#333a8c;
+  color:black;
   
 }
 
@@ -76,7 +76,7 @@ hr {
     display: flex;
     justify-content: center;
     justify-content: space-around;
-    margin: 1rem;
+    margin: 2rem 1rem;
 }
 
 .cail-inform-img {
@@ -121,7 +121,6 @@ hr {
     border-radius: 10px;
     cursor: pointer;
     margin: 0.5rem;
-    margin-right: 10%;
     background: rgba(133, 184, 247, 0.5);
     border: 0.1rem solid #333a8c;
     border-radius: 20px;
@@ -143,7 +142,7 @@ hr {
 
 
 .voice-send-button {
-    margin-top: 2rem;
+    margin-top: 1rem;
 }
 
 .external-refresh-button {
@@ -257,9 +256,9 @@ hr {
     background-color: #61b5ed59;
     border-radius: 10px;
     padding: 1rem;
-    width: 15rem;
+    width: 18rem;
     height: 5rem;
-    margin: auto;
+    margin: 1rem auto;
     overflow: scroll;
   }
 

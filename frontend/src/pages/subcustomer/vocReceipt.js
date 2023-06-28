@@ -114,6 +114,7 @@ const VocReceipt = () => {
       />
       <hr />
       <FormContent
+        selectedFile={selectedFile}
         setSelectedFile={setSelectedFile}
         handleFileChange={handleFileChange}
         handleSubmit={handleSubmit}
