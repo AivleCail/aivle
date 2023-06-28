@@ -105,7 +105,7 @@ const ArticleCreate = ({closeModal}) => {
               </select>
           </div>
 
-          <button type="submit" >업로드</button>
+          <button class = "create-button" type="submit" >업로드</button>
         </form>
         </div>
   );
