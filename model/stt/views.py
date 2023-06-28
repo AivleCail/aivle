@@ -91,21 +91,19 @@ def external_check(request):
         
         string=construction_date
         search_value = "오전"
+        search_value2 = "오후"
 
         if search_value in string:
             numbers = re.sub(r'[^0-9]', '', string)
             date_str = str(numbers)
-            if len(date_str)==8 or len(date_str)==9:
-                date = datetime.datetime.strptime(date_str, "%Y%m%d%H")
-                formatted_date = date.strftime("%Y-%m-%d %H:%M")
-            else:
-                date = datetime.datetime.strptime(date_str, "%Y%m%d%H%M")
-                formatted_date = date.strftime("%Y-%m-%d %H:%M")
+            date = datetime.datetime.strptime(date_str, "%Y%m%d%H")
+            formatted_date = date.strftime("%Y-%m-%d %H:%M")
             
-        else:    
+        if search_value2 in string:    
             numbers = re.sub(r'[^0-9]', '', string)
             date_str = str(numbers)
-            date = datetime.datetime.strptime(date_str, "%Y%m%d%H%M")
+            date = datetime.datetime.strptime(date_str, "%Y%m%d%H")
+            formatted_date = date.strftime("%Y-%m-%d %H:%M")
             hours_to_add=12
             afternoon_time=date+datetime.timedelta(hours=hours_to_add)
             formatted_date = afternoon_time.strftime("%Y-%m-%d %H:%M")
