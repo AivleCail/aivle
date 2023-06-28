@@ -34,10 +34,10 @@
     background-color: #272626;
     color: white;
     font-size: 16px;
-    font-weight: bold;
     border-radius: 5px;
     height : 2.2rem;
     width : 5rem;
+    font-family: 'TheJamsil';
   }
   
   .article-create-btn:hover { 
