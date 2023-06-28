@@ -24,7 +24,7 @@ const Worker = () => {
   useEffect(() => {  // 토큰 없으면 접근 불가능
     const accessToken = localStorage.getItem('accessToken');
     if (!accessToken) {
-      alert('로그인 후 이용가능합니다.');
+      alert('로그인 후 이용 가능합니다.');
       navigate('/');
     }
   }, [navigate]);
@@ -102,26 +102,26 @@ const Worker = () => {
             </div>
 
           <div className="worker">
-            <CommonTable headersName={['번호', '업체명', '공사 위치', '공사시작시간', '완료여부']}
+            <CommonTable headersName={['번호', '업체명', '공사 위치', '공사 시작 일시', '완료 여부']}
             columnWidths={['5%', '10%', '20%', '11%','7%']}>
               {currentWorkerList.map((worker) => (
                 <CommonTableRow key={worker.externalId} onClick={() => openModal(worker)}>
                   <CommonTableColumn>{worker.externalId}</CommonTableColumn>
                   <CommonTableColumn>{worker.companyName}</CommonTableColumn>
-                  <CommonTableColumn>{`${worker.externalAddress.split(' ').slice(0, 5).join(' ')}...`}</CommonTableColumn>
+                  <CommonTableColumn className='worker-col-address'>{worker.externalAddress}</CommonTableColumn>
                   <CommonTableColumn>{worker.externalStartdate.slice(0, 16)}</CommonTableColumn>
                   <CommonTableColumn>
                     {worker.externalStatus === '공사중' || worker.externalStatus === '공사 중'? (
                       <div>
-                        <span style={{fontSize:'10.5px'}}>🔴</span><span> 공사중</span>
+                        <span style={{fontSize:'10.5px'}}>🔴</span><span> 공사 중</span>
                         </div>
                     ) : worker.externalStatus === '공사예정' || worker.externalStatus === '공사 예정' ? (
                       <div>
-                        <span style={{fontSize:'10.5px'}}>🟡</span><span> 공사예정</span>
+                        <span style={{fontSize:'10.5px'}}>🟡</span><span> 공사 예정</span>
                         </div>
                     ) : worker.externalStatus === '공사완료' || worker.externalStatus === '공사 완료' ? (
                       <div>
-                        <span style={{ fontSize:'10.5px'}}>🟢</span><span> 공사완료</span>
+                        <span style={{ fontSize:'10.5px'}}>🟢</span><span> 공사 완료</span>
                         </div>
                     ) : null}
                   </CommonTableColumn>
