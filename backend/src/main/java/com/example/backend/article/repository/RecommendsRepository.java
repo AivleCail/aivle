@@ -21,3 +21,4 @@ public interface RecommendsRepository extends JpaRepository<Recommend, Long> {
 
 
 }
+
