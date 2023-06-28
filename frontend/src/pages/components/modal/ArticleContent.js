@@ -177,6 +177,8 @@ const ArticleContent = ({ article, comments, isOpen, closeModal,  }) => {
   
   const handleLike = async (e) => {
     e.preventDefault();
+    const accessToken = localStorage.getItem('accessToken');
+    
     try {
       const accessToken = localStorage.getItem('accessToken');
       
@@ -210,7 +212,7 @@ const ArticleContent = ({ article, comments, isOpen, closeModal,  }) => {
           },
         });
         // window.alert("추천 삭제가 완료되었습니다.");
-        setLikeCount((prevCount) => prevCount - 1);
+        setLikeCount(article.likeCount = article.likeCount - 1);
       } else {
         // Like the article
         await axios.post(
@@ -227,7 +229,7 @@ const ArticleContent = ({ article, comments, isOpen, closeModal,  }) => {
           }
         );
         //window.alert("추천 완료되었습니다.");
-        setLikeCount((prevCount) => prevCount + 1);
+        setLikeCount(article.likeCount = article.likeCount + 1);
       }
       setIsRecommended(!hasRecommendations); 
     } catch (error) {
