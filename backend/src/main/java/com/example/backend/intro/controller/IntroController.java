@@ -2,6 +2,7 @@ package com.example.backend.intro.controller;
 
 
 
+import com.example.backend.article.dto.ArticleIntroResponseDto;
 import com.example.backend.external.dto.ExternalStartDateCountDto;
 import com.example.backend.external.dto.ExternalStatusCountDto;
 import com.example.backend.external.service.ExternalService;
@@ -52,5 +53,9 @@ public class IntroController {
     }
 
 
+    @GetMapping("/article")
+    public ResponseEntity<List<ArticleIntroResponseDto>> bestArticle() {
+        return ResponseEntity.ok(introService.BestArticle());
+    }
 
 }

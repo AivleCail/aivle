@@ -1,5 +1,6 @@
 package com.example.backend.article.repository;
 
+import com.example.backend.article.dto.ArticleIntroResponseDto;
 import com.example.backend.article.dto.ArticlePageResponseDto;
 import com.example.backend.article.entity.Article;
 import com.querydsl.jpa.impl.JPAQueryFactory;
@@ -42,5 +43,23 @@ public class ArticleRepositoryImpl implements ArticleRepositoryCustom{
         return new PageImpl<>(pages, pageable, totalSize);
     }
 
+    @Override
+    public List<ArticleIntroResponseDto> best() {
 
+
+
+        List<Article> content = queryFactory
+                .selectFrom(article)
+                .where(article.category.eq("공지"))
+                .orderBy(article.likeCount.desc())
+                .limit(4)
+                .fetch();
+
+        List<ArticleIntroResponseDto> Articles = content
+                .stream()
+                .map(ArticleIntroResponseDto::of)
+                .collect(Collectors.toList());
+
+        return Articles;
+    }
 }

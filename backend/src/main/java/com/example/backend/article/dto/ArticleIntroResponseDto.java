@@ -12,6 +12,7 @@ public class ArticleIntroResponseDto {
     private Long articleId;
     private String articleTitle;
     private String managerName;
+    private int likeCount;
     private String createdAt;
 
 
@@ -20,6 +21,7 @@ public class ArticleIntroResponseDto {
                 .articleId(article.getId())
                 .articleTitle(article.getTitle())
                 .managerName(article.getManager().getName())
+                .likeCount(article.getLikeCount())
                 .createdAt(article.getCreatedAt().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")))
                 .build();
     }
