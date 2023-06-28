@@ -1,3 +1,4 @@
+
 .article-comment h3 {
   margin-bottom: 10px;
   border-bottom: 1px solid #ccc;
@@ -48,7 +49,26 @@ margin-bottom: 10px;
   word-wrap: break-word;
 }
 
+.article-like {
+  color: #000000;
+  font-size: 15px;
+  font-weight: 500 ;
+  display: flex;
 
+}
+
+.recommend-button {
+  cursor: pointer;
+  border: none;
+  background-color: #fff;
+  display: flex;
+  position: relative;
+}
+
+.recommand-button img {
+  width : 30px;
+  height : 30px;
+}
 
 .comment-button {
 background-color: rgba(224, 240, 216, 0.5);
@@ -152,6 +172,12 @@ margin-bottom: 0.1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-weight : 500;
+}
+
+.info-right {
+  color : black;
+  font-weight: 540;
 }
 
 .manager-name {
@@ -165,9 +191,11 @@ margin-bottom: 0.1rem;
 }
 
 .recommand-count {
-  color: black;
-  font-weight : 500;
-  padding-right: 0.4rem;
+  padding-right: 1.2rem;
+}
+
+.article-comment2 {
+  font-size: 15px;
 }
 
 

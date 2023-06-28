@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './ArticleContent.css'
 import { API_URL } from '../../config';
-const ArticleContent = ({ article, comments, isOpen, closeModal }) => {
+const ArticleContent = ({ article, comments, isOpen, closeModal,  }) => {
 
   const [newCommentText, setNewCommentText] = useState('');
   const [selectedArticle, setSelectedArticle] = useState(article);
@@ -21,12 +21,20 @@ const ArticleContent = ({ article, comments, isOpen, closeModal }) => {
 
   const [likeCount, setLikeCount] = useState(article.likeCount);
   const [hasRecommendation, sethasRecommendation] = useState(true);
+  const [count, setCount] = useState(article.count);
+  const [isRecommended, setIsRecommended] = useState(() => {
+    const storedValue = localStorage.getItem('isRecommended');
+    return storedValue ? JSON.parse(storedValue) : false;
+  });
+
+  
 
 
-  useEffect(() => {
-    setArticleComments(comments);
-    setLikeCount(article.likeCount);
-  }, [comments,article.likeCount]);
+  
+    useEffect(() => {
+      localStorage.setItem('isRecommended', JSON.stringify(isRecommended));
+    }, [isRecommended]);
+  
 
   useEffect(() => {
     const fetchCurManager = async () => {
@@ -45,7 +53,14 @@ const ArticleContent = ({ article, comments, isOpen, closeModal }) => {
     };
     fetchCurManager();
   }, []);
+
+  useEffect(() => {
+    setArticleComments(comments);
+    setLikeCount(article.likeCount);
+    setCount(article.count);
+  }, [comments, article.likeCount, article.count]);
   
+
   const handleNewCommentSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -158,6 +173,8 @@ const ArticleContent = ({ article, comments, isOpen, closeModal }) => {
     }
   };
 
+
+  
   const handleLike = async (e) => {
     e.preventDefault();
     try {
@@ -178,7 +195,6 @@ const ArticleContent = ({ article, comments, isOpen, closeModal }) => {
       });
       
       const hasRecommendations = response.data;
-
       sethasRecommendation(hasRecommendations);
 
       if (hasRecommendations) {
@@ -193,7 +209,7 @@ const ArticleContent = ({ article, comments, isOpen, closeModal }) => {
             Authorization: `Bearer ${accessToken}`,
           },
         });
-        window.alert("추천 삭제가 완료되었습니다.");
+        // window.alert("추천 삭제가 완료되었습니다.");
         setLikeCount((prevCount) => prevCount - 1);
       } else {
         // Like the article
@@ -210,21 +226,20 @@ const ArticleContent = ({ article, comments, isOpen, closeModal }) => {
             },
           }
         );
-        window.alert("추천 완료되었습니다.");
+        //window.alert("추천 완료되었습니다.");
         setLikeCount((prevCount) => prevCount + 1);
       }
+      setIsRecommended(!hasRecommendations); 
     } catch (error) {
       console.log(error);
     }
-    console.log(likeCount);
   };
-
 
 
   return (
     <div className="article-total">
       <div className = 'title-category'>
-        <span>카테고리 : {editedCategory}</span></div>
+        <span>{editedCategory}</span></div>
       <div className='title-group'>
         {editMode ? (
           <textarea className='title-edit'
@@ -247,11 +262,6 @@ const ArticleContent = ({ article, comments, isOpen, closeModal }) => {
             <img src={process.env.PUBLIC_URL + "deleteicon.svg"} alt="Delete" />
           </button>
         )}
-        {curManager && curManager.managerId !== article.managerId && (
-          <button className="recommend-button" onClick={handleLike}>
-            추천
-          </button>    
-           )}  
 
         </div>
         </div>
@@ -261,7 +271,7 @@ const ArticleContent = ({ article, comments, isOpen, closeModal }) => {
             <span className = "update-time">{article.updatedAt}</span>
           </div>
           <div className = "info-right"> 
-            <span className = "recommand-count">좋아요 {likeCount} 개</span>
+            <span className = "article-count">조회수 {article.count}</span>
           </div>
         </div>
       
@@ -276,6 +286,22 @@ const ArticleContent = ({ article, comments, isOpen, closeModal }) => {
         <p className='body-edit-text'>{editedBody}</p>
       )}
       <br />
+      <div className = "article-like">         
+            {curManager && curManager.managerId !== article.managerId && (
+              
+              <button className="recommend-button" onClick={handleLike}>
+              {isRecommended ? (
+                <img src={process.env.PUBLIC_URL + "heart.svg"} alt="" />
+              ) : (
+              <img src={process.env.PUBLIC_URL + "noheart.svg"} alt="" />
+              )}  
+        </button>
+        
+        )}
+           <span className = "recommand-count">좋아요 {likeCount} 개</span> 
+          
+      </div>
+
       {editMode ? null :(
         <div className="article-comment">
           <h3>Comment</h3>
