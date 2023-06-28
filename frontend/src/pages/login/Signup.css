@@ -166,3 +166,21 @@
     display: flex;
     height: 2rem;
   }
+
+  .signup-close-button-wrapper {
+    display: flex;
+    margin-left: 37rem;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .signup-close-button {
+    cursor: pointer;
+    border: none;
+    background-color: #fff;
+  }
+
+  .signup-close-button img {
+    width: 20px;
+    height: 20px;
+  }
