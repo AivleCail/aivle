@@ -26,5 +26,10 @@
   width: auto;
   height: calc(100% - 142px);
 }
+
+@font-face {
+  font-family: "RIDIBatang";
+  src: url("./fonts/RIDIBatang.otf");
+}
   
   @import '~@fortawesome/fontawesome-free/css/all.min.css';

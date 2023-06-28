@@ -13,15 +13,15 @@ const WorkerContent = ({ worker }) => {
             <p className="worker-status">
               {worker.externalStatus === '공사중' || worker.externalStatus === '공사 중' ? (
                 <div>
-                  <span style={{ background: 'rgba(255, 193, 193, 0.5)' }}>공사중</span>
+                  <span style={{ background: 'rgba(255, 193, 193, 0.5)' }}>공사 중</span>
                 </div>
               ) : worker.externalStatus === '공사예정' || worker.externalStatus === '공사 예정' ? (
                 <div>
-                  <span style={{ background: 'rgba(255, 255, 210, 0.8)' }}>공사예정</span>
+                  <span style={{ background: 'rgba(255, 255, 210, 0.8)' }}>공사 예정</span>
                 </div>
               ) : worker.externalStatus === '공사완료' || worker.externalStatus === '공사 완료' ? (
                 <div>
-                  <span style={{ background: 'rgba(200, 255, 200, 0.6)' }}>공사완료</span>
+                  <span style={{ background: 'rgba(200, 255, 200, 0.6)' }}>공사 완료</span>
                 </div>
               ) : null}
             </p>
@@ -38,7 +38,7 @@ const WorkerContent = ({ worker }) => {
               <tr>
                 <tr className='trl'>
                 <img className="worker-number-icon" alt="Element" src={process.env.PUBLIC_URL + '/voc-number-icon.png'} />
-                  공사위치
+                  공사 위치
                 </tr>
                 <tr className="trl-worker">{worker.externalAddress}</tr>
               </tr>
@@ -46,14 +46,14 @@ const WorkerContent = ({ worker }) => {
                 <td>
                   <tr className='trl'>
                   <img className="worker-number-icon" alt="Element" src={process.env.PUBLIC_URL + '/voc-number-icon.png'} />
-                    공사시작일시
+                    공사 시작 일시
                   </tr>
                   <tr className="trl-worker">{worker.externalStartdate}</tr>
                 </td>
                 <td>
                   <tr className='trl'>
                   <img className="worker-number-icon" alt="Element" src={process.env.PUBLIC_URL + '/voc-number-icon.png'} />
-                    공사종료일시
+                    공사 종료 일시
                   </tr>
                   <tr className="trl-worker">{worker.externalEnddate}</tr>
                 </td>
@@ -61,7 +61,7 @@ const WorkerContent = ({ worker }) => {
               <tr>
                 <tr className='trl'>
                 <img className="worker-number-icon" alt="Element" src={process.env.PUBLIC_URL + '/voc-number-icon.png'} />
-                  접수일시
+                  접수 일시
                 </tr>
                 <tr className="trl-worker">{worker.receiptDate}</tr>
               </tr>

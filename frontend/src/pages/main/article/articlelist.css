@@ -73,3 +73,10 @@
   .notice-row {
     background-color: rgba(255, 255, 200, 0.608);
   }
+  
+  .article-title-col {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding: 0 1.5rem 0;
+  }

@@ -24,7 +24,7 @@ const ArticleList = () => {
   useEffect(() => {
     const accessToken = localStorage.getItem('accessToken');
     if (!accessToken) {
-      alert('로그인 후 이용가능합니다.');
+      alert('로그인 후 이용 가능합니다.');
       navigate('/');
     }
   }, [navigate]);
@@ -156,7 +156,7 @@ const ArticleList = () => {
             </div>
 
             <div className="article-mid-container">
-  <CommonTable headersName={['분류', '제목', '글쓴이', '작성일시', '조회']} columnWidths={['6%','', '15%', '20%', '8%']}>
+  <CommonTable headersName={['분류', '제목', '글쓴이', '작성 일시', '조회']} columnWidths={['6%','', '15%', '20%', '8%']}>
     {currentArticles.map((article) => (
       <CommonTableRow
         key={article.articleId}
@@ -164,7 +164,7 @@ const ArticleList = () => {
         className={article.category === '공지' ? 'notice-row' : '' }
       >
         <CommonTableColumn>{article.category}</CommonTableColumn>
-        <CommonTableColumn>{article.articleTitle}</CommonTableColumn>
+        <CommonTableColumn className='article-title-col'>{article.articleTitle}</CommonTableColumn>
         <CommonTableColumn>{article.managerName}</CommonTableColumn>
         <CommonTableColumn>{article.createdAt.substring(0, 16)}</CommonTableColumn>
         <CommonTableColumn>{article.count}</CommonTableColumn>
