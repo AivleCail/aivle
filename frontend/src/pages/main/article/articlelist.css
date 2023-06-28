@@ -84,3 +84,7 @@
   .article-name-col {
     letter-spacing: 0.1rem;
   }
+
+  .main-background{
+    z-index: 3;
+  }

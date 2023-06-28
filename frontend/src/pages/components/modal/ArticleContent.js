@@ -237,14 +237,15 @@ const ArticleContent = ({ article, comments, isOpen, closeModal,  }) => {
     }
   };
 
-
   return (
     <div className="article-total">
-      <div className = 'title-category'>
-        <span>{editedCategory}</span></div>
+      {editMode ? null :(
+        <div className = 'title-category'>
+          <span>{editedCategory}</span></div>)}
       <div className='title-group'>
         {editMode ? (
           <textarea className='title-edit'
+            placeholder='제목'
             type="text"
             value={editedTitle}
             onChange={(e) => setEditedTitle(e.target.value)}
@@ -253,34 +254,38 @@ const ArticleContent = ({ article, comments, isOpen, closeModal,  }) => {
           <h2 className='title-edit-text'>{editedTitle}</h2>
         )}
         <div className = "button-group">
-        {curManager && curManager.managerId === article.managerId && (
-          editMode ? (
-              <button className="edit-button" onClick={handleUpdateArticle}>
-              <img src={process.env.PUBLIC_URL + "saveicon.svg"} alt="Update" /></button>
-          ) : ( <button className="edit-button" onClick={() => setEditMode(true)}><img src={process.env.PUBLIC_URL + "editicon.svg"} alt="Update" /></button>)
-        )}
-        {curManager && curManager.managerId === article.managerId && (
-          <button className="delete-button" onClick={() => handleDeleteArticle(article.articleId)}>
-            <img src={process.env.PUBLIC_URL + "deleteicon.svg"} alt="Delete" />
-          </button>
-        )}
-
+          {curManager && curManager.managerId === article.managerId && (
+            editMode ? (
+                <button className="edit-button-edit" onClick={handleUpdateArticle}>submit</button>
+            ) : ( <button className="edit-button" onClick={() => setEditMode(true)}><img src={process.env.PUBLIC_URL + "editicon.svg"} alt="Update" /></button>)
+          )}
+          {curManager && curManager.managerId === article.managerId && (
+            editMode ? null : (
+            <button className="delete-button" onClick={() => handleDeleteArticle(article.articleId)}>
+              <img src={process.env.PUBLIC_URL + "deleteicon.svg"} alt="Delete" />
+            </button>)
+          )}
         </div>
-        </div>
-        <div className = "title-info">
-          <div className = "info-left">
-            <span className = "manager-name">{article.managerName}</span>
-            <span className = "update-time">{article.createdAt}</span>
+      </div>
+        {editMode ? null :(
+          <div className = "title-info">
+            <div className = "info-left">
+              <span className = "manager-name">
+               {article.managerName.length > 1 ? `${article.managerName.charAt(0)}*${article.managerName.slice(-1)}` : article.managerName}
+              </span>
+              <span className = "update-time">{article.createdAt}</span>
+            </div>
+            <div className = "info-right"> 
+              <span className = "article-count">조회수 {article.count}</span>
+            </div>
           </div>
-          <div className = "info-right"> 
-            <span className = "article-count">조회수 {article.count}</span>
-          </div>
-        </div>
+        )}
       
       <div className='article-info'>
       </div>
       {editMode ? (
         <textarea className='body-edit'
+          placeholder='본문'
           value={editedBody}
           onChange={(e) => setEditedBody(e.target.value)}
         />
@@ -288,21 +293,23 @@ const ArticleContent = ({ article, comments, isOpen, closeModal,  }) => {
         <p className='body-edit-text'>{editedBody}</p>
       )}
       <br />
-      <div className = "article-like">         
-            {curManager && curManager.managerId !== article.managerId && (
-              
-              <button className="recommend-button" onClick={handleLike}>
-              {isRecommended ? (
-                <img src={process.env.PUBLIC_URL + "heart.svg"} alt="" />
-              ) : (
-              <img src={process.env.PUBLIC_URL + "noheart.svg"} alt="" />
-              )}  
-        </button>
-        
-        )}
-           <span className = "recommand-count">좋아요 {likeCount} 개</span> 
+      {editMode ? null :(
+        <div className = "article-like">         
+              {curManager && curManager.managerId !== article.managerId && (
+                
+                <button className="recommend-button" onClick={handleLike}>
+                {isRecommended ? (
+                  <img src={process.env.PUBLIC_URL + "heart.svg"} alt="" />
+                ) : (
+                <img src={process.env.PUBLIC_URL + "noheart.svg"} alt="" />
+                )}  
+          </button>
           
-      </div>
+          )}
+            <span className = "recommand-count">좋아요 {likeCount} 개</span> 
+            
+        </div>
+      )}
 
       {editMode ? null :(
         <div className="article-comment">
@@ -328,7 +335,9 @@ const ArticleContent = ({ article, comments, isOpen, closeModal,  }) => {
               {articleComments.map((comment) => (
                 <li key={comment.commentId} className="article-comment-one">
                   <div className="comment-line">
-                    <h4>{comment.managerName}</h4>
+                    <h4>
+                      {comment.managerName.length > 1 ? `${comment.managerName.charAt(0)}*${comment.managerName.slice(-1)}` : comment.managerName}
+                    </h4>
                     <div className="right">
                     <p>{formatKoreanDateTime(`${new Date(comment.createdAt).toLocaleString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit' })}`)}</p>
                       {curManager && comment.managerId === curManager.managerId ? (
