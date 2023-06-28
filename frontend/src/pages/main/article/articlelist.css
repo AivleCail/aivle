@@ -78,5 +78,9 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    padding: 0 1.5rem 0;
+    padding: 0 2rem 0;
+  }
+
+  .article-name-col {
+    letter-spacing: 0.1rem;
   }

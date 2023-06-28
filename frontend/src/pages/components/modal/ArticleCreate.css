@@ -11,7 +11,7 @@
     flex-direction: column;
   }
   
-  .create-article-container input,
+  .create-article-container input[type="text"],
   .create-article-container textarea,
   .create-article-container select {
     padding: 10px;
@@ -22,12 +22,22 @@
     font-family: Arial, sans-serif;
     width: 100%;
     box-sizing: border-box;
+    resize: none;
+  }
+
+  .create-article-container input[type="text"]:focus {
+    outline: 1.9px solid #000;
   }
   
   .create-article-container textarea {
     height: 300px;
   }
   
+  .create-article-container p {
+    margin-top: 0.8rem;
+    margin-bottom: 0.5rem;
+  }
+
   .create-article-container select {
     appearance: none;
     background-color: #fff;
