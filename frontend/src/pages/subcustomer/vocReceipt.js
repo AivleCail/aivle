@@ -11,6 +11,8 @@ import { API_URL } from "../config";
 const VocReceipt = () => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [vocId, setVocId] = useState('');
+  const [vocBefore, setVocBefore] = useState('');
+  const [vocAfter, setVocAfter] = useState('');
   const [vocEntire, setVocEntire] = useState("");
   const [vocStatus, setVocStatus] = useState("");
   const [vocStatusDetail,setVocStatusDetail] = useState("");
@@ -45,6 +47,8 @@ const VocReceipt = () => {
       })
       .then((response) => {
         console.log(response.data);
+        setVocBefore(response.data.voc_before);
+        setVocAfter(response.data.voc_after);
         setVocEntire(response.data.voc_entire);
         setVocStatus(response.data.voc_status);
         setVocStatusDetail(response.data.voc_status_detail);
@@ -89,15 +93,15 @@ const VocReceipt = () => {
     }, 1000);
   };
 
-  const informText = "안녕하세요 Cail 입니다. 고객님의 문의 건에 대해 장애 처리가 완료되었습니다. 다음 안내에 알맞게 고객님의 제품이 정상 작동하는지 Cail에게 알려주세요.";
+  const informText = "안녕하세요 Cail 입니다. 고객님의 문의 건에 대해 장애 처리가 완료되었습니다. 다음 안내에 따라 고객님의 제품이 정상 작동하는지 Cail에게 알려주세요.";
   const speechBubbleText = [
     "1. 고객님의 제품이 잘 작동하는지를 알려주세요.",
     "ex) TV가 잘 작동합니다.",
     "ex) 여전히 작동하지 않습니다.",
 
     "",
-    "2. 운용자에게 추가로 전달하고 싶은 메세지는 '추가사항'이라고 말한 뒤 말씀해주세요.",
-    "ex) 추가사항, 전원 버튼 자체가 동작하지 않아요."
+    "2. 운용자에게 추가로 전달하고 싶은 메세지는 '추가의견'이라고 말한 뒤 말씀해주세요.",
+    "ex) 추가의견, 전원 버튼 자체가 동작하지 않아요."
   ];
 
   return (
@@ -123,7 +127,8 @@ const VocReceipt = () => {
       <div className='received-box'>
         {isDataReceived && (
           <div className='received-box-text'>
-            <p className='received-box-text-one'>접수 내용: {vocEntire}</p>
+            <p className='received-box-text-one'>접수 내용: {vocBefore}</p>
+            <p className='received-box-text-one'>추가 의견: {vocAfter}</p>
           </div>
         )}
       </div>
