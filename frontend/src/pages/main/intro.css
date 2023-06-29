@@ -1,14 +1,13 @@
 .top-container {
   display: flex; 
-  width : 100%;
+  width : auto;
   
 }
 
 
-
 .bottom-container {
   display: flex; 
-  width : 100%;
+  width : auto;
   
   
 }
@@ -17,4 +16,22 @@
   padding: 0.4rem 2rem;
   width: 38.5rem;
   height: 19rem;
+}
+
+.container-2 {
+  padding: 6.4px 32px 6.4px 32px;
+  /* width:50%; */
+}
+
+.container-2 .title{
+  text-align: center;
+  /* background-color: beige; */
+  height: 12px;
+  font-size: 18px;
+  padding: 20px 0px 0px 30px;
+}
+.fake-rect {
+  height:274px;
+  width: 616px;
+  background-color: white;
 }

@@ -11,10 +11,14 @@ import ExternalList from './pages/subcustomer/externalList'
 import ExternalReceipt from './pages/subcustomer/externalReceipt'
 import VocReceipt from './pages/subcustomer/vocReceipt'
 import './App.css'
+import { Helmet } from "react-helmet";
 
 function App() {
   return (
     <div className="App">
+      <Helmet>
+        <title>CaiL</title>
+      </Helmet>
      <Routes>
          {/* 메인 페이지 */}
           <Route path="/" element={<Login />} />

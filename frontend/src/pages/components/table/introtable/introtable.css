@@ -1,9 +1,11 @@
 .intro-table {
   width: 90%;
+  height: 200px;
   margin: 0 auto;
   text-align: center;
   border-spacing: 0;
   table-layout: fixed;
+  padding-top: 30px;
 }
 
 .intro-table-header-column {
