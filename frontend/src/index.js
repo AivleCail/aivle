@@ -30,7 +30,7 @@ axios.interceptors.response.use(
           console.error('토큰 갱신 오류:', refreshError);
           // 토큰 갱신에 실패한 경우 로그인 페이지로 리디렉션 또는 적절한 에러 처리를 수행할 수 있습니다.
           // 예시: 로그인 페이지로 리디렉션
-          window.location.href = '/login';
+          window.location.href = '/';
           return Promise.reject(refreshError);
         });
     }
