@@ -6,7 +6,7 @@
 }
 
 .li {
-    height: 100px;
+    height: auto;
     border-bottom: 1px solid #bbb;
     cursor: pointer;
     transition: background-color 0.2s;
@@ -36,8 +36,13 @@
     display: flex;
 }
 
+.fold-address {
+    font-size: 1.08rem;
+    margin: 0.5rem 0;
+}
+
 .date-span {
-    margin-right: 10px;
+    margin: 0.1rem 0;
 }
 
 
