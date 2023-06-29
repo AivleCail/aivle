@@ -112,7 +112,7 @@ const Worker = () => {
                   <CommonTableColumn>{worker.externalStartdate.slice(0, 16)}</CommonTableColumn>
                   <CommonTableColumn>
                     {worker.externalStatus === '공사중' || worker.externalStatus === '공사 중'? (
-                      <div>
+                      <div style={{paddingRight:'16px'}}>
                         <span style={{fontSize:'10.5px'}}>🔴</span><span> 공사 중</span>
                         </div>
                     ) : worker.externalStatus === '공사예정' || worker.externalStatus === '공사 예정' ? (

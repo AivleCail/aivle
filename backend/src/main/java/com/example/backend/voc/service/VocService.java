@@ -58,7 +58,7 @@ public class VocService {
             a = "해제";
         }
         else if(status.equals("X")) {
-            a = "발생";
+            a = "미해결";
         }
         return VocResponseDto.of(vocRepository.save(Voc.updateStatus(voc, a, statusDetail, percentage, entire)));
     }
