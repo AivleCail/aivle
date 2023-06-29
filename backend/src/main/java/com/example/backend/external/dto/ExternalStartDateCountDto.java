@@ -11,6 +11,6 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ExternalStartDateCountDto {
-    private String yearMonth;
+    private String weekStart;
     private Long count;
 }
