@@ -50,7 +50,7 @@ public class ArticleRepositoryImpl implements ArticleRepositoryCustom{
 
         List<Article> content = queryFactory
                 .selectFrom(article)
-                .where(article.category.eq("공지"))
+                .where(article.category.eq("일반"))
                 .orderBy(article.likeCount.desc())
                 .limit(4)
                 .fetch();
