@@ -20,14 +20,17 @@ const ArticleContent = ({ article, comments, isOpen, closeModal,  }) => {
   };
 
   const [likeCount, setLikeCount] = useState(article.likeCount);
-  const [hasRecommendation, sethasRecommendation] = useState(true);
+const [isLiked, setIsLiked] = useState(false); // 변경된 초기값
+const [hasRecommendation, sethasRecommendation] = useState(false); // 변경된 초기값
+
   const [count, setCount] = useState(article.count);
+  const [counts, setCounts] = useState(0);
+
   const [isRecommended, setIsRecommended] = useState(() => {
     const storedValue = localStorage.getItem('isRecommended');
     return storedValue ? JSON.parse(storedValue) : false;
   });
 
-  
 
 
   
@@ -61,6 +64,47 @@ const ArticleContent = ({ article, comments, isOpen, closeModal,  }) => {
   }, [comments, article.likeCount, article.count]);
   
 
+  useEffect(() => {
+  const fetchData = async () => {
+    try {
+      const accessToken = localStorage.getItem('accessToken');
+      if (!curManager) {
+        // Wait for curManager to be set
+        return;
+      }
+      const countsResponse = await axios.get(`${API_URL}8080/recommend/one`, {
+        params: {
+          managerId: curManager.managerId,
+          articleId: article.articleId,
+        },
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      });
+      const counts = countsResponse.data.counts;
+      setCounts(counts);
+      console.log(counts);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  if (isOpenModal && curManager && curManager.managerId !== article.managerId) {
+    fetchData();
+  }
+}, [isOpenModal, curManager, article]);
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+
   const handleNewCommentSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -90,6 +134,8 @@ const ArticleContent = ({ article, comments, isOpen, closeModal,  }) => {
     }
   };
 
+
+  
   const handleDeleteArticle = async (articleId) => {
     const check = window.confirm("현재 게시글을 삭제하시겠습니까?");
     if(!check) {
@@ -137,7 +183,7 @@ const ArticleContent = ({ article, comments, isOpen, closeModal,  }) => {
   };
 
   const handleUpdateArticle = async () => {
-    const check = window.confirm('게시글을 수정하시겠습니까?');
+    const check = window.confirm('수정 하시겠습니까?');
       if (!check) {
         return;
       }
@@ -181,6 +227,8 @@ const ArticleContent = ({ article, comments, isOpen, closeModal,  }) => {
     
     try {
       const accessToken = localStorage.getItem('accessToken');
+    
+      
       
       const response = await axios.post(
         `${API_URL}8080/recommend/check`, 
@@ -195,12 +243,15 @@ const ArticleContent = ({ article, comments, isOpen, closeModal,  }) => {
         },
         
       });
+
+      
       
       const hasRecommendations = response.data;
       sethasRecommendation(hasRecommendations);
 
       if (hasRecommendations) {
       
+        
         await axios.delete(`${API_URL}8080/recommend/one`, {
           data: {
             managerId: curManager.managerId,
@@ -211,6 +262,7 @@ const ArticleContent = ({ article, comments, isOpen, closeModal,  }) => {
             Authorization: `Bearer ${accessToken}`,
           },
         });
+
         // window.alert("추천 삭제가 완료되었습니다.");
         setLikeCount(article.likeCount = article.likeCount - 1);
       } else {
@@ -228,15 +280,38 @@ const ArticleContent = ({ article, comments, isOpen, closeModal,  }) => {
             },
           }
         );
+
+
+
         //window.alert("추천 완료되었습니다.");
         setLikeCount(article.likeCount = article.likeCount + 1);
       }
-      setIsRecommended(!hasRecommendations); 
+      const countsResponse = await axios.get(`${API_URL}8080/recommend/one`, {
+        params: {
+          managerId: curManager.managerId,
+          articleId: article.articleId,
+        },
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      });
+      const counts = countsResponse.data.counts;
+
+      console.log(counts);
+      setCounts(counts);
+
+
+      
     } catch (error) {
       console.log(error);
     }
   };
 
+  useEffect(() => {
+    setIsLiked(false);
+    sethasRecommendation();
+  }, [selectedArticle]);
+  
   return (
     <div className="article-total">
       {editMode ? null :(
@@ -256,7 +331,7 @@ const ArticleContent = ({ article, comments, isOpen, closeModal,  }) => {
         <div className = "button-group">
           {curManager && curManager.managerId === article.managerId && (
             editMode ? (
-                <button className="edit-button-edit" onClick={handleUpdateArticle}>수정</button>
+                <button className="edit-button-edit" onClick={handleUpdateArticle}>submit</button>
             ) : ( <button className="edit-button" onClick={() => setEditMode(true)}><img src={process.env.PUBLIC_URL + "editicon.svg"} alt="Update" /></button>)
           )}
           {curManager && curManager.managerId === article.managerId && (
@@ -294,21 +369,24 @@ const ArticleContent = ({ article, comments, isOpen, closeModal,  }) => {
       )}
       <br />
       {editMode ? null :(
-        <div className = "article-like">         
-              {curManager && curManager.managerId !== article.managerId && (
-                
-                <button className="recommend-button" onClick={handleLike}>
-                {isRecommended ? (
-                  <img src={process.env.PUBLIC_URL + "heart.svg"} alt="" />
-                ) : (
-                <img src={process.env.PUBLIC_URL + "noheart.svg"} alt="" />
-                )}  
-          </button>
-          
-          )}
-            <span className = "recommand-count">좋아요 {likeCount} 개</span> 
-            
-        </div>
+    <div className="article-like">
+{curManager && curManager.managerId !== article.managerId && isOpenModal && (
+  <button className="recommend-button" onClick={handleLike}>
+    {counts === 1 ? (
+      <img src={process.env.PUBLIC_URL + "heart.svg"} alt="" />
+    ) : (
+      <img src={process.env.PUBLIC_URL + "noheart.svg"} alt="" />
+    )}
+  </button>
+)}
+
+
+
+
+
+<span className="recommend-count">좋아요 {likeCount} 개</span>
+</div>
+
       )}
 
       {editMode ? null :(
