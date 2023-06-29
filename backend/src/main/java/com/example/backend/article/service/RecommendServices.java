@@ -1,6 +1,8 @@
 package com.example.backend.article.service;
 
 
+import com.example.backend.article.dto.ArticleResponseDto;
+import com.example.backend.article.dto.RecommendResponseDTO;
 import com.example.backend.article.dto.RecommendsDTO;
 import com.example.backend.article.entity.Article;
 import com.example.backend.article.entity.Recommend;
@@ -40,9 +42,9 @@ public class RecommendServices {
         } else {
             Recommend existingRecommend = recommendsRepository.findByManagerAndArticle(manager, article);
             if (existingRecommend != null) {
-                //recommendsRepository.delete(existingRecommend);
-                //article.setLikeCount(article.getLikeCount() - 1);
-                //article.setLikeCount(recommendsDTO.getLikeCount());
+//recommendsRepository.delete(existingRecommend);
+//article.setLikeCount(article.getLikeCount() - 1);
+//article.setLikeCount(recommendsDTO.getLikeCount());
                 return ;
             } else {
                 Recommend recommend = Recommend.builder()
@@ -52,7 +54,7 @@ public class RecommendServices {
                         .build();
 
                 recommendsRepository.save(recommend);
-                //article.setLikeCount(article.getLikeCount() + 1);
+//article.setLikeCount(article.getLikeCount() + 1);
                 article.setLikeCount(recommendsDTO.getLikeCount());
             }
         }
@@ -77,7 +79,7 @@ public class RecommendServices {
             Recommend existingRecommend = recommendsRepository.findByManagerAndArticle(manager, article);
             if (existingRecommend != null) {
                 recommendsRepository.delete(existingRecommend);
-                //article.setLikeCount(article.getLikeCount() - 1);
+//article.setLikeCount(article.getLikeCount() - 1);
                 article.setLikeCount(recommendsDTO.getLikeCount());
             } else {
                 throw new RuntimeException("Recommendation not found for the given user and article.");
@@ -91,6 +93,17 @@ public class RecommendServices {
         if (authentication == null || authentication.getPrincipal() == "anonymousUser") {
             throw new RuntimeException("Recommendation not found for the given user and article.");
         }
-        return  recommendsRepository.findArticleId(managerId, articleId);
+        return recommendsRepository.findArticleId(managerId, articleId);
     }
+
+
+    @Transactional
+    public RecommendResponseDTO recommendserch(Long managerId, Long articleId){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication == null || authentication.getPrincipal() == "anonymousUser") {
+            throw new RuntimeException("Recommendation not found for the given user and article.");
+        }
+        return recommendsRepository.findcount(managerId, articleId);
+    }
+
 }

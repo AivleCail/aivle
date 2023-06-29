@@ -1,6 +1,7 @@
 package com.example.backend.article.repository;
 
 
+import com.example.backend.article.dto.RecommendResponseDTO;
 import com.example.backend.article.entity.Article;
 import com.example.backend.article.entity.Recommend;
 import com.example.backend.manager.entity.Manager;
@@ -19,6 +20,6 @@ public interface RecommendsRepository extends JpaRepository<Recommend, Long> {
     boolean findArticleId(@Param("managerId") Long managerId ,@Param("articleId") Long articleId);
 
 
+    RecommendResponseDTO findcount(long managerId, long articleId);
 
 }
-
