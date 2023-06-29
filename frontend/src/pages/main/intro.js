@@ -161,19 +161,20 @@ const Intro = () => {
 
               
             <div className="container-2">
-              <span >베스트 공지사항</span>
-              <div className="chart chart-2">
-                <IntroTable headersName={['글쓴이', '제목', '추천수','작성일']} columnWidths={['20%','45%','10%','25%']}>
-                    {articleData.map((article) => (
-                      <IntroTableRow>
-                        <IntroTableColumn>{article.managerName}</IntroTableColumn>
-                        <IntroTableColumn>{article.articleTitle}</IntroTableColumn>
-                        <IntroTableColumn>{article.likeCount}</IntroTableColumn>
-                        <IntroTableColumn>{article.createdAt.substring(0,16)}</IntroTableColumn>
-                      </IntroTableRow>
-                    ))}
-                  </IntroTable>
+              <div className="fake-rect">
+                <div className='title'>베스트 공지사항</div>
+                  <IntroTable headersName={['글쓴이', '제목', '추천수','작성일']} columnWidths={['15%','45%','10%','30%']}>
+                      {articleData.map((article) => (
+                        <IntroTableRow>
+                          <IntroTableColumn>{article.managerName}</IntroTableColumn>
+                          <IntroTableColumn>{article.articleTitle}</IntroTableColumn>
+                          <IntroTableColumn>{article.likeCount}</IntroTableColumn>
+                          <IntroTableColumn>{article.createdAt.substring(0,16)}</IntroTableColumn>
+                        </IntroTableRow>
+                      ))}
+                    </IntroTable>
               </div>
+              
             </div>
           </div>
 
