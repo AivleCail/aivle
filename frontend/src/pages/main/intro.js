@@ -34,7 +34,7 @@ const Intro = () => {
   const fetchChart1Data = async () => {
     try {
       const accessToken = localStorage.getItem('accessToken');
-      const response = await axios.get(`${API_URL}8080/intro/external-month-count`, {
+      const response = await axios.get(`${API_URL}8080/intro/external-week-count`, {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },
@@ -111,51 +111,39 @@ const Intro = () => {
             <div className="container-1">
               <div className = "chart chart-1">
               <Chart
-                width={'100%'}
-                height={'95%'}
-                chartType="ColumnChart"
-                loader={<div>Loading Chart</div>}
-                data={[
-                  ['월', '건수'],
-                  ...chart1Data.map((item) => [new Date(item.yearMonth), item.count]),
-                ]}
-                options={{
-                  title: '월별 사외공사 건수',
-                  hAxis: {
-                    title: '월',
-                    format: 'MM월',
-                    textStyle: {
-                      fontSize: 10,
-                      bold: false,
-                    },
-                    ticks: [
-                      new Date(2023, 0),
-                      new Date(2023, 1),
-                      new Date(2023, 2),
-                      new Date(2023, 3),
-                      new Date(2023, 4),
-                      new Date(2023, 5),
-                      new Date(2023, 6),
-                      new Date(2023, 7),
-                      new Date(2023, 8),
-                      new Date(2023, 9),
-                      new Date(2023, 10),
-                      new Date(2023, 11),
-                    ],
-                    titleTextStyle: {
-                      italic: false,
-                      bold: true,
-                    }
+              width={'100%'}
+              height={'95%'}
+              chartType="ColumnChart"
+              loader={<div>Loading Chart</div>}
+              data={[
+                ['date', '건수', { role: 'annotation' }],
+                ...chart1Data.map((item) => [
+                  new Date(item.weekStart).toLocaleDateString('en-US', { month: '2-digit', day: '2-digit' }), // Format the date to display only the date portion (MM-DD)
+                  item.count,
+                  item.count.toString(),
+                ]),
+              ]}
+              options={{
+                title: '일주일간 사외공사 현황 ',
+                hAxis: {
+                  title: 'Week',
+                },
+                vAxis: {
+                  title: '건수',
+                  titleTextStyle: {
+                    italic: false,
+                    bold: true,
                   },
-                  vAxis: {
-                    title: '건수',
-                    titleTextStyle: {
-                      italic: false,
-                      bold: true,
-                    }
+                },
+                annotations: {
+                  textStyle: {
+                    fontSize: 10,
+                    bold: true,
                   },
-                }}
-              />
+                  annotationTextPosition: 'out',
+                },
+              }}
+            />
               </div>
             </div>
 
