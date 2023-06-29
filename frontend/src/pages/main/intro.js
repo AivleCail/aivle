@@ -147,24 +147,24 @@ const Intro = () => {
               </div>
             </div>
 
-              
-            <div className="container-2">
-              <div className="fake-rect">
-                <div className='title'>Best Top3 공지사항</div>
-                  <IntroTable headersName={['글쓴이', '제목', '추천수','작성일']} columnWidths={['15%','45%','10%','30%']}>
-                      {articleData.map((article) => (
-                        <IntroTableRow>
-                          <IntroTableColumn>{article.managerName}</IntroTableColumn>
-                          <IntroTableColumn>{article.articleTitle}</IntroTableColumn>
-                          <IntroTableColumn>{article.likeCount}</IntroTableColumn>
-                          <IntroTableColumn>{article.createdAt.substring(0,16)}</IntroTableColumn>
-                        </IntroTableRow>
-                      ))}
-                    </IntroTable>
+                
+              <div className="container-2">
+                <div className="fake-rect">
+                  <div className='title'>Best 조치사례</div>
+                    <IntroTable headersName={['글쓴이', '제목', '추천수','작성일']} columnWidths={['15%','45%','10%','30%']}>
+                        {articleData.map((article) => (
+                          <IntroTableRow>
+                            <IntroTableColumn className='intro-con2-name'>{article.managerName.length > 1 ? `${article.managerName.charAt(0)}*${article.managerName.slice(-1)}` : article.managerName}</IntroTableColumn>
+                            <IntroTableColumn className='intro-con2-title'>{article.articleTitle}</IntroTableColumn>
+                            <IntroTableColumn>{article.likeCount}</IntroTableColumn>
+                            <IntroTableColumn>{article.createdAt.substring(0,16)}</IntroTableColumn>
+                          </IntroTableRow>
+                        ))}
+                      </IntroTable>
+                </div>
+                
               </div>
-              
             </div>
-          </div>
 
 
           <div className = "bottom-container">
