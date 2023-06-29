@@ -62,6 +62,11 @@ const ExternalReceipt = () => {
   const tospring = (e) => {
     e.preventDefault();
 
+    if (!selectedFile) {
+      window.alert("음성 파일을 선택해주세요.");
+      return;
+    }
+
     const externalData = {
       "companyName": companyName,
       "receiptContent": receiptContent,
@@ -79,17 +84,17 @@ const ExternalReceipt = () => {
       },
     })
       .then((response) => {
+        setTimeout(function(){
+          window.alert("접수가 완료되었습니다!");
+          navigate("/myexternal");
+        }, 1000);
+        //사외공사 리스트로 보내버리기
         console.log(response.data);
       })
       .catch((error) => {
         console.error("Error:", error);
       });
     }
-    setTimeout(function(){
-      window.alert("접수가 완료되었습니다!");
-      navigate("/myexternal");
-    }, 1000);
-    //사외공사 리스트로 보내버리기
      
   }
 

@@ -63,6 +63,9 @@ hr {
     
 }
 
+.to-receipt-button {
+  margin: 1rem ;
+}
 /*.receipt-button:hover {
     background-color: #000000;
     color: #ffffff;
