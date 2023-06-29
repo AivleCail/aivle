@@ -63,7 +63,10 @@ const VocReceipt = () => {
   const tospring = (e) => {
     e.preventDefault();
 
-
+    if (!selectedFile) {
+      window.alert("음성 파일을 선택해주세요.");
+      return;
+    }
     const vocData = {
       "voc_id": id,
       "voc_entire": vocEntire,
@@ -82,15 +85,15 @@ const VocReceipt = () => {
       },
     })
       .then((response) => {
+        setTimeout(function(){
+          window.alert("접수가 완료되었습니다!");
+        }, 1000);
         console.log(response.data);
       })
       .catch((error) => {
         console.error("Error:", error);
       });
     }
-    setTimeout(function(){
-      window.alert("접수가 완료되었습니다!");
-    }, 1000);
   };
 
   const informText = "안녕하세요 Cail 입니다. 고객님의 문의 건에 대해 장애 처리가 완료되었습니다. 다음 안내에 따라 고객님의 제품이 정상 작동하는지 Cail에게 알려주세요.";
