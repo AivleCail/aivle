@@ -162,7 +162,7 @@ const Intro = () => {
               
             <div className="container-2">
               <div className="fake-rect">
-                <div className='title'>베스트 공지사항</div>
+                <div className='title'>Best Top3 공지사항</div>
                   <IntroTable headersName={['글쓴이', '제목', '추천수','작성일']} columnWidths={['15%','45%','10%','30%']}>
                       {articleData.map((article) => (
                         <IntroTableRow>
