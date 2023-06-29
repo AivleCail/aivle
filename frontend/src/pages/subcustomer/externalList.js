@@ -97,6 +97,7 @@ const ExternalList = () => {
       <hr />
       <div className='list-content'>
         <div className='sub-title'>
+          <div class='title-dummy-div'></div>
           <span className='sub-title-text'>접수 목록</span>
           <button className="external-refresh-button" onClick={handleRefresh}>
             <img className="voc-img" alt="Element" src={process.env.PUBLIC_URL + "/refresh-arrow.png"} />
