@@ -201,9 +201,12 @@ const VOC = () => {
                       <CommonTableColumn>
                         {voc.checkStatus === '발생' ? (
                           <span style={{ color: 'red', fontWeight:'600' }}>X</span>
-                        ) : (
+                        ) : voc.checkStatus === '해제' ?(
                           <span style={{ color: 'blue', fontWeight:'600' }}>O</span>
-                        )}
+                        ) : (
+                          <span style={{ color: 'red', fontWeight:'600' }}>❗️</span>
+                        )
+                      }
                       </CommonTableColumn>
                     </CommonTableRow>
                   ))}
