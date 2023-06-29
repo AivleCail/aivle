@@ -1,7 +1,12 @@
+.main-container{
+  background-color: transparent;
+  height: 100%;
+  width: 100%;
+}
+
 .top-container {
   display: flex; 
   width : auto;
-  
 }
 
 
@@ -13,13 +18,15 @@
 }
 
 .chart {
-  padding: 0.4rem 2rem;
+  padding: 0rem 1rem;
   width: 38.5rem;
   height: 19rem;
 }
-
+  .chart-1 {
+    padding-top: 1rem;
+  }
 .container-2 {
-  padding: 6.4px 32px 6.4px 32px;
+  padding: 1rem 1rem;
   /* width:50%; */
 }
 
@@ -34,4 +41,18 @@
   height:274px;
   width: 616px;
   background-color: white;
+}
+
+.intro-con2-title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: center;
+}
+.intro-con2-name{
+  letter-spacing: 0.1rem;
+}
+.title{
+  font-family: 'TheJamsil';
+  text-align: center;
 }
