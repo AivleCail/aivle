@@ -7,6 +7,7 @@
     height: 100%;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.35);
+    z-index: 1;
   }
   
   .modal.open {
@@ -19,7 +20,7 @@
     background-color: #fff;
     padding: 40px;
     width: 40%;
-    height: 80%;
+    height: 75%;
     overflow: scroll;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);

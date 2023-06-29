@@ -10,7 +10,6 @@
 	transition: margin-left 0.3s ease; /* 전환 효과를 위한 transition 속성 */
 	padding: 0 2rem;
 	justify-content: space-between;
-	/* z-index: 1; */
   }
 
 
