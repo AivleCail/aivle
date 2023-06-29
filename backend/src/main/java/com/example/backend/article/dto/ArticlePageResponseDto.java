@@ -15,6 +15,7 @@ public class ArticlePageResponseDto {
     private String createdAt;
     private String category;
     private int count;
+    private int likeCount;
 
 
     public static ArticlePageResponseDto of(Article article) {
@@ -25,6 +26,7 @@ public class ArticlePageResponseDto {
                 .createdAt(article.getCreatedAt().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")))
                 .count(article.getCount())
                 .category(article.getCategory())
+                .likeCount(article.getLikeCount())
                 .build();
     }
 }
