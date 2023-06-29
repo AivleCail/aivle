@@ -58,10 +58,8 @@ const [hasRecommendation, sethasRecommendation] = useState(false); // 변경된 
   }, []);
 
   useEffect(() => {
-    setArticleComments(comments);
     setLikeCount(article.likeCount);
-    setCount(article.count);
-  }, [comments, article.likeCount, article.count]);
+  }, [article.likeCount, article.count]);
   
 
   useEffect(() => {
@@ -83,7 +81,7 @@ const [hasRecommendation, sethasRecommendation] = useState(false); // 변경된 
       });
       const counts = countsResponse.data.counts;
       setCounts(counts);
-      console.log(counts);
+    //  console.log(counts);
     } catch (error) {
       console.log(error);
     }
@@ -297,7 +295,7 @@ const [hasRecommendation, sethasRecommendation] = useState(false); // 변경된 
       });
       const counts = countsResponse.data.counts;
 
-      console.log(counts);
+     // console.log(counts);
       setCounts(counts);
 
 
