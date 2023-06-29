@@ -16,13 +16,17 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.stream.Collectors;
 
 import static com.example.backend.external.entity.QExternal.external;
 
 @RequiredArgsConstructor
-public class ExternalRepositoryImpl implements ExternalRepositoryCustom{
+public class ExternalRepositoryImpl implements ExternalRepositoryCustom {
 
 
     private final JPAQueryFactory queryFactory;
@@ -57,17 +61,39 @@ public class ExternalRepositoryImpl implements ExternalRepositoryCustom{
 
     @Override
     public List<ExternalStartDateCountDto> getExternalStartDateCounts() {
+
+        LocalDate currentDate = LocalDate.now();
+        LocalDate endDate = currentDate.plusDays(6); // Add 6 days to get the next 7 days
+
+        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+        LocalDateTime startDateTime = currentDate.atStartOfDay();
+        LocalDateTime endDateTime = endDate.atStartOfDay().plusDays(1); // Add 1 day to include the end date
+
+        List<LocalDate> dateRange = currentDate.datesUntil(endDate.plusDays(1)).collect(Collectors.toList());
+
         List<Tuple> result = queryFactory
-                .select(Expressions.stringTemplate("DATE_FORMAT({0}, '%Y-%m')", external.externalStartdate).as("yearMonth"),
-                        external.count())
+                .select(
+                        Expressions.stringTemplate("DATE_FORMAT({0}, '%Y-%m-%d')", external.externalStartdate).as("date"),
+                        external.count()
+                )
                 .from(external)
-                .groupBy(Expressions.stringTemplate("DATE_FORMAT({0}, '%Y-%m')", external.externalStartdate))
-                .orderBy(Expressions.stringTemplate("DATE_FORMAT({0}, '%Y-%m')", external.externalStartdate).asc())
+                .where(external.externalStartdate.between(startDateTime, endDateTime))
+                .groupBy(Expressions.stringTemplate("DATE_FORMAT({0}, '%Y-%m-%d')", external.externalStartdate))
+                .orderBy(Expressions.stringTemplate("DATE_FORMAT({0}, '%Y-%m-%d')", external.externalStartdate).asc())
                 .fetch();
 
-        List<ExternalStartDateCountDto> dtoList = result
+        List<ExternalStartDateCountDto> dtoList = dateRange
                 .stream()
-                .map(tuple -> new ExternalStartDateCountDto(tuple.get(0, String.class), tuple.get(1, Long.class)))
+                .map(date -> {
+                    String formattedDate = date.format(dateFormatter);
+                    long count = result.stream()
+                            .filter(tuple -> tuple.get(0, String.class).equals(formattedDate))
+                            .findFirst()
+                            .map(tuple -> tuple.get(1, Long.class))
+                            .orElse(0L);
+                    return new ExternalStartDateCountDto(formattedDate, count);
+                })
                 .collect(Collectors.toList());
 
         return dtoList;

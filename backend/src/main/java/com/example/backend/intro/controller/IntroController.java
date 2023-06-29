@@ -28,7 +28,7 @@ public class IntroController {
     private final IntroService introService;
 
     //월별 사외공사 건수
-    @GetMapping("/external-month-count")
+    @GetMapping("/external-week-count")
     public ResponseEntity<List<ExternalStartDateCountDto>> getExternalStartDateCount() {
         return ResponseEntity.ok(externalService.getExternalStartDateCount());
     }

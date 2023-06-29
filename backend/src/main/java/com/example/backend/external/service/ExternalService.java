@@ -100,7 +100,7 @@ public class ExternalService {
         return external;
     }
 
-    // 월별 사외공사 건수 가져오기
+    // 1주일치 사외공사 건수 가져오기
     public List<ExternalStartDateCountDto> getExternalStartDateCount() {
         return externalRepository.getExternalStartDateCounts();
     }
