@@ -141,10 +141,10 @@ const FormContent = ({ selectedFile, setSelectedFile, handleFileChange, handleSu
         {/* <AudioRecord /> */}
         <form onSubmit={handleSubmit}>
         <div className='upload-start'>
-          <input type='file' name='file' accept='.mp3, .m4a' onChange={handleFileChange} />
+          <input type='file' name='file' className='file-upload-input' accept='.mp3, .m4a' onChange={handleFileChange} />
           <div className='audio-start'>
             <button type='submit' onClick={handlePlayAudio} className='upload-start-button'>재생</button>
-            <audio ref={audioRef} controls></audio>
+            <audio className='audio-controller' ref={audioRef} controls></audio>
           </div>
         </div>
         <div>
