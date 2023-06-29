@@ -43,7 +43,7 @@
 
 .external_status {
     width: 70px;
-    height: 15px;
+    height: 1.3rem;
     background: #0863FC;
     color: white;
     border-radius: 5px;
@@ -51,6 +51,9 @@
     transition: background-color 0.2s;
     cursor: pointer;
     margin-right: 0.3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .external-completed {
