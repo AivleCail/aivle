@@ -18,14 +18,14 @@ const VocContent = ({ voc }) => {
           <tr>
             <td>
               <tr className='trl'>
-                <img className="voc-number-icon" alt="Element" src={process.env.PUBLIC_URL + '/voc-number-icon.png'} />
+                <img className="voc-number-icon" alt="Element" src={process.env.PUBLIC_URL + '/voc-number-icon.svg'} />
                 지역
               </tr>
               <tr className="trl-voc">{voc.customerAddress}</tr>
             </td>
             <td>
               <tr className='trl'>
-                <img className="voc-number-icon" alt="Element" src={process.env.PUBLIC_URL + '/voc-number-icon.png'} />
+                <img className="voc-number-icon" alt="Element" src={process.env.PUBLIC_URL + '/voc-number-icon.svg'} />
                 접수 일시
               </tr>
               <tr className="trl-voc">{voc.receptionDate}</tr>
@@ -34,14 +34,14 @@ const VocContent = ({ voc }) => {
           <tr>
             <td>
               <tr className='trl'>
-                <img className="voc-number-icon" alt="Element" src={process.env.PUBLIC_URL + '/voc-number-icon.png'} />
+                <img className="voc-number-icon" alt="Element" src={process.env.PUBLIC_URL + '/voc-number-icon.svg'} />
                 장애유형
               </tr>
               <tr className="trl-voc">{voc.type}</tr>
             </td>
             <td>
               <tr className='trl'>
-                <img className="voc-number-icon" alt="Element" src={process.env.PUBLIC_URL + '/voc-number-icon.png'} />
+                <img className="voc-number-icon" alt="Element" src={process.env.PUBLIC_URL + '/voc-number-icon.svg'} />
                 조치 여부
               </tr>
               <tr className="trl-voc">{voc.percentage && voc.percentage !== "빈값입니다" ?voc.checkStatus + ` (신뢰도 : ${voc.percentage})` : voc.checkStatus}</tr>
@@ -49,7 +49,7 @@ const VocContent = ({ voc }) => {
           </tr>
           <tr>
             <tr className='trl'>
-              <img className="voc-number-icon" alt="Element" src={process.env.PUBLIC_URL + '/voc-number-icon.png'} />
+              <img className="voc-number-icon" alt="Element" src={process.env.PUBLIC_URL + '/voc-number-icon.svg'} />
               초기 접수 내용
             </tr>
             <tr className="trl-voc">{voc.opinion}</tr>
@@ -59,14 +59,14 @@ const VocContent = ({ voc }) => {
             <>
               <tr>
                 <tr className='trl'>
-                  <img className="voc-number-icon" alt="Element" src={process.env.PUBLIC_URL + '/voc-number-icon.png'} />
+                  <img className="voc-number-icon" alt="Element" src={process.env.PUBLIC_URL + '/voc-number-icon.svg'} />
                   전체 TM 내용
                 </tr>
                 <tr className="trl-voc">{voc.entire}</tr>
               </tr>
               <tr>
                 <tr className='trl'>
-                  <img className="voc-number-icon" alt="Element" src={process.env.PUBLIC_URL + '/voc-number-icon.png'} />
+                  <img className="voc-number-icon" alt="Element" src={process.env.PUBLIC_URL + '/voc-number-icon.svg'} />
                   TM 추가사항
                 </tr>
                 <tr className="trl-voc">{voc.statusDetail}</tr>

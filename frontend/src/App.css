@@ -15,6 +15,7 @@
   padding-left: 14rem;
   display: flex;
   flex-direction: column;
+  transition : all .35s;
 }
 
 .Sidebar.collapsed + .right-container {

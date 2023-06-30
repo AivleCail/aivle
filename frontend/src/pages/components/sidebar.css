@@ -1,12 +1,12 @@
-.Sidebar-container-1 {
-    position: absolute;
-    width: 223px;
-    height: 84px;
-    left: 0px;
-    top: -1px;
-    background: #FFFFFF;
-    border: 1px solid #DDDDDD;
-}
+.Sidebar header {
+	display: flex;
+	align-items: center;
+	height : 4.5rem;
+	border-bottom: 1px solid #DDDDDD;
+	user-select: none;
+	padding-left : 40px;
+	min-height: 4.5rem;
+}    
 
 .back-img {
 	position: absolute;
@@ -32,7 +32,6 @@
 	height: 22px;
 	left: 47px;
 	top: 2px;
-	font-family: 'NanumGothic';
 	font-style: normal;
 	font-weight: 500;
 	font-size: 23px;
@@ -46,7 +45,6 @@
 	height: 25px;
 	left: 82px;
 	top: 230px;
-	font-family: 'NanumGothic';
 	font-style: normal;
 	font-weight: 500;
 	font-size: 26px;
@@ -63,7 +61,6 @@
 	font-size: 20px;
 	font-weight: 400;
 	font-style: normal;
-	font-family: 'NanumGothic';
 }
 
 .text-3 {
@@ -80,7 +77,6 @@
 	height: 20px;
 	left: 85px;
 	top: 330px;
-	font-family: 'NanumGothic';
 	font-style: normal;
 	font-weight: 400;
 	font-size: 20px;
@@ -115,7 +111,6 @@
 	
 	.Text-5 {
 		position: absolute;
-		font-family: 'NanumGothic';
 		width: 100px;
 		height: 25px;
 		left: 51px;
@@ -143,10 +138,6 @@
 }
 
 
-
-
-
-	
 .Sidebar{  /* 전체 사이드바 */
 	position : fixed;
 	width: 14rem;
@@ -154,106 +145,108 @@
 	left: 0px;
 	background: #FFFFFF;
 	border: 1px solid #DDDDDD;
+	border-top: 0px;
 	transition : all .35s;
-	z-index: 1;
+	display: flex;
+	flex-direction: column;
+}
+
+
+.Sidebar button {
+	border : none;
+	background-color: white;
+	cursor: pointer;
+}
+
+
+.Sidebar img {
+	width : 18px;
+	height: 18px;
+}
+
+.Sidebar ul {
+	display: flex;
+	flex-direction: column;
+}
+
+
+.Sidebar ul li {
+	padding: 1rem 0 ;
+}
+
+.Sidebar ul a{  /* 사이드바 Item 각 줄 */
+	height : 4rem;
+	width : 100%;
+	font-family: 'TheJamsilLight';
+	line-height : 65px;
+	font-size : 24px;
+	color: black;
+	transition : 0.3s;
+	display: flex;
+	align-items: center;
+}
+
+.sidebar-ul li:hover a { /* 사이드바 글을 눌렀을때 40px 이동 */
+	padding-left : 10px;
+	color: #F1B7B7;
+}
+
+.Sidebar ul a i  {  /* 사이드바 글을 안누르면 16px 이동 */
+	margin-right : 16px;
+	
+}
+
+.Sidebar ul img{  /* images 20px씩 부여 */
+	width : 24px;
+	height : 24px;
+	margin-right: 1rem;
+}
+
+
+
+
+.Sidebar .sub-menu{
+	display :none;
+}
+
+.Sidebar .sub-item{
+	margin-top : -25px;
+	
+}
+
+.Sidebar .sub-menu.active {
+	display : contents;
+	
+}
+
+
+	
+
+	.Sidebar ul .sub-menu span{
+	margin-left :50px;
+	font-size: 18px;
+}
+
+
+.Sidebar ul .sub-menu{
+	margin-left : 20px;
+	
 }
 	
-	.Sidebar header { /* 사이드바 헤더 */
-		line-height : 4.5rem;
-		border-bottom: 1px solid #DDDDDD;
-		user-select: none;
-        text-align: left;
-        padding-left : 40px;
-	}    
 
-	
-    .Sidebar button {
-        border : none;
-        background-color: white;
-        cursor: pointer;
-    }
-	
-	
-    .Sidebar img {
-        width : 18px;
-        height: 18px;
-    }
-
-	.Sidebar ul a{  /* 사이드바 Item 각 줄 */
-		display : block;
-		height : 100%;
-		width : 100%;
-		font-family: 'RIDIBatang';
-		line-height : 65px;
-		font-size : 24px;
-		color: black;
-		box-sizing : border-box;
-		border-top :25px solid rgba(255,255,255,.1);
-		border-bottom : 1px solid white;
-		transition : 0.3s;
-	}
-	
-	.sidebar-ul li:hover a { /* 사이드바 글을 눌렀을때 40px 이동 */
-		padding-left : 10px;
-		color: #F1B7B7;
-	}
-	
-	.Sidebar ul a i  {  /* 사이드바 글을 안누르면 16px 이동 */
-		margin-right : 16px;
-		
-	}
-	
-	.Sidebar ul img{  /* images 20px씩 부여 */
-		width : 24px;
-		height : 24px;
-	}
-	
-
-	
-	
-	.Sidebar .sub-menu{
-		display :none;
-	}
-	
-	.Sidebar .sub-item{
-		margin-top : -25px;
-		
-	}
-	
-	.Sidebar .sub-menu.active {
-		display : contents;
-		
-	}
-	
-	
-	  
-	
-	  .Sidebar ul .sub-menu span{
-		margin-left :50px;
-		font-size: 18px;
-		
-		
-	}
-	
-	
-	.Sidebar ul .sub-menu{
-		margin-left : 20px;
-		
-	}
-	
-
-.Sidebar.collapsed {  /*/ 사이드바 조절*/
+.Sidebar.collapsed {  /* 사이드바 조절 */
 	width: 6rem;
-	font-display: none;
 }
 	
-    .Sidebar.collapsed ul li span {
-        display: none;
-    }
-	
+.Sidebar.collapsed ul li span {
+	display: none;
+}
 
-    .Sidebar .menubars {
-        border : 0px;
-    }
+.Sidebar.collapsed ul .sub-menu {
+	display: none;
+}
 
-	
+
+.Sidebar .menubars {
+	border : 0px;
+}
