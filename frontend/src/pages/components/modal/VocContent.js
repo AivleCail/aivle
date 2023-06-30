@@ -5,7 +5,7 @@ const VocContent = ({ voc }) => {
   return (
     <div className="report-container">
       <div>
-        <img className="voc-icon-img" alt="Element" src={process.env.PUBLIC_URL + '/login_id.png'} />
+        <img className="voc-icon-img" alt="Element" src={process.env.PUBLIC_URL + '/user.svg'} />
         <p>
           <h3 className='voc-id'>VOC {voc.vocId}번</h3>
           <h1 className='voc-name'>{voc.customerName.length > 1 ? `${voc.customerName.charAt(0)}*${voc.customerName.slice(-1)}` : voc.customerName}</h1>

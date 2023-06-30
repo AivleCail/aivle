@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import './WorkerContent.css'
 
 const WorkerContent = ({ worker }) => {
@@ -30,14 +29,14 @@ const WorkerContent = ({ worker }) => {
             <tbody>
               <tr>
                 <tr className='trl'>
-                  <img className="worker-number-icon" alt="Element" src={process.env.PUBLIC_URL + '/voc-number-icon.png'} />
+                  <img className="worker-number-icon" alt="Element" src={process.env.PUBLIC_URL + '/voc-number-icon.svg'} />
                     접수내역
                 </tr>
                 <tr className="trl-worker">{worker.receiptContent}</tr>
               </tr>
               <tr>
                 <tr className='trl'>
-                <img className="worker-number-icon" alt="Element" src={process.env.PUBLIC_URL + '/voc-number-icon.png'} />
+                <img className="worker-number-icon" alt="Element" src={process.env.PUBLIC_URL + '/voc-number-icon.svg'} />
                   공사 위치
                 </tr>
                 <tr className="trl-worker">{worker.externalAddress}</tr>
@@ -45,14 +44,14 @@ const WorkerContent = ({ worker }) => {
               <tr>
                 <td>
                   <tr className='trl'>
-                  <img className="worker-number-icon" alt="Element" src={process.env.PUBLIC_URL + '/voc-number-icon.png'} />
+                  <img className="worker-number-icon" alt="Element" src={process.env.PUBLIC_URL + '/voc-number-icon.svg'} />
                     공사 시작 일시
                   </tr>
                   <tr className="trl-worker">{worker.externalStartdate}</tr>
                 </td>
                 <td>
                   <tr className='trl'>
-                  <img className="worker-number-icon" alt="Element" src={process.env.PUBLIC_URL + '/voc-number-icon.png'} />
+                  <img className="worker-number-icon" alt="Element" src={process.env.PUBLIC_URL + '/voc-number-icon.svg'} />
                     공사 종료 일시
                   </tr>
                   <tr className="trl-worker">{worker.externalEnddate}</tr>
@@ -60,7 +59,7 @@ const WorkerContent = ({ worker }) => {
               </tr>         
               <tr>
                 <tr className='trl'>
-                <img className="worker-number-icon" alt="Element" src={process.env.PUBLIC_URL + '/voc-number-icon.png'} />
+                <img className="worker-number-icon" alt="Element" src={process.env.PUBLIC_URL + '/voc-number-icon.svg'} />
                   접수 일시
                 </tr>
                 <tr className="trl-worker">{worker.receiptDate}</tr>
