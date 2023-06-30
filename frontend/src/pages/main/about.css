@@ -1,0 +1,86 @@
+.about-container {
+    display: flex; 
+    flex-direction: column;
+    padding: 2rem;
+    background: #ffffff;
+    border: 1px solid #DDDDDD;
+    margin: 2rem;
+    width: auto;
+    height: auto;
+    border-radius: 30px;
+  }
+
+  .about-top-container {
+    width: auto;
+    margin-bottom: 2rem;
+  }
+
+  .about-title-1 {
+    position: relative;
+    font-family: 'Inter';
+    font-weight: 700;
+    font-size: 3.5vh;
+  }
+
+  .about-title-2 {
+    display: flex; 
+    margin-top: 3vh;
+    justify-content: space-between; /* 중요 */
+  }
+
+  .about-mid-container {
+    width: auto;
+    height: auto;
+  }
+
+  .about-mid-left {
+    float: left;
+    width: 50%;
+  }
+
+  .left-img {
+    height: 100%;
+    width: 100%;
+    border-radius: 2rem;
+  }
+
+  .about-mid-right {
+    float: right;
+    width: 47%;
+  }
+
+  .about-mid-text-1 {
+    position: relative;
+  }
+
+  .text-1-title {
+    font-family: 'Times New Roman';
+    font-weight: 700;
+    font-size: 3.5vh;
+  }
+  
+  .text-1-content {
+    font-family: 'Inter';
+    font-weight: 400;
+    font-size: 2.7vh;
+  }
+
+  .text-1-content b {
+    color: cornflowerblue;
+  }
+
+  .about-mid-text-2 {
+    position: relative;
+  }
+
+  .text-2-title {
+    font-family: 'Times New Roman';
+    font-weight: 700;
+    font-size: 3.5vh;
+  }
+
+  .text-2-content li {
+    font-family: 'Arial';
+    font-weight: 400;
+    font-size: 2.7vh;
+  }
