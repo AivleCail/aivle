@@ -44,7 +44,7 @@ const VocContent = ({ voc }) => {
                 <img className="voc-number-icon" alt="Element" src={process.env.PUBLIC_URL + '/voc-number-icon.png'} />
                 조치 여부
               </tr>
-              <tr className="trl-voc">{voc.percentage !== "빈값입니다" ?voc.checkStatus + ` (신뢰도 : ${voc.percentage})` : voc.checkStatus}</tr>
+              <tr className="trl-voc">{voc.percentage && voc.percentage !== "빈값입니다" ?voc.checkStatus + ` (신뢰도 : ${voc.percentage})` : voc.checkStatus}</tr>
             </td>
           </tr>
           <tr>
@@ -55,7 +55,7 @@ const VocContent = ({ voc }) => {
             <tr className="trl-voc">{voc.opinion}</tr>
           </tr>
           
-          {voc.percentage !== "빈값입니다" && (
+          {voc.percentage !== "빈값입니다" && voc.percentage !== null && (
             <>
               <tr>
                 <tr className='trl'>

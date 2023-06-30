@@ -6,6 +6,7 @@ import WorkerContent from './WorkerContent';
 import UserInfoContent from './UserInfoContent';
 import UserYakwan from './UserYakwan';
 import ArticleCreate from './ArticleCreate';
+import VocCreate from './VocCreate';
 
 const Modal = ({ isOpen, closeModal, entity, article, comments, voc, worker, userInfo, userInfo2 }) => {
   useEffect(() => {
@@ -43,7 +44,8 @@ const Modal = ({ isOpen, closeModal, entity, article, comments, voc, worker, use
         {entity === 'worker' && <WorkerContent worker={worker} />}
         {entity === 'userInfo' && <UserInfoContent closeModal={closeModal}/> }
         {entity === 'userInfo2' && <UserYakwan closeModal={closeModal}/> }
-        {entity === 'null' && <ArticleCreate closeModal={closeModal}/>}
+        {entity === 'articleCreate' && <ArticleCreate closeModal={closeModal}/>}
+        {entity === 'vocCreate' && <VocCreate closeModal={closeModal}/>}
       </div>
     </div>
   );

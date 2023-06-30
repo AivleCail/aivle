@@ -192,7 +192,7 @@ const ArticleList = () => {
               <Modal isOpen={isOpenModal} closeModal={closeModal} entity="article" article={selectedArticle} comments={selectedArticle.comments}/>
             )}
             {isModalOpen && (
-              <Modal isOpen={isModalOpen} closeModal={closeModals} entity="null" />
+              <Modal isOpen={isModalOpen} closeModal={closeModals} entity="articleCreate" />
             )}
         </div>
       </div>
