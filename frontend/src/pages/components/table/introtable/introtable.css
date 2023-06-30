@@ -6,6 +6,7 @@
   border-spacing: 0;
   table-layout: fixed;
   padding-top: 30px;
+  padding-bottom: 30px;
 }
 
 .intro-table-header-column {

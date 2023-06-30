@@ -8,8 +8,17 @@ import IntroTable from '../components/table/introtable/introtable';
 import IntroTableColumn from '../components/table/introtable/introtablecolumn';
 import IntroTableRow from '../components/table/introtable/introtablerow';
 import axios from 'axios';
-import { Chart } from 'react-google-charts';
 import { API_URL } from '../config';
+import {
+  Chart as ChartJS,
+  CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, ArcElement
+} from 'chart.js';
+import { Bar, Doughnut } from 'react-chartjs-2';
+
+ChartJS.register(
+  CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, ArcElement
+);
+
 
 const Intro = () => {
   const navigate = useNavigate();
@@ -46,6 +55,7 @@ const Intro = () => {
     }
   };
 
+
   const fetchChart2Data = async () => {
     try {
       const accessToken = localStorage.getItem('accessToken');
@@ -60,7 +70,6 @@ const Intro = () => {
       console.error('Error fetching chart data', error);
     }
   };
-
 
 
   const vocType = async () => {
@@ -78,6 +87,7 @@ const Intro = () => {
     }
   };
 
+
   const bestArticle = async () => {
     try {
       const accessToken = localStorage.getItem('accessToken');
@@ -93,12 +103,138 @@ const Intro = () => {
     }
   };
 
+
+
   useEffect(() => {
     const blockedPaths = ['/myexternal'];
     if (blockedPaths.includes(window.location.pathname)) {
       navigate('/article');
     }
   }, [navigate]);
+
+
+
+  const chart1Data_options = {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: 'top',
+      },
+      title: {
+        display: true,
+        text: '일주일간 사외공사 현황',
+        font: {
+          family: 'TheJamsilLight',
+          size: 17,
+        },
+      },
+    },
+  };
+
+  const chart1Data_data = {
+    labels : chart1Data.map(item => item.weekStart),
+    datasets: [
+      {
+        label: '건수',
+        data: chart1Data.map(item => item.count),
+        backgroundColor: 'rgba(255, 99, 132, 0.5)',
+      },
+    ],
+  };
+
+  const chart2Data_options = {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: 'left',
+      },
+      title: {
+        display: true,
+        text: '사외공사 진행 현황',
+        font: {
+          family: 'TheJamsilLight',
+          size: 17,
+          color: 'black',
+        },
+      },
+    },
+  };
+
+
+  const chart2Data_data = {
+    labels: chart2Data.map(item => item.status),
+    datasets: [
+      {
+        label: '공사 현황',
+        data: chart2Data.map(item => item.total),
+        backgroundColor: [
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 159, 64, 0.2)',
+        ],
+        borderColor: [
+          'rgba(255, 99, 132, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)',
+        ],
+        borderWidth: 1,
+      },
+    ],
+  }
+
+  const voctypeData_options = {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: 'left',
+      },
+      title: {
+        display: true,
+        text: '오늘 발생한 장애 유형',
+        font: {
+          family: 'TheJamsilLight',
+          size: 17,
+        },
+      },
+    },
+  };
+
+  const voctypeData_data = {
+    labels: ['TV', '인터넷', '전화'],
+    datasets: [
+      {
+        label: '유형',
+        data: [
+          voctypeData.tvCount,
+          voctypeData.internetCount,
+          voctypeData.phoneCount,
+        ],
+        backgroundColor: [
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 159, 64, 0.2)',
+        ],
+        borderColor: [
+          'rgba(255, 99, 132, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)',
+        ],
+        borderWidth: 1,
+      },
+    ],
+  }
 
     
   return (
@@ -107,138 +243,44 @@ const Intro = () => {
       <div className='right-container'>
         <Header />
         <div className="main-background">
-          <div className = "top-container">
-            <div className="container-1">
-              <div className = "chart chart-1">
-              <Chart
-              width={'100%'}
-              height={'95%'}
-              chartType="ColumnChart"
-              loader={<div>Loading Chart</div>}
-              data={[
-                ['date', '건수', { role: 'annotation' }],
-                ...chart1Data.map((item) => [
-                  new Date(item.weekStart).toLocaleDateString('en-US', { month: '2-digit', day: '2-digit' }), // Format the date to display only the date portion (MM-DD)
-                  item.count,
-                  item.count.toString(),
-                ]),
-              ]}
-              options={{
-                title: '일주일간 사외공사 현황 ',
-                hAxis: {
-                  title: 'Week',
-                },
-                vAxis: {
-                  title: '건수',
-                  titleTextStyle: {
-                    italic: false,
-                    bold: true,
-                  },
-                },
-                annotations: {
-                  textStyle: {
-                    fontSize: 10,
-                    bold: true,
-                  },
-                  annotationTextPosition: 'out',
-                },
-              }}
-            />
-              </div>
+        <div className='row'>
+          <div className='column'>
+            <div className='chart chart1'>
+              <Bar options={chart1Data_options} data={chart1Data_data} />
             </div>
-
-                
-              <div className="container-2">
-                <div className="fake-rect">
-                  <div className='title'>Best 조치사례</div>
-                    <IntroTable headersName={['글쓴이', '제목', '추천수','작성일']} columnWidths={['15%','45%','10%','30%']}>
-                        {articleData.map((article) => (
-                          <IntroTableRow>
-                            <IntroTableColumn className='intro-con2-name'>{article.managerName.length > 1 ? `${article.managerName.charAt(0)}*${article.managerName.slice(-1)}` : article.managerName}</IntroTableColumn>
-                            <IntroTableColumn className='intro-con2-title'>{article.articleTitle}</IntroTableColumn>
-                            <IntroTableColumn>{article.likeCount}</IntroTableColumn>
-                            <IntroTableColumn>{article.createdAt.substring(0,16)}</IntroTableColumn>
-                          </IntroTableRow>
-                        ))}
-                      </IntroTable>
-                </div>
-                
+          </div>
+          <div className='column'>
+            <div className = "chart chart2">
+              <div className="fake-rect">
+                    <div className='title'>Best 조치사례</div>
+                      <IntroTable headersName={['글쓴이', '제목', '추천수','작성일']} columnWidths={['15%','45%','10%','30%']}>
+                          {articleData.map((article) => (
+                            <IntroTableRow>
+                              <IntroTableColumn className='intro-con2-name'>{article.managerName.length > 1 ? `${article.managerName.charAt(0)}*${article.managerName.slice(-1)}` : article.managerName}</IntroTableColumn>
+                              <IntroTableColumn className='intro-con2-title'>{article.articleTitle}</IntroTableColumn>
+                              <IntroTableColumn>{article.likeCount}</IntroTableColumn>
+                              <IntroTableColumn>{article.createdAt.substring(0,16)}</IntroTableColumn>
+                            </IntroTableRow>
+                          ))}
+                        </IntroTable>
+                  </div>
               </div>
+          </div>
+        </div>
+        <div className='row'>
+          <div className='column'>
+            <div className='chart chart3'>
+              <Doughnut options={chart2Data_options} data={chart2Data_data} />
             </div>
+          </div>
+          <div className='column'>
+            <div className='chart chart4'>
+              <Doughnut options={voctypeData_options} data={voctypeData_data} className='Doughnut_chart'/>
+            </div>
+          </div>
+        </div>
 
 
-          <div className = "bottom-container">
-            <div className="container-3">
-              <div className = "chart chart-3">
-                <Chart 
-                  width={'100%'}
-                  height={'95%'}
-                  chartType="PieChart"
-                  loader={<div>Loading Chart</div>}
-                  data={[
-                    ['status', 'total'],
-                    ...chart2Data.map((item) => [item.status, item.total]),
-                  ]}
-                  options={{
-                    title: '사외공사 진행 현황',
-                    is3D: false,
-                    pieHole: 0.5,
-                    colors: ['#FFF100','#16C60C','#E81224'],
-                    slices: {  
-                      textStyle: {color: 'black', },
-                    },
-                    legend: {
-                      position: 'bottom',
-                      textStyle: {
-                        color: '#666',
-                        fontSize: 13,
-                      },
-                    },
-                    pieSliceTextStyle:{
-                      color: 'black',
-                      bold: true,
-                    },
-                  }}
-                />
-              </div>
-            </div>
-            
-            <div className="container-4">
-              <div className = "chart chart-4">
-                <Chart
-                  width={'100%'}
-                  height={'95%'}
-                  chartType="PieChart"
-                  loader={<div>Loading</div>}
-                  data={[
-                    ['Category', 'Count'],
-                    ['TV', voctypeData.tvCount],
-                    ['인터넷', voctypeData.internetCount],
-                    ['전화', voctypeData.phoneCount],
-                  ]}
-                  options={{
-                    title: '오늘 발생한 장애 유형',
-                    is3D: true,
-                    colors: ['#2196F3','#FF9800','#00BCD4'],
-                    slices: {  
-                      textStyle: {color: 'black',  },
-                    },
-                    legend: {
-                      position: 'bottom',
-                      textStyle: {
-                        color: '#666',
-                        fontSize: 13,
-                      },
-                    },
-                    pieSliceTextStyle:{
-                      color: 'black',
-                      bold: true,
-                    },
-                    }}
-                    />
-                </div>
-              </div>
-            </div>
           </div>
         <Footer />
       </div>
