@@ -1,5 +1,6 @@
 import React, { useState, useRef, useCallback } from "react";
 import AudioRecord from "./AudioContent";
+
 const FormContent = ({ selectedFile, setSelectedFile, handleFileChange, handleSubmit }) => {
   const audioRef = useRef(null);
 
@@ -89,21 +90,21 @@ const FormContent = ({ selectedFile, setSelectedFile, handleFileChange, handleSu
     audio.play();
   };
 
-//    const convertToM4A = () => {
-//    //  const process = new ffmpeg(audioUrl);
-//     process.then((audio) => {
-//       audio
-//          .setAudioCodec('aac')
-//          .save(`${audioUrl.name.split('.')[0]}.m4a`, (stdout, stderr) => {
-//            const convertedFile = new File([stdout], `${audioUrl.name.split('.')[0]}.m4a`, {
-//              type: 'audio/mp4',
-//           });
-//            setSelectedFile(convertedFile);
-//          });
-//      }, (err) => {
-//        console.log('Error converting file: ', err);
-//      });
-//  };
+  // const convertToM4A = () => {
+  //   const process = new ffmpeg(audioUrl);
+  //   process.then((audio) => {
+  //     audio
+  //       .setAudioCodec('aac')
+  //       .save(`${audioUrl.name.split('.')[0]}.m4a`, (stdout, stderr) => {
+  //         const convertedFile = new File([stdout], `${audioUrl.name.split('.')[0]}.m4a`, {
+  //           type: 'audio/mp4',
+  //         });
+  //         setSelectedFile(convertedFile);
+  //       });
+  //   }, (err) => {
+  //     console.log('Error converting file: ', err);
+  //   });
+  // };
   
 
   const handlePlayAudio = () => {
@@ -113,39 +114,31 @@ const FormContent = ({ selectedFile, setSelectedFile, handleFileChange, handleSu
     }
   };
 
-  
-  const downloadAudioFile = useCallback(() => {
-    if (audioUrl) {
-      const audioElement = document.createElement('audio');
-      const sourceElement = document.createElement('source');
-      sourceElement.src = URL.createObjectURL(audioUrl);
-      audioElement.appendChild(sourceElement);
-      audioElement.style.display = 'none';
-      document.body.appendChild(audioElement);
-      
-      const a = document.createElement('a');
-      sourceElement.type = 'audio/mp3';
-      a.href = sourceElement.src;
-      a.download = 'audio.mp3';
-      a.style.display = 'none';
-      document.body.appendChild(a);
-      a.click();
-      window.URL.revokeObjectURL(sourceElement.src);
-    }
-  }, [audioUrl]);
-  
+//   const downloadAudioFile = useCallback(() => {
+//   if (audioUrl) {
+//     const url = URL.createObjectURL(audioUrl);
+//     const a = document.createElement('a');
+//     document.body.appendChild(a);
+//     a.style.display = 'none';
+//     a.href = url;
+//     a.download = 'soundBlob';
+//     a.click();
+//     window.URL.revokeObjectURL(url);
+//   }
+// }, [audioUrl]);
+
   return (
     <div className='form-content'>
 
-       <div>
-          <button className="record-start" onClick={onRecAudio}>녹음 시작</button>
-          <button className="record-stop" onClick={offRecAudio}>녹음 정지</button>
-        </div> 
-         <div className='audio-start'>
+        {/* //<div>
+          //<button className="record-start" onClick={onRecAudio}>녹음 시작</button>
+          //<button className="record-stop" onClick={offRecAudio}>녹음 정지</button>
+        //</div> */}
+        {/* <div className='audio-start'>
             <button className='upload-start-button' onClick={play} disabled={disabled}>재생</button>
-        </div> 
-         <button onClick={downloadAudioFile}>다운로드</button> 
-         <AudioRecord /> 
+        </div> */}
+        {/* <button onClick={downloadAudioFile}>다운로드</button> */}
+        {/* <AudioRecord /> */}
         <form onSubmit={handleSubmit}>
         <div className='upload-start'>
           <input type='file' name='file' className='file-upload-input' accept='.mp3, .m4a' onChange={handleFileChange} />
@@ -155,7 +148,7 @@ const FormContent = ({ selectedFile, setSelectedFile, handleFileChange, handleSu
           </div>
         </div>
         <div>
-           <button type="submit" className='receipt-button voice-send-button'>접수 내용 확인</button> 
+          {/* <button type="submit" className='receipt-button voice-send-button'>접수 내용 확인</button> */}
         </div>
         </form>
     </div>
