@@ -40,7 +40,7 @@
   border-radius: 5px;
   height : 4vh;
   font-family: 'TheJamsil';
-  margin-right: 50px;
+  margin-left: 1rem;
 }
 
 .voc-create-btn:hover { 
@@ -59,7 +59,6 @@
   background-color: #272626;
   color: white;
   font-size: 16px;
-  border-radius: 5px;
   height : 4vh;
   font-family: 'TheJamsil';
 }
