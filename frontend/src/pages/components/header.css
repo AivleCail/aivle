@@ -2,7 +2,6 @@
 	display: flex;
 	flex-direction: row;
 	align-items: center; /* 세로 중앙 정렬 */
-	position: relative;
 	width: auto;
 	height: 4.5rem;
 	background: #FFFFFF;
@@ -10,8 +9,7 @@
 	transition: margin-left 0.3s ease; /* 전환 효과를 위한 transition 속성 */
 	padding: 0 2rem;
 	justify-content: space-between;
-  }
-
+}
 
 .header-logo {
 	display: flex;
@@ -33,8 +31,7 @@
 	color: #000000;
 }
 
-
-.logout-button{
+.logout-button {
 	font-family: 'TheJamsil';
 	font-style: normal;
 	font-weight: 500;
@@ -44,9 +41,7 @@
 	color: #000000;
 	background-color: white;
 	border-color: transparent;
-
-
-  }
+}
 
 .logout-button:hover {
 	color:#F1B7B7;

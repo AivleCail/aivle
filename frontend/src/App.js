@@ -22,7 +22,6 @@ function App() {
         <title>CaiL</title>
       </Helmet>
      <Routes>
-         {/* 메인 페이지 */}
           <Route path="/" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/intro" element={<Intro />} />
@@ -35,10 +34,6 @@ function App() {
           <Route path="/vocreceipt" element={<VocReceipt />} />
           <Route path="/about" element={<About />} />
           <Route path="/develops" element={<Develops/>} />
-
-          {/* 테스트 페이지 */}
-          
-
       </Routes>
     </div>
   );
