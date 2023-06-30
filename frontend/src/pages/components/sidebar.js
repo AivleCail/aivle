@@ -39,6 +39,8 @@ const Sidebar = () => {
                
 
                 <li><Link to="/article" className={location.pathname === "/article" ? "active" : ""}><img src={process.env.PUBLIC_URL + "notice.png"} /><i class = "fas fa-Article"></i><span>커뮤니티</span></Link></li>
+
+                <li><Link to="/about" className={location.pathname === "/about" ? "active" : ""}><img src={process.env.PUBLIC_URL + "about.png"} /><i class = "fas fa-About"></i><span>About</span></Link></li>
             </ul>
         </div>
 
