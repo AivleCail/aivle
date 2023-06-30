@@ -1,3 +1,30 @@
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  flex: 1;
+  padding: 1rem;
+  max-width: 550px;
+}
+
+.chart {
+  border-radius: 30px;
+  border: 1px solid #DDDDDD;
+  background-color: white;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-height: 270px;
+}
+
 .main-container{
   background-color: transparent;
   height: 100%;
@@ -13,33 +40,17 @@
 .bottom-container {
   display: flex; 
   width : auto;
-  
-  
 }
 
-.chart {
-  padding: 0rem 1rem;
-  width: 38.5rem;
-  height: 19rem;
-}
-  .chart-1 {
-    padding-top: 1rem;
-  }
-.container-2 {
-  padding: 1rem 1rem;
-  /* width:50%; */
-}
-
-.container-2 .title{
+.title{
   text-align: center;
-  /* background-color: beige; */
-  height: 12px;
-  font-size: 18px;
-  padding: 20px 0px 0px 30px;
+  font-size: 17px;
+  margin-top: 0.3rem;
 }
+
 .fake-rect {
-  height:274px;
-  width: 616px;
+  max-height: 270px;
+  max-width: 550px;
   background-color: white;
 }
 
