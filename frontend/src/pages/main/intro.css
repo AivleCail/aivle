@@ -16,6 +16,8 @@
   flex: 1;
   padding: 1rem;
   min-width: 520px;
+  min-height: 240px;
+  max-height: 250px;
 }
 
 .chart {
@@ -26,8 +28,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 260px;
-  max-height: 280px;
+  min-height: 240px;
+  max-height: 260px;
 }
 
 .chart3 .chart4 {
