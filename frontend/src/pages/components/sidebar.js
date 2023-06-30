@@ -29,7 +29,7 @@ const Sidebar = () => {
             </header>            
             <ul className='sidebar-ul'>
                 
-                <li><Link to="/intro" className={location.pathname === "/intro" ? "active" : ""}><i class = "fas fa-home"></i><span>홈</span></Link></li>
+                <li><Link to="/intro" className={location.pathname === "/intro" ? "active" : ""}><img src={process.env.PUBLIC_URL + "home.png"}/><i class = "fas fa-home2"></i><span>홈</span></Link></li>
                 <li><Link to="" className={location.pathname === "/voc" ? "active" : ""} onClick={toggleSubMenu}><img src={process.env.PUBLIC_URL + "task.png"} /><i class = "fas fa-Task"></i><span>Task</span></Link></li>
                 
                 <div className={`sub-menu ${isSubMenuOpen ? "active" : ""}` }>
@@ -41,6 +41,7 @@ const Sidebar = () => {
                 <li><Link to="/article" className={location.pathname === "/article" ? "active" : ""}><img src={process.env.PUBLIC_URL + "notice.png"} /><i class = "fas fa-Article"></i><span>커뮤니티</span></Link></li>
 
                 <li><Link to="/about" className={location.pathname === "/about" ? "active" : ""}><img src={process.env.PUBLIC_URL + "about.png"} /><i class = "fas fa-About"></i><span>About</span></Link></li>
+                <li><Link to="/develops" className={location.pathname === "/develops" ? "active" : ""}><img src={process.env.PUBLIC_URL + "teams.png"} /><i class = "fas fa-teams"></i><span>Develops</span></Link></li>
             </ul>
         </div>
 

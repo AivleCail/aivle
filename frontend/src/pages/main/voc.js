@@ -177,8 +177,8 @@ const VOC = () => {
               <div className = "voc-text-2">
                 <span>고객들의 장애 조치 여부를 확인합니다.</span>
                 <div className="button-container">
-                  <button className='voc-create-btn' onClick={() => openModals()}>누락 voc 접수</button>
                   <button className="send-button" onClick={handleSend}>조치확인 문자발송</button>
+                  <button className='voc-create-btn' onClick={() => openModals()}>누락 voc 접수</button>
                 </div>
               </div>
             </div>
