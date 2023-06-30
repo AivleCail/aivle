@@ -1,58 +1,63 @@
 .create-article-container {
-    max-width: 90%;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f8f8f8;
-    border-radius: 8px;
-  }
-  
-  .create-article-container form {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .create-article-container input[type="text"],
-  .create-article-container textarea,
-  .create-article-container select {
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
-    font-family: Arial, sans-serif;
-    width: 100%;
-    box-sizing: border-box;
-    resize: none;
-  }
+  max-width: 90%;
+  margin: 0 auto;
+  padding: 1rem;
+  border-radius: 5px;
+  border: 3px solid #ccc;
+}
 
-  .create-article-container input[type="text"]:focus {
-    outline: 1.9px solid #000;
-  }
-  
-  .create-article-container textarea {
-    height: 300px;
-  }
-  
-  .create-article-container p {
-    margin-top: 0.8rem;
-    margin-bottom: 0.5rem;
-  }
+.create-article-container form {
+  display: flex;
+  flex-direction: column;
+}
 
-  .create-article-container select {
-    appearance: none;
-    background-color: #fff;
-  }
-  
-  .create-button {
-    padding: 10px 20px;
-    background-color: #272626;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    font-size: 16px;
-    cursor: pointer;
-    display: block;
-    margin: 0 auto;
-    width: 20%;
-    height: 50%;
-  }
+.create-article-container input[type="text"],
+.create-article-container textarea,
+.create-article-container select {
+  padding: 0.8rem;
+  margin-bottom: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: 'TheJamsil';
+  width: 100%;
+  box-sizing: border-box;
+  resize: none;
+}
+
+.create-article-container input[type="text"]:focus {
+  outline: 1.9px solid #000;
+}
+
+.create-article-container textarea {
+  height: 300px;
+}
+
+.create-article-container p {
+  margin-top: 0.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.create-article-container select {
+  appearance: none;
+  background-color: #fff;
+}
+
+.create-button {
+  padding: 0.5rem, 3rem;
+  background-color: #272626;
+  color: #fff;
+  border-radius: 4px;
+  font-family: 'TheJamsil';
+  font-size: 16px;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+  width: 6rem;
+  height: 2.5rem;
+}
+
+.create-button:hover { 
+  background-color: #34495e;
+  transform: scale(1.05);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
