@@ -30,7 +30,8 @@
   .teams-bottom-members{
     display: flex;
     justify-Content: center;
-    margin-top: 1.4rem;
+    margin-top: 2.2vh;
+    margin-bottom: 1.5vh;
   }
   .teams-member
   {
@@ -78,7 +79,7 @@
 
   .description {
     background-color: #fff;
-    width: 350px;
+    width: 210px;
     height: 7vh;
     border-radius: 15px;
     display: flex;
