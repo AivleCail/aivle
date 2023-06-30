@@ -177,7 +177,7 @@ const VOC = () => {
                     onChange={(e) => handleAllCheck(e.target.checked)}
                     checked={checkItems.length === currentVocList.length && currentVocList.length > 0}
                   />
-                  ,'번호', '고객명', '지역', '전화번호', '장애유형', '접수 일시', '조치 여부']}
+                  ,'번호', '고객명', '지역', '전화번호', '장애유형', '접수 일시', '해결 여부']}
                   columnWidths={['3%', '5%', '8%', '18%', '10%', '15%', '10%', '5%']}>
                   {currentVocList.map((voc) => (
                     <CommonTableRow key={voc.vocId} onClick={() => openModal(voc)}>
@@ -199,12 +199,12 @@ const VOC = () => {
                       <CommonTableColumn>{voc.type}</CommonTableColumn>
                       <CommonTableColumn>{voc.receptionDate.slice(0, 16)}</CommonTableColumn>
                       <CommonTableColumn>
-                        {voc.checkStatus === '발생' ? (
+                        {voc.checkStatus === '미해결' ? (
                           <span style={{ color: 'red', fontWeight:'600' }}>X</span>
-                        ) : voc.checkStatus === '해제' ?(
+                        ) : voc.checkStatus === '해결' ?(
                           <span style={{ color: 'blue', fontWeight:'600' }}>O</span>
                         ) : (
-                          <span style={{ color: 'red', fontWeight:'600' }}>❗️</span>
+                          <span style={{ color: 'yellow', fontWeight:'600' }}>⚠️</span>
                         )
                       }
                       </CommonTableColumn>
