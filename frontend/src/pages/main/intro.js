@@ -132,7 +132,7 @@ const Intro = () => {
   };
 
   const chart1Data_data = {
-    labels : chart1Data.map(item => item.weekStart),
+    labels : chart1Data.map(item => item.weekStart.substring(5,10)),
     datasets: [
       {
         label: '건수',
