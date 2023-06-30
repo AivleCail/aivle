@@ -55,10 +55,10 @@ public class VocService {
         Voc voc = vocRepository.findById(id).orElseThrow(() -> new RuntimeException(("voc가 없습니다.")));
         String a="test";
         if (status.equals("O")) {
-            a = "해제";
+            a = "해결";
         }
         else if(status.equals("X")) {
-            a = "미해결";
+            a = "재조치필요";
         }
         return VocResponseDto.of(vocRepository.save(Voc.updateStatus(voc, a, statusDetail, percentage, entire)));
     }

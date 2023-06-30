@@ -181,7 +181,8 @@ const Intro = () => {
                   ]}
                   options={{
                     title: '사외공사 진행 현황',
-                    is3D: true,
+                    is3D: false,
+                    pieHole: 0.5,
                     colors: ['#FFF100','#16C60C','#E81224'],
                     slices: {  
                       textStyle: {color: 'black', },
