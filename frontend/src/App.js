@@ -11,6 +11,7 @@ import ExternalList from './pages/subcustomer/externalList'
 import ExternalReceipt from './pages/subcustomer/externalReceipt'
 import VocReceipt from './pages/subcustomer/vocReceipt'
 import About from './pages/main/about';
+import Develops from './pages/main/develops';
 import './App.css'
 import { Helmet } from "react-helmet";
 
@@ -33,6 +34,7 @@ function App() {
           <Route path="/externalreceipt" element={<ExternalReceipt />} />
           <Route path="/vocreceipt" element={<VocReceipt />} />
           <Route path="/about" element={<About />} />
+          <Route path="/develops" element={<Develops/>} />
 
           {/* 테스트 페이지 */}
           
