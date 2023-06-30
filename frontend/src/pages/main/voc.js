@@ -17,8 +17,9 @@ const VOC = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [vocPerPage] = useState(6);
   const [selectedItems, setSelectedItems] = useState([]);
-  const [isOpenModal, setIsOpenModal] = useState(false);
+  const [isOpenModal, setIsOpenModal] = useState(false); //이게 voc 단건조회 모달
   const [selectedVoc, setSelectedVoc] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false); //이게 누락 voc 접수모달
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -154,6 +155,14 @@ const VOC = () => {
     setIsOpenModal(false);
   };
 
+  //누락 voc 접수 모달관련
+  const openModals = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModals = () => {
+    setIsModalOpen(false);
+  };
   
 
   return (
@@ -165,8 +174,12 @@ const VOC = () => {
           <div className="voc-container">
             <div className = "voc-top-container">
               <div className = "voc-text-1"><span>VOC 내역</span></div>
-              <div className = "voc-text-2"><span>고객들의 장애 조치 여부를 확인합니다.</span>
-                <button className="send-button" onClick={handleSend}>조치확인 문자발송</button>
+              <div className = "voc-text-2">
+                <span>고객들의 장애 조치 여부를 확인합니다.</span>
+                <div className="button-container">
+                  <button className='voc-create-btn' onClick={() => openModals()}>누락 voc 접수</button>
+                  <button className="send-button" onClick={handleSend}>조치확인 문자발송</button>
+                </div>
               </div>
             </div>
             <div className="voc-mid-container">
@@ -227,6 +240,9 @@ const VOC = () => {
             {/* ArticleDetailModal */}
             {isOpenModal && (
               <Modal isOpen={isOpenModal} closeModal={closeModal} entity="voc" voc={selectedVoc}/>
+            )}
+            {isModalOpen && (
+              <Modal isOpen={isModalOpen} closeModal={closeModals} entity="vocCreate" />
             )}
 
           </div>

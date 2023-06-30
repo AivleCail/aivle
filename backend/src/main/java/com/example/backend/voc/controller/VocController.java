@@ -2,6 +2,7 @@ package com.example.backend.voc.controller;
 
 import com.example.backend.article.dto.ArticleResponseDto;
 import com.example.backend.voc.dto.VocPageResponseDto;
+import com.example.backend.voc.dto.VocRequestDto;
 import com.example.backend.voc.dto.VocResponseDto;
 import com.example.backend.voc.dto.VocResultRequestDto;
 import com.example.backend.voc.service.VocService;
@@ -23,6 +24,10 @@ public class VocController {
 //        return ResponseEntity.ok(vocService.pageVoc(page, managerId));
 //    }
 
+    @PostMapping("/create")
+    public ResponseEntity<VocResponseDto> createVoc(@RequestBody VocRequestDto vocRequestDto) {
+        return ResponseEntity.ok(vocService.postVoc(vocRequestDto.getCustomerName(), vocRequestDto.getAddress(), vocRequestDto.getPhoneNumber(), vocRequestDto.getType(), vocRequestDto.getOpinion()));
+    }
     @GetMapping("/page")
     public ResponseEntity<Page<VocPageResponseDto>> pageVoc(@RequestParam(name = "page") int page) {
         return ResponseEntity.ok(vocService.pageVoc(page));
