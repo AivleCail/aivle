@@ -1,5 +1,6 @@
 package com.example.backend.voc.service;
 
+import com.example.backend.article.entity.Article;
 import com.example.backend.config.SecurityUtil;
 import com.example.backend.manager.entity.Manager;
 import com.example.backend.manager.repository.ManagerRepository;
@@ -45,6 +46,13 @@ public class VocService {
         return VocResponseDto.of(voc);
     }
 
+    @Transactional
+    public VocResponseDto postVoc(String customerName, String address, String phoneNumber, String type, String opinion) {
+        Manager managerCurrent = isManagerCurrent();
+        Voc voc = Voc.createVoc(customerName, address, phoneNumber, type, opinion, managerCurrent);
+        System.out.println(voc.getId());
+        return VocResponseDto.of(vocRepository.save(voc));
+    }
     public Manager isManagerCurrent() {
         return managerRepository.findById(SecurityUtil.getCurrentManagerId())
                 .orElseThrow(() -> new RuntimeException("로그인 유저 정보가 없습니다"));

@@ -27,6 +27,31 @@
   margin-top: 3vh;
   justify-content: space-between; /* 중요 */
 }
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+}
+.voc-create-btn {
+  position:relative;
+  cursor: pointer;
+  background-color: #272626;
+  color: white;
+  font-size: 16px;
+  border-radius: 5px;
+  height : 4vh;
+  font-family: 'TheJamsil';
+  margin-right: 50px;
+}
+
+.voc-create-btn:hover { 
+  background-color: #34495e;
+  transform: scale(1.05);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.voc-create-btn:active { 
+  transform: scale(0.95);
+  transition: transform 0.3s ease;
+}
 
 .send-button {
   position:relative;
