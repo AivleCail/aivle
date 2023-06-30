@@ -242,7 +242,7 @@ const Intro = () => {
       <Sidebar />
       <div className='right-container'>
         <Header />
-        <div className="main-background">
+        <div className="main-background main-overflow">
         <div className='row'>
           <div className='column'>
             <div className='chart chart1'>
