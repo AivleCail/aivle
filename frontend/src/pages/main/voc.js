@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import Header from '../../components/layout/header';
-import Sidebar from '../../components/layout/sidebar';
-import Footer from '../../components/layout/footer';
+import Header from '../components/header';
+import Sidebar from '../components/sidebar';
+import Footer from '../components/footer';
 import './voc.css';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import CommonTable from '../../components/table/commontable/CommonTable';
-import CommonTableColumn from '../../components/table/commontable/CommonTableColumn';
-import CommonTableRow from '../../components/table/commontable/CommonTableRow';
-import Paging from '../../components/paging/paging';
-import Modal from '../../components/modal/Modal';
-import { API_URL } from '../../config';
+import CommonTable from '../components/table/CommonTable';
+import CommonTableColumn from '../components/table/CommonTableColumn';
+import CommonTableRow from '../components/table/CommonTableRow';
+import Paging from './page/paging';
+import Modal from '../components/modal/Modal';
+import { API_URL } from '../config';
 
 const VOC = () => {
   const [vocList, setVocList] = useState([]);

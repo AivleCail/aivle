@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import './css/UserInfoContent.css'
+import './UserInfoContent.css'
 
 const UserInfoContent = ({userInfo}) => {
     return (

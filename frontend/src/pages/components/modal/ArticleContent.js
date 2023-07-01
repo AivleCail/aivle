@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';  
 import axios from 'axios';
-import './css/ArticleContent.css'
+import './ArticleContent.css'
 import { API_URL } from '../../config';
 const ArticleContent = ({ article, comments, isOpen, closeModal,  }) => {
 

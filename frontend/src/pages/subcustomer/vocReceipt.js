@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import axios from 'axios';
 import './external.css';
-import AiIcon from '../../components/icons/ai.svg';
-import UserIcon from '../../components/icons/user.svg';
-import InformContent from '../../components/receipt/InformContent';
-import FormContent from '../../components/receipt/FormContent';
+import AiIcon from '../components/icons/ai.svg';
+import UserIcon from '../components/icons/user.svg';
+import InformContent from '../components/receipt/InformContent';
+import FormContent from '../components/receipt/FormContent';
 import { useLocation } from "react-router-dom";
-import { API_URL } from "../../config";
+import { API_URL } from "../config";
 
 const VocReceipt = () => {
   const [selectedFile, setSelectedFile] = useState(null);

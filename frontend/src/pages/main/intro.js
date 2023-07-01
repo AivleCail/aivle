@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Header from '../../components/layout/header';
-import Sidebar from '../../components/layout/sidebar';
-import Footer from '../../components/layout/footer';
+import Header from '../components/header';
+import Sidebar from '../components/sidebar';
+import Footer from '../components/footer';
 import './intro.css';
-import IntroTable from '../../components/table/introtable/introtable';
-import IntroTableColumn from '../../components/table/introtable/introtablecolumn';
-import IntroTableRow from '../../components/table/introtable/introtablerow';
+import IntroTable from '../components/table/introtable/introtable';
+import IntroTableColumn from '../components/table/introtable/introtablecolumn';
+import IntroTableRow from '../components/table/introtable/introtablerow';
 import axios from 'axios';
-import { API_URL } from '../../config';
+import { API_URL } from '../config';
 import {
   Chart as ChartJS,
   CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, ArcElement

@@ -2,11 +2,11 @@ import React, { useState,useEffect } from "react";
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";  
 import './external.css';
-import AiIcon from '../../components/icons/ai.svg';
-import WorkerIcon from '../../components/icons/worker.svg';
-import InformContent from '../../components/receipt/InformContent';
-import FormContent from '../../components/receipt/FormContent';
-import { API_URL } from "../../config";
+import AiIcon from '../components/icons/ai.svg';
+import WorkerIcon from '../components/icons/worker.svg';
+import InformContent from '../components/receipt/InformContent';
+import FormContent from '../components/receipt/FormContent';
+import { API_URL } from "../config";
 const ExternalReceipt = () => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [companyName, setCompanyName] = useState("");

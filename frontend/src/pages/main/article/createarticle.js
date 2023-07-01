@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./css/createarticle.css";
+import "./createarticle.css";
 import axios from 'axios';
 import { API_URL } from "../../config";
 const CreateArticleList = () => {
