@@ -30,17 +30,17 @@
 
 @font-face {
   font-family: "RIDIBatang";
-  src: url("../../frontend/src/pages/components/fonts/RIDIBatang.otf");
+  src: url("./fonts/RIDIBatang.otf");
 }
 
 @font-face {
   font-family: "TheJamsil";
-  src: url("../../frontend/src/pages/components/fonts/TheJamsil.ttf");
+  src: url("./fonts/TheJamsil.ttf");
 }
 
 @font-face {
   font-family: "TheJamsilLight";
-  src: url("../../frontend/src/pages/components/fonts/TheJamsilLight.ttf");
+  src: url("./fonts/TheJamsilLight.ttf");
 }
   
   @import '~@fortawesome/fontawesome-free/css/all.min.css';

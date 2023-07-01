@@ -1,6 +1,6 @@
 import React, { useState } from 'react';  
 import axios from 'axios';
-import './css/VocCreate.css';
+import './VocCreate.css';
 import { API_URL } from '../../config';
 
 const VocCreate = ({closeModal}) => {
