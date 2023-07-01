@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import './UserYakwan.css'
+import './css/UserYakwan.css'
 
 const UserYakwan = ({userInfo2}) => {
     return (

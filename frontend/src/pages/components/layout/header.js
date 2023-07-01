@@ -1,5 +1,5 @@
-import "./header.css";
-import Logo from './icons/logo.svg';
+import "./css/header.css";
+import Logo from '../icons/logo.svg';
 import { Link, useNavigate } from 'react-router-dom';
 import { useState } from "react";
 

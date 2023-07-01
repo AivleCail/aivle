@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import ListContainer from '../components/list/ListContainer';
-import Paging from '../main/page/paging';
+import ListContainer from '../../components/list/ListContainer';
+import Paging from '../../components/paging/paging';
 import './external.css';
-import { API_URL } from "../config";
+import { API_URL } from "../../config";
 const ExternalList = () => {
   const [externalList, setExternalList] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
