@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import Header from '../components/header';
-import Sidebar from '../components/sidebar';
-import Footer from '../components/footer';
+import Header from '../../components/layout/header';
+import Sidebar from '../../components/layout/sidebar';
+import Footer from '../../components/layout/footer';
 import './worker.css';
-import CommonTable from '../components/table/CommonTable';
-import CommonTableColumn from '../components/table/CommonTableColumn';
-import CommonTableRow from '../components/table/CommonTableRow';
-import Paging from './page/paging';
+import CommonTable from '../../components/table/commontable/CommonTable';
+import CommonTableColumn from '../../components/table/commontable/CommonTableColumn';
+import CommonTableRow from '../../components/table/commontable/CommonTableRow';
+import Paging from '../../components/paging/paging';
 import axios from 'axios';
-import Modal from '../components/modal/Modal';
+import Modal from '../../components/modal/Modal';
 import { useNavigate } from 'react-router-dom';
-import { API_URL } from '../config';
+import { API_URL } from '../../config';
 
 const Worker = () => {
   const [workerList, setWorkerList] = useState([]);

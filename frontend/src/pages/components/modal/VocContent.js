@@ -1,5 +1,5 @@
 import React from "react";
-import "./VocContent.css";
+import "./css/VocContent.css";
 
 const VocContent = ({ voc }) => {
   return (
