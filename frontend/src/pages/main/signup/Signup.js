@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './Signup.css';
-import Modal from '../components/modal/Modal';
-import { API_URL } from '../config';
+import Modal from '../../components/modal/Modal';
+import { API_URL } from '../../config';
 const Signup = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');

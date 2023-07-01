@@ -1,6 +1,6 @@
 import React, { useState } from 'react';  
 import axios from 'axios';
-import './ArticleCreate.css';
+import './css/ArticleCreate.css';
 import { API_URL } from '../../config';
 
 const ArticleCreate = ({closeModal}) => {

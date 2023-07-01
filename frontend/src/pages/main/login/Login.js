@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import LoginContext from '../components/member/LoginContext';
+import LoginContext from '../../components/member/LoginContext';
 import './Login.css';
-import { API_URL } from '../config';
+import { API_URL } from '../../config';
 const Login = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');

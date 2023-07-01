@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import './Modal.css';
+import './css/Modal.css';
 import ArticleContent from './ArticleContent';
 import VocContent from './VocContent';
 import WorkerContent from './WorkerContent';

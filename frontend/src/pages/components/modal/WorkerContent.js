@@ -1,4 +1,4 @@
-import './WorkerContent.css'
+import './css/WorkerContent.css'
 
 const WorkerContent = ({ worker }) => {
     return (
