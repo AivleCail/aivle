@@ -28,62 +28,34 @@
   }
 
   .teams-bottom-members{
+    margin-top: 7px;
     display: flex;
     justify-Content: center;
-    margin-top: 2.2vh;
-    margin-bottom: 1.5vh;
-  }
-  .teams-member
-  {
-      margin: 0 6rem;
-      width: 150px;
-      height: 34vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      align-items: center;
-      position: relative;
-      cursor: pointer;
-      transition: all 1s;
-
   }
 
-  .teams-member::after
-{
-    position: absolute;
-    top: 0;
-    left: 0;
-    content: "";
-    width: 0;
-    height: 20px;
+  .teams-member {
+    margin: 0.9vh 5vh;
+    width: 30vh;
+    height: 34vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
     transition: all 1s;
-    background: rgba(8,61,119);
+    border-radius: 15px;
+    box-shadow: -4px 0 4px rgba(0, 0, 0, 0.2), 4px 0 4px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(45deg, #1A237E 80%, transparent 80%);
 }
 
-.teams-member::before
-{
-    position: absolute;
-    top: 0;
-    right: 0;
-    content: "";
-    width: 0;
-    height: 20px;
-    transition: all 1s;
-    background: rgba(8,61,119);
-}
-
-  .teams-member:hover
-  {
-    transform : scale(1.01);
-  }
 
   .description {
     background-color: #fff;
-    width: 210px;
-    height: 7vh;
+    width: 30vh;
+    height: 33vh;
     border-radius: 15px;
     display: flex;
-    justify-content: center;
+    justify-content: end;
     align-items: center;
     flex-direction: column;    
     padding:0;
@@ -93,19 +65,25 @@
 
 
   .teams-member img {
+    box-shadow: -4px 0 4px rgba(0, 0, 0, 0.2), 4px 0 4px rgba(0, 0, 0, 0.2); /* 양쪽으로 그림자 추가 */
+    margin-top:  3.3vh;
     position: absolute;
-    top: 0;
     border-radius: 50%;
-    border: 3.5px solid rgba(8,61,119);
-    width : 12rem;
-    height : 10rem;
+    width : 16vh;
+    height : 16vh;
 
+  }
+
+  .teams-member .background {
+    width: 100%;
+    background-color: #FF0000; /* 원하는 색상을 지정하세요 */
+    border-radius: 15px;
   }
   
 .description h1
 {
-    color: rgba(8,61,119);
-    font-size: 30px;
+    color: #1A237E;
+    font-size: 26px;
     margin-bottom: 0.0rem;
     font-family: 'TheJamsil';
 }
@@ -114,76 +92,9 @@
 {
     font-family: 'Poppins', sans-serif;
     text-align: center;
-    color: #000;
+    color: #424242;
     font-weight: 600;
-    font-size: 22px;
+    font-size: 20px;
     font-family: 'TheJamsil';
 }
 
-
-
-  /*
-  .teams-title-2 {
-    display: flex; 
-    margin-top: 3vh;
-    justify-content: space-between;  중요
-  }
-
-  .teams-mid-container {
-    width: auto;
-    height: auto;
-  }
-
-  .teams-mid-left {
-    float: left;
-    width: 50%;
-  }
-
-  .teams-img {
-    height: 100%;
-    width: 100%;
-    border-radius: 2rem;
-  }
-
-  .teams-mid-right {
-    float: right;
-    width: 47%;
-  }
-
-  .teams-mid-text-1 {
-    position: relative;
-  }
-
-  .text-1-title {
-    font-family: 'Times New Roman';
-    font-weight: 700;
-    font-size: 3.5vh;
-  }
-  
-  .text-1-content {
-    font-family: 'Inter';
-    font-weight: 400;
-    font-size: 2.7vh;
-  }
-
-  .text-1-content b {
-    color: cornflowerblue;
-  }
-
-  .about-mid-text-2 {
-    position: relative;
-  }
-
-  .text-2-title {
-    font-family: 'Times New Roman';
-    font-weight: 700;
-    font-size: 3.5vh;
-  }
-
-  .text-2-content li {
-    font-family: 'Arial';
-    font-weight: 400;
-    font-size: 2.7vh;
-  }
-  
-*/
