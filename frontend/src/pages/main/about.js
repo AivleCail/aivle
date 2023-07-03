@@ -26,8 +26,8 @@ const About = () => {
                 <div className="about-container">
 
                     <div className="about-top-container">
-                        <div className='about-title-1'><span>CaIL 솔루션 </span></div>
-                        <div className='about-title-2'><span>CaIL 솔루션에 대한 소개 페이지입니다.</span></div>
+                        <div className='about-title-1'><span>CAIL 솔루션 </span></div>
+                        <div className='about-title-2'><span>CAIL 솔루션에 대한 소개 페이지입니다.</span></div>
                     </div>
 
 

@@ -151,7 +151,7 @@ const Signup = () => {
 
   return (
     <div className="container">
-      <div className="bg-img" style={{ backgroundImage: 'url(bg.svg)' }}></div>
+      <div className="bg-img" style={{ backgroundImage: 'url(bg.webp)' }}></div>
       <div className="context">
         <div className="signup-close-button-wrapper">
           <button className="signup-close-button" onClick={() => navigate('/')}>
