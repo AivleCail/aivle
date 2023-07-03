@@ -95,7 +95,7 @@ const Login = () => {
 
   return (
     <div className="container">
-      <div className="bg-img" style={{ backgroundImage: 'url(bg.svg)' }}></div>
+      <div className="bg-img" style={{ backgroundImage: 'url(bg.webp)' }}></div>
       <LoginContext
         activeIndex={activeIndex}
         handleManagerClick={handleManagerClick}
