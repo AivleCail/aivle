@@ -15,7 +15,7 @@ import { API_URL } from '../../config';
 const ArticleList = () => {
   const [articles, setArticles] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [articlesPerPage] = useState(10);
+  const [articlesPerPage] = useState(6);
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [selectedArticle, setSelectedArticle] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
