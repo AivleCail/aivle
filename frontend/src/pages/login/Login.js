@@ -30,6 +30,21 @@ const Login = () => {
     }
   }, [activeIndex]);
 
+  useEffect(() => {
+    const handleBackButton = (event) => {
+      event.preventDefault();
+      window.history.forward(); 
+    };
+
+    window.history.pushState(null, null, window.location.href);
+    window.addEventListener('popstate', handleBackButton);
+
+    return () => {
+      window.removeEventListener('popstate', handleBackButton);
+    };
+  }, []);
+  
+
   const handleLogin = () => {
     setEmailErr(false);
     setPasswordErr(false);
@@ -68,7 +83,7 @@ const Login = () => {
     
         if (role === 'ROLE_USER') {
           navigate('/myexternal');
-        } else {
+        } else if (role === 'ROLE_ADMIN') {
           navigate('/intro');
         }
       })
@@ -83,15 +98,6 @@ const Login = () => {
       handleLogin();
     }
   };
-
-  useEffect(() => {
-    const accessToken = localStorage.getItem('accessToken');
-    if (accessToken) {
-      navigate('/intro');
-    } else {
-      navigate('/');
-    }
-  }, [navigate]);
 
   return (
     <div className="container">
