@@ -60,9 +60,8 @@ const Teams = () => {
                               <h2>BackEnd, DB, Deploy</h2>
                             </div>
                           </div>
-
+                          
                         </div>
-
                         <div className='teams-bottom-members'>
                               <div className='teams-member'>
                                 <img src={process.env.PUBLIC_URL + "/members/member_seongmin.webp"} />
