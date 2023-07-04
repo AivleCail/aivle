@@ -68,11 +68,17 @@ const ArticleList = () => {
         }
       }
 
-      setArticles(articlesData);
+      const noticeArticles = articlesData.filter(article => article.category === '공지');
+      const generalArticles = articlesData.filter(article => article.category !== '공지');
+      const sortedArticles = [...noticeArticles, ...generalArticles];
+
+       setArticles(sortedArticles);
     } catch (error) {
       console.error('Error fetching articles:', error);
     }
   };
+  
+  
 
   // Modal Open
   const openModal = async (article) => {
@@ -118,28 +124,16 @@ const ArticleList = () => {
     setIsModalOpen(false);
   };
 
-  // Pagination
-  const indexOfLastArticle = currentPage * articlesPerPage;
-  const indexOfFirstArticle = indexOfLastArticle - articlesPerPage;
+
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
-  //여기엔 일반만 들어있음.
-  const generalArticles = articles.filter(article => article.category !== '공지');
+  const indexOfLastArticle = currentPage * articlesPerPage;
+  const indexOfFirstArticle = indexOfLastArticle - articlesPerPage;
 
-  //여기에 공지만 들어있음.
-  const noticeArticles = articles.filter(article => article.category === '공지');
+  const currentArticles = articles.slice(indexOfFirstArticle, indexOfLastArticle);
+  
 
-  let currentArticles =[];
-  let start=0;
-  let end=0;
-  //공지가 10개 넘어갈리가 없겠지? 라고 생각하고 만들었슴다.
-  if (currentPage === 1){
-    currentArticles = noticeArticles.concat(generalArticles).slice(indexOfFirstArticle, indexOfLastArticle);
-  }else{
-    start = indexOfFirstArticle - noticeArticles.length;
-    end = start+10;
-    currentArticles = generalArticles.slice(start, end);
-  }
+  
 
   return (
     <div class="web-layout">
