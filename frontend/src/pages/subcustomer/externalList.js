@@ -28,6 +28,9 @@ const ExternalList = () => {
     } 
   }, [navigate]);
 
+  
+
+
   const handleLogout = () => {
     const confirmLogout = window.confirm('로그아웃 하시겠습니까?');
     if (confirmLogout) {
@@ -36,6 +39,7 @@ const ExternalList = () => {
       navigate('/');
     }
   };
+
 
   useEffect(() => {
     fetchMyExternalList();

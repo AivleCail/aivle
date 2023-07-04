@@ -40,6 +40,22 @@ const Intro = () => {
     }
   }, [navigate]);
 
+  
+  useEffect(() => {
+    const handleBackButton = (event) => {
+      event.preventDefault();
+      window.history.forward(); 
+    };
+
+    window.history.pushState(null, null, window.location.href);
+    window.addEventListener('popstate', handleBackButton);
+
+    return () => {
+      window.removeEventListener('popstate', handleBackButton);
+    };
+  }, []);
+
+
   const fetchChart1Data = async () => {
     try {
       const accessToken = localStorage.getItem('accessToken');
