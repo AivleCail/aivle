@@ -1,7 +1,7 @@
 .teams-container {
     display: flex; 
     flex-direction: column;
-    padding: 1rem;
+    padding: 0.5rem;
     background: #ffffff;
     border: 1px solid #DDDDDD;
     margin: 2rem;
@@ -25,16 +25,27 @@
   .teams-top-members{
     display: flex;
     justify-Content: center;
+    margin: 2vh;
+
+  
   }
 
   .teams-bottom-members{
-    margin-top: 7px;
+    margin-top: 0px;
     display: flex;
     justify-Content: center;
   }
 
+  .teams-top-members,
+.teams-bottom-members {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
   .teams-member {
-    margin: 0.9vh 5vh;
+    margin : 0.5vh 4.2vh;
     width: 30vh;
     height: 34vh;
     display: flex;
@@ -66,11 +77,11 @@
 
   .teams-member img {
     box-shadow: -4px 0 4px rgba(0, 0, 0, 0.2), 4px 0 4px rgba(0, 0, 0, 0.2); /* 양쪽으로 그림자 추가 */
-    margin-top:  3.3vh;
+    margin-top: 2vh;
     position: absolute;
     border-radius: 50%;
-    width : 16vh;
-    height : 16vh;
+    width : 18vh;
+    height : 18vh;
 
   }
 
