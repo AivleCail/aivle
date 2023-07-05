@@ -42,7 +42,7 @@ const LoginContext = (
     <div className="context">
       <div className="login-logo">
         <Logo width='250' height='auto' />
-        <span className="login-logo-text">고객 장애조치 및 사외공사 접수 자동화 솔루션</span>
+        <span className="login-logo-text">고객 TM 자동화 및 사외공사 통합 관리 솔루션</span>
       </div>
       <LoginForm
         activeIndex={activeIndex}
