@@ -71,9 +71,6 @@
 
       const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
-
-
-
       const handleSingleCheck = (checked, id) => {
         if (checked) {
           setCheckItems((prev) => [...prev, id]);
@@ -85,26 +82,40 @@
             ]);
           }
         } else {
-          setCheckItems((prev) => prev.filter((item) => item !== id));
-          setSelectedItems((prev) => prev.filter((item) => item.to !== id));
+          const updatedCheckItems = checkItems.filter((item) => item !== id);
+          setCheckItems(updatedCheckItems);
+      
+          const updatedSelectedItems = selectedItems.filter((item) => item.content !== `${id}`);
+          setSelectedItems(updatedSelectedItems);
         }
       };
+      
       
       
       
       const handleAllCheck = (checked) => {
         if (checked) {
-          const itemsToAdd = currentVocList.filter((voc) => !checkItems.includes(voc.vocId));
-          const updatedItems = [...selectedItems, ...itemsToAdd];
-          setSelectedItems(updatedItems);
-          setCheckItems(currentVocList.map((voc) => voc.vocId));
+          currentVocList.forEach((voc) => {
+            if (!checkItems.includes(voc.vocId)) {
+              setCheckItems((prev) => [...prev, voc.vocId]);
+              const selectedItem = vocList.find((item) => item.vocId === voc.vocId);
+              if (selectedItem) {
+                setSelectedItems((prev) => [
+                  ...prev,
+                  { to: selectedItem.customerPhone.replace(/-/g, ''), content: `${voc.vocId}` },
+                ]);
+              }
+            }
+          });
         } else {
-          const itemsToRemove = currentVocList.filter((voc) => checkItems.includes(voc.vocId));
-          const updatedItems = selectedItems.filter((item) => !itemsToRemove.some((voc) => voc.vocId === item.to));
-          setSelectedItems(updatedItems);
           setCheckItems([]);
+          setSelectedItems([]);
         }
       };
+      
+      
+      
+      
       
       
       const handleSend = async () => {
@@ -127,7 +138,6 @@
           }
           setSelectedItems([]);
           setCheckItems([]);
-      
         } catch (error) {
           console.error('Error sending SMS:', error);
         }
