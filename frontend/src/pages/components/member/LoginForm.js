@@ -1,7 +1,23 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Member.css';
 
 const LoginForm = ({ activeIndex, handleManagerClick, handleExternalWorkerClick, email, password, setEmail, setPassword, handleLogin, emailErr, passwordErr, err }) => {
+  useEffect(() => {
+    const handleResize = () => {
+      const isMobile = window.matchMedia('(max-width: 1000px)').matches;
+      if (isMobile) {
+        handleExternalWorkerClick(); // 너비 1000px 이하일 때 사외공사자 버튼 클릭 이벤트 처리
+      }
+    };
+
+    handleResize(); // 초기 로드 시 한 번 호출하여 초기 값 설정
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [handleExternalWorkerClick]);
+
   const handleKeyPress = (event) => {
     if (event.key === 'Enter') {
       handleLogin();
@@ -11,11 +27,21 @@ const LoginForm = ({ activeIndex, handleManagerClick, handleExternalWorkerClick,
   return (
     <div className="login-form">
       <ul className='login-ul'>
-        <li onClick={handleManagerClick} className={`radio-li ${activeIndex === 0 ? 'login-active' : ''}`}>
-          <p className='login-li-text'>운용자</p>
+        <li
+          onClick={handleManagerClick}
+          className={`radio-li ${activeIndex === 0 ? 'login-active' : ''}`}
+        >
+          <p className={`login-li-text ${activeIndex === 0 ? '' : 'login-disabled'}`}>
+            운용자
+          </p>
         </li>
-        <li onClick={handleExternalWorkerClick} className={`radio-li ${activeIndex === 1 ? 'login-active' : ''}`}>
-          <p className='login-li-text'>사외공사자</p>
+        <li
+          onClick={activeIndex !== 1 ? handleExternalWorkerClick : null}
+          className={`radio-li ${activeIndex === 1 ? 'login-active' : ''}`}
+        >
+          <p className={`login-li-text ${activeIndex !== 1 ? 'login-disabled' : ''}`}>
+            사외공사자
+          </p>
         </li>
       </ul>
       <div className='login-input-form'>
