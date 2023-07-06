@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './Signup.css';
@@ -20,11 +20,13 @@ const Signup = () => {
   const [submitted, setSubmitted] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
   const [isOpenModal, setIsOpenModal] = useState(false);
+  const [isMobile, setIsMobile] = useState(false); // 뷰포트 너비가 1000px 이하인지 상태 코드 추가
   const handleSignup = () => {
     if (!isChecked) {
       alert('개인정보 활용에 동의해야 합니다.');
       return;
     }
+
 
     if (!email || !password || !confirmPassword || !name || !role || !address || !phonenumber ) {
       setErrorAlert('');
@@ -70,6 +72,7 @@ const Signup = () => {
       setPhonenumberError(true);
       return;
     }
+
 
     // 사용자 가입 유형을 확인하는 알림창 표시
     showUserTypeAlert()
@@ -149,6 +152,28 @@ const Signup = () => {
     setIsOpenModal(false);
   };
 
+  useEffect(() => {  // 1000px 이하일때(모바일) 운용자 버튼 누르지 못하게 막음
+    const mediaQuery = window.matchMedia('(max-width: 1000px)');
+  
+    const handleMediaQueryChange = (event) => {
+      setIsMobile(event.matches);
+    };
+    setIsMobile(mediaQuery.matches);
+    mediaQuery.addListener(handleMediaQueryChange);
+    return () => {
+      mediaQuery.removeListener(handleMediaQueryChange);
+    };
+  }, []);
+
+  useEffect(() => {   // 1000px 이하(모바일)일때 external 보이게
+    if (isMobile) {
+      setRole('external'); 
+    } else {
+      setRole('manager'); 
+    }
+  }, [isMobile]);
+
+
   return (
     <div className="container">
       <div className="bg-img" style={{ backgroundImage: 'url(bg.webp)' }}></div>
@@ -160,10 +185,19 @@ const Signup = () => {
         </div>
         <div className='signup-title'><span>회원 가입</span></div>
         <div className='radio-buttons'>
-          <button className={role === 'manager' ? 'user-type-button selected' : 'user-type-button'}
-            onClick={() => handleUserType('manager')}>서비스 운용자</button>
-          <button className={role === 'external' ? 'user-type-button selected' : 'user-type-button'}
-            onClick={() => handleUserType('external')}>사외공사자</button>
+        <button
+  className={role === 'manager' ? 'user-type-button selected' : 'user-type-button'}
+  onClick={() => handleUserType('manager')}
+  disabled={isMobile}
+>
+  서비스 운용자
+</button>
+<button
+  className={role === 'external' ? 'user-type-button selected' : 'user-type-button'}
+  onClick={() => handleUserType('external')}
+>
+  사외공사자
+</button>
         </div>
         <div className='a-input-group'>
           <div className='input-labels'>
