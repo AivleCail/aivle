@@ -22,7 +22,7 @@ const About = () => {
         <Sidebar />
         <div className='right-container'>
             <Header />
-            <div className="main-background">
+            <div className="main-background main-overflow">
                 <div className="about-container">
 
                     <div className="about-top-container">

@@ -7,6 +7,7 @@ import './intro.css';
 import IntroTable from '../components/table/introtable/introtable';
 import IntroTableColumn from '../components/table/introtable/introtablecolumn';
 import IntroTableRow from '../components/table/introtable/introtablerow';
+import Modal from '../components/modal/Modal';
 import axios from 'axios';
 import { API_URL } from '../config';
 import {
@@ -26,6 +27,10 @@ const Intro = () => {
   const [articleData, setArticleData] = useState([]);
   const [chart1Data, setChart1Data] = useState([]);
   const [chart2Data, setChart2Data] = useState([]);
+
+  const [isOpenModal, setIsOpenModal] = useState(false);
+  const [selectedArticle, setSelectedArticle] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     const accessToken = localStorage.getItem('accessToken');
@@ -119,6 +124,41 @@ const Intro = () => {
     }
   };
 
+
+  // Modal Open
+  const openModal = async (article) => {
+    try {
+      const accessToken = localStorage.getItem('accessToken');
+      // Article 정보 가져오기
+      const response = await axios.get(`${API_URL}8080/article/one?id=${article.articleId}`, {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      });
+      const detailedArticle = response.data;
+
+      // 댓글 정보 가져오기
+      const commentResponse = await axios.get(`${API_URL}8080/comment/list?id=${article.articleId}`, {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      });
+      const comments = commentResponse.data;
+
+      // Article 정보와 댓글 정보를 합쳐서 선택된 article에 comments 필드 추가
+      const articleWithComments = { ...detailedArticle, comments };
+
+      setSelectedArticle(articleWithComments);
+      setIsOpenModal(true);
+    } catch (error) {
+      console.error('Error fetching article details:', error);
+    }
+  };
+  // Model Close
+  const closeModal = () => {
+    setSelectedArticle(null);
+    setIsOpenModal(false);
+  };
 
 
   useEffect(() => {
@@ -271,7 +311,10 @@ const Intro = () => {
                     <div className='title'>Best 조치사례</div>
                       <IntroTable headersName={['글쓴이', '제목', '추천수','작성일']} columnWidths={['15%','45%','10%','30%']}>
                           {articleData.map((article) => (
-                            <IntroTableRow>
+                            <IntroTableRow
+                              key={article.articleId}
+                              onClick={() => openModal(article)
+                              }>
                               <IntroTableColumn className='intro-con2-name'>{article.managerName.length > 1 ? `${article.managerName.charAt(0)}*${article.managerName.slice(-1)}` : article.managerName}</IntroTableColumn>
                               <IntroTableColumn className='intro-con2-title'>{article.articleTitle}</IntroTableColumn>
                               <IntroTableColumn>{article.likeCount}</IntroTableColumn>
@@ -296,7 +339,9 @@ const Intro = () => {
           </div>
         </div>
 
-
+          {isOpenModal && (
+            <Modal isOpen={isOpenModal} closeModal={closeModal} entity="article" article={selectedArticle} comments={selectedArticle.comments}/>
+          )}
           </div>
         <Footer />
       </div>
