@@ -25,7 +25,7 @@ const Teams = () => {
         <Sidebar />
           <div className='right-container'>
               <Header />
-                <div className="main-background">
+                <div className="main-background main-overflow">
                     <div className="teams-container">
 
                        <div className='teams-top-members'>

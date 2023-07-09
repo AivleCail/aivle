@@ -1,8 +1,13 @@
 import React from 'react';
 
-const IntroTableRow = ({ children, className }) => {
+const IntroTableRow = ({ onClick, children }) => {
+  const handleClick = () => {
+    if (onClick) {
+      onClick();
+    }
+  };
   return (
-    <tr className={`intro-table-row ${className}`}>
+    <tr className='intro-table-row' onClick={handleClick}>
       {
         children
       }

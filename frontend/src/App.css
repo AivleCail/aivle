@@ -28,6 +28,10 @@
   height: calc(100% - 142px);
 }
 
+.main-overflow {
+  overflow-y: scroll;
+}
+
 @font-face {
   font-family: "RIDIBatang";
   src: url("./fonts/RIDIBatang.otf");

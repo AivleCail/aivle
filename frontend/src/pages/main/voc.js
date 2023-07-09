@@ -184,7 +184,7 @@
           <Sidebar />
           <div className='right-container'>
             <Header />
-            <div className = "main-background">
+            <div className = "main-background main-overflow">
               <div className="voc-container">
                 <div className = "voc-top-container">
                   <div className = "voc-text-1"><span>VOC 내역</span></div>

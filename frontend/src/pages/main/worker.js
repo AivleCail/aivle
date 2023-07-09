@@ -94,7 +94,7 @@ const Worker = () => {
         <Sidebar />
       <div className="right-container">
         <Header />
-        <div className="main-background">
+        <div className="main-background main-overflow">
           <div className="worker-container">
             <div className = "worker-top-container">
               <div><span className="worker-text-1">사외공사 관리</span></div>

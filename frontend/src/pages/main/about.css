@@ -17,7 +17,7 @@
 
   .about-title-1 {
     position: relative;
-    font-family: 'TheJamsil';
+    font-family: 'TheJamsilLight';
     font-weight: 700;
     font-size: 3.5vh;
   }
@@ -55,15 +55,15 @@
   }
 
   .text-1-title {
-    font-family: 'TheJamsil';
+    font-family: 'TheJamsilLight';
     font-weight: 700;
-    font-size: 3.5vh;
+    font-size: 1.5rem;
   }
   
   .text-1-content {
     font-family: 'TheJamsilLight';
     font-weight: 400;
-    font-size: 2.7vh;
+    font-size: 1.2rem;
     letter-spacing: 0.06rem;
   }
 
@@ -76,13 +76,13 @@
   }
 
   .text-2-title {
-    font-family: 'TheJamsil';
+    font-family: 'TheJamsilLight';
     font-weight: 700;
-    font-size: 3.5vh;
+    font-size: 1.5rem;
   }
 
   .text-2-content li {
     font-family: 'TheJamsilLight';
     font-weight: 400;
-    font-size: 2.7vh;
+    font-size: 1.2rem;
   }

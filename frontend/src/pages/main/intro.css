@@ -1,7 +1,3 @@
-.main-overflow {
-  overflow-y: scroll;
-}
-
 .row {
   display: flex;
   flex-direction: row;
@@ -14,7 +10,7 @@
   flex-direction: column;
   flex-basis: 100%;
   flex: 1;
-  padding: 1rem;
+  padding: 2rem;
   min-width: 520px;
   min-height: 240px;
   max-height: 250px;
@@ -57,7 +53,8 @@
 .title{
   text-align: center;
   font-size: 17px;
-  margin-top: 0.3rem;
+  margin-top: 0.5rem;
+  color:#666666;
 }
 
 .fake-rect {
