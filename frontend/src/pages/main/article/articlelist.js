@@ -140,7 +140,7 @@ const ArticleList = () => {
       <Sidebar />
     <div className="right-container">
       <Header />
-        <div className="main-background">
+        <div className="main-background main-overflow">
           <div className="article-container">
             <div className = "article-top-container">
               <div className = "article-text-1"><span>커뮤니티</span></div>

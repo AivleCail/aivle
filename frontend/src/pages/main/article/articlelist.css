@@ -17,7 +17,7 @@
   
   .article-text-1 {
     position: relative;
-    font-family: 'Inter';
+    font-family: 'TheJamsilLight';
     font-weight: 700;
     font-size: 3.5vh;
   }
@@ -25,6 +25,7 @@
   .article-text-2 {
     display: flex; 
     margin-top: 3vh;
+    font-family: 'TheJamsilLight';
     justify-content: space-between; /* 중요 */
   }
   
